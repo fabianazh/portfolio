@@ -2,32 +2,75 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@layer base {
+    html {
+        @apply selection:text-white selection:bg-black selection:px-1 scroll-smooth;
+    }
+    body {
+        @apply overflow-x-hidden;
+    }
+    section {
+        @apply overflow-x-hidden;
+    }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
+@layer components {
+    /* Navbar */
+    .name {
+        @apply m-0 text-6xl xl:text-8xl tracking-tight bg-[url('../assets/img/hero_bg.jpg')] bg-repeat font-extrabold;
+        color: rgba(225, 225, 225, 0.01);
+        -webkit-background-clip: text;
+        animation: animate 15s ease-in-out infinite;
+    }
+    .nav__item {
+        @apply pb-1.5 after:border-b-2 after:block after:border-black after:scale-x-0 group-hover:after:scale-x-100 after:transition-transform;
+    }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    /* End Navbar */
+
+    /* Icon */
+    .icon__lg {
+        @apply aspect-square shadow-Button grid place-items-center w-10 text-2xl rounded-full bg-stone-200 transition-all hover:bg-stone-300 duration-300;
+    }
+    /* End Icon */
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+    /* About */
+    .about__image {
+        -webkit-mask-image: url('../assets/img/mask1.png');
+        mask-image: url('../assets/img/mask1.png');
+        mask-repeat: no-repeat;
+        mask-size: 114% 111%;
+    }
+    /* End About */
+
+    .mask__primary {
+        -webkit-mask-image: url('../assets/img/mask1.png');
+        mask-image: url('../assets/img/mask1.png');
+        mask-repeat: no-repeat;
+        mask-size: 70%;
+        mask-position: right top;
+    }
+
+    .text__selection {
+        @apply selection:text-white selection:bg-black;
+    }
+}
+
+/* Animation */
+@keyframes animate {
+    0%,
+    100% {
+        background-position: left top;
+    }
+    25% {
+        background-position: right bottom;
+    }
+    50% {
+        background-position: left bottom;
+    }
+    75% {
+        background-position: right top;
+    }
 }
