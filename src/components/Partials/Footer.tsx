@@ -9,12 +9,13 @@ export default function Footer() {
         <>
             <footer
                 id="footer"
-                className={`flex items-center justify-between bg-[#f0f0f0] px-20 py-4`}
+                className={`flex relative items-center justify-between bg-[#fafafa] px-16 py-4`}
             >
+                <div className="h-0.5 bg-stone-700 w-11/12 mx-auto block absolute top-0"></div>
                 <span className="font-medium">
                     ©{currentYear} Fabianazh. All rights reserved
                 </span>
-                <div className="h-auto flex justify-between w-auto gap-8">
+                <div className="h-auto hidden justify-between w-auto gap-8">
                     <CircleButton href="https://github.com/fabianazh">
                         <BsGithub />
                     </CircleButton>

@@ -25,9 +25,9 @@ I am Muhammad Fabian Azhar, a passionate Fullstack Developer and Unity Developer
 -   **Programming**: C#
 -   **Game Engine**: Unity3D
 
-## Projects
+<!-- ## Projects
 
-<!-- ### Web Applications
+### Web Applications
 
 1. **Project Name**: [Brief description of the project]
 
@@ -45,9 +45,9 @@ I am always open to feedback, collaboration opportunities, and interesting proje
 -   **Email**: [fabianazhrr@gmail.com]
 -   **Website**: [your personal website link]
 
-## License
+<!-- ## License
 
-This repository is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
+This repository is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information. -->
 
 ---
 

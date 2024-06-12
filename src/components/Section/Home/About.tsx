@@ -38,7 +38,7 @@ export default function About() {
                             Azhar
                         </span>
                         {/* Desc */}
-                        <div className="text-lg pr-5">
+                        <div className="text-lg font-medium pr-5">
                             My name is Muhammad Fabian Azhar, and I live in West
                             Java, Indonesia. I love web development, both
                             front-end and back-end, as well as game development.
@@ -102,31 +102,31 @@ export default function About() {
                             className="w-full h-full about__image"
                         /> */}
                         <div className="w-9/12 h-28 group cursor-pointer">
-                            <div className="w-full relative h-full overflow-hidden transition-all group-hover:scale-90 duration-1000 scale-100">
+                            <div className="w-full relative h-full overflow-hidden transition-all group-hover:scale-90 duration-[0.9s] scale-100">
                                 <Image
-                                    src={'/assets/img/bg/f1.jpeg'}
+                                    src={'/assets/img/bg/1.jpeg'}
                                     alt={''}
-                                    className="w-full h-full transition-all scale-100 duration-1000 group-hover:scale-125 brightness-75"
+                                    className="w-full h-full grayscale transition-all scale-100 duration-[0.9s] group-hover:scale-125 brightness-75"
                                     fill={true}
                                 />
                             </div>
                         </div>
                         <div className="w-9/12 h-[5.1rem] group cursor-pointer place-self-end">
-                            <div className="w-full relative h-full overflow-hidden transition-all group-hover:scale-90 duration-1000 scale-100">
+                            <div className="w-full relative h-full overflow-hidden transition-all group-hover:scale-90 duration-[0.9s] scale-100">
                                 <Image
-                                    src={'/assets/img/bg/f3.jpeg'}
+                                    src={'/assets/img/bg/2.jpeg'}
                                     alt={''}
-                                    className="w-full h-full transition-all scale-100 duration-1000 group-hover:scale-125 brightness-"
+                                    className="w-full h-full grayscale transition-all scale-100 duration-[0.9s] group-hover:scale-125 brightness-"
                                     fill={true}
                                 />
                             </div>
                         </div>
                         <div className="w-10/12 h-[7rem] group cursor-pointer place-self-center">
-                            <div className="w-full relative h-full overflow-hidden transition-all group-hover:scale-90 duration-1000 scale-100">
+                            <div className="w-full relative h-full overflow-hidden transition-all group-hover:scale-90 duration-[0.9s] scale-100">
                                 <Image
-                                    src={'/assets/img/bg/f2.jpeg'}
+                                    src={'/assets/img/bg/3.jpeg'}
                                     alt={''}
-                                    className="w-full h-full transition-all scale-100 duration-1000 group-hover:scale-125 brightness-[.7]"
+                                    className="w-full h-full grayscale transition-all scale-100 duration-[0.9s] group-hover:scale-125 brightness-[.7]"
                                     fill={true}
                                 />
                             </div>
