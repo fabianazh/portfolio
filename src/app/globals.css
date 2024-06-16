@@ -22,10 +22,6 @@
         -webkit-background-clip: text;
         animation: animate 15s ease-in-out infinite;
     }
-    .nav__item {
-        @apply pb-1.5 after:border-b-2 after:block after:border-black after:scale-x-0 group-hover:after:scale-x-100 after:transition-transform;
-    }
-
     /* End Navbar */
 
     /* Icon */

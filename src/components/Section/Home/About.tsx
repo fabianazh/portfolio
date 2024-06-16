@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { FaArrowDown } from 'react-icons/fa'
 import Link from 'next/link'
+import SecondaryButton from '@/components/Button/SecondaryButton'
 
 export default function About() {
     return (
@@ -57,32 +58,29 @@ export default function About() {
                                 <span className="border-b-2 border-stone-200 text-stone-500">
                                     Let&apos;s get connected
                                 </span>
-                                <Link
+                                <SecondaryButton
                                     href={'https://instagram.com/fabianazhrr'}
                                     className="text-sm"
                                 >
                                     Instagram
-                                </Link>
-                                <Link
+                                </SecondaryButton>
+                                <SecondaryButton
                                     href={
                                         'https://www.facebook.com/profile.php?id=61560075789729'
                                     }
                                     className="text-sm"
                                 >
                                     Facebook
-                                </Link>
-                                <Link
+                                </SecondaryButton>
+                                <SecondaryButton
                                     href={'https://github.com/fabianazh'}
                                     className="text-sm"
                                 >
                                     Github
-                                </Link>
-                                <Link href={'#'} className="text-sm">
+                                </SecondaryButton>
+                                <SecondaryButton href={'#'} className="text-sm">
                                     Linked in
-                                </Link>
-                                <span className="relative z-10 text-black pb-2 after:content-none after:absolute after:w-full after:scale-x-0 after:h-1 after:left-0 after:top-0 after:bg-black after:origin-bottom-right transition-all hover:after:scale-x-100 hover:after:origin-bottom-left">
-                                    Hover me
-                                </span>
+                                </SecondaryButton>
                             </div>
                         </div>
                     </div>
