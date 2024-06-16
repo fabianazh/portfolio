@@ -6,17 +6,7 @@ import {
     Unbounded,
 } from 'next/font/google'
 
-// export const poppins = Poppins({
-//     subsets: ['latin'],
-//     weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-//     display: 'swap',
-// })
-
-// export const quicksand = Quicksand({
-//     subsets: ['latin'],
-//     weight: ['300', '400', '500', '600', '700'],
-//     display: 'swap',
-// })
+import LocalFont from 'next/font/local'
 
 export const urbanist = Urbanist({
     subsets: ['latin'],
@@ -24,14 +14,13 @@ export const urbanist = Urbanist({
     display: 'swap',
 })
 
-export const unbounded = Unbounded({
-    subsets: ['cyrillic'],
-    weight: ['200', '300', '400', '500', '600', '700', '800', '900'],
-    display: 'swap',
-})
-
 export const dmSans = DM_Sans({
     subsets: ['latin'],
     weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+    display: 'swap',
+})
+
+export const mona = LocalFont({
+    src: './fonts/Mona-Sans.woff2',
     display: 'swap',
 })

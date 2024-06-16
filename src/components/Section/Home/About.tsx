@@ -1,11 +1,6 @@
 import Image from 'next/image'
-import PrimaryButton from '@/components/Button/PrimaryButton'
-import SecondaryButton from '@/components/Button/SecondaryButton'
 import { FaArrowDown } from 'react-icons/fa'
-import { FaMapLocation } from 'react-icons/fa6'
 import Link from 'next/link'
-import { IoMdMail, IoMdPin } from 'react-icons/io'
-import { MdMap } from 'react-icons/md'
 
 export default function About() {
     return (
@@ -39,95 +34,70 @@ export default function About() {
                         </span>
                         {/* Desc */}
                         <div className="text-lg font-medium pr-5">
-                            My name is Muhammad Fabian Azhar, and I live in West
-                            Java, Indonesia. I love web development, both
-                            front-end and back-end, as well as game development.
-                            I&apos;m always looking to learn new skills and work
-                            on exciting projects. In my free time, I like to
-                            experiment with different coding languages and
-                            frameworks to expand my knowledge. I am excited to
-                            continue improving my skills in web and game
-                            development. My goal is to create a strong portfolio
-                            that shows my abilities in these areas.
+                            I am passionate about web and game development, with
+                            a keen interest in both front-end and back-end
+                            technologies. My dedication to continuous learning
+                            drives me to explore new coding languages and
+                            frameworks, allowing me to enhance my skill set and
+                            stay updated with industry trends.
                         </div>
                         {/* Contact */}
-                        <div className="w-full h-auto grid grid-rows-2 gap-3">
-                            <Link href="#" className="inline-block w-fit">
-                                <div className="flex flex-row gap-2.5">
-                                    <span className="grid place-items-center text-2xl">
-                                        <IoMdPin />
-                                    </span>
-                                    <span className="font-medium">
-                                        West Java, Indonesia.
-                                    </span>
-                                </div>
-                            </Link>
-                            <Link href="#" className="inline-block w-fit">
-                                <div className="flex flex-row gap-3">
-                                    <span className="grid place-items-center text-2xl">
-                                        <IoMdMail />
-                                    </span>
-                                    <span className="font-medium">
-                                        fabianazhrr@gmail.com
-                                    </span>
-                                </div>
-                            </Link>
-                        </div>
                         {/* Button */}
-                        <div className="w-full items-center h-auto flex flex-row gap-7">
-                            <PrimaryButton
+                        <div className="w-full pr-8 items-start justify-between h-auto flex flex-row gap-7">
+                            <Link
                                 href="#projects"
-                                className="gap-2.5 grid-flow-col px-5 py-2"
+                                className={`bg-black grid place-items-center transition-colors duration-300 text-white gap-2.5 grid-flow-col pr-2 pl-5 py-2 rounded-full group`}
                             >
-                                Chech out what i&apos;ve done{' '}
-                                <span className="inline-block text-sm">
-                                    <FaArrowDown className="group-hover:animate-bounce" />
+                                Check out what i&apos;ve done{' '}
+                                <div className="text-sm rounded-full grid place-items-center bg-Gray-200 text-black w-7 aspect-square shrink-0 scale-[.3] group-hover:scale-100 transition-transform">
+                                    <FaArrowDown className="scale-0 group-hover:scale-100 transition-transform" />
+                                </div>
+                            </Link>
+                            <div className="flex flex-col gap-2">
+                                <span className="border-b-2 border-stone-200 text-stone-500">
+                                    Let&apos;s get connected
                                 </span>
-                            </PrimaryButton>
-                            <SecondaryButton
-                                href="#contact"
-                                className="pb-[2px]"
-                            >
-                                Contact Email
-                            </SecondaryButton>
+                                <Link
+                                    href={'https://instagram.com/fabianazhrr'}
+                                    className="text-sm"
+                                >
+                                    Instagram
+                                </Link>
+                                <Link
+                                    href={
+                                        'https://www.facebook.com/profile.php?id=61560075789729'
+                                    }
+                                    className="text-sm"
+                                >
+                                    Facebook
+                                </Link>
+                                <Link
+                                    href={'https://github.com/fabianazh'}
+                                    className="text-sm"
+                                >
+                                    Github
+                                </Link>
+                                <Link href={'#'} className="text-sm">
+                                    Linked in
+                                </Link>
+                                <span className="relative z-10 text-black pb-2 after:content-none after:absolute after:w-full after:scale-x-0 after:h-1 after:left-0 after:top-0 after:bg-black after:origin-bottom-right transition-all hover:after:scale-x-100 hover:after:origin-bottom-left">
+                                    Hover me
+                                </span>
+                            </div>
                         </div>
                     </div>
                     {/* End Left Content */}
                     {/* Right Content */}
                     <div className="w-1/3 shrink-0 h-full flex flex-col gap-6">
-                        {/* <Image
-                            src={AboutBG}
-                            alt=""
-                            draggable={'false'}
-                            className="w-full h-full about__image"
-                        /> */}
-                        <div className="w-9/12 h-28 group cursor-pointer">
-                            <div className="w-full relative h-full overflow-hidden transition-all group-hover:scale-90 duration-[0.9s] scale-100">
+                        <div className="w-full h-full group cursor-pointer">
+                            <div className="w-full relative h-full overflow-hidden transition-all group-hover:scale-90 duration-[0.9s] scale-100 rounded-xl">
                                 <Image
-                                    src={'/assets/img/bg/1.jpeg'}
-                                    alt={''}
-                                    className="w-full h-full grayscale transition-all scale-100 duration-[0.9s] group-hover:scale-125 brightness-75"
-                                    fill={true}
-                                />
-                            </div>
-                        </div>
-                        <div className="w-9/12 h-[5.1rem] group cursor-pointer place-self-end">
-                            <div className="w-full relative h-full overflow-hidden transition-all group-hover:scale-90 duration-[0.9s] scale-100">
-                                <Image
-                                    src={'/assets/img/bg/2.jpeg'}
-                                    alt={''}
-                                    className="w-full h-full grayscale transition-all scale-100 duration-[0.9s] group-hover:scale-125 brightness-"
-                                    fill={true}
-                                />
-                            </div>
-                        </div>
-                        <div className="w-10/12 h-[7rem] group cursor-pointer place-self-center">
-                            <div className="w-full relative h-full overflow-hidden transition-all group-hover:scale-90 duration-[0.9s] scale-100">
-                                <Image
-                                    src={'/assets/img/bg/3.jpeg'}
-                                    alt={''}
-                                    className="w-full h-full grayscale transition-all scale-100 duration-[0.9s] group-hover:scale-125 brightness-[.7]"
-                                    fill={true}
+                                    src={'/assets/img/bg/f1.jpg'}
+                                    alt=""
+                                    width={300}
+                                    height={400}
+                                    draggable={'false'}
+                                    className="w-full h-fit transition-all scale-100 duration-[0.9s] group-hover:scale-125 brightness-"
                                 />
                             </div>
                         </div>

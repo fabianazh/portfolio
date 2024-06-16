@@ -5,7 +5,7 @@ import { RxHamburgerMenu } from 'react-icons/rx'
 export default function Header() {
     return (
         <>
-            <header className="relative top-0 left-0 z-50 flex h-auto py-3 lg:py-0 lg:h-16 text-black backdrop-blur-md lg:absolute lg:bg-transparent px-5 lg:px-24 w-screen lg:w-full bg-Gray-200">
+            <header className="relative top-0 left-0 z-50 flex h-auto py-3 lg:py-0 lg:h-16 text-black backdrop-blur-md lg:absolute lg:bg-transparent px-5 lg:px-24 w-screen lg:w-full bg-transparent">
                 <div className="w-11/12 lg:w-full mx-auto block lg:hidden h-[2px] bg-black shadow-sm absolute bottom-0 left-1/2 -translate-x-1/2"></div>
                 <div className="w-full h-full items-center flex justify-between">
                     {/* Logo and Name */}

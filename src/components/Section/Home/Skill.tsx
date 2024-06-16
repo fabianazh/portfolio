@@ -35,9 +35,12 @@ export default function Skill() {
                 </h2>
                 {/* End Heading Skill */}
                 {/* Skill Content */}
-                <div className="w-full px-24 h-auto flex flex-col gap-20">
+                <div className="w-full px-24 h-auto flex gap-20">
+                    {/* Curently Learning */}
+                    <div className="w-1/3 shrink-0 h-auto flex flex-col gap-10"></div>
+                    {/* Curently Learning */}
                     {/* My Skill */}
-                    <div className="w-full flex h-auto flex-col gap-10">
+                    <div className="w-2/3 shrink-0 border flex h-auto flex-col gap-10">
                         <span className="block text-center text-lg font-medium">
                             Currently Capable:
                         </span>
@@ -60,30 +63,6 @@ export default function Skill() {
                         </div>
                     </div>
                     {/* End My Skill */}
-                    {/* Curently Learning */}
-                    <div className="w-full h-auto flex flex-col gap-10">
-                        <span className="block text-center text-lg font-medium">
-                            Currently Learning:
-                        </span>
-                        <div className="flex flex-row flex-wrap justify-center gap-x-6 gap-y-8">
-                            {iconsLearning.map((iconLearning) => (
-                                <div
-                                    key={iconLearning}
-                                    className="group aspect-square shrink-0 grid place-items-center w-14"
-                                >
-                                    <Image
-                                        src={`/assets/img/icon/${iconLearning}.png`}
-                                        alt={iconLearning}
-                                        draggable={'false'}
-                                        width={64}
-                                        height={64}
-                                        className="w-full xl:grayscale group-hover:drop-shadow-lg group-hover:grayscale-0 transition-all duration-200 cursor-pointer"
-                                    />
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                    {/* Curently Learning */}
                 </div>
                 {/* End Skill Content */}
             </section>

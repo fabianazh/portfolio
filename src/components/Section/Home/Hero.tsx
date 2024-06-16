@@ -9,7 +9,7 @@ export default function Hero() {
             {/* Hero Section */}
             <section
                 id="home"
-                className="relative top-0 z-0 flex flex-col items-center w-full h-screen text-lg pt-24 lg:pt-0 px-5 md:pl-24 lg:flex-row bg-Gray-200"
+                className="relative top-0 z-0 flex flex-col items-center w-full h-screen text-lg pt-24 lg:pt-0 px-5 md:pl-24 lg:flex-row bg-Gray-200s"
             >
                 {/* Left Content */}
                 <div className="flex flex-col h-full lg:h-auto lg:pt-10 w-full lg:w-7/12 gap-0 lg:gap-2.5">

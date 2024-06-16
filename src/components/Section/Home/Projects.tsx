@@ -74,7 +74,7 @@ export default function Projects() {
             {/* Projet Section */}
             <section
                 id="projects"
-                className="w-full bg-white hidden lg:flex flex-col gap-10 py-14 px-16 h-full"
+                className="w-full hidden lg:flex flex-col gap-10 py-14 px-16 h-full"
             >
                 {/* Heading Projects */}
                 <h2 className="text-4xl font-medium text-start w-full">

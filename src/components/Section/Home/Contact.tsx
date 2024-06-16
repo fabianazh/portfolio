@@ -5,6 +5,7 @@ import { FaArrowRight } from 'react-icons/fa'
 import { BsFacebook, BsGithub } from 'react-icons/bs'
 import CircleButton from '@/components/Button/CircleButton'
 import { RiInstagramFill } from 'react-icons/ri'
+import { mona } from '@/app/fonts'
 
 export default function Contact() {
     const { register, handleSubmit } = useForm<FormData>()
@@ -34,11 +35,11 @@ export default function Contact() {
             id="contact"
             className="w-full bg-[#fafafa] flex gap-20 py-14 px-16 h-full"
         >
-            <div className="w-5/12 shrink-0 flex flex-col justify-end gap-2">
+            <div className={`w-5/12 shrink-0 flex flex-col justify-end gap-2`}>
                 <h3 className="text-7xl font-black tracking-tight">
                     Contact <br /> Me
                 </h3>
-                <span className="text-base font-semibold">
+                <span className={`text-base font-semibold`}>
                     Feel free to reach out for collaborations or just a friendly
                     chat.
                 </span>
@@ -58,7 +59,7 @@ export default function Contact() {
                 <div className="mb-5">
                     <label
                         htmlFor={'name'}
-                        className="mb-2 block text-base font-semibold text-black"
+                        className={`mb-2 block text-base font-semibold text-black ${mona.className}`}
                     >
                         Full Name
                     </label>
@@ -73,7 +74,7 @@ export default function Contact() {
                 <div className="mb-5">
                     <label
                         htmlFor={'name'}
-                        className="mb-2 block text-base font-semibold text-black"
+                        className={`mb-2 block text-base font-semibold text-black ${mona.className}`}
                     >
                         Email
                     </label>
@@ -88,7 +89,7 @@ export default function Contact() {
                 <div className="mb-5">
                     <label
                         htmlFor={'message'}
-                        className="mb-2 block text-base font-semibold text-black"
+                        className={`mb-2 block text-base font-semibold text-black ${mona.className}`}
                     >
                         Message
                     </label>

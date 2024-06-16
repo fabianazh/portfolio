@@ -91,7 +91,7 @@ export function Thumbnail({
                 className={`h-auto shrink-0 transition-all group cursor-pointer ${className}`}
             >
                 {/* Layer */}
-                <div className="w-full relative h-full shadow-md overflow-hidden transition-all">
+                <div className="w-full relative rounded-lg h-full shadow overflow-hidden transition-all">
                     {/* Image */}
                     <Image
                         src={imgPath}

@@ -7,7 +7,7 @@
         @apply selection:text-white selection:bg-black selection:px-1 scroll-smooth;
     }
     body {
-        @apply overflow-x-hidden;
+        @apply overflow-x-hidden bg-Gray-200;
     }
     section {
         @apply overflow-x-hidden;
