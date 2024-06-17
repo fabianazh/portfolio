@@ -1,3 +1,5 @@
+import { mori } from '@/app/fonts'
+
 export default function Hero() {
     return (
         <>
@@ -9,7 +11,9 @@ export default function Hero() {
                 {/* Left Content */}
                 <div className="flex flex-col h-full w-full gap-0 lg:gap-2.5 overflow-x-hidden justify-end">
                     {/* Text */}
-                    <div className="flex flex-col gap-2 lg:gap-2 w-fit h-auto">
+                    <div
+                        className={`flex flex-col gap-2 lg:gap-2 w-fit h-auto`}
+                    >
                         <span
                             className={`text-4xl lg:text-[4rem] lg:leading-none tracking-tight font-medium`}
                         >

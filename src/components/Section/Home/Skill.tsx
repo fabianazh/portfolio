@@ -123,7 +123,7 @@ export default function Skill() {
                                 ))}
                             </div>
                         </div>
-                        <div className="w-full h-auto shrink-0 border"></div>
+                        <div className="w-full h-auto shrink-0 rounded-xl bg-stone-100 border flex-grow"></div>
                     </div>
                     {/* End Right Content */}
                 </div>

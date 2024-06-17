@@ -11,8 +11,8 @@ export default function Footer() {
                 id="footer"
                 className={`flex relative items-center justify-between bg-[#fafafa] px-16 py-4`}
             >
-                <div className="h-0.5 bg-stone-700 w-11/12 mx-auto block absolute top-0"></div>
-                <span className="font-medium">
+                <div className="h-0.5 bg-stone-300 w-11/12 mx-auto block absolute top-0"></div>
+                <span className="font-semibold text-sm">
                     ©{currentYear} Fabianazh. All rights reserved
                 </span>
                 <div className="h-auto hidden justify-between w-auto gap-8">

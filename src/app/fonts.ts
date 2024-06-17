@@ -1,4 +1,4 @@
-import { Urbanist, DM_Sans, Bebas_Neue } from 'next/font/google'
+import { Urbanist, DM_Sans } from 'next/font/google'
 
 import LocalFont from 'next/font/local'
 
@@ -14,9 +14,8 @@ export const dmSans = DM_Sans({
     display: 'swap',
 })
 
-export const bebas = Bebas_Neue({
-    subsets: ['latin'],
-    weight: ['400'],
+export const mori = LocalFont({
+    src: './fonts/PPMori-Regular.otf',
     display: 'swap',
 })
 

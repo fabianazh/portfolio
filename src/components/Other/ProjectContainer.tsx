@@ -51,7 +51,7 @@ export function Description({
                 </span>
                 <span className={`block font-semibold mb-3`}>{desc}</span>
 
-                <div className="w-full items-center h-auto flex flex-col lg:flex-row gap-7">
+                <div className="w-full items-center h-auto flex flex-col lg:flex-row gap-5 lg:gap-7">
                     <PrimaryButton
                         href={projectLink}
                         className="gap-2.5 text-sm w-full lg:w-fit justify-center"
