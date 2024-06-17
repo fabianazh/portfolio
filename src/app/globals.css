@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer base {
+    * {
+        @apply box-border p-0 m-0;
+    }
     html {
         @apply selection:text-white selection:bg-black selection:px-1 scroll-smooth;
     }

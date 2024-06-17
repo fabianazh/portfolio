@@ -1,7 +1,7 @@
 'use client'
 
 import { useForm } from 'react-hook-form'
-import { FaArrowRight } from 'react-icons/fa'
+import { FaArrowUp } from 'react-icons/fa'
 import { BsFacebook, BsGithub } from 'react-icons/bs'
 import CircleButton from '@/components/Button/CircleButton'
 import { RiInstagramFill } from 'react-icons/ri'
@@ -110,12 +110,12 @@ export default function Contact() {
                     </button> */}
                     <button
                         type="submit"
-                        className="bg-black grid place-items-center hover:bg-stone-800 transition-colors duration-300 shadow-sm text-white group gap-2 grid-flow-col px-5 py-2 text-sm rounded-sm font-medium"
+                        className="bg-black grid place-items-center transition-colors duration-300 text-white gap-2.5 grid-flow-col pr-2 pl-5 py-2 rounded-full group"
                     >
                         Submit
-                        <span className="inline-block text-xs">
-                            <FaArrowRight className="" />
-                        </span>
+                        <div className="text-sm rounded-full grid place-items-center bg-Gray-200 text-black w-7 aspect-square shrink-0 scale-[.3] group-hover:scale-100 transition-transform">
+                            <FaArrowUp className="rotate-45 scale-0 group-hover:scale-100 transition-transform" />
+                        </div>
                     </button>
                 </div>
             </form>

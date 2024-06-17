@@ -15,7 +15,9 @@ export default function ProjectContainer({
     return (
         <>
             {/* Container */}
-            <div className={`h-full flex justify-end gap-6 ${className}`}>
+            <div
+                className={`h-full flex flex-col-reverse justify-end gap-6 ${className}`}
+            >
                 {children}
             </div>
             {/* End Container */}
@@ -40,29 +42,29 @@ export function Description({
         <>
             {/* Description Container */}
             <div
-                className={`flex flex-col h-auto pb-10 gap-1 justify-center ${className}`}
+                className={`flex flex-col h-auto pb-10 gap-2 lg:gap-1 justify-center ${className}`}
             >
                 <span
                     className={`block text-4xl font-bold ${urbanist.className}`}
                 >
                     {title}
                 </span>
-                <span className={`block text- font-semibold mb-3`}>{desc}</span>
+                <span className={`block font-semibold mb-3`}>{desc}</span>
 
-                <div className="w-full items-center h-auto flex flex-row gap-7">
+                <div className="w-full items-center h-auto flex flex-col lg:flex-row gap-7">
                     <PrimaryButton
                         href={projectLink}
-                        className="gap-2.5 text-sm"
+                        className="gap-2.5 text-sm w-full lg:w-fit justify-center"
                         target="_blank"
+                        icon={
+                            <FaArrowUp className="rotate-45 scale-0 group-hover:scale-100 transition-transform" />
+                        }
                     >
                         Visit the project
-                        <div className="text-sm rounded-full grid place-items-center bg-Gray-200 text-black w-7 aspect-square shrink-0 scale-[.3] group-hover:scale-100 transition-transform">
-                            <FaArrowUp className="rotate-45 scale-0 group-hover:scale-100 transition-transform" />
-                        </div>
                     </PrimaryButton>
                     <SecondaryButton
                         href={githubLink}
-                        className="pb-[2px] text-sm"
+                        className="pb-[2px] text-sm text-center"
                     >
                         See on Github
                     </SecondaryButton>
@@ -88,7 +90,7 @@ export function Thumbnail({
         <>
             {/* Image Container */}
             <div
-                className={`h-auto shrink-0 transition-all group cursor-pointer ${className}`}
+                className={`w-full aspect-video lg:aspect-auto h-auto shrink-0 transition-all group cursor-pointer ${className}`}
             >
                 {/* Layer */}
                 <div className="w-full relative rounded-xl h-full shadow overflow-hidden transition-all">
