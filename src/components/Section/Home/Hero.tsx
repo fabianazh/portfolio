@@ -26,14 +26,11 @@ export default function Hero() {
                     {/* End Text */}
                     {/* Button */}
                     <div className="flex h-auto text-sm font-medium items-center gap-2.5 lg:gap-7 mb-4">
-                        <PrimaryButton
-                            href="#about"
-                            className="px-3 gap-1.5 grid-flow-col lg:px-6 py-1.5 lg:py-4"
-                        >
+                        <PrimaryButton href="#about" className="">
                             More about me{' '}
-                            <span className="inline-block text-xs">
-                                <FaArrowDown className="group-hover:animate-bounce" />
-                            </span>
+                            <div className="text-sm rounded-full grid place-items-center bg-Gray-200 text-black w-7 aspect-square shrink-0 scale-[.3] group-hover:scale-100 transition-transform">
+                                <FaArrowDown className="scale-0 group-hover:scale-100 transition-transform" />
+                            </div>
                         </PrimaryButton>
 
                         <SecondaryButton href="#contact" className="pb-[1.5px]">

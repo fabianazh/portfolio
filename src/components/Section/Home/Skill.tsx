@@ -35,9 +35,22 @@ export default function Skill() {
                 </h2>
                 {/* End Heading Skill */}
                 {/* Skill Content */}
-                <div className="w-full px-24 h-auto flex gap-20">
+                <div className="w-full px-24 h-auto flex gap-6">
                     {/* Curently Learning */}
-                    <div className="w-1/3 shrink-0 h-auto flex flex-col gap-10"></div>
+                    <div className="w-1/3 shrink-0 h-auto flex flex-col gap-10">
+                        <div className="w-full h-full group cursor-pointer">
+                            <div className="w-full relative h-full overflow-hidden transition-all group-hover:scale-90 duration-[0.9s] scale-100 rounded-xl">
+                                <Image
+                                    src={'/assets/img/bg/f1.jpg'}
+                                    alt=""
+                                    width={300}
+                                    height={400}
+                                    draggable={'false'}
+                                    className="w-full h-fit transition-all scale-100 duration-[0.9s] group-hover:scale-125 brightness-"
+                                />
+                            </div>
+                        </div>
+                    </div>
                     {/* Curently Learning */}
                     {/* My Skill */}
                     <div className="w-2/3 shrink-0 border flex h-auto flex-col gap-10">

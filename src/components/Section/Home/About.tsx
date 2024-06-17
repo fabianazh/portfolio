@@ -22,9 +22,9 @@ export default function About() {
                 </h1>
                 {/* End Heading Profile */}
                 {/* Profile Content */}
-                <div className="flex flex-row h-auto w-full px-16 gap-6">
+                <div className="flex flex-row h-auto w-full px-16 gap-3">
                     {/* Left Content */}
-                    <div className="w-2/3 h-auto flex flex-col gap-7">
+                    <div className="w-6/12 shrink-0 h-auto flex flex-col gap-7">
                         {/* Name */}
                         <span className="block text-5xl tracking-tight font-medium">
                             Muhammad{' '}
@@ -34,7 +34,7 @@ export default function About() {
                             Azhar
                         </span>
                         {/* Desc */}
-                        <div className="text-lg font-medium pr-5">
+                        <div className="text-lg font-medium pr-5 text-justify">
                             I am passionate about web and game development, with
                             a keen interest in both front-end and back-end
                             technologies. My dedication to continuous learning
@@ -54,39 +54,23 @@ export default function About() {
                                     <FaArrowDown className="scale-0 group-hover:scale-100 transition-transform" />
                                 </div>
                             </Link>
-                            <div className="flex flex-col gap-2">
-                                <span className="border-b-2 border-stone-200 text-stone-500">
-                                    Let&apos;s get connected
-                                </span>
-                                <SecondaryButton
-                                    href={'https://instagram.com/fabianazhrr'}
-                                    className="text-sm"
-                                >
-                                    Instagram
-                                </SecondaryButton>
-                                <SecondaryButton
-                                    href={
-                                        'https://www.facebook.com/profile.php?id=61560075789729'
-                                    }
-                                    className="text-sm"
-                                >
-                                    Facebook
-                                </SecondaryButton>
-                                <SecondaryButton
-                                    href={'https://github.com/fabianazh'}
-                                    className="text-sm"
-                                >
-                                    Github
-                                </SecondaryButton>
-                                <SecondaryButton href={'#'} className="text-sm">
-                                    Linked in
-                                </SecondaryButton>
+                            <div className="aspect-square h-auto group cursor-pointer">
+                                <div className="aspect-square relative h-auto overflow-hidden transition-all group-hover:scale-90 duration-[0.9s] scale-100 rounded-xl">
+                                    <Image
+                                        src={'/assets/img/bg/f1.jpg'}
+                                        alt=""
+                                        width={210}
+                                        height={210}
+                                        draggable={'false'}
+                                        className="aspect-square h-auto transition-all scale-100 duration-[0.9s] group-hover:scale-125 brightness-"
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>
                     {/* End Left Content */}
-                    {/* Right Content */}
-                    <div className="w-1/3 shrink-0 h-full flex flex-col gap-6">
+                    {/* Center Content */}
+                    <div className="w-4/12 shrink-0 h-full flex flex-col gap-6 mr-6">
                         <div className="w-full h-full group cursor-pointer">
                             <div className="w-full relative h-full overflow-hidden transition-all group-hover:scale-90 duration-[0.9s] scale-100 rounded-xl">
                                 <Image
@@ -100,7 +84,51 @@ export default function About() {
                             </div>
                         </div>
                     </div>
-                    {/* End Right Content */}
+                    {/* End Center Content */}
+                    {/*  */}
+                    <div className="flex flex-col gap-2 w-2/12 shrink-0 justify-between">
+                        <div className="w-full h-fit group cursor-pointer">
+                            <div className="w-full relative h-full overflow-hidden transition-all group-hover:scale-90 duration-[0.9s] scale-100 rounded-xl">
+                                <Image
+                                    src={'/assets/img/bg/f1.jpg'}
+                                    alt=""
+                                    width={150}
+                                    height={150}
+                                    draggable={'false'}
+                                    className="w-full h-fit transition-all scale-100 duration-[0.9s] group-hover:scale-125 brightness-"
+                                />
+                            </div>
+                        </div>
+                        <div className="flex flex-col gap-2">
+                            <span className="inline-block w-fit border-b-2 border-stone-200 text-stone-800">
+                                Let&apos;s get connected
+                            </span>
+                            <SecondaryButton
+                                href={'https://instagram.com/fabianazhrr'}
+                                className="text-sm"
+                            >
+                                Instagram
+                            </SecondaryButton>
+                            <SecondaryButton
+                                href={
+                                    'https://www.facebook.com/profile.php?id=61560075789729'
+                                }
+                                className="text-sm"
+                            >
+                                Facebook
+                            </SecondaryButton>
+                            <SecondaryButton
+                                href={'https://github.com/fabianazh'}
+                                className="text-sm"
+                            >
+                                Github
+                            </SecondaryButton>
+                            <SecondaryButton href={'#'} className="text-sm">
+                                Linked in
+                            </SecondaryButton>
+                        </div>
+                    </div>
+                    {/*  */}
                 </div>
                 {/* End Profile Content */}
             </section>

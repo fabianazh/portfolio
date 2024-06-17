@@ -1,4 +1,4 @@
-import { FaArrowUp } from 'react-icons/fa'
+import { FaArrowDown, FaArrowUp } from 'react-icons/fa'
 import PrimaryButton from '@/components/Button/PrimaryButton'
 import SecondaryButton from '@/components/Button/SecondaryButton'
 import Chip from '@/components/Other/Chip'
@@ -52,13 +52,13 @@ export function Description({
                 <div className="w-full items-center h-auto flex flex-row gap-7">
                     <PrimaryButton
                         href={projectLink}
-                        className="gap-2.5 grid-flow-col px-5 py-2 text-sm"
+                        className="gap-2.5 text-sm"
                         target="_blank"
                     >
                         Visit the project
-                        <span className="inline-block text-xs">
-                            <FaArrowUp className="rotate-45 group-hover:rotate-90 transition-transform duration-400" />
-                        </span>
+                        <div className="text-sm rounded-full grid place-items-center bg-Gray-200 text-black w-7 aspect-square shrink-0 scale-[.3] group-hover:scale-100 transition-transform">
+                            <FaArrowUp className="rotate-45 scale-0 group-hover:scale-100 transition-transform" />
+                        </div>
                     </PrimaryButton>
                     <SecondaryButton
                         href={githubLink}
@@ -91,7 +91,7 @@ export function Thumbnail({
                 className={`h-auto shrink-0 transition-all group cursor-pointer ${className}`}
             >
                 {/* Layer */}
-                <div className="w-full relative rounded-lg h-full shadow overflow-hidden transition-all">
+                <div className="w-full relative rounded-xl h-full shadow overflow-hidden transition-all">
                     {/* Image */}
                     <Image
                         src={imgPath}
