@@ -17,7 +17,7 @@ export default function PrimaryButton({
         <>
             <Link
                 href={href}
-                className={`bg-black grid place-items-center transition-colors duration-300 text-white gap-2.5 grid-flow-col pr-1.5 pl-5 py-1.5 rounded-full group ${className}`}
+                className={`bg-black grid place-items-center transition-colors duration-300 text-white gap-2.5 grid-flow-col pr-1 pl-5 py-1 rounded-full group ${className}`}
                 target={target}
             >
                 {children}

@@ -1,4 +1,4 @@
-import { mori } from '@/app/fonts'
+import { mona, mori } from '@/app/fonts'
 
 export default function Hero() {
     return (
@@ -23,7 +23,9 @@ export default function Hero() {
                             <span className="text-6xl font-medium lg:font-normal lg:text-[7rem] lg:leading-none tracking-tight block shrink-0">
                                 Full Stack Developer
                             </span>
-                            <span className="text-base tracking-normal leading-normal font-medium lg:-translate-y-">
+                            <span
+                                className={`text-base tracking-normal leading-normal font-medium ${mona.className}`}
+                            >
                                 Specialized in Web Design, UX / UI, Front End
                                 Development and Back end Development.
                             </span>

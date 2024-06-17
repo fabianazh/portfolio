@@ -1,4 +1,4 @@
-import { urbanist } from '@/app/fonts'
+import { mona, urbanist } from '@/app/fonts'
 import Image from 'next/image'
 
 export default function Skill() {
@@ -101,7 +101,9 @@ export default function Skill() {
                                 >
                                     Explore my stack
                                 </span>
-                                <span className="text-sm lg:text-base font-medium text-stone-700">
+                                <span
+                                    className={`text-sm lg:text-base font-medium text-stone-700 ${mona.className}`}
+                                >
                                     Check out what language and framework i use
                                 </span>
                             </div>

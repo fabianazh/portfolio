@@ -38,7 +38,11 @@ export default function Contact() {
         >
             <div className={`w-full flex flex-col ${mori.className}`}>
                 <h3 className="text-7xl font-semibold">Contact Me</h3>
-
+                <span className={`block lg:hidden text-lg font-medium`}>
+                    I’m always excited to discuss new opportunities, projects,
+                    or collaborations. Whether you have a question, want to work
+                    together, or just want to say hello, feel free to reach out!
+                </span>
                 {/* <div className="h-auto flex w-auto gap-4 mt-2">
                     <CircleButton href="https://github.com/fabianazh">
                         <BsGithub />
@@ -83,10 +87,10 @@ export default function Contact() {
                     <div className="flex justify-end w-full h-auto gap-4">
                         <button
                             type="submit"
-                            className="bg-black grid place-items-center transition-colors duration-300 text-white gap-2.5 grid-flow-col pr-1.5 pl-5 py-1.5 rounded-full group"
+                            className="bg-black grid place-items-center transition-colors duration-300 text-white gap-2.5 grid-flow-col pr-1 pl-5 py-1 rounded-full group"
                         >
                             Submit
-                            <div className="text-sm rounded-full grid place-items-center bg-Gray-200 text-black w-7 aspect-square shrink-0 scale-[.3] group-hover:scale-100 transition-transform">
+                            <div className="text-sm rounded-full grid place-items-center bg-Gray-200 text-black w-7 aspect-square shrink-0 scale-[.2] group-hover:scale-100 transition-transform">
                                 <FaArrowUp className="rotate-45 scale-0 group-hover:scale-100 transition-transform" />
                             </div>
                         </button>
@@ -94,7 +98,7 @@ export default function Contact() {
                 </form>
                 <div className="flex flex-col divide-y-2 divide-stone-300">
                     <div className="w-9/12 h-fit pb-10">
-                        <span className={`text-lg font-medium`}>
+                        <span className={`hidden lg:block text-lg font-medium`}>
                             I’m always excited to discuss new opportunities,
                             projects, or collaborations. Whether you have a
                             question, want to work together, or just want to say

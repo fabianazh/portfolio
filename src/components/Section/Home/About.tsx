@@ -3,6 +3,7 @@ import { FaArrowDown } from 'react-icons/fa'
 import Link from 'next/link'
 import SecondaryButton from '@/components/Button/SecondaryButton'
 import PrimaryButton from '@/components/Button/PrimaryButton'
+import { mona } from '@/app/fonts'
 
 export default function About() {
     return (
@@ -35,13 +36,18 @@ export default function About() {
                             Azhar
                         </span>
                         {/* Desc */}
-                        <div className="text-lg font-medium lg:pr-5 lg:text-justify">
-                            I am passionate about web and game development, with
-                            a keen interest in both front-end and back-end
-                            technologies. My dedication to continuous learning
-                            drives me to explore new coding languages and
-                            frameworks, allowing me to enhance my skill set and
-                            stay updated with industry trends.
+                        <div
+                            className={`text-lg font-medium lg:pr-5 lg:text-justify ${mona.className}`}
+                        >
+                            <span>
+                                I am passionate about web and game development,
+                                with a keen interest in both front-end and
+                                back-end technologies. My dedication to
+                                continuous learning drives me to explore new
+                                coding languages and frameworks, allowing me to
+                                enhance my skill set and stay updated with
+                                industry trends.
+                            </span>
                         </div>
                         {/* Contact */}
                         {/* Button */}

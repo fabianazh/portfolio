@@ -1,8 +1,8 @@
-import { FaArrowDown, FaArrowUp } from 'react-icons/fa'
+import { FaArrowUp } from 'react-icons/fa'
 import PrimaryButton from '@/components/Button/PrimaryButton'
 import SecondaryButton from '@/components/Button/SecondaryButton'
 import Chip from '@/components/Other/Chip'
-import { urbanist } from '@/app/fonts'
+import { urbanist, mona } from '@/app/fonts'
 import Image from 'next/image'
 
 export default function ProjectContainer({
@@ -42,14 +42,16 @@ export function Description({
         <>
             {/* Description Container */}
             <div
-                className={`flex flex-col h-auto pb-10 gap-2 lg:gap-1 justify-center ${className}`}
+                className={`flex flex-col h-auto pb-10 gap-2 lg:gap-3 justify-center ${className}`}
             >
                 <span
                     className={`block text-4xl font-bold ${urbanist.className}`}
                 >
                     {title}
                 </span>
-                <span className={`block font-semibold mb-3`}>{desc}</span>
+                <span className={`block font-medium mb-3 ${mona.className}`}>
+                    {desc}
+                </span>
 
                 <div className="w-full items-center h-auto flex flex-col lg:flex-row gap-5 lg:gap-7">
                     <PrimaryButton
