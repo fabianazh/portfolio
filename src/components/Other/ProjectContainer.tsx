@@ -42,7 +42,7 @@ export function Description({
         <>
             {/* Description Container */}
             <div
-                className={`flex flex-col h-auto pb-10 gap-2 lg:gap-3 justify-center ${className}`}
+                className={`flex flex-col max-w-xl h-auto pb-10 gap-2 lg:gap-3 justify-center ${className}`}
             >
                 <span
                     className={`block text-4xl font-bold ${urbanist.className}`}
@@ -56,7 +56,7 @@ export function Description({
                 <div className="w-full items-center h-auto flex flex-col lg:flex-row gap-5 lg:gap-7">
                     <PrimaryButton
                         href={projectLink}
-                        className="gap-2.5 text-sm w-full lg:w-fit justify-center"
+                        className="gap-2.5 text-sm"
                         target="_blank"
                         icon={
                             <FaArrowUp className="rotate-45 scale-0 group-hover:scale-100 transition-transform" />
@@ -95,7 +95,7 @@ export function Thumbnail({
                 className={`w-full aspect-video lg:aspect-auto h-auto shrink-0 transition-all group cursor-pointer ${className}`}
             >
                 {/* Layer */}
-                <div className="w-full relative rounded-xl h-full shadow overflow-hidden transition-all">
+                <div className="w-full relative rounded-xl h-full shadow-sm lg:shadow overflow-hidden transition-all">
                     {/* Image */}
                     <Image
                         src={imgPath}
@@ -104,8 +104,8 @@ export function Thumbnail({
                         fill={true}
                     />
                     {/* End Image */}
-                    <div className="absolute flex flex-col gap-1 z-50 p-6 pt-20 left-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent w-full h-fit opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                        <span className="font-medium block text-white text-lg translate-y-0 group-hover:-translate-y-1 duration-700 transition-transform">
+                    <div className="absolute flex flex-col gap-2 lg:gap-1 z-50 p-6 pt-20 left-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent w-full h-fit opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                        <span className="font-medium block text-white text-base lg:text-lg translate-y-0 group-hover:-translate-y-1 duration-700 transition-transform">
                             {title}
                         </span>
                         <div className="flex flex-row gap-1.5 w-full h-auto translate-y-0 group-hover:-translate-y-1 duration-700 transition-transform">

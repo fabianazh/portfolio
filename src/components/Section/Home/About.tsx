@@ -54,7 +54,7 @@ export default function About() {
                         <div className="w-full lg:pr-8 items-start justify-between h-auto flex flex-col lg:flex-row gap-7">
                             <PrimaryButton
                                 href="#projects"
-                                className={`w-full lg:w-fit justify-center`}
+                                className={`mx-auto lg:mx-0`}
                                 icon={
                                     <FaArrowDown className="scale-0 group-hover:scale-100 transition-transform" />
                                 }

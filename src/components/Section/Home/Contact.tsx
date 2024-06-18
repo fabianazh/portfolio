@@ -34,11 +34,13 @@ export default function Contact() {
     return (
         <section
             id="contact"
-            className={`w-full bg-[#fafafa] flex flex-col gap-20 py-14 px-6 lg:px-16 h-full ${mona.className}`}
+            className={`w-full bg-[#fafafa] flex flex-col gap-8 lg:gap-20 py-14 px-6 lg:px-16 h-full ${mona.className}`}
         >
-            <div className={`w-full flex flex-col ${mori.className}`}>
-                <h3 className="text-7xl font-semibold">Contact Me</h3>
-                <span className={`block lg:hidden text-lg font-medium`}>
+            <div className={`w-full flex gap-2 flex-col ${mori.className}`}>
+                <h3 className="text-4xl lg:text-7xl font-semibold">
+                    Contact Me
+                </h3>
+                <span className={`block lg:hidden text-base font-medium`}>
                     I’m always excited to discuss new opportunities, projects,
                     or collaborations. Whether you have a question, want to work
                     together, or just want to say hello, feel free to reach out!
@@ -55,14 +57,14 @@ export default function Contact() {
                     </CircleButton>
                 </div> */}
             </div>
-            <div className="grid grid-cols-2 w-full h-auto flex-grow gap-20 items-end">
+            <div className="grid lg:grid-cols-2 w-full h-auto flex-grow gap-20 items-end">
                 <form onSubmit={handleSubmit(onSubmit)} className="w-full">
                     <div className="mb-8">
                         <input
                             type={'text'}
                             id={'name'}
                             placeholder={'Enter your full name'}
-                            className={`w-full font-medium valid:bg-transparent text-sm border-stone-400 bg-transparent py-3 px-3 placeholder:text-stone-700 text-stone-800 outline-none focus:border-stone-400 border-b-2 ${mona.className}`}
+                            className={`w-full font-medium valid:bg-transparent text-sm border-stone-400 bg-transparent py-3 px-2 lg:px-3 placeholder:text-stone-700 text-stone-800 outline-none focus:border-stone-400 border-b-2 ${mona.className}`}
                             {...register('name', { required: true })}
                         />
                     </div>
@@ -71,7 +73,7 @@ export default function Contact() {
                             type={'text'}
                             id={'email'}
                             placeholder={'Enter your email address'}
-                            className={`w-full font-medium valid:bg-transparent text-sm border-stone-400 bg-transparent py-3 px-3 placeholder:text-stone-700 text-stone-800 outline-none focus:border-stone-400 border-b-2 ${mona.className}`}
+                            className={`w-full font-medium valid:bg-transparent text-sm border-stone-400 bg-transparent py-3 px-2 lg:px-3 placeholder:text-stone-700 text-stone-800 outline-none focus:border-stone-400 border-b-2 ${mona.className}`}
                             {...register('email', { required: true })}
                         />
                     </div>
@@ -80,7 +82,7 @@ export default function Contact() {
                             id={'message'}
                             rows={4}
                             placeholder={'Write your message here'}
-                            className={`w-full font-medium valid:bg-transparent text-sm border-stone-400 bg-transparent py-3 px-3 placeholder:text-stone-700 text-stone-800 outline-none focus:border-stone-400 border-b-2 ${mona.className} resize-none`}
+                            className={`w-full font-medium valid:bg-transparent text-sm border-stone-400 bg-transparent py-3 px-2 lg:px-3 placeholder:text-stone-700 text-stone-800 outline-none focus:border-stone-400 border-b-2 ${mona.className} resize-none`}
                             {...register('message', { required: true })}
                         ></textarea>
                     </div>
@@ -105,8 +107,8 @@ export default function Contact() {
                             hello, feel free to reach out!
                         </span>
                     </div>
-                    <div className="w-full flex-grow flex pt-10">
-                        <div className="w-1/2 shrink-0 flex flex-col gap-4">
+                    <div className="w-full flex-grow flex justify-between lg:justify-start pt-10">
+                        <div className="w-fit lg:w-1/2 shrink-0 flex flex-col gap-4">
                             <span className="text-lg font-medium">
                                 General enquires
                             </span>
@@ -125,11 +127,11 @@ export default function Contact() {
                                 </span>
                             </div>
                         </div>
-                        <div className="w-1/2 shrink-0 flex flex-col gap-4">
+                        <div className="w-fit lg:w-1/2 shrink-0 flex flex-col gap-4">
                             <span className="text-lg font-medium">
                                 Social media
                             </span>
-                            <div className="flex flex-col gap-0.5">
+                            <div className="flex flex-col gap-1 lg:gap-0.5">
                                 <SecondaryButton
                                     href={'https://instagram.com/fabianazhrr'}
                                     className="text-sm"

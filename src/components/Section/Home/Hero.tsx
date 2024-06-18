@@ -15,7 +15,7 @@ export default function Hero() {
                         className={`flex flex-col gap-2 lg:gap-2 w-fit h-auto`}
                     >
                         <span
-                            className={`text-4xl lg:text-[4rem] lg:leading-none tracking-tight font-medium`}
+                            className={`text-[2.5rem] lg:text-[4rem] lg:leading-none tracking-tight font-medium`}
                         >
                             I&apos;m Fabian,
                         </span>
