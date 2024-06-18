@@ -3,3 +3,9 @@ interface FormData {
     email: string
     message: string
 }
+
+interface SquareImg {
+    name: string
+    location: string
+    className: string
+}

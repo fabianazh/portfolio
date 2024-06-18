@@ -1,4 +1,5 @@
 import { mona, urbanist } from '@/app/fonts'
+import { LinkPreview } from '@/components/Other/LinkPreview'
 import Image from 'next/image'
 
 export default function Skill() {
@@ -15,47 +16,78 @@ export default function Skill() {
         {
             name: 'JS',
             isSquare: true,
+            url: 'https://www.javascript.com/',
         },
         {
             name: 'TS',
             isSquare: true,
+            url: 'https://www.typescriptlang.org/',
         },
         {
             name: 'React',
             isSquare: false,
+            url: 'https://reactjs.org/',
         },
         {
             name: 'NextJS',
             isSquare: false,
+            url: 'https://nextjs.org/',
+        },
+        {
+            name: 'NodeJS',
+            isSquare: false,
+            url: 'https://nodejs.org/',
+        },
+        {
+            name: 'ExpressJS',
+            isSquare: false,
+            url: 'https://expressjs.com/',
         },
         {
             name: 'Tailwind',
             isSquare: false,
+            url: 'https://tailwindcss.com/',
         },
         {
             name: 'Bootstrap',
             isSquare: false,
+            url: 'https://getbootstrap.com/',
         },
         {
             name: 'PHP',
             isSquare: false,
+            url: 'https://www.php.net/',
         },
         {
             name: 'Laravel',
             isSquare: false,
+            url: 'https://laravel.com/',
+        },
+        {
+            name: 'MongoDB',
+            isSquare: false,
+            url: 'https://www.mongodb.com/',
+        },
+        {
+            name: 'PostgreSQL',
+            isSquare: false,
+            url: 'https://www.postgresql.org/',
         },
         {
             name: 'MySQL',
             isSquare: false,
+            url: 'https://www.mysql.com/',
         },
-        {
-            name: 'CS',
-            isSquare: false,
-        },
-        {
-            name: 'Unity',
-            isSquare: false,
-        },
+        // {
+        //     name: 'CS',
+        //     isSquare: false,
+        //     url: ''
+        // },
+        // {
+        //     name: 'Unity',
+        //     isSquare: false,
+        //     url: ''
+        // },
     ]
 
     const iconsLearning = ['Python', 'Django']
@@ -109,19 +141,21 @@ export default function Skill() {
                             </div>
                             <div className="flex flex-row flex-wrap justify-start gap-[1.1rem]">
                                 {icons.map((icon, index) => (
-                                    <div
-                                        key={index}
-                                        className="group bg-stone-200/90 rounded aspect-square shrink-0 grid place-items-center w-16 overflow-hidden shadow"
-                                    >
-                                        <Image
-                                            src={`/assets/img/icon/${icon.name}.png`}
-                                            alt={icon.name}
-                                            draggable={'false'}
-                                            width={64}
-                                            height={64}
-                                            className={`xl:grayscale-0 transition-all duration-200 cursor-pointer w-10`}
-                                        />
-                                    </div>
+                                    <LinkPreview key={index} url={icon.url}>
+                                        <div
+                                            key={index}
+                                            className="group bg-stone-200/90 rounded aspect-square shrink-0 grid place-items-center w-16 overflow-hidden shadow"
+                                        >
+                                            <Image
+                                                src={`/assets/img/icon/${icon.name}.png`}
+                                                alt={icon.name}
+                                                draggable={'false'}
+                                                width={64}
+                                                height={64}
+                                                className={`xl:grayscale-0 transition-all duration-200 cursor-pointer w-10`}
+                                            />
+                                        </div>
+                                    </LinkPreview>
                                 ))}
                             </div>
                         </div>

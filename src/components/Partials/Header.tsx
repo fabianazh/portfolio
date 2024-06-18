@@ -32,7 +32,7 @@ export default function Header() {
                 <div className="w-full h-full items-center flex justify-between">
                     {/* Logo and Name */}
                     <Link
-                        href="#"
+                        href="https://fabianazh.vercel.app"
                         className={`text-base lg:text-xl font-semibold transition lg:pb-1.5 after:border-b-2 after:block after:border-black after:scale-x-0 hover:after:scale-x-100 after:transition-transform ${urbanist.className}`}
                     >
                         Fabianazh.
