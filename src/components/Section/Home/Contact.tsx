@@ -41,9 +41,10 @@ export default function Contact() {
                     Contact Me
                 </h3>
                 <span className={`block lg:hidden text-base font-medium`}>
-                    I’m always excited to discuss new opportunities, projects,
-                    or collaborations. Whether you have a question, want to work
-                    together, or just want to say hello, feel free to reach out!
+                    I&apos;m always excited to discuss new opportunities,
+                    projects, or collaborations. Whether you have a question,
+                    want to work together, or just want to say hello, feel free
+                    to reach out!
                 </span>
                 {/* <div className="h-auto flex w-auto gap-4 mt-2">
                     <CircleButton href="https://github.com/fabianazh">

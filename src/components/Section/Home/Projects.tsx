@@ -84,6 +84,9 @@ export default function Projects() {
                         Projects
                     </span>
                 </h2>
+                {/* <h3 className="text-4xl lg:text-7xl font-semibold">
+                    Contact Me
+                </h3> */}
                 {/* End Heading Projects */}
                 {/* Projects Content */}
                 <div className="w-full h-auto flex flex-col gap-10 lg:gap-20">
