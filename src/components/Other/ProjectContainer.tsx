@@ -104,7 +104,7 @@ export function Thumbnail({
                         fill={true}
                     />
                     {/* End Image */}
-                    <div className="absolute flex flex-col gap-2 lg:gap-1 z-50 p-6 pt-20 left-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent w-full h-fit opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                    <div className="absolute flex flex-col gap-2 lg:gap-1 z-50 p-4 lg:p-6 pt-20 left-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent w-full h-fit opacity-0 group-hover:opacity-100 transition-opacity duration-700">
                         <span className="font-medium block text-white text-base lg:text-lg translate-y-0 group-hover:-translate-y-1 duration-700 transition-transform">
                             {title}
                         </span>
