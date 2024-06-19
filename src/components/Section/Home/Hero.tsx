@@ -9,7 +9,7 @@ export default function Hero() {
             {/* Hero Section */}
             <section
                 id="home"
-                className="relative top-0 z-0 w-ful h-auto min-h-screen text-lg px-6 md:px-16 grid grid-rows-2 lg:grid-cols-2 gap-10 lg:gap-14 lg:mb-16 overflow-x-hidden pb-10 lg:pb-20 pt-24"
+                className="z-0 w-ful h-fit text-lg px-6 md:px-16 grid grid-flow-row lg:grid-flow-col gap-10 lg:gap-14 lg:mb-16 overflow-x-hidden pb-10 lg:pb-0 pt-24"
             >
                 {/* Left Content */}
                 <div className="flex flex-col h-fit w-full shrink-0 gap-5 lg:gap-8 justify-end order-2 lg:order-1">

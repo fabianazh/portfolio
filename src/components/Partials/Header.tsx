@@ -55,6 +55,9 @@ export default function Header() {
                                 <NavLink href="#about">About</NavLink>
                             </li>
                             <li className="group">
+                                <NavLink href="#skill">Skill</NavLink>
+                            </li>
+                            <li className="group">
                                 <NavLink href="#projects">Projects</NavLink>
                             </li>
                             <li className="group">

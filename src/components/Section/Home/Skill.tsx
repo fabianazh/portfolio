@@ -95,7 +95,10 @@ export default function Skill() {
     return (
         <>
             {/* Skill Section */}
-            <section className="w-full h-auto flex flex-col gap-10 py-20 mb-14">
+            <section
+                id="skill"
+                className="w-full h-auto flex flex-col gap-10 py-20 mb-14"
+            >
                 {/* Heading Skill */}
                 <h2
                     className={`text-3xl lg:text-4xl font-medium text-center w-full lg:mb-5`}
