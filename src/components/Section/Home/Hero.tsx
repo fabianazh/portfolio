@@ -29,7 +29,7 @@ export default function Hero() {
                         />
                         <div className="flex flex-col w-6/12 h-full gap-6">
                             <div className="w-full gap-2.5 flex flex-col">
-                                <span className="text-base font-semibold">
+                                <span className="text-base font-medium">
                                     Specialized in Web Design, UI / UX, Front
                                     End Development and Back end Development.
                                 </span>
@@ -56,13 +56,30 @@ export default function Hero() {
                 </div>
                 {/* End Left Content */}
                 {/* Right Content */}
-                <div className="flex flex-col h-auto w-full shrink-0 gap-2.5 lg:gap-6">
-                    <div className="h-96 w-[60%] bg-[url('/assets/img/f/f1.jpeg')] bg-center bg-cover "></div>
-                    <h2
-                        className={`lg:text-[4rem] lg:leading-none font-semibold ${mori.className}`}
-                    >
-                        Fabian Azhar
-                    </h2>
+                <div className="flex h-fit w-full shrink-0 gap-2.5 lg:gap-6">
+                    <div className="flex flex-col h-fit gap-6 shrink-0 w-[55%]">
+                        <div className="h-96 w-full z-20 bg-[url('/assets/img/f/f1.jpeg')] brightness-95 bg-center bg-cover"></div>
+                        <h2
+                            className={`lg:text-[3rem] w-full lg:leading-none font-semibold ${mori.className}`}
+                        >
+                            Muhammad <span className="block">Fabian Azhar</span>
+                        </h2>
+                    </div>
+                    <div className="w-[45%] flex flex-col items-center flex-grow">
+                        <div className="w-11/12 aspect-square grid place-items-center">
+                            <span className="text-[8rem] leading-none rotate-[30deg]">
+                                *
+                            </span>
+                        </div>
+                        <Image
+                            src={'/assets/img/bg/f2.jpg'}
+                            alt="Photo 1"
+                            width={210}
+                            height={280}
+                            draggable={'false'}
+                            className="h-fit place-self-end shrink-0 w-full"
+                        />
+                    </div>
                 </div>
                 {/* End Right Content */}
             </section>
