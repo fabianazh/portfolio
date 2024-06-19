@@ -2,9 +2,6 @@
 
 import { useForm } from 'react-hook-form'
 import { FaArrowUp } from 'react-icons/fa'
-import { BsFacebook, BsGithub } from 'react-icons/bs'
-import CircleButton from '@/components/Button/CircleButton'
-import { RiInstagramFill } from 'react-icons/ri'
 import { mona, mori } from '@/app/fonts'
 import SecondaryButton from '@/components/Button/SecondaryButton'
 
@@ -46,17 +43,6 @@ export default function Contact() {
                     want to work together, or just want to say hello, feel free
                     to reach out!
                 </span>
-                {/* <div className="h-auto flex w-auto gap-4 mt-2">
-                    <CircleButton href="https://github.com/fabianazh">
-                        <BsGithub />
-                    </CircleButton>
-                    <CircleButton href="https://www.facebook.com/profile.php?id=61560075789729">
-                        <BsFacebook />
-                    </CircleButton>
-                    <CircleButton href="https://instagram.com/fabianazhrr">
-                        <RiInstagramFill />
-                    </CircleButton>
-                </div> */}
             </div>
             <div className="grid lg:grid-cols-2 w-full h-auto flex-grow gap-20 items-end">
                 <form onSubmit={handleSubmit(onSubmit)} className="w-full">
@@ -111,7 +97,7 @@ export default function Contact() {
                     <div className="w-full flex-grow flex justify-between lg:justify-start pt-10">
                         <div className="w-fit lg:w-1/2 shrink-0 flex flex-col gap-4">
                             <span className="text-lg font-medium">
-                                General enquires
+                                General Enquires
                             </span>
                             <span className="font-medium text-sm">
                                 Muhammad Fabian Azhar
@@ -130,7 +116,7 @@ export default function Contact() {
                         </div>
                         <div className="w-fit lg:w-1/2 shrink-0 flex flex-col gap-4">
                             <span className="text-lg font-medium">
-                                Social media
+                                Social Media
                             </span>
                             <div className="flex flex-col gap-1 lg:gap-0.5">
                                 <SecondaryButton

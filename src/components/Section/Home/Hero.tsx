@@ -1,5 +1,7 @@
 import { mona, mori } from '@/app/fonts'
+import PrimaryButton from '@/components/Button/PrimaryButton'
 import Image from 'next/image'
+import { FaArrowDown } from 'react-icons/fa'
 
 export default function Hero() {
     return (
@@ -7,49 +9,62 @@ export default function Hero() {
             {/* Hero Section */}
             <section
                 id="home"
-                className="relative top-0 z-0 flex w-full h-screen text-lg px-6 md:px-16 lg:flex-row lg:mb-16 overflow-x-hidden pb-20 lg:pb-5"
+                className="relative top-0 z-0 w-ful h-auto min-h-screen text-lg px-6 md:px-16 grid grid-cols-2 lg:gap-14 lg:mb-16 overflow-x-hidden pb-20 lg:pt-32"
             >
                 {/* Left Content */}
-                <div className="flex flex-col h-full w-full gap-0 lg:gap-2.5 overflow-x-hidden justify-end">
-                    {/* Text */}
-                    <div
-                        className={`flex flex-col gap-2 lg:gap-2 w-fit h-auto`}
+                <div className="flex flex-col h-auto w-full shrink-0 gap-2.5 lg:gap-6 justify-end">
+                    <h1
+                        className={`lg:text-[5rem] lg:leading-none font-semibold ${mori.className}`}
                     >
-                        <div className="w-full justify-between items-end flex">
-                            <span
-                                className={`text-[2.5rem] lg:text-[4rem] lg:leading-none tracking-tight font-medium`}
-                            >
-                                I&apos;m Fabian,
-                            </span>
-                            <div className="w-fit h-auto flex relative">
-                                <div className="lg:h-72 overflow-hidden">
-                                    <Image
-                                        src={'/assets/img/bg/f1.jpg'}
-                                        alt=""
-                                        width={210}
-                                        height={288}
-                                        draggable={'false'}
-                                        className="h-full w-fit transition-all scale-100 duration-[0.9s] group-hover:scale-125 brightness-"
-                                    />
-                                </div>
-                                <div></div>
+                        Full Stack <span className="block">Web Developer</span>
+                    </h1>
+                    <div className="w-full flex flex-grow h-auto gap-8 items-end">
+                        <Image
+                            src={'/assets/img/bg/f2.jpg'}
+                            alt="Photo 1"
+                            width={210}
+                            height={280}
+                            draggable={'false'}
+                            className="h-fit place-self-start shrink-0 w-6/12"
+                        />
+                        <div className="flex flex-col w-6/12 h-full gap-6">
+                            <div className="w-full gap-2.5 flex flex-col">
+                                <span className="text-base font-semibold">
+                                    Specialized in Web Design, UI / UX, Front
+                                    End Development and Back end Development.
+                                </span>
+                                <PrimaryButton
+                                    href="#about"
+                                    className={`w-fit text-sm`}
+                                    icon={
+                                        <FaArrowDown className="scale-0 group-hover:scale-100 transition-transform" />
+                                    }
+                                >
+                                    More about me
+                                </PrimaryButton>
                             </div>
-                        </div>
-                        <div className="flex flex-col lg:flex-row w-full h-auto gap-4 lg:gap-6 lg:items-end overflow-hidden">
-                            <span className="text-6xl font-medium lg:font-normal lg:text-[7rem] lg:leading-none tracking-tight block shrink-0">
-                                Full Stack Developer
-                            </span>
-                            <span
-                                className={`text-base tracking-normal leading-normal font-medium ${mona.className}`}
-                            >
-                                Specialized in Web Design, UX / UI, Front End
-                                Development and Back end Development.
-                            </span>
+                            <Image
+                                src={'/assets/img/bg/f1.jpg'}
+                                alt="Photo 2"
+                                width={210}
+                                height={210}
+                                draggable={'false'}
+                                className="h-fit w-full shrink-0"
+                            />
                         </div>
                     </div>
-                    {/* End Text */}
                 </div>
                 {/* End Left Content */}
+                {/* Right Content */}
+                <div className="flex flex-col h-auto w-full shrink-0 gap-2.5 lg:gap-6">
+                    <div className="h-96 w-[60%] bg-[url('/assets/img/f/f1.jpeg')] bg-center bg-cover "></div>
+                    <h2
+                        className={`lg:text-[4rem] lg:leading-none font-semibold ${mori.className}`}
+                    >
+                        Fabian Azhar
+                    </h2>
+                </div>
+                {/* End Right Content */}
             </section>
             {/* End Hero Section */}
         </>

@@ -11,8 +11,8 @@ export const urbanist = Urbanist({
 export const dmSans = DM_Sans({
     subsets: ['latin'],
     weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-    display: 'swap',
 })
+// display: 'swap',
 
 export const mori = LocalFont({
     src: './fonts/PPMori-Regular.otf',
