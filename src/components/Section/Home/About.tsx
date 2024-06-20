@@ -29,11 +29,7 @@ export default function About() {
                     <div className="w-full lg:w-6/12 shrink-0 h-fit flex flex-col gap-4 lg:gap-7 order-2 lg:order-1">
                         {/* Name */}
                         <span className="block text-3xl text-center lg:text-start lg:text-5xl tracking-tight font-medium">
-                            Muhammad{' '}
-                            <span className="inine-block bg-black text-white px-1">
-                                Fabian
-                            </span>{' '}
-                            Azhar
+                            Muhammad Fabian Azhar
                         </span>
                         {/* Desc */}
                         <div

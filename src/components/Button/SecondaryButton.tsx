@@ -19,7 +19,7 @@ export default function SecondaryButton({
                 target={target}
             >
                 {children}
-                <div className="absolute w-full h-0.5 scale-x-0 bottom-0 left-0 bg-black origin-bottom-right transition-transform duration-500 -out group-hover:scale-x-100 group-hover:origin-bottom-left" />
+                <div className="absolute w-full h-0.5 scale-x-0 bottom-0 left-0 rounded-full bg-black origin-bottom-right transition-transform duration-500 -out group-hover:scale-x-100 group-hover:origin-bottom-left" />
             </Link>
         </>
     )
