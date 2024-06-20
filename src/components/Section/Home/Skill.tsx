@@ -1,4 +1,4 @@
-import { mona, urbanist } from '@/app/fonts'
+import { mona, mori, urbanist } from '@/app/fonts'
 import { LinkPreview } from '@/components/Other/LinkPreview'
 import Image from 'next/image'
 
@@ -109,16 +109,13 @@ export default function Skill() {
             {/* Skill Section */}
             <section
                 id="skill"
-                className="w-full h-auto flex flex-col gap-10 py-20 mb-14"
+                className="w-full h-auto flex flex-col items-center gap-10 py-20 mb-14"
             >
                 {/* Heading Skill */}
                 <h2
-                    className={`text-3xl lg:text-4xl font-medium text-center w-full lg:mb-5`}
+                    className={`text-4xl lg:text-5xl font-semibold ${mori.className}`}
                 >
-                    My{' '}
-                    <span className="inine-block bg-black text-white px-1">
-                        Skill
-                    </span>
+                    My Skill
                 </h2>
                 {/* End Heading Skill */}
                 {/* Skill Content */}
@@ -133,7 +130,7 @@ export default function Skill() {
                                     width={300}
                                     height={400}
                                     draggable={'false'}
-                                    className="w-full h-full transition-all scale-100 duration-[0.9s] group-hover:scale-125 object-cover"
+                                    className="w-full h-full transition-all grayscale scale-100 duration-[0.9s] group-hover:scale-125 object-cover"
                                 />
                             </div>
                         </div>
@@ -155,13 +152,10 @@ export default function Skill() {
                                     I am capable of using
                                 </span>
                             </div>
-                            <div className="flex flex-row flex-wrap justify-start gap-[1.1rem]">
+                            <div className="grid grid-cols-3 gap-[1.1rem]">
                                 {stacks.map((icon, index) => (
                                     <LinkPreview key={index} url={icon.url}>
-                                        <div
-                                            key={index}
-                                            className="group bg-stone-200/90 rounded aspect-square shrink-0 grid place-items-center w-16 overflow-hidden shadow"
-                                        >
+                                        <div className="group bg-stone-200/90 rounded aspect-square shrink-0 grid place-items-center w-full overflow-hidden shadow">
                                             <Image
                                                 src={`/assets/img/icon/${icon.name}.png`}
                                                 alt={icon.name}
@@ -179,7 +173,7 @@ export default function Skill() {
                             <span
                                 className={`block text-lg lg:text-xl font-bold ${urbanist.className}`}
                             >
-                                Other Tools
+                                Other tools
                             </span>
                             <div className="flex flex-row flex-wrap justify-start gap-[1.1rem]">
                                 {otherTools.map((icon, index) => (

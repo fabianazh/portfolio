@@ -9,7 +9,7 @@ export default function Hero() {
             {/* Hero Section */}
             <section
                 id="home"
-                className="z-0 w-ful h-fit text-lg px-6 md:px-16 grid grid-flow-row lg:grid-flow-col gap-10 lg:gap-10 lg:mb-16 overflow-x-hidden pb-10 lg:pb-0 pt-24 lg:pt-32"
+                className="z-0 w-ful h-fit text-lg px-6 md:px-16 grid grid-flow-row lg:grid-flow-col gap-10 lg:gap-10 lg:mb-16 overflow-x-hidden pb-10 pt-24 lg:pt-32"
             >
                 {/* Left Content */}
                 <div className="flex flex-col h-fit w-full shrink-0 gap-5 lg:gap-8 justify-end order-2 lg:order-1">
@@ -56,12 +56,12 @@ export default function Hero() {
                                 width={410}
                                 height={500}
                                 draggable={'false'}
-                                className="h-full place-self-end grayscale brightness-95 shrink-0 w-full object-cover"
+                                className="h-full place-self-end grayscale brightness-[.85] shrink-0 w-full object-cover"
                             />
                         </div>
-                        <div className="flex flex-col w-[45%] flex-grow justify-between">
+                        <div className="flex flex-col w-[45%] flex-grow justify-between gap-6">
                             <div className="w-full lg:w-[45%] mx-auto aspect-square flex items-end justify-center">
-                                <span className="text-[8rem] leading-none">
+                                <span className="text-[8rem] inline-block hover:rotate-[20deg] transition-all duration-500 w-fit h-fit text-black">
                                     *
                                 </span>
                             </div>
@@ -72,12 +72,12 @@ export default function Hero() {
                                     width={210}
                                     height={280}
                                     draggable={'false'}
-                                    className="h-fit brightness-100 grayscale-0 shrink-0 w-full object-cover"
+                                    className="h-fit brightness-100 rotate-0 grayscale-0 shrink-0 w-full object-cover"
                                 />
                             </div>
                         </div>
                     </div>
-                    <div className="w-full flex flex gap-0 items-center flex-grow h-full">
+                    <div className="w-full flex gap-0 items-center flex-grow h-full">
                         <h2
                             className={`text-3xl lg:text-[3rem] w-full lg:leading-none font-semibold ${mori.className}`}
                         >

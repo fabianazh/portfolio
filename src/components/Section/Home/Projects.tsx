@@ -1,4 +1,5 @@
-import ProjectContainer from '@/components/Other/ProjectContainer'
+import { mori } from '@/app/fonts'
+import ProjectContainer from '@/components/Container/ProjectContainer'
 
 export default function Projects() {
     const projects = [
@@ -78,11 +79,10 @@ export default function Projects() {
                 className="w-full flex flex-col gap-10 py-8 lg:py-14 px-6 lg:px-16 h-full"
             >
                 {/* Heading Projects */}
-                <h2 className="text-3xl lg:text-4xl font-medium text-center lg:text-start w-full">
-                    Featured{' '}
-                    <span className="inine-block bg-black text-white px-1">
-                        Projects
-                    </span>
+                <h2
+                    className={`text-4xl lg:text-5xl font-semibold ${mori.className}`}
+                >
+                    Featured Projects
                 </h2>
                 {/* <h3 className="text-4xl lg:text-7xl font-semibold">
                     Contact Me

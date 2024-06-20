@@ -3,134 +3,80 @@ import { FaArrowDown } from 'react-icons/fa'
 import Link from 'next/link'
 import SecondaryButton from '@/components/Button/SecondaryButton'
 import PrimaryButton from '@/components/Button/PrimaryButton'
-import { mona } from '@/app/fonts'
+import { mona, mori } from '@/app/fonts'
 
 export default function About() {
     return (
         <>
             {/* About Section */}
             <section
-                className={`h-auto w-full relative flex flex-col py-24 gap-10 px-6 lg:px-16`}
+                className={`h-auto w-full relative flex justify-end py-32 px-6 lg:px-16`}
             >
-                {/* Heading Profile */}
-                <h1
-                    id="about"
-                    className={`text-3xl lg:text-4xl font-medium text-center w-full`}
-                >
-                    <span className="inine-block bg-black text-white px-1">
-                        About
-                    </span>{' '}
-                    Me
-                </h1>
-                {/* End Heading Profile */}
-                {/* Profile Content */}
-                <div className="flex flex-col lg:flex-row h-auto w-full gap-3">
-                    {/* Left Content */}
-                    <div className="w-full lg:w-6/12 shrink-0 h-fit flex flex-col gap-4 lg:gap-7 order-2 lg:order-1">
-                        {/* Name */}
-                        <span className="block text-3xl text-center lg:text-start lg:text-5xl tracking-tight font-medium">
-                            Muhammad Fabian Azhar
-                        </span>
-                        {/* Desc */}
-                        <div
-                            className={`text-lg font-medium lg:pr-5 lg:text-justify ${mona.className}`}
-                        >
-                            <span>
-                                I am passionate about web and game development,
-                                with a keen interest in both front-end and
-                                back-end technologies. My dedication to
-                                continuous learning drives me to explore new
-                                coding languages and frameworks, allowing me to
-                                enhance my skill set and stay updated with
-                                industry trends.
-                            </span>
-                        </div>
-                        {/* Contact */}
-                        {/* Button */}
-                        <div className="w-full lg:pr-8 items-start justify-between h-auto flex flex-col lg:flex-row gap-7">
-                            <PrimaryButton
-                                href="#projects"
-                                className={`mx-auto lg:mx-0`}
-                                icon={
-                                    <FaArrowDown className="scale-0 group-hover:scale-100 transition-transform" />
-                                }
+                <div className="w-full flex flex-col gap-6">
+                    {/* Heading Profile */}
+                    <h1
+                        className={`text-4xl lg:text-6xl font-semibold ${mori.className}`}
+                    >
+                        About Me
+                    </h1>
+                    {/* End Heading Profile */}
+                    {/* Profile Content */}
+                    <div className="flex flex-col lg:flex-row justify-start h-auto w-full gap-32">
+                        {/* Left Content */}
+                        <div className="w-full lg:w-10/12 h-fit flex flex-col gap-4 lg:gap-7">
+                            {/* Desc */}
+                            <div
+                                className={`text-xl w-full h-fit flex flex-col gap-4 font-medium ${mona.className}`}
                             >
-                                Check out what i&apos;ve done{' '}
-                            </PrimaryButton>
-                            <div className="w-full lg:w-fit flex gap-6 lg:block">
-                                <div className="aspect-square w-1/2 lg:w-fit h-auto group cursor-pointer">
-                                    <div className="aspect-square relative h-auto overflow-hidden transition-all group-hover:scale-90 duration-[0.9s] scale-100 rounded-xl">
-                                        <Image
-                                            src={'/assets/img/bg/f1.jpg'}
-                                            alt=""
-                                            width={210}
-                                            height={210}
-                                            draggable={'false'}
-                                            className="aspect-square h-auto transition-all scale-100 duration-[0.9s] group-hover:scale-125 brightness-"
-                                        />
-                                    </div>
+                                <span>
+                                    I am passionate about web development, with
+                                    a keen interest in both front-end and
+                                    back-end technologies. My dedication to
+                                    continuous learning drives me to explore new
+                                    coding languages and frameworks, allowing me
+                                    to enhance my skill set and stay updated
+                                    with industry trends.
+                                </span>
+                                <span>
+                                    When i&apos;m not building or exploring new
+                                    web experiences, i&apos;m probably playing
+                                    games or watching football.
+                                </span>
+                            </div>
+                            {/* Button */}
+                            <div className="w-full h-fit flex gap-14">
+                                <div className="w-full lg:w-fit shrink-0">
+                                    <PrimaryButton
+                                        href="#projects"
+                                        className={`mx-auto lg:mx-0 w-fit`}
+                                        icon={
+                                            <FaArrowDown className="scale-0 group-hover:scale-100 transition-transform" />
+                                        }
+                                    >
+                                        Check out what i&apos;ve done{' '}
+                                    </PrimaryButton>
                                 </div>
-                                <div className="lg:hidden flex flex-col gap-2 w-1/2 shrink-0 justify-center order-3">
-                                    <div className="flex flex-col gap-2">
-                                        <span className="inline-block w-fit border-b-2 border-stone-200 text-stone-800">
-                                            Let&apos;s get connected
-                                        </span>
-                                        <SecondaryButton
-                                            href={
-                                                'https://instagram.com/fabianazhrr'
-                                            }
-                                            className="text-sm"
-                                        >
-                                            Instagram
-                                        </SecondaryButton>
-                                        <SecondaryButton
-                                            href={
-                                                'https://www.facebook.com/profile.php?id=61560075789729'
-                                            }
-                                            className="text-sm"
-                                        >
-                                            Facebook
-                                        </SecondaryButton>
-                                        <SecondaryButton
-                                            href={
-                                                'https://github.com/fabianazh'
-                                            }
-                                            className="text-sm"
-                                        >
-                                            Github
-                                        </SecondaryButton>
-                                        <SecondaryButton
-                                            href={'#'}
-                                            className="text-sm"
-                                        >
-                                            Linked in
-                                        </SecondaryButton>
-                                    </div>
+                                <div className={`w-auto flex flex-grow`}>
+                                    <span
+                                        className={`text-lg font-medium ${mona.className}`}
+                                    >
+                                        I graduated with a degree in Software
+                                        Engineering, where I honed my skills in
+                                        design and problem-solving. My
+                                        background in software engineering has
+                                        equipped me with a strong foundation in
+                                        both technical and creative aspects of
+                                        development, enabling me to approach
+                                        projects with a well-rounded
+                                        perspective.
+                                    </span>
                                 </div>
                             </div>
+                            {/* End Button */}
                         </div>
-                    </div>
-                    {/* End Left Content */}
-                    {/* Center Content */}
-                    <div className="w-full lg:w-4/12 shrink-0 h-full flex flex-col gap-6 mb-4 lg:mb-0 lg:mr-6 order-1 lg:order-2">
-                        <div className="w-full h-full group cursor-pointer">
-                            <div className="w-full relative h-full overflow-hidden transition-all group-hover:scale-90 duration-[0.9s] scale-100 rounded-xl">
-                                <Image
-                                    src={'/assets/img/bg/f1.jpg'}
-                                    alt=""
-                                    width={300}
-                                    height={400}
-                                    draggable={'false'}
-                                    className="w-full h-fit transition-all scale-100 duration-[0.9s] group-hover:scale-125 brightness-"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                    {/* End Center Content */}
-                    {/* Right Content */}
-                    <div className="hidden lg:flex flex-col gap-2 w-2/12 shrink-0 justify-between order-3">
-                        <div className="w-full h-fit group cursor-pointer"></div>
-                        <div className="flex flex-col gap-2">
+                        {/* End Left Content */}
+                        {/* Contact */}
+                        <div className="w-full lg:w-2/12 shrink-0 flex justify-start flex-col gap-2">
                             <span className="inline-block w-fit border-b-2 border-stone-200 text-stone-800">
                                 Let&apos;s get connected
                             </span>
@@ -159,9 +105,8 @@ export default function About() {
                             </SecondaryButton>
                         </div>
                     </div>
-                    {/* End Right Content */}
+                    {/* End Profile Content */}
                 </div>
-                {/* End Profile Content */}
             </section>
             {/* End About Section */}
         </>
