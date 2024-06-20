@@ -1,5 +1,5 @@
-import { mona, mori, urbanist } from '@/app/fonts'
-import { LinkPreview } from '@/components/Other/LinkPreview'
+import { mori } from '@/app/fonts'
+import SkillContainer from '@/components/Container/SkillContainer'
 import Image from 'next/image'
 
 export default function Skill() {
@@ -130,7 +130,7 @@ export default function Skill() {
                                     width={300}
                                     height={400}
                                     draggable={'false'}
-                                    className="w-full h-full transition-all grayscale scale-100 duration-[0.9s] group-hover:scale-125 object-cover"
+                                    className="w-full h-full transition-all grayscale scale-100 duration-[0.9s] group-hover:scale-125 group-hover:grayscale-0 object-cover"
                                 />
                             </div>
                         </div>
@@ -138,63 +138,17 @@ export default function Skill() {
                     {/* End Left Content */}
                     {/* Right Content */}
                     <div className="w-full lg:w-2/3 shrink-0 flex h-auto flex-col gap-6">
-                        <div className="w-full flex flex-col h-fit shrink-0 border p-6 lg:p-6 pb-8 rounded-xl bg-stone-100 gap-4 lg:gap-6">
-                            <div className="w-full flex flex-col gap-1">
-                                <span
-                                    className={`block text-xl lg:text-2xl font-bold ${urbanist.className}`}
-                                >
-                                    Explore my stack
-                                </span>
-                                <span
-                                    className={`text-sm lg:text-base font-medium text-stone-700 ${mona.className}`}
-                                >
-                                    Check out the languages and frameworks that
-                                    I am capable of using
-                                </span>
-                            </div>
-                            <div className="grid grid-cols-3 gap-[1.1rem]">
-                                {stacks.map((icon, index) => (
-                                    <LinkPreview key={index} url={icon.url}>
-                                        <div className="group bg-stone-200/90 rounded aspect-square shrink-0 grid place-items-center w-full overflow-hidden shadow">
-                                            <Image
-                                                src={`/assets/img/icon/${icon.name}.png`}
-                                                alt={icon.name}
-                                                draggable={'false'}
-                                                width={64}
-                                                height={64}
-                                                className={`xl:grayscale-0 transition-all duration-200 cursor-pointer w-10`}
-                                            />
-                                        </div>
-                                    </LinkPreview>
-                                ))}
-                            </div>
-                        </div>
-                        <div className="w-full flex flex-col h-fit shrink-0 border p-6 lg:p-6 pt-4 pb-8 rounded-xl bg-stone-100 gap-2 lg:gap-4">
-                            <span
-                                className={`block text-lg lg:text-xl font-bold ${urbanist.className}`}
-                            >
-                                Other tools
-                            </span>
-                            <div className="flex flex-row flex-wrap justify-start gap-[1.1rem]">
-                                {otherTools.map((icon, index) => (
-                                    <LinkPreview key={index} url={icon.url}>
-                                        <div
-                                            key={index}
-                                            className="group bg-stone-200/90 rounded aspect-square shrink-0 grid place-items-center w-16 overflow-hidden shadow"
-                                        >
-                                            <Image
-                                                src={`/assets/img/icon/${icon.name}.png`}
-                                                alt={icon.name}
-                                                draggable={'false'}
-                                                width={64}
-                                                height={64}
-                                                className={`xl:grayscale-0 transition-all duration-200 cursor-pointer w-10`}
-                                            />
-                                        </div>
-                                    </LinkPreview>
-                                ))}
-                            </div>
-                        </div>
+                        <SkillContainer
+                            title="Explore my stack"
+                            desc="Check out the languages and frameworks that I am capable
+                        of using."
+                            stack={stacks}
+                        />
+                        <SkillContainer
+                            title="Additional proficiencies"
+                            desc="Discover the additional tools and software that complement my core stack."
+                            stack={otherTools}
+                        />
                     </div>
                     {/* End Right Content */}
                 </div>
