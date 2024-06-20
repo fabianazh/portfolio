@@ -4,6 +4,7 @@ import Header from '@/components/Partials/Header'
 import Footer from '@/components/Partials/Footer'
 import ScrollButton from '@/components/Button/ScrollButton'
 import { dmSans } from './fonts'
+import { Analytics } from '@vercel/analytics/react'
 
 export const metadata: Metadata = {
     title: 'Fabian Azh',
@@ -19,6 +20,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={dmSans.className}>
+                <Analytics />
                 <Header />
                 {children}
                 <ScrollButton />
