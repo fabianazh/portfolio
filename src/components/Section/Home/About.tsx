@@ -10,7 +10,8 @@ export default function About() {
         <>
             {/* About Section */}
             <section
-                className={`h-auto w-full relative flex justify-end py-32 px-6 lg:px-16`}
+                id="about"
+                className={`h-auto w-full relative flex justify-end py-28 px-6 lg:px-16`}
             >
                 <div className="w-full flex flex-col gap-6">
                     {/* Heading Profile */}
@@ -21,12 +22,55 @@ export default function About() {
                     </h1>
                     {/* End Heading Profile */}
                     {/* Profile Content */}
-                    <div className="flex flex-col lg:flex-row justify-start h-auto w-full gap-32">
+                    <div className="flex flex-col lg:flex-row-reverse justify-start h-auto w-full gap-10 lg:gap-14">
                         {/* Left Content */}
-                        <div className="w-full lg:w-10/12 h-fit flex flex-col gap-4 lg:gap-7">
+                        <div className="w-full lg:w-[20%] shrink-0 flex justify-start flex-row lg:flex-col gap-6">
+                            <div className="w-1/2 lg:w-full aspect-square flex overflow-hidden">
+                                <Image
+                                    src={'/assets/img/bg/f1.jpg'}
+                                    alt="Photo 1"
+                                    width={210}
+                                    height={280}
+                                    draggable={'false'}
+                                    className="w-full brightness-75 rotate-0 grayscale-0 shrink-0 h-fit object-cover"
+                                />
+                            </div>
+                            <div className="w-1/2 lg:w-full flex flex-col gap-2">
+                                <span className="inline-block w-fit border-b-2 border-stone-300 text-stone-800">
+                                    Let&apos;s get connected
+                                </span>
+                                <SecondaryButton
+                                    href={'https://instagram.com/fabianazhrr'}
+                                    className="text-sm"
+                                >
+                                    Instagram
+                                </SecondaryButton>
+                                <SecondaryButton
+                                    href={
+                                        'https://www.facebook.com/profile.php?id=61560075789729'
+                                    }
+                                    className="text-sm"
+                                >
+                                    Facebook
+                                </SecondaryButton>
+                                <SecondaryButton
+                                    href={'https://github.com/fabianazh'}
+                                    className="text-sm"
+                                >
+                                    Github
+                                </SecondaryButton>
+                                <SecondaryButton href={'#'} className="text-sm">
+                                    Linked in
+                                </SecondaryButton>
+                            </div>
+                        </div>
+                        {/* End Left Content */}
+                        {/* Right Content */}
+
+                        <div className="w-full lg:w-10/12 h-fit flex flex-col flex-grow justify-end divide-y-2 divide-stone-300">
                             {/* Desc */}
                             <div
-                                className={`text-xl w-full h-fit flex flex-col gap-4 font-medium ${mona.className}`}
+                                className={`text-lg lg:text-xl w-full pb-5 lg:pb-8 h-fit leading-normal flex flex-col text-justify gap-4 font-medium ${mona.className}`}
                             >
                                 <span>
                                     I am passionate about web development, with
@@ -44,11 +88,11 @@ export default function About() {
                                 </span>
                             </div>
                             {/* Button */}
-                            <div className="w-full h-fit flex gap-14">
+                            <div className="w-full h-fit flex flex-col-reverse gap-6 pt-5 lg:pt-8">
                                 <div className="w-full lg:w-fit shrink-0">
                                     <PrimaryButton
                                         href="#projects"
-                                        className={`mx-auto lg:mx-0 w-fit`}
+                                        className={`mx-auto lg:mx-0 w-fit text-xs lg:text-sm`}
                                         icon={
                                             <FaArrowDown className="scale-0 group-hover:scale-100 transition-transform" />
                                         }
@@ -58,7 +102,7 @@ export default function About() {
                                 </div>
                                 <div className={`w-auto flex flex-grow`}>
                                     <span
-                                        className={`text-lg font-medium ${mona.className}`}
+                                        className={`text-lg lg:text-xl leading-normal text-justify  font-medium ${mona.className}`}
                                     >
                                         I graduated with a degree in Software
                                         Engineering, where I honed my skills in
@@ -73,36 +117,6 @@ export default function About() {
                                 </div>
                             </div>
                             {/* End Button */}
-                        </div>
-                        {/* End Left Content */}
-                        {/* Contact */}
-                        <div className="w-full lg:w-2/12 shrink-0 flex justify-start flex-col gap-2">
-                            <span className="inline-block w-fit border-b-2 border-stone-200 text-stone-800">
-                                Let&apos;s get connected
-                            </span>
-                            <SecondaryButton
-                                href={'https://instagram.com/fabianazhrr'}
-                                className="text-sm"
-                            >
-                                Instagram
-                            </SecondaryButton>
-                            <SecondaryButton
-                                href={
-                                    'https://www.facebook.com/profile.php?id=61560075789729'
-                                }
-                                className="text-sm"
-                            >
-                                Facebook
-                            </SecondaryButton>
-                            <SecondaryButton
-                                href={'https://github.com/fabianazh'}
-                                className="text-sm"
-                            >
-                                Github
-                            </SecondaryButton>
-                            <SecondaryButton href={'#'} className="text-sm">
-                                Linked in
-                            </SecondaryButton>
                         </div>
                     </div>
                     {/* End Profile Content */}

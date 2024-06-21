@@ -44,7 +44,9 @@ export function Description({
             <div
                 className={`flex flex-col max-w-xl h-auto pb-10 gap-2 lg:gap-3 justify-center ${className}`}
             >
-                <span className={`block text-4xl font-bold ${mori.className}`}>
+                <span
+                    className={`block text-3xl lg:text-4xl font-bold ${mori.className}`}
+                >
                     {title}
                 </span>
                 <span className={`block font-medium mb-3 ${mona.className}`}>

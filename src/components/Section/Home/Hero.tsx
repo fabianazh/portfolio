@@ -26,7 +26,7 @@ export default function Hero() {
                             height={500}
                             quality={100}
                             draggable={'false'}
-                            className="h-full shrink-0 w-fit grayscale-0 brightness-100 object-cover rounded-xl"
+                            className="h-full shrink-0 w-fit grayscale-0 brightness-90 object-cover rounded-xl"
                         />
                         <div className="w-7/12 lg:w-6/12 gap-2.5 flex flex-col h-fit absolute bg-Gray-200 p-5 lg:p-8 pr-0 top-0 z-10 right-0 rounded-bl-xl items-center">
                             <span className="text-sm lg:text-base font-semibold text-center">
@@ -56,7 +56,7 @@ export default function Hero() {
                                 width={410}
                                 height={500}
                                 draggable={'false'}
-                                className="h-full place-self-end grayscale brightness-[.85] shrink-0 w-full object-cover"
+                                className="h-full place-self-end grayscale brightness-100 shrink-0 w-full object-cover"
                             />
                         </div>
                         <div className="flex flex-col w-[45%] flex-grow justify-between gap-6">
@@ -72,7 +72,7 @@ export default function Hero() {
                                     width={210}
                                     height={280}
                                     draggable={'false'}
-                                    className="h-fit brightness-100 rotate-0 grayscale-0 shrink-0 w-full object-cover"
+                                    className="h-fit brightness-[.8] rotate-0 grayscale-0 shrink-0 w-full object-cover"
                                 />
                             </div>
                         </div>

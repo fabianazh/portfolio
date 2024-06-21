@@ -119,7 +119,7 @@ export default function Skill() {
                 </h2>
                 {/* End Heading Skill */}
                 {/* Skill Content */}
-                <div className="w-full px-6 lg:px-24 h-auto flex flex-col lg:flex-row gap-6">
+                <div className="w-full px-6 lg:px-16 h-auto flex flex-col lg:flex-row gap-6">
                     {/* Left Content */}
                     <div className="w-full lg:w-1/3 shrink-0 flex-grow">
                         <div className="w-full h-full group cursor-pointer">

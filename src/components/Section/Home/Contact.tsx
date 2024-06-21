@@ -118,7 +118,7 @@ export default function Contact() {
                             <span className="text-lg font-medium">
                                 Social Media
                             </span>
-                            <div className="flex flex-col gap-1 lg:gap-0.5">
+                            <div className="flex flex-col gap-1">
                                 <SecondaryButton
                                     href={'https://instagram.com/fabianazhrr'}
                                     className="text-sm"

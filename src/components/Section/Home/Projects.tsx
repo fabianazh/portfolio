@@ -1,5 +1,7 @@
 import { mori } from '@/app/fonts'
 import ProjectContainer from '@/components/Container/ProjectContainer'
+import PrimaryButton from '@/components/Button/PrimaryButton'
+import { FaArrowUp } from 'react-icons/fa'
 
 export default function Projects() {
     const projects = [
@@ -80,13 +82,10 @@ export default function Projects() {
             >
                 {/* Heading Projects */}
                 <h2
-                    className={`text-4xl lg:text-5xl font-semibold ${mori.className}`}
+                    className={`text-4xl lg:text-5xl text-center lg:text-start font-semibold ${mori.className}`}
                 >
                     Featured Projects
                 </h2>
-                {/* <h3 className="text-4xl lg:text-7xl font-semibold">
-                    Contact Me
-                </h3> */}
                 {/* End Heading Projects */}
                 {/* Projects Content */}
                 <div className="w-full h-auto flex flex-col gap-10 lg:gap-20">
