@@ -7,9 +7,34 @@ import { dmSans } from './fonts'
 import { Analytics } from '@vercel/analytics/react'
 
 export const metadata: Metadata = {
-    title: 'Fabian Azh',
-    description:
-        'I am Muhammad Fabian Azhar, a passionate Fullstack Developer and Unity Developer. With a strong foundation in both frontend and backend technologies, I create dynamic, user-friendly web applications and immersive game experiences. This repository showcases my projects, skills, and accomplishments in the world of software development.',
+    metadataBase: new URL('https://fabianazh.vercel.app'),
+    title: {
+        default: 'Fabian Azhar',
+        template: '%s | Fabian Azhar',
+    },
+    description: 'Developer, designer, and creator.',
+    openGraph: {
+        title: 'Fabian Azhar',
+        description: 'Developer, designer, and creator.',
+        url: 'https://fabianazh.vercel.app',
+        siteName: 'Fabian Azhar',
+        locale: 'en_US',
+        type: 'website',
+    },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            'max-video-preview': -1,
+            'max-image-preview': 'large',
+            'max-snippet': -1,
+        },
+    },
+    verification: {
+        google: 'eZSdmzAXlLkKhNJzfgwDqWORghxnJ8qR9_CHdAh5-xw',
+    },
 }
 
 export default function RootLayout({
