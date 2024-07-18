@@ -1,7 +1,5 @@
 import { mori } from '@/app/fonts'
 import ProjectContainer from '@/components/Container/ProjectContainer'
-import PrimaryButton from '@/components/Button/PrimaryButton'
-import { FaArrowUp } from 'react-icons/fa'
 
 export default function Projects() {
     const projects = [
@@ -68,8 +66,8 @@ export default function Projects() {
             descClassName: 'pb-10 gap-1',
             thumbnailClassName: 'lg:w-[29rem]',
             techStack: ['Next JS', 'Tailwind CSS', 'Aceternity UI'],
-            projectLink: 'https://fabianazh.github.io/portfolio-zufar',
-            githubLink: 'https://zufarms.vercel.app',
+            projectLink: 'https://zufarms.vercel.app',
+            githubLink: 'https://fabianazh.github.io/portfolio-zufar',
         },
     ]
 

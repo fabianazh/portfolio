@@ -28,9 +28,9 @@ export default function Header() {
 
     return (
         <>
-            <header className="absolute top-0 left-0 z-50 flex h-auto py-3 lg:py-0 lg:h-16 text-white backdrop-blur-md lg:absolute lg:bg-transparent px-6 lg:px-16 w-screen lg:w-full bg-transparent">
-                <div className="w-11/12 lg:w-full mx-auto block lg:hidden h-[2px] bg-black shadow-sm absolute bottom-0 left-1/2 -translate-x-1/2"></div>
-                <div className="w-full h-full items-center flex justify-between">
+            <header className="lg:absolute relative items-center justify-between top-0 left-0 z-40 flex h-auto py-3 lg:py-0 lg:h-16 backdrop-blur-md lg:absolute lg:bg-transparent px-6 lg:px-16 w-screen lg:w-full bg-transparent">
+                {/* <div className="w-11/12 lg:w-full mx-auto block lg:hidden h-[2px] bg-black shadow-sm absolute bottom-0 left-1/2 -translate-x-1/2"></div> */}
+                <div className="w-full h-full relative items-center flex justify-between">
                     {/* Logo and Name */}
                     <Link
                         href="https://fabianazh.vercel.app"
@@ -43,7 +43,7 @@ export default function Header() {
                     {/* Hamburger Menu */}
                     <div
                         onClick={() => openNav()}
-                        className="flex relative border text-2xl xl:hidden z-50 text-black"
+                        className="flex relative bg-white lg:bg-transparent w-fit relative text-2xl xl:hidden z-[90] text-black"
                     >
                         <BiX
                             className={`text-3xl absolute top-1/2 -translate-y-1/2 -right-0.5 transition-all ${
@@ -58,8 +58,16 @@ export default function Header() {
                     </div>
                     {/* End Hamburger Menu */}
 
-                    <Navbar />
+                    <Navbar isOpen={isNavOpen} openNav={openNav} />
                 </div>
+                <div
+                    onClick={() => openNav()}
+                    className={`-translate-x-0 w-screen transition-all fixed duration-[200] left-0 top-0 h-screen bg-black/60 ${
+                        isNavOpen
+                            ? 'opacity-100 flex lg:hidden z-0'
+                            : 'opacity-0 hidden z-0'
+                    }`}
+                ></div>
             </header>
         </>
     )
