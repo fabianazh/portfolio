@@ -60,16 +60,16 @@ export default function Projects() {
         },
         {
             id: 5,
-            name: 'Starbucks Clone',
-            subname: 'Starbucks - Coffee that inspires',
-            img: 'starbucks.png',
-            desc: 'Welcome to Starbucks Landing, your online gateway to the world of Starbucks. This meticulously crafted landing page clone faithfully mirrors the aesthetic and essence of the iconic coffeehouse chain',
+            name: 'Portfolio Web',
+            subname: `Zufar's Portfolio`,
+            img: 'portfolio.png',
+            desc: 'A professional web portfolio I designed, featuring a clean and engaging interface. It includes sections like home, about, projects, and contact. Discover the work and skills of the individual in a user-friendly experience.',
             className: 'lg:flex-row-reverse w-full lg:w-9/12 place-self-start',
             descClassName: 'pb-10 gap-1',
             thumbnailClassName: 'lg:w-[29rem]',
-            techStack: ['React JS', 'Tailwind CSS'],
-            projectLink: 'https://fabianazh.github.io/starbucks-clone',
-            githubLink: 'https://github.com/fabianazh/starbucks-clone',
+            techStack: ['Next JS', 'Tailwind CSS', 'Aceternity UI'],
+            projectLink: 'https://fabianazh.github.io/portfolio-zufar',
+            githubLink: 'https://zufarms.vercel.app',
         },
     ]
 

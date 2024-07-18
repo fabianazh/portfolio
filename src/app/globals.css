@@ -13,7 +13,7 @@
         @apply overflow-x-hidden bg-Gray-200;
     }
     body::-webkit-scrollbar {
-        @apply lg:w-2.5;
+        @apply lg:w-2 px-1;
     }
 
     body::-webkit-scrollbar-track {

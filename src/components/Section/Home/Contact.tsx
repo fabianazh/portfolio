@@ -6,7 +6,7 @@ import { mona, mori } from '@/app/fonts'
 import SecondaryButton from '@/components/Button/SecondaryButton'
 
 export default function Contact() {
-    const { register, handleSubmit } = useForm<FormData>()
+    const { register, handleSubmit, reset } = useForm<FormData>()
 
     function sendEmail(data: FormData) {
         const apiEndpoint = '/api/email'
@@ -18,6 +18,7 @@ export default function Contact() {
             .then((res) => res.json())
             .then((response) => {
                 alert(response.message)
+                reset()
             })
             .catch((err) => {
                 alert(err)

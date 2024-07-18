@@ -30,7 +30,7 @@ export default function SkillContainer({
                         {desc}
                     </span>
                 </div>
-                <div className="w-full grid grid-cols-3 md:grid-cols-6 lg:grid-cols-9 gap-[1.1rem]">
+                <div className="w-full grid grid-cols-5 md:grid-cols-8 lg:grid-cols-9 gap-[1.1rem]">
                     {stack.map((icon, index) => (
                         <LinkPreview key={index} url={icon.url}>
                             <div className="group bg-stone-200/90 rounded aspect-square shrink-0 grid place-items-center w-full overflow-hidden shadow">

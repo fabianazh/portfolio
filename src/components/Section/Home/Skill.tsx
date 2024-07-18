@@ -69,11 +69,11 @@ export default function Skill() {
             isSquare: false,
             url: 'https://www.mysql.com/',
         },
-        {
-            name: 'CS',
-            isSquare: false,
-            url: 'https://learn.microsoft.com/en-us/dotnet/csharp',
-        },
+        // {
+        //     name: 'CS',
+        //     isSquare: false,
+        //     url: 'https://learn.microsoft.com/en-us/dotnet/csharp',
+        // },
     ]
 
     const otherTools = [
@@ -92,16 +92,16 @@ export default function Skill() {
             isSquare: true,
             url: 'https://www.adobe.com/products/photoshop.html',
         },
-        {
-            name: 'Ai',
-            isSquare: true,
-            url: 'https://www.adobe.com/products/illustrator.html',
-        },
-        {
-            name: 'Unity',
-            isSquare: false,
-            url: 'https://unity.com/',
-        },
+        // {
+        //     name: 'Ai',
+        //     isSquare: true,
+        //     url: 'https://www.adobe.com/products/illustrator.html',
+        // },
+        // {
+        //     name: 'Unity',
+        //     isSquare: false,
+        //     url: 'https://unity.com/',
+        // },
     ]
 
     return (
