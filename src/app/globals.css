@@ -13,7 +13,7 @@
         @apply overflow-x-hidden bg-Gray-200;
     }
     body::-webkit-scrollbar {
-        @apply lg:w-2 px-1;
+        @apply lg:w-2;
     }
 
     body::-webkit-scrollbar-track {
@@ -21,7 +21,7 @@
     }
 
     body::-webkit-scrollbar-thumb {
-        @apply lg:opacity-0 lg:rounded-lg lg:bg-stone-400 lg:hover:bg-stone-500 transition-colors;
+        @apply lg:opacity-0 lg:rounded-lg lg:bg-stone-300 lg:hover:bg-stone-400 transition-all duration-300;
     }
     section {
         @apply overflow-x-hidden;

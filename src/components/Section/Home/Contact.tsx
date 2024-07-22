@@ -53,7 +53,8 @@ export default function Contact() {
                             id={'name'}
                             placeholder={'Enter your full name'}
                             className={`w-full font-medium valid:bg-transparent text-sm border-stone-300 bg-transparent py-3 px-2 lg:px-3 placeholder:text-stone-700 text-stone-800 outline-none focus:border-stone-400 border-b-2 ${mona.className}`}
-                            {...register('name', { required: true })}
+                            required
+                            {...register('name')}
                         />
                     </div>
                     <div className="mb-8">
@@ -62,7 +63,8 @@ export default function Contact() {
                             id={'email'}
                             placeholder={'Enter your email address'}
                             className={`w-full font-medium valid:bg-transparent text-sm border-stone-300 bg-transparent py-3 px-2 lg:px-3 placeholder:text-stone-700 text-stone-800 outline-none focus:border-stone-400 border-b-2 ${mona.className}`}
-                            {...register('email', { required: true })}
+                            required
+                            {...register('email')}
                         />
                     </div>
                     <div className="mb-8">
@@ -71,7 +73,8 @@ export default function Contact() {
                             rows={4}
                             placeholder={'Write your message here'}
                             className={`w-full font-medium valid:bg-transparent text-sm border-stone-300 bg-transparent py-3 px-2 lg:px-3 placeholder:text-stone-700 text-stone-800 outline-none focus:border-stone-400 border-b-2 ${mona.className} resize-none`}
-                            {...register('message', { required: true })}
+                            required
+                            {...register('message')}
                         ></textarea>
                     </div>
                     <div className="flex justify-end w-full h-auto gap-4">
@@ -88,7 +91,7 @@ export default function Contact() {
                 </form>
                 <div className="flex flex-col divide-y-2 divide-stone-300">
                     <div className="w-9/12 h-fit pb-10">
-                        <span className={`hidden lg:block text-lg font-medium`}>
+                        <span className={`hidden lg:block text-lg font-normal`}>
                             I’m always excited to discuss new opportunities,
                             projects, or collaborations. Whether you have a
                             question, want to work together, or just want to say

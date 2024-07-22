@@ -49,7 +49,9 @@ export function Description({
                 >
                     {title}
                 </span>
-                <span className={`block font-medium mb-3 ${mona.className}`}>
+                <span
+                    className={`block font-normal lg:font-medium mb-3 ${mona.className}`}
+                >
                     {desc}
                 </span>
 

@@ -70,7 +70,7 @@ export default function About() {
                         <div className="w-full lg:w-10/12 h-fit flex flex-col flex-grow justify-end divide-y-2 divide-stone-300">
                             {/* Desc */}
                             <div
-                                className={`text-lg lg:text-xl w-full pb-5 lg:pb-8 h-fit leading-normal flex flex-col text-justify gap-4 font-medium ${mona.className}`}
+                                className={`text-lg lg:text-xl w-full pb-5 lg:pb-8 h-fit leading-normal flex flex-col text-justify gap-4 font-normal lg:font- ${mona.className}`}
                             >
                                 <span>
                                     I am passionate about web development, with
@@ -102,7 +102,7 @@ export default function About() {
                                 </div>
                                 <div className={`w-auto flex flex-grow`}>
                                     <span
-                                        className={`text-lg lg:text-xl leading-normal text-justify  font-medium ${mona.className}`}
+                                        className={`text-lg lg:text-xl leading-normal text-justify  font-normal lg:font- ${mona.className}`}
                                     >
                                         I graduated with a degree in Software
                                         Engineering, where I honed my skills in
