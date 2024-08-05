@@ -80,7 +80,7 @@ export default function Projects() {
             >
                 {/* Heading Projects */}
                 <h2
-                    className={`text-4xl lg:text-5xl text-center lg:text-start font-semibold ${mori.className}`}
+                    className={`text-3xl lg:text-4xl text-center lg:text-start font-semibold ${mori.className}`}
                 >
                     Featured Projects
                 </h2>
@@ -104,7 +104,7 @@ export default function Projects() {
 
                             {/* Image Container */}
                             <ProjectContainer.Thumbnail
-                                imgPath={`/assets/img/project/${project.img}`}
+                                imgPath={`/img/project/${project.img}`}
                                 title={project.subname}
                                 className={project.thumbnailClassName}
                                 techStack={project.techStack}

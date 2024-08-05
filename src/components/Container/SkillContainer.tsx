@@ -35,7 +35,7 @@ export default function SkillContainer({
                         <LinkPreview key={index} url={icon.url}>
                             <div className="group bg-stone-200/90 rounded aspect-square shrink-0 grid place-items-center w-full overflow-hidden shadow">
                                 <Image
-                                    src={`/assets/img/icon/${icon.name}.png`}
+                                    src={`/img/icon/${icon.name}.png`}
                                     alt={icon.name}
                                     draggable={'false'}
                                     width={64}

@@ -109,7 +109,7 @@ export default function Skill() {
             {/* Skill Section */}
             <section
                 id="skill"
-                className="w-full h-auto flex flex-col items-center gap-10 py-20 mb-14"
+                className="w-full h-auto hidden flex-col items-center gap-10 py-20 mb-14"
             >
                 {/* Heading Skill */}
                 <h2
@@ -125,7 +125,7 @@ export default function Skill() {
                         <div className="w-full h-full group cursor-pointer">
                             <div className="w-full relative h-full overflow-hidden transition-all group-hover:scale-90 duration-[0.9s] scale-100 rounded-xl">
                                 <Image
-                                    src={'/assets/img/bg/f11.jpg'}
+                                    src={'/img/bg/f11.jpg'}
                                     alt=""
                                     width={300}
                                     height={400}

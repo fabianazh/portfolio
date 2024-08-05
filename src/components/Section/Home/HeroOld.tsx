@@ -3,7 +3,7 @@ import PrimaryButton from '@/components/Button/PrimaryButton'
 import Image from 'next/image'
 import { FaArrowDown } from 'react-icons/fa'
 
-export default function Hero() {
+export default function HeroOld() {
     return (
         <>
             {/* Hero Section */}
@@ -20,7 +20,7 @@ export default function Hero() {
                     </h1>
                     <div className="w-full flex h-[21rem] relative overflow-hidden rounded-xl">
                         <Image
-                            src={'/assets/img/gallery/g1.jpg'}
+                            src={'/img/gallery/g1.jpg'}
                             alt="Photo 1"
                             width={500}
                             height={400}
@@ -48,7 +48,7 @@ export default function Hero() {
                 {/* Right Content */}
                 <div className="flex h-full flex-grow w-full shrink-0 gap-2.5 lg:gap-6 order-1 lg:order-2">
                     <div className="flex flex-col h-fit gap-6 shrink-0 w-[55%] lg:pt-12">
-                        <div className="h-96 w-full z-20 bg-[url('/assets/img/f/f1.jpeg')] brightness-95 bg-center bg-cover"></div>
+                        <div className="h-96 w-full z-20 bg-[url('/img/f/f1.jpeg')] brightness-95 bg-center bg-cover"></div>
                         <h2
                             className={`lg:text-[3rem] w-full lg:leading-none font-semibold ${mori.className}`}
                         >
@@ -60,7 +60,7 @@ export default function Hero() {
                             <span className="text-[8rem] leading-none">*</span>
                         </div>
                         <Image
-                            src={'/assets/img/bg/f1.jpg'}
+                            src={'/img/bg/f1.jpg'}
                             alt="Photo 1"
                             width={210}
                             height={280}

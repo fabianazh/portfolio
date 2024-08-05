@@ -27,7 +27,7 @@ export default function About() {
                         <div className="w-full lg:w-[20%] shrink-0 flex justify-start flex-row lg:flex-col gap-6">
                             <div className="w-1/2 lg:w-full aspect-square flex overflow-hidden">
                                 <Image
-                                    src={'/assets/img/bg/f1.jpg'}
+                                    src={'/img/bg/f1.jpg'}
                                     alt="Photo 1"
                                     width={210}
                                     height={280}

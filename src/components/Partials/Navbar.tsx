@@ -32,10 +32,10 @@ export default function Navbar({ className }: { className?: string }) {
         //     link: '#about',
         //     text: 'About',
         // },
-        {
-            link: '#skill',
-            text: 'Skill',
-        },
+        // {
+        //     link: '#skill',
+        //     text: 'Skill',
+        // },
         {
             link: '#projects',
             text: 'Projects',

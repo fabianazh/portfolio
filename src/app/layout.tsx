@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import Header from '@/components/Partials/Header'
 import Footer from '@/components/Partials/Footer'
 import ScrollButton from '@/components/Button/ScrollButton'
 import { dmSans } from './fonts'
@@ -44,7 +43,6 @@ export default function RootLayout({
         <html lang="en">
             <body className={dmSans.className}>
                 <Analytics />
-                <Header />
                 {children}
                 <ScrollButton />
                 <Footer />
