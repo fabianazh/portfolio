@@ -6,9 +6,9 @@ export default function AppIcon({ className }: { className?: string }) {
     return (
         <>
             <div
-                className={`flex gap-3 lg:gap-4 relative text-black w-fit h-fit ${className} ${mori.className}`}
+                className={`flex gap-3 lg:gap-4 items-center relative text-black w-fit h-fit ${className} ${mori.className}`}
             >
-                <div className="flex h-10 w-10 bg-stone-200 items-start aspect-square shrink-0 rounded-full overflow-hidden">
+                <div className="flex h-9 w-9 bg-stone-200 items-start aspect-square shrink-0 rounded-full overflow-hidden">
                     <Image
                         src={'/img/f/f3.png'}
                         alt="Fabian Azhar"
