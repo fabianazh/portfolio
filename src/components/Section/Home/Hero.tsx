@@ -7,6 +7,7 @@ import { FaArrowDown } from 'react-icons/fa'
 import Header from '@/components/Partials/Header'
 import { BackgroundBeams } from '@/components/Other/BackgroundBeams'
 import Link from 'next/link'
+import MailIcon from '@/components/Icon/MailIcon'
 
 export default function Hero() {
     return (
@@ -17,7 +18,7 @@ export default function Hero() {
                 className="z-0 w-screen h-screen py-4 lg:py-6 px-0 lg:px-14"
             >
                 {/* Content Container */}
-                <div className="relative w-full h-full flex flex-col justify-between bg-stone-200/30 rounded-2xl px-4 lg:px-10 py-2">
+                <div className="relative w-full h-full flex flex-col justify-between bg-stone-200/30 rounded-2xl px-4 lg:px-10 py-4 lg:py-2">
                     {/* Background */}
                     <BackgroundBeams className="absolute w-full h-full top-0 left-0" />
                     {/* End Background */}
@@ -28,7 +29,7 @@ export default function Hero() {
 
                     {/* Content */}
                     <div
-                        className={`w-full items-center flex flex-col gap-2 text-center pb-14 lg:pb-32 px-6 lg:px-56 ${mona.className}`}
+                        className={`w-full items-center flex flex-col gap-2 text-center pb-14 lg:pb-32 px-6 md:px-48 lg:px-72 2xl:px-96 ${mona.className}`}
                     >
                         <h1 className="text-4xl font-bold">
                             Harmonizing Quality Design & Web Development
@@ -41,9 +42,10 @@ export default function Hero() {
                         </span>
                         <Link
                             href={'#'}
-                            className="w-fit text-xs lg:text-sm font-medium py-2 px-4 mt-4 lg:mt-6 inline-flex h-fit gap-2 bg-white rounded-full"
+                            className="w-fit text-xs lg:text-sm font-medium py-2 px-4 lg:px-6 mt-4 lg:mt-6 inline-flex h-fit gap-2 bg-white rounded-full items-center"
                         >
-                            Request a project
+                            <MailIcon className="w-fit h-4 lg:h-5" /> Request a
+                            project
                         </Link>
                     </div>
                     {/* End Content */}
