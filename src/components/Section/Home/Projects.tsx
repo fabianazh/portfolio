@@ -76,13 +76,13 @@ export default function Projects() {
             {/* Projet Section */}
             <section
                 id="projects"
-                className="w-full flex flex-col gap-10 py-8 lg:py-14 px-6 lg:px-16 h-full"
+                className="w-full flex flex-col gap-4 lg:gap-10 py-8 lg:py-14 px-6 lg:px-16 h-full"
             >
                 {/* Heading Projects */}
                 <h2
-                    className={`text-3xl lg:text-4xl text-center lg:text-start font-semibold ${mori.className}`}
+                    className={`text-2xl lg:text-4xl text-left lg:text-start font-semibold ${mori.className}`}
                 >
-                    Featured Projects
+                    Projects
                 </h2>
                 {/* End Heading Projects */}
                 {/* Projects Content */}
