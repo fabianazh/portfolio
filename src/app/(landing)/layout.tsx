@@ -1,5 +1,8 @@
+'use client'
+
 import Footer from '@/components/Partials/Footer'
 import ScrollButton from '@/components/Button/ScrollButton'
+import SmoothScroll from '@/components/Other/SmoothScroll'
 
 export default function LandingLayout({
     children,
@@ -7,10 +10,11 @@ export default function LandingLayout({
     children: React.ReactNode
 }>) {
     return (
-        <main>
-            {children}
+        <>
+            <SmoothScroll />
+            <main>{children}</main>
             <ScrollButton />
             <Footer />
-        </main>
+        </>
     )
 }

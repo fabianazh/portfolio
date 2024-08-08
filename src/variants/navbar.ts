@@ -1,6 +1,6 @@
-export const navContainerVariants = {
+export const navContainerVariant = {
     open: {
-        width: 300,
+        width: 'auto',
         height: 'auto',
         top: -10,
         right: -15,
@@ -25,7 +25,7 @@ export const navContainerVariants = {
     },
 }
 
-export const perspectiveText = {
+export const perspectiveTextVariant = {
     initial: {
         opacity: 0,
     },
@@ -33,6 +33,19 @@ export const perspectiveText = {
         transition: { delay: 0.5 + i * 0.1 },
         opacity: 1,
     }),
+    exit: {
+        opacity: 0,
+    },
+}
+
+export const overlayVariant = {
+    initial: {
+        opacity: 0,
+    },
+    enter: {
+        transition: { delay: 0.3 },
+        opacity: 1,
+    },
     exit: {
         opacity: 0,
     },

@@ -52,8 +52,9 @@ export default function Contact() {
                             type={'text'}
                             id={'name'}
                             placeholder={'Enter your full name'}
-                            className={`w-full font-medium valid:bg-transparent text-sm border-stone-300 bg-transparent py-3 px-2 lg:px-3 placeholder:text-stone-700 text-stone-800 outline-none focus:border-stone-400 border-b-2 ${mona.className}`}
+                            className={`w-full font-medium valid:bg-transparent text-sm border-stone-300 bg-transparent py-3 px-2 lg:px-3 placeholder:text-stone-700 text-stone-800 outline-none autocomplete:bg-transparent focus:border-stone-400 border-b-2 ${mona.className}`}
                             required
+                            autoComplete="off"
                             {...register('name')}
                         />
                     </div>
@@ -62,8 +63,9 @@ export default function Contact() {
                             type={'text'}
                             id={'email'}
                             placeholder={'Enter your email address'}
-                            className={`w-full font-medium valid:bg-transparent text-sm border-stone-300 bg-transparent py-3 px-2 lg:px-3 placeholder:text-stone-700 text-stone-800 outline-none focus:border-stone-400 border-b-2 ${mona.className}`}
+                            className={`w-full font-medium valid:bg-transparent text-sm border-stone-300 bg-transparent py-3 px-2 lg:px-3 placeholder:text-stone-700 text-stone-800 outline-none autocomplete:bg-transparent focus:border-stone-400 border-b-2 ${mona.className}`}
                             required
+                            autoComplete="off"
                             {...register('email')}
                         />
                     </div>
@@ -72,8 +74,9 @@ export default function Contact() {
                             id={'message'}
                             rows={4}
                             placeholder={'Write your message here'}
-                            className={`w-full font-medium valid:bg-transparent text-sm border-stone-300 bg-transparent py-3 px-2 lg:px-3 placeholder:text-stone-700 text-stone-800 outline-none focus:border-stone-400 border-b-2 ${mona.className} resize-none`}
+                            className={`w-full font-medium valid:bg-transparent text-sm border-stone-300 bg-transparent py-3 px-2 lg:px-3 placeholder:text-stone-700 text-stone-800 outline-none autocomplete:bg-transparent focus:border-stone-400 border-b-2 ${mona.className} resize-none`}
                             required
+                            autoComplete="off"
                             {...register('message')}
                         ></textarea>
                     </div>

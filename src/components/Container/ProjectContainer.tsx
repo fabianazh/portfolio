@@ -2,7 +2,7 @@ import { FaArrowUp } from 'react-icons/fa'
 import PrimaryButton from '@/components/Button/PrimaryButton'
 import SecondaryButton from '@/components/Button/SecondaryButton'
 import Chip from '@/components/Other/Chip'
-import { mori, mona } from '@/app/fonts'
+import { dmSans, mona } from '@/app/fonts'
 import Image from 'next/image'
 
 export default function ProjectContainer({
@@ -45,7 +45,7 @@ export function Description({
                 className={`flex flex-col max-w-xl h-auto pb-10 gap-2 lg:gap-3 justify-center ${className}`}
             >
                 <span
-                    className={`block text-xl lg:text-3xl font-bold ${mori.className}`}
+                    className={`block text-xl lg:text-3xl font-semibold ${dmSans.className}`}
                 >
                     {title}
                 </span>
