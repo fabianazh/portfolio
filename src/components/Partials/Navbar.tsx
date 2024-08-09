@@ -1,7 +1,8 @@
 'use client'
 
+import { Link as SamePageLink } from 'react-scroll/modules'
 import Link from 'next/link'
-import { navItems } from '@/constants/navItems'
+import { navItems } from '@/constants/component'
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import {
@@ -14,16 +15,16 @@ import { disableScroll, enableScroll } from '@/utils/controllScroll'
 import SecondaryButton from '@/components/Button/SecondaryButton'
 
 function NavButton({
-    isActive,
-    setIsActive,
+    isopen,
+    setIsopen,
 }: {
-    isActive: boolean
-    setIsActive: (isActive: boolean) => void
+    isopen: boolean
+    setIsopen: (isopen: boolean) => void
 }) {
     return (
         <>
             <button
-                onClick={() => setIsActive(!isActive)}
+                onClick={() => setIsopen(!isopen)}
                 className="outline-none grid place-items-center bg-transparent cursor-pointer w-fit h-fit relative top-0 right-0 border-none z-[100]"
             >
                 <svg
@@ -71,43 +72,43 @@ function NavButton({
 }
 
 export default function Navbar({ className }: { className?: string }) {
-    const [isActive, setIsActive] = useState<boolean>(false)
+    const [isopen, setIsopen] = useState<boolean>(false)
 
     useEffect(() => {
-        window.addEventListener('scroll', () => setIsActive(false))
+        window.addEventListener('scroll', () => setIsopen(false))
 
         return () => {
-            window.removeEventListener('scroll', () => setIsActive(false))
+            window.removeEventListener('scroll', () => setIsopen(false))
         }
-    }, [isActive])
+    }, [isopen])
 
     return (
         <>
             {/* Nav Item */}
             <motion.div
                 initial={false}
-                animate={isActive ? 'open' : 'closed'}
+                animate={isopen ? 'open' : 'closed'}
                 className={`relative flex items-center w-fit h-full bg-transparent ${className}`}
             >
-                <NavButton isActive={isActive} setIsActive={setIsActive} />
+                <NavButton isopen={isopen} setIsopen={setIsopen} />
                 <motion.div
                     variants={navContainerVariant}
-                    animate={isActive ? 'open' : 'closed'}
+                    animate={isopen ? 'open' : 'closed'}
                     initial="closed"
-                    className={`absolute right-0 top-0 bg-white rounded-xl border flex flex-col gap-2 lg:gap-2`}
+                    className={`absolute -right-3 -top-5 lg:-top-3 bg-white rounded-xl border flex flex-col gap-2 lg:gap-2`}
                 >
                     <AnimatePresence>
-                        {isActive && (
+                        {isopen && (
                             <>
                                 <motion.div
-                                    onClick={() => setIsActive(!isActive)}
+                                    onClick={() => setIsopen(!isopen)}
                                     variants={overlayVariant}
                                     animate="enter"
                                     exit="exit"
                                     initial="initial"
-                                    className="fixed w-screen h-screen top-0 left-0 bg-black/10 -z-[1]"
+                                    className="fixed w-screen h-screen top-0 left-0 bg-black/20 -z-[1]"
                                 ></motion.div>
-                                <motion.div className="pl-8 pr-20 lg:pl-10 lg:pr-10 flex flex-col gap-6 lg:gap-8 pt-6 lg:pt-10 pb-12 lg:pb-16 z-50">
+                                <motion.div className="pl-8 pr-20 lg:pl-10 lg:pr-16 flex flex-col gap-6 lg:gap-8 pt-6 lg:pt-10 pb-12 lg:pb-16 z-50">
                                     <motion.div
                                         variants={perspectiveTextVariant}
                                         custom={0}
@@ -136,16 +137,12 @@ export default function Navbar({ className }: { className?: string }) {
                                                     item: {
                                                         link: string
                                                         text: string
+                                                        samePage: true
                                                     },
                                                     index: number
                                                 ) => (
                                                     <li key={index}>
                                                         <motion.div
-                                                            onClick={() =>
-                                                                setIsActive(
-                                                                    !isActive
-                                                                )
-                                                            }
                                                             variants={
                                                                 perspectiveTextVariant
                                                             }
@@ -155,13 +152,41 @@ export default function Navbar({ className }: { className?: string }) {
                                                             initial="initial"
                                                             className="relative w-fit inline-block h-fit group"
                                                         >
-                                                            <Link
-                                                                href={item.link}
-                                                                className={`text-base lg:text-base relative pb-[1px] text-black font-medium`}
-                                                            >
-                                                                {item.text}
-                                                                <div className="absolute w-full h-[2px] scale-x-0 bottom-0 left-0 bg-stone-600 origin-bottom-right transition-transform duration-300 group-hover:scale-x-100 group-hover:origin-bottom-left" />
-                                                            </Link>
+                                                            {item.samePage ? (
+                                                                <SamePageLink
+                                                                    onClick={() =>
+                                                                        setIsopen(
+                                                                            !isopen
+                                                                        )
+                                                                    }
+                                                                    className={`text-base lg:text-base cursor-pointer relative pb-[1px] text-black font-medium`}
+                                                                    smooth={
+                                                                        true
+                                                                    }
+                                                                    to={
+                                                                        item.link
+                                                                    }
+                                                                    spy={true}
+                                                                >
+                                                                    {item.text}
+                                                                    <div className="absolute w-full h-[2px] scale-x-0 bottom-0 left-0 bg-stone-600 origin-bottom-right transition-transform duration-300 group-hover:scale-x-100 group-hover:origin-bottom-left" />
+                                                                </SamePageLink>
+                                                            ) : (
+                                                                <Link
+                                                                    onClick={() =>
+                                                                        setIsopen(
+                                                                            !isopen
+                                                                        )
+                                                                    }
+                                                                    className={`text-base lg:text-base cursor-pointer relative pb-[1px] text-black font-medium`}
+                                                                    href={
+                                                                        item.link
+                                                                    }
+                                                                >
+                                                                    {item.text}
+                                                                    <div className="absolute w-full h-[2px] scale-x-0 bottom-0 left-0 bg-stone-600 origin-bottom-right transition-transform duration-300 group-hover:scale-x-100 group-hover:origin-bottom-left" />
+                                                                </Link>
+                                                            )}
                                                         </motion.div>
                                                     </li>
                                                 )

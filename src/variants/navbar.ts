@@ -2,8 +2,6 @@ export const navContainerVariant = {
     open: {
         width: 'auto',
         height: 'auto',
-        top: -10,
-        right: -15,
         transition: {
             duration: 0.5,
             ease: [0.76, 0, 0.24, 1],
@@ -13,8 +11,6 @@ export const navContainerVariant = {
     closed: {
         width: 0,
         height: 0,
-        top: 0,
-        right: 0,
         padding: 0,
         transition: {
             duration: 0.5,

@@ -1,8 +1,14 @@
-import { Urbanist, DM_Sans } from 'next/font/google'
+import { Urbanist, DM_Sans, Inter_Tight } from 'next/font/google'
 
 import LocalFont from 'next/font/local'
 
 export const urbanist = Urbanist({
+    subsets: ['latin'],
+    weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+    display: 'swap',
+})
+
+export const inter = Inter_Tight({
     subsets: ['latin'],
     weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
     display: 'swap',

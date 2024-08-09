@@ -1,12 +1,12 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { mona, mori } from '@/app/fonts'
+import { mona, inter } from '@/app/fonts'
 
 export default function AppIcon({ className }: { className?: string }) {
     return (
         <>
             <div
-                className={`flex gap-3 lg:gap-4 items-center relative text-black w-fit h-fit ${className} ${mori.className}`}
+                className={`flex gap-3 lg:gap-4 items-center relative text-black w-fit h-fit ${className} ${inter.className}`}
             >
                 <div className="flex h-9 w-9 z-0 bg-stone-200 items-start aspect-square shrink-0 rounded-full overflow-hidden">
                     <Image

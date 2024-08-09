@@ -32,10 +32,10 @@ export default function Contact() {
     return (
         <section
             id="contact"
-            className={`w-full bg-[#fafafa] flex flex-col gap-8 lg:gap-20 py-14 px-6 lg:px-16 h-full ${mona.className}`}
+            className={`w-full bg-[#fafafa] flex flex-col gap-8 lg:gap-16 py-14 px-6 lg:px-16 h-full ${mona.className}`}
         >
             <div className={`w-full flex gap-2 flex-col ${mori.className}`}>
-                <h3 className="text-4xl lg:text-7xl font-semibold">
+                <h3 className="text-4xl lg:text-6xl font-semibold">
                     Contact Me
                 </h3>
                 <span className={`block lg:hidden text-base font-medium`}>

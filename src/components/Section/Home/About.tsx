@@ -11,7 +11,7 @@ export default function About() {
             {/* About Section */}
             <section
                 id="about"
-                className={`h-auto w-full relative hidden justify-end py-28 px-6 lg:px-16`}
+                className={`h-auto w-full relative flex justify-end py-28 px-6 lg:px-16`}
             >
                 <div className="w-full flex flex-col gap-6">
                     {/* Heading Profile */}

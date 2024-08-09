@@ -1,52 +1,52 @@
-import { mona, urbanist } from '@/app/fonts'
+import { dmSans, inter } from '@/app/fonts'
 import { LinkPreview } from '@/components/Other/LinkPreview'
 import Image from 'next/image'
 
 export default function SkillContainer({
     title,
-    desc,
-    stack,
+    stacks,
 }: {
     title: string
-    desc: string
-    stack: {
+    stacks: {
         name: string
+        src: string
         url: string
-        isSquare: boolean
     }[]
 }) {
     return (
         <>
-            <div className="w-full flex flex-col h-fit shrink-0 border p-6 lg:p-6 pb-8 rounded-xl bg-stone-100 gap-4 lg:gap-6">
-                <div className="w-full flex flex-col gap-1">
-                    <span
-                        className={`block text-xl lg:text-2xl font-bold ${urbanist.className}`}
-                    >
-                        {title}
-                    </span>
-                    <span
-                        className={`text-sm lg:text-base font-medium text-stone-700 ${mona.className}`}
-                    >
-                        {desc}
-                    </span>
-                </div>
-                <div className="w-full grid grid-cols-4 md:grid-cols-8 lg:grid-cols-9 gap-[1.1rem]">
-                    {stack.map((icon, index) => (
-                        <LinkPreview key={index} url={icon.url}>
-                            <div className="group bg-stone-200/90 rounded aspect-square shrink-0 grid place-items-center w-full overflow-hidden shadow">
+            {/* Skill Container */}
+            <div className="w-full flex flex-col h-fit shrink-0 gap-3">
+                {/* Heading */}
+                <span className={`block text-xs lg:text-sm font-medium`}>
+                    {title}
+                </span>
+                {/* End Heading */}
+                {/* Content */}
+                <div className="w-full flex flex-wrap gap-3">
+                    {stacks.map((stack, index) => (
+                        <LinkPreview key={index} url={stack.url}>
+                            <div className="group bg-stone-100/80 hover:bg-stone-200/80 rounded-md border shrink-0 w-fit h-fit px-3 py-1.5 flex items-center gap-1.5 duration-300 transition-colors">
                                 <Image
-                                    src={`/img/icon/${icon.name}.png`}
-                                    alt={icon.name}
+                                    src={`/img/icon/${stack.src}.png`}
+                                    alt={stack.name}
                                     draggable={'false'}
                                     width={64}
                                     height={64}
-                                    className={`grayscale-0 transition-all duration-200 cursor-pointer w-10`}
+                                    className={`cursor-pointer w-fit h-3 lg:h-4`}
                                 />
+                                <span
+                                    className={`text-xs lg:text-xs font-medium text-black`}
+                                >
+                                    {stack.name}
+                                </span>
                             </div>
                         </LinkPreview>
                     ))}
                 </div>
+                {/* Content */}
             </div>
+            {/* End Skill Container */}
         </>
     )
 }

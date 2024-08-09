@@ -15,7 +15,7 @@ export default function Hero() {
             {/* Hero Section */}
             <section
                 id="home"
-                className="z-0 w-screen h-fit lg:h-screen py-4 lg:py-6 px-0 lg:px-14"
+                className="z-0 w-screen h-fit lg:h-screen py-4 lg:py-6 px-0 lg:px-12"
             >
                 {/* Content Container */}
                 <div className="relative w-full h-full flex flex-col justify-between bg-stone-200/30 rounded-2xl px-4 lg:px-10 py-4 lg:py-6">

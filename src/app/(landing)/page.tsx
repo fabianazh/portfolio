@@ -1,17 +1,9 @@
-import Hero from '@/components/Section/Home/Hero'
-import About from '@/components/Section/Home/About'
-import Projects from '@/components/Section/Home/Projects'
-import Skill from '@/components/Section/Home/Skill'
-import Contact from '@/components/Section/Home/Contact'
+import Home from '@/components/Page/Home'
 
-export default function Home() {
+export default function HomePage() {
     return (
         <>
-            <Hero />
-            <About />
-            <Skill />
-            <Projects />
-            <Contact />
+            <Home />
         </>
     )
 }
