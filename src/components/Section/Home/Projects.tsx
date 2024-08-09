@@ -67,27 +67,30 @@ export default function Projects() {
                                         <span className="text-sm font-medium w-full lg:w-6/12">
                                             {project.desc}
                                         </span>
-                                        <div className="w-full lg:w-3/12 items-start">
+                                        <div className="w-full lg:w-3/12 flex flex-wrap">
                                             {project.techStack.map(
-                                                (item, index) => (
-                                                    <div key={index}>
+                                                (
+                                                    item: string,
+                                                    index: number
+                                                ) => (
+                                                    <div
+                                                        key={index}
+                                                        className="inline-block w-fit"
+                                                    >
                                                         <span
                                                             key={index}
                                                             className="text-xs lg:text-sm font-medium text-stone-400"
                                                         >
-                                                            {item}
-                                                        </span>
-                                                        <span
-                                                            key={index}
-                                                            className="last:hidden text-xs lg:text-sm font-medium text-stone-400"
-                                                        >
-                                                            ,{' '}
+                                                            {item},{' '}
                                                         </span>
                                                     </div>
                                                 )
                                             )}
                                         </div>
-                                        <span className="w-fit inline-block text-xs lg:text-sm font-medium text-stone-400">
+                                        <span className="w-fit inline-block text-sm font-medium text-stone-400">
+                                            <span className="inline-block lg:hidden">
+                                                20
+                                            </span>
                                             {project.year}
                                         </span>
                                     </div>
