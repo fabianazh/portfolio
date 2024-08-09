@@ -13,10 +13,10 @@ export default function Skill() {
             {/* Skill Section */}
             <section
                 id="skill"
-                className="w-full h-auto flex flex-col lg:flex-row lg:justify-between gap-4 lg:gap-10 py-20 mb-14 px-6 lg:px-20"
+                className="w-full h-auto bg-stone-100 flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-10 py-20 mb-14 px-6 lg:px-20"
             >
                 {/* Left Content */}
-                <div className="w-full lg:w-fit flex flex-col gap-1">
+                <div className="w-full lg:w-3/12 shrink-0 flex flex-col gap-1">
                     {/* Heading Skill */}
                     <h2
                         className={`text-xl lg:text-2xl font-medium text-start ${inter.className}`}
@@ -35,7 +35,7 @@ export default function Skill() {
                 </div>
                 {/* End Left Content */}
                 {/* Right Content */}
-                <div className="w-full lg:w-2/3 shrink-0 flex h-auto flex-col gap-6">
+                <div className="w-full lg:w-9/12 flex h-auto flex-col gap-6">
                     <SkillContainer
                         title="Languages and other"
                         stacks={languagesAndFrameworksStack}

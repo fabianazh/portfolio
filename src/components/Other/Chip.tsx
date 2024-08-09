@@ -1,7 +1,15 @@
-export default function Chip({ children }: { children: React.ReactNode }) {
+export default function Chip({
+    children,
+    className = 'text-white bg-white/30',
+}: {
+    children: React.ReactNode
+    className?: string
+}) {
     return (
         <>
-            <div className="text-xs text-white font-medium bg-white/30 rounded block w-auto h-auto py-1 px-2.5">
+            <div
+                className={`text-xs font-medium rounded block w-auto h-auto py-0.5 px-2 ${className}`}
+            >
                 {children}
             </div>
         </>

@@ -9,3 +9,15 @@ interface SquareImg {
     location: string
     className: string
 }
+
+interface Project {
+    id: string
+    name: string
+    subname: string
+    desc: string
+    year: string
+    src: string
+    techStack: string[]
+    githubLink: string
+    projectLink: string
+}

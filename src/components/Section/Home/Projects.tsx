@@ -1,54 +1,64 @@
-import { inter } from '@/app/fonts'
+import { inter, mona } from '@/app/fonts'
 import ProjectContainer from '@/components/Container/ProjectContainer'
 import { projects } from '@/constants/model'
 
 export default function Projects() {
     return (
         <>
-            {/* Projet Section */}
+            {/* Project Section */}
             <section
-                id="projects"
-                className="w-full flex flex-col gap-4 lg:gap-10 py-8 lg:py-14 px-6 lg:px-20 h-full"
+                id="project"
+                className="w-full h-auto flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-10 py-16 mb-14 px-6 lg:px-20"
             >
-                {/* Heading Projects */}
-                <h2
-                    className={`text-xl lg:text-2xl text-left lg:text-start font-medium ${inter.className}`}
-                >
-                    Projects
-                </h2>
-                {/* End Heading Projects */}
-                {/* Projects Content */}
-                <div className="w-full h-auto flex flex-col gap-10 lg:gap-20">
-                    {projects.map((project) => (
-                        <ProjectContainer
-                            className={project.className}
-                            key={project.id}
-                        >
-                            {/* Description Container */}
-                            <ProjectContainer.Description
-                                title={project.name}
-                                desc={project.desc}
-                                className={project.descClassName}
-                                projectLink={project.projectLink}
-                                githubLink={project.githubLink}
-                            />
-                            {/* End Description Container */}
-
-                            {/* Image Container */}
-                            <ProjectContainer.Thumbnail
-                                imgPath={`/img/project/${project.img}`}
-                                title={project.subname}
-                                className={project.thumbnailClassName}
-                                techStack={project.techStack}
-                            />
-
-                            {/* End Image Container */}
-                        </ProjectContainer>
-                    ))}
+                {/* Left Content */}
+                <div className="w-full lg:w-3/12 shrink-0 flex flex-col gap-1">
+                    {/* Heading Project */}
+                    <h2
+                        className={`text-xl lg:text-2xl font-medium text-start ${inter.className}`}
+                    >
+                        Projects
+                    </h2>
+                    {/* End Heading Project */}
+                    {/* Desc Project */}
+                    <span
+                        className={`text-xs lg:text-sm font-medium text-stone-500 ${mona.className}`}
+                    >
+                        Explore the projects I've worked on, showcasing my
+                        expertise across various technologies and frameworks.
+                    </span>
+                    {/* End Desc Project */}
                 </div>
-                {/* End Projects Content */}
+                {/* End Left Content */}
+                {/* Right Content */}
+                <div className="w-full lg:w-10/12 flex h-auto flex-col gap-6">
+                    <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 place-items-start">
+                        {projects.map((project: Project) => (
+                            <ProjectContainer key={project.id}>
+                                {/* Image Container */}
+                                <ProjectContainer.Thumbnail
+                                    imgPath={`/img/project/${project.src}`}
+                                    title={project.subname}
+                                    techStack={project.techStack}
+                                />
+                                {/* End Image Container */}
+
+                                {/* Description Container */}
+                                <ProjectContainer.Description
+                                    title={project.name}
+                                    year={project.year}
+                                    desc={project.desc}
+                                    projectLink={project.projectLink}
+                                    githubLink={project.githubLink}
+                                    techStack={project.techStack}
+                                />
+                                {/* End Description Container */}
+                            </ProjectContainer>
+                        ))}
+                    </div>
+                </div>
+                {/* End Right Content */}
             </section>
-            {/* End Projet Section */}
+            {/* End Project Section */}
         </>
     )
 }
