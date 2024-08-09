@@ -20,4 +20,5 @@ interface Project {
     techStack: string[]
     githubLink: string
     projectLink: string
+    isHighlighted: boolean
 }

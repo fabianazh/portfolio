@@ -37,7 +37,7 @@ export default function Skill() {
                 {/* Right Content */}
                 <div className="w-full lg:w-9/12 flex h-auto flex-col gap-6">
                     <SkillContainer
-                        title="Languages and other"
+                        title="Languages and frameworks"
                         stacks={languagesAndFrameworksStack}
                     />
                     <SkillContainer title="Database" stacks={databasesStack} />

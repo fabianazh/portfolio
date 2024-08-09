@@ -32,10 +32,10 @@ export default function Contact() {
     return (
         <section
             id="contact"
-            className={`w-full flex flex-col gap-8 lg:gap-16 py-14 px-6 lg:px-16 h-full ${mona.className}`}
+            className={`w-full flex flex-col gap-8 lg:gap-12 py-14 px-6 lg:px-16 h-full ${mona.className}`}
         >
-            <div className={`w-full flex gap-2 flex-col ${mori.className}`}>
-                <h3 className="text-4xl lg:text-6xl font-semibold">
+            <div className={`w-full flex gap-4 flex-col ${mori.className}`}>
+                <h3 className="text-4xl lg:text-4xl font-semibold">
                     Contact Me
                 </h3>
                 <span className={`block lg:hidden text-base font-medium`}>
@@ -112,14 +112,9 @@ export default function Contact() {
                             <span className="font-medium text-sm">
                                 West Java, Indonesia.
                             </span>
-                            <div className="flex flex-col gap-1">
-                                <span className="font-medium text-sm">
-                                    Email
-                                </span>
-                                <span className="font-medium text-sm">
-                                    fabianazhrr@gmail.com
-                                </span>
-                            </div>
+                            <span className="font-medium text-sm">
+                                fabianazhrr@gmail.com
+                            </span>
                         </div>
                         <div className="w-fit lg:w-1/2 shrink-0 flex flex-col gap-4">
                             <span className="text-lg font-medium">
