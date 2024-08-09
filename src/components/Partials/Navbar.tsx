@@ -137,7 +137,7 @@ export default function Navbar({ className }: { className?: string }) {
                                                     item: {
                                                         link: string
                                                         text: string
-                                                        samePage: true
+                                                        samePage: boolean
                                                     },
                                                     index: number
                                                 ) => (

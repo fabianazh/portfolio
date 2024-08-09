@@ -4,11 +4,11 @@ import { projects } from '@/constants/model'
 
 export default function Projects() {
     const highlightedProjects = projects.filter(
-        (project) => project.isHighlighted === true
+        (project: Project) => project.isHighlighted === true
     )
 
     const otherProjects = projects.filter(
-        (project) => project.isHighlighted === false
+        (project: Project) => project.isHighlighted === false
     )
 
     return (
@@ -31,7 +31,7 @@ export default function Projects() {
                     <span
                         className={`text-xs lg:text-sm font-medium text-stone-500 ${mona.className}`}
                     >
-                        Explore the projects I've worked on, showcasing my
+                        Explore the projects I&apos;ve worked on, showcasing my
                         expertise across various technologies and frameworks.
                     </span>
                     {/* End Desc Project */}
