@@ -43,7 +43,10 @@ export default function ProjectContainer({
                     className={`flex flex-col h-auto lg:gap-1 justify-center ${descClassName}`}
                 >
                     {/* Title */}
-                    <div className="flex w-full gap-1 items-center">
+                    <Link
+                        href={`/${project.id}`}
+                        className="flex w-full gap-1 items-center"
+                    >
                         <span
                             className={`block text-base lg:text-xl font-semibold ${urbanist.className}`}
                         >
@@ -54,7 +57,7 @@ export default function ProjectContainer({
                         >
                             /{project.year}
                         </span>
-                    </div>
+                    </Link>
                     {/* End Title */}
                     {/* Desc */}
                     <span

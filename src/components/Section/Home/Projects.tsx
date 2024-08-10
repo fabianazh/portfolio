@@ -1,8 +1,10 @@
+import { forwardRef } from 'react'
 import { inter, mona } from '@/app/fonts'
 import ProjectContainer from '@/components/Container/ProjectContainer'
 import { projects } from '@/constants/model'
+import Chip from '@/components/Other/Chip'
 
-export default function Projects() {
+const Projects = forwardRef<HTMLDivElement>((_, ref) => {
     const highlightedProjects = projects.filter(
         (project: Project) => project.isHighlighted === true
     )
@@ -16,6 +18,7 @@ export default function Projects() {
             {/* Project Section */}
             <section
                 id="project"
+                ref={ref} // Assign ref here
                 className="w-full h-auto flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-10 py-6 mb-14 px-6 lg:px-20"
             >
                 {/* Left Content */}
@@ -68,24 +71,14 @@ export default function Projects() {
                                             {project.desc}
                                         </span>
                                         <div className="w-full lg:w-3/12 flex flex-wrap">
-                                            {project.techStack.map(
-                                                (
-                                                    item: string,
-                                                    index: number
-                                                ) => (
-                                                    <div
-                                                        key={index}
-                                                        className="inline-block w-fit"
-                                                    >
-                                                        <span
-                                                            key={index}
-                                                            className="text-xs lg:text-sm font-medium text-stone-400"
-                                                        >
-                                                            {item},{' '}
-                                                        </span>
-                                                    </div>
-                                                )
-                                            )}
+                                            {project.techStack.map((tech) => (
+                                                <Chip
+                                                    key={tech}
+                                                    className="text-black bg-stone-100 border"
+                                                >
+                                                    {tech}
+                                                </Chip>
+                                            ))}
                                         </div>
                                         <span className="w-fit inline-block text-sm font-medium text-stone-400">
                                             <span className="inline-block lg:hidden">
@@ -104,4 +97,8 @@ export default function Projects() {
             {/* End Project Section */}
         </>
     )
-}
+})
+
+Projects.displayName = 'Projects'
+
+export default Projects

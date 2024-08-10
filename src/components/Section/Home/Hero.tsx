@@ -4,7 +4,7 @@ import { mona, mori } from '@/app/fonts'
 import PrimaryButton from '@/components/Button/PrimaryButton'
 import Image from 'next/image'
 import { FaArrowDown } from 'react-icons/fa'
-import Header from '@/components/Partials/Header'
+import HeroHeader from '@/components/Partials/HeroHeader'
 import { BackgroundBeams } from '@/components/Other/BackgroundBeams'
 import Link from 'next/link'
 import MailIcon from '@/components/Icon/MailIcon'
@@ -24,7 +24,7 @@ export default function Hero() {
                     {/* End Background */}
 
                     {/* Header */}
-                    <Header />
+                    <HeroHeader />
                     {/* End Header */}
 
                     {/* Content */}

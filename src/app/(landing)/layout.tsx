@@ -1,19 +1,30 @@
 'use client'
 
+import { useEffect } from 'react'
+import Header from '@/components/Partials/Header'
 import Footer from '@/components/Partials/Footer'
-import ScrollButton from '@/components/Button/ScrollButton'
-import SmoothScroll from '@/components/Other/SmoothScroll'
+import Lenis from 'lenis'
 
 export default function LandingLayout({
     children,
 }: Readonly<{
     children: React.ReactNode
 }>) {
+    useEffect(() => {
+        const lenis = new Lenis()
+
+        function raf(time: number) {
+            lenis.raf(time)
+            requestAnimationFrame(raf)
+        }
+
+        requestAnimationFrame(raf)
+    }, [])
+
     return (
         <>
-            <SmoothScroll />
+            <Header />
             <main>{children}</main>
-            <ScrollButton />
             <Footer />
         </>
     )
