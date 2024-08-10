@@ -1,10 +1,21 @@
-import { forwardRef } from 'react'
+'use client'
+
 import { inter, mona } from '@/app/fonts'
 import ProjectContainer from '@/components/Container/ProjectContainer'
 import { projects } from '@/constants/model'
 import Chip from '@/components/Other/Chip'
+import { useEffect, useRef, useState } from 'react'
+import { useInView } from 'framer-motion'
 
-const Projects = forwardRef<HTMLDivElement>((_, ref) => {
+export default function Projects() {
+    const projectRef = useRef<HTMLDivElement | null>(null)
+    const isInView = useInView(projectRef, { once: true, amount: 0.5 })
+    const [inView, setInView] = useState<boolean>(false)
+
+    useEffect(() => {
+        setInView(true)
+    }, [isInView])
+
     const highlightedProjects = projects.filter(
         (project: Project) => project.isHighlighted === true
     )
@@ -18,7 +29,7 @@ const Projects = forwardRef<HTMLDivElement>((_, ref) => {
             {/* Project Section */}
             <section
                 id="project"
-                ref={ref} // Assign ref here
+                ref={projectRef}
                 className="w-full h-auto flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-10 py-6 mb-14 px-6 lg:px-20"
             >
                 {/* Left Content */}
@@ -27,7 +38,7 @@ const Projects = forwardRef<HTMLDivElement>((_, ref) => {
                     <h2
                         className={`text-xl lg:text-2xl font-medium text-start ${inter.className}`}
                     >
-                        Projects
+                        Projects {inView && 'span'}
                     </h2>
                     {/* End Heading Project */}
                     {/* Desc Project */}
@@ -70,7 +81,7 @@ const Projects = forwardRef<HTMLDivElement>((_, ref) => {
                                         <span className="text-sm font-medium w-full lg:w-6/12">
                                             {project.desc}
                                         </span>
-                                        <div className="w-full lg:w-3/12 flex flex-wrap">
+                                        <div className="w-full lg:w-3/12 flex flex-wrap gap-1.5 lg:gap-2">
                                             {project.techStack.map((tech) => (
                                                 <Chip
                                                     key={tech}
@@ -97,8 +108,4 @@ const Projects = forwardRef<HTMLDivElement>((_, ref) => {
             {/* End Project Section */}
         </>
     )
-})
-
-Projects.displayName = 'Projects'
-
-export default Projects
+}

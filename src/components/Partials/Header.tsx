@@ -1,12 +1,13 @@
 'use client'
 
 import Navbar from '@/components/Partials/Navbar'
-import AppIcon from '@/components/Icon/AppIcon'
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { overlayVariant } from '@/variants/navbar'
 import { disableScroll, enableScroll } from '@/utils/controllScroll'
 import NavButton from '@/components/Partials/NavButton'
+import Link from 'next/link'
+import { mona } from '@/app/fonts'
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -63,7 +64,7 @@ export default function Header() {
             {/* Navbar */}
             {/* Header */}
             <header
-                className={`w-full h-fit bg-transparent fixed top-0 left-0 w-full z-20 px-0 lg:px-16 transition-all duration-300 ${
+                className={`w-full h-fit bg-transparent fixed top-0 left-0 z-20 px-0 lg:px-14 transition-all duration-300 ${
                     isScrolled
                         ? 'translate-y-0 lg:translate-y-3 opacity-100'
                         : '-translate-y-10 opacity-0'
@@ -71,10 +72,15 @@ export default function Header() {
             >
                 {/* Nav Container */}
                 <div
-                    className={`relative w-full flex items-center justify-between bg-white/95 z-10 px-5 lg:px-6 py-3 lg:py-2 backdrop-blur-sm rounded-b-xl lg:rounded-full`}
+                    className={`relative w-full flex items-center justify-between bg-white/95 z-10 px-5 lg:px-6 py-3 lg:py-2 backdrop-blur-sm rounded-b-xl lg:rounded-full shadow-sm`}
                 >
                     {/* Logo and Name */}
-                    <AppIcon nameOnly />
+                    <Link
+                        href={'https://fabianazh.vercel.app'}
+                        className={`text-xs lg:text-sm text-black w-fit h-fit inline-block font-medium group ${mona.className}`}
+                    >
+                        Fabian Azhar
+                    </Link>
                     {/* End Logo and Name */}
 
                     {/* Nav Button */}

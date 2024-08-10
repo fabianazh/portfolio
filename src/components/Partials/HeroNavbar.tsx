@@ -1,6 +1,6 @@
 'use client'
 
-import { Link as SamePageLink } from 'react-scroll/modules'
+import { Link as SamePageLink } from 'react-scroll'
 import Link from 'next/link'
 import { navItems } from '@/constants/component'
 import { AnimatePresence, motion } from 'framer-motion'

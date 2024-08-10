@@ -64,7 +64,7 @@ export const projects = [
         name: 'Starbucks Clone',
         subname: 'Starbucks Clone',
         src: 'starbucks.png',
-        desc: 'Starbucks clone',
+        desc: 'A landing page from popular coffee shop.',
         techStack: ['React JS', 'Tailwind CSS', 'Chakra UI'],
         year: '23',
         projectLink: 'https://quranku-one.vercel.app',
