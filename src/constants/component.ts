@@ -2,27 +2,22 @@ export const navItems = [
     {
         link: 'home',
         text: 'Home',
-        samePage: true,
     },
     {
         link: 'about',
         text: 'About',
-        samePage: true,
     },
     {
         link: 'skill',
         text: 'Skill',
-        samePage: true,
     },
     {
-        link: '/projects',
+        link: 'projects',
         text: 'Projects',
-        samePage: false,
     },
     {
         link: 'contact',
         text: 'Contact',
-        samePage: true,
     },
 ]
 

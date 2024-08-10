@@ -27,15 +27,17 @@ export default function ProjectDetailPage({
                 </Link>
             </section>
             <section className="w-full px-6 lg:px-16 mb-16 flex flex-col gap-4 lg:gap-6 h-auto">
-                <Image
-                    src={`/img/projects/${project?.src}`}
-                    alt={`${project?.name}`}
-                    width={900}
-                    height={500}
-                    className="w-full h-fit border"
-                />
+                <div className="w-full h-fit">
+                    <Image
+                        src={`/img/projects/${project?.src}`}
+                        alt={`${project?.name}`}
+                        width={900}
+                        height={500}
+                        className="w-full h-fit border"
+                    />
+                </div>
                 <div className="w-full flex flex-col lg:flex-row h-auto justify-between gap-8 lg:gap-12">
-                    <div className="w-full lg:w-4/12 h-fit">
+                    <div className="w-full lg:w-4/12 h-fit sticky top-0">
                         <span
                             className={`font-semibold text-3xl lg:text-4xl ${urbanist.className}`}
                         >
@@ -46,9 +48,7 @@ export default function ProjectDetailPage({
                         <span className="font-medium text-xs lg:text-sm">
                             {project?.desc}
                         </span>
-                        <span className="font-medium text-xs lg:text-sm">
-                            {project?.desc}
-                        </span>
+                        <div className="w-full flex gap-4"></div>
                     </div>
                 </div>
             </section>

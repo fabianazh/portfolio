@@ -28,7 +28,7 @@ export default function Projects() {
         <>
             {/* Project Section */}
             <section
-                id="project"
+                id="projects"
                 ref={projectRef}
                 className="w-full h-auto flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-10 py-6 mb-14 px-6 lg:px-20"
             >
@@ -38,7 +38,7 @@ export default function Projects() {
                     <h2
                         className={`text-xl lg:text-2xl font-medium text-start ${inter.className}`}
                     >
-                        Projects {inView && 'span'}
+                        Projects
                     </h2>
                     {/* End Heading Project */}
                     {/* Desc Project */}

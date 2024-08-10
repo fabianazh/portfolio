@@ -1,7 +1,6 @@
 'use client'
 
-import { Link as SamePageLink } from 'react-scroll'
-import Link from 'next/link'
+import { Link } from 'react-scroll'
 import { navItems } from '@/constants/component'
 import { AnimatePresence, motion } from 'framer-motion'
 import { navContainerVariant, perspectiveTextVariant } from '@/variants/navbar'
@@ -68,7 +67,6 @@ export default function Navbar({
                                                 item: {
                                                     link: string
                                                     text: string
-                                                    samePage: boolean
                                                 },
                                                 index: number
                                             ) => (
@@ -83,35 +81,20 @@ export default function Navbar({
                                                         initial="initial"
                                                         className="relative w-fit inline-block h-fit group"
                                                     >
-                                                        {item.samePage ? (
-                                                            <SamePageLink
-                                                                onClick={() =>
-                                                                    setIsOpen(
-                                                                        !isOpen
-                                                                    )
-                                                                }
-                                                                className={`text-base lg:text-base cursor-pointer relative pb-[1px] text-black font-medium`}
-                                                                smooth={true}
-                                                                to={item.link}
-                                                                spy={true}
-                                                            >
-                                                                {item.text}
-                                                                <div className="absolute w-full h-[2px] scale-x-0 bottom-0 left-0 bg-stone-600 origin-bottom-right transition-transform duration-300 group-hover:scale-x-100 group-hover:origin-bottom-left" />
-                                                            </SamePageLink>
-                                                        ) : (
-                                                            <Link
-                                                                onClick={() =>
-                                                                    setIsOpen(
-                                                                        !isOpen
-                                                                    )
-                                                                }
-                                                                className={`text-base lg:text-base cursor-pointer relative pb-[1px] text-black font-medium`}
-                                                                href={item.link}
-                                                            >
-                                                                {item.text}
-                                                                <div className="absolute w-full h-[2px] scale-x-0 bottom-0 left-0 bg-stone-600 origin-bottom-right transition-transform duration-300 group-hover:scale-x-100 group-hover:origin-bottom-left" />
-                                                            </Link>
-                                                        )}
+                                                        <Link
+                                                            onClick={() =>
+                                                                setIsOpen(
+                                                                    !isOpen
+                                                                )
+                                                            }
+                                                            className={`text-base lg:text-base cursor-pointer relative pb-[1px] text-black font-medium`}
+                                                            smooth={true}
+                                                            to={item.link}
+                                                            spy={true}
+                                                        >
+                                                            {item.text}
+                                                            <div className="absolute w-full h-[2px] scale-x-0 bottom-0 left-0 bg-stone-600 origin-bottom-right transition-transform duration-300 group-hover:scale-x-100 group-hover:origin-bottom-left" />
+                                                        </Link>
                                                     </motion.div>
                                                 </li>
                                             )
