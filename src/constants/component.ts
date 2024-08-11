@@ -4,16 +4,16 @@ export const navItems = [
         text: 'Home',
     },
     {
-        link: 'about',
-        text: 'About',
+        link: 'projects',
+        text: 'Projects',
     },
+    // {
+    //     link: 'about',
+    //     text: 'About',
+    // },
     {
         link: 'skill',
         text: 'Skill',
-    },
-    {
-        link: 'projects',
-        text: 'Projects',
     },
     {
         link: 'contact',

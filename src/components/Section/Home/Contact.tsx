@@ -47,38 +47,41 @@ export default function Contact() {
             </div>
             <div className="grid lg:grid-cols-2 w-full h-auto flex-grow gap-20 items-end">
                 <form onSubmit={handleSubmit(onSubmit)} className="w-full">
-                    <div className="mb-8">
+                    <div className="mb-8 relative group">
                         <input
                             type={'text'}
                             id={'name'}
                             placeholder={'Enter your full name'}
-                            className={`w-full font-medium valid:bg-transparent text-sm border-stone-300 bg-transparent py-3 px-2 lg:px-3 placeholder:text-stone-700 text-stone-800 outline-none autocomplete:bg-transparent focus:border-stone-400 border-b-2 ${mona.className}`}
+                            className={`w-full font-medium valid:bg-transparent text-sm border-stone-300 bg-transparent py-3 px-2 lg:px-3 placeholder:text-stone-700 text-stone-800 outline-none autocomplete:bg-transparent border-b-2 ${mona.className}`}
                             required
                             autoComplete="off"
                             {...register('name')}
                         />
+                        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-0.5 scale-x-0 bg-stone-400 peer-focused:scale-x-100 group-hover:scale-x-100"></div>
                     </div>
-                    <div className="mb-8">
+                    <div className="mb-8 relative group">
                         <input
                             type={'text'}
                             id={'email'}
                             placeholder={'Enter your email address'}
-                            className={`w-full font-medium valid:bg-transparent text-sm border-stone-300 bg-transparent py-3 px-2 lg:px-3 placeholder:text-stone-700 text-stone-800 outline-none autocomplete:bg-transparent focus:border-stone-400 border-b-2 ${mona.className}`}
+                            className={`w-full font-medium valid:bg-transparent text-sm border-stone-300 bg-transparent py-3 px-2 lg:px-3 placeholder:text-stone-700 text-stone-800 outline-none autocomplete:bg-transparent border-b-2 ${mona.className}`}
                             required
                             autoComplete="off"
                             {...register('email')}
                         />
+                        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-0.5 scale-x-0 bg-stone-400 peer-focused:scale-x-100 group-hover:scale-x-100"></div>
                     </div>
-                    <div className="mb-8">
+                    <div className="mb-8 relative group">
                         <textarea
                             id={'message'}
                             rows={4}
                             placeholder={'Write your message here'}
-                            className={`w-full font-medium valid:bg-transparent text-sm border-stone-300 bg-transparent py-3 px-2 lg:px-3 placeholder:text-stone-700 text-stone-800 outline-none autocomplete:bg-transparent focus:border-stone-400 border-b-2 ${mona.className} resize-none`}
+                            className={`w-full font-medium valid:bg-transparent text-sm border-stone-300 bg-transparent py-3 px-2 lg:px-3 placeholder:text-stone-700 text-stone-800 outline-none autocomplete:bg-transparent border-b-2 ${mona.className} resize-none`}
                             required
                             autoComplete="off"
                             {...register('message')}
                         ></textarea>
+                        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-0.5 scale-x-0 bg-stone-400 peer-focused:scale-x-100 group-hover:scale-x-100"></div>
                     </div>
                     <div className="flex justify-end w-full h-auto gap-4">
                         <button

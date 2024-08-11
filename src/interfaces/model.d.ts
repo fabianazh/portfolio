@@ -15,9 +15,13 @@ interface Project {
     name: string
     subname: string
     desc: string
+    shortDesc: string
     year: string
-    src: string
-    techStack: string[]
+    thumbnail: string
+    role: string
+    client: string
+    tools: string[]
+    collaborators: string[]
     githubLink: string
     projectLink: string
     isHighlighted: boolean

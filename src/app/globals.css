@@ -23,9 +23,9 @@
     body::-webkit-scrollbar-thumb {
         @apply lg:opacity-0 lg:rounded-lg lg:bg-stone-300 lg:hover:bg-stone-400 transition-all duration-300;
     }
-    section {
+    /* section {
         @apply overflow-x-hidden;
-    }
+    } */
 }
 
 @layer components {

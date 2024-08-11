@@ -25,7 +25,7 @@ export default function Navbar({
             >
                 <AnimatePresence>
                     {isOpen && (
-                        <motion.div className="pl-8 pr-8 lg:pl-10 lg:pr-10 flex flex-col gap-6 lg:gap-8 pt-6 lg:pt-10 pb-12 lg:pb-16 z-50 w-[87vw] lg:w-96">
+                        <motion.div className="pl-8 pr-8 lg:pl-10 lg:pr-10 flex flex-col gap-6 lg:gap-8 pt-6 lg:pt-10 pb-12 lg:pb-16 z-50 w-[90vw] lg:w-96">
                             <motion.div
                                 variants={perspectiveTextVariant}
                                 custom={0}
@@ -83,31 +83,30 @@ export default function Navbar({
                                             },
                                             index: number
                                         ) => (
-                                            <li key={index}>
-                                                <motion.div
-                                                    variants={
-                                                        perspectiveTextVariant
+                                            <motion.li
+                                                key={index}
+                                                variants={
+                                                    perspectiveTextVariant
+                                                }
+                                                custom={index}
+                                                animate="enter"
+                                                exit="exit"
+                                                initial="initial"
+                                                className="relative w-fit inline-block h-fit group"
+                                            >
+                                                <Link
+                                                    onClick={() =>
+                                                        setIsOpen(!isOpen)
                                                     }
-                                                    custom={index}
-                                                    animate="enter"
-                                                    exit="exit"
-                                                    initial="initial"
-                                                    className="relative w-fit inline-block h-fit group"
+                                                    className={`text-base lg:text-base cursor-pointer relative pb-[1px] text-black font-medium`}
+                                                    smooth={true}
+                                                    to={item.link}
+                                                    spy={true}
                                                 >
-                                                    <Link
-                                                        onClick={() =>
-                                                            setIsOpen(!isOpen)
-                                                        }
-                                                        className={`text-base lg:text-base cursor-pointer relative pb-[1px] text-black font-medium`}
-                                                        smooth={true}
-                                                        to={item.link}
-                                                        spy={true}
-                                                    >
-                                                        {item.text}
-                                                        <div className="absolute w-full h-[2px] scale-x-0 bottom-0 left-0 bg-stone-600 origin-bottom-right transition-transform duration-300 group-hover:scale-x-100 group-hover:origin-bottom-left" />
-                                                    </Link>
-                                                </motion.div>
-                                            </li>
+                                                    {item.text}
+                                                    <div className="absolute w-full h-[2px] scale-x-0 bottom-0 left-0 bg-stone-600 origin-bottom-right transition-transform duration-300 group-hover:scale-x-100 group-hover:origin-bottom-left" />
+                                                </Link>
+                                            </motion.li>
                                         )
                                     )}
                                 </ul>

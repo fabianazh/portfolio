@@ -2,22 +2,40 @@ import Chip from '@/components/Other/Chip'
 import { urbanist, mona } from '@/app/fonts'
 import Image from 'next/image'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 
-export default function ProjectContainer({
+export default function ProjectCard({
     project,
     className,
     thumbnailClassName,
     descClassName,
+    index,
 }: {
     project: Project
     className?: string
     thumbnailClassName?: string
     descClassName?: string
+    index: number
 }) {
     return (
         <>
             {/* Container */}
-            <div className={`h-full flex w-full flex-col gap-3 ${className}`}>
+            <motion.div
+                variants={{
+                    enter: (i: number) => ({
+                        opacity: 1,
+                        transition: { delay: 0.4 + i * 0.2 },
+                    }),
+                    initial: {
+                        opacity: 0,
+                    },
+                }}
+                custom={index}
+                animate="enter"
+                exit="exit"
+                initial="initial"
+                className={`h-full flex w-full flex-col gap-3 ${className}`}
+            >
                 {/* Thumbnail Container */}
                 <Link
                     href={`/${project.id}`}
@@ -27,7 +45,7 @@ export default function ProjectContainer({
                     <div className="w-full relative rounded-2xl h-full shadow-sm lg:shadow overflow-hidden transition-all">
                         {/* Image */}
                         <Image
-                            src={`/img/projects/${project.src}`}
+                            src={`/img/projects/${project.thumbnail}`}
                             alt={project.name}
                             className="w-full h-full transition-all object-cover"
                             width={400}
@@ -48,7 +66,7 @@ export default function ProjectContainer({
                         className="flex w-full gap-1 items-center"
                     >
                         <span
-                            className={`block text-base lg:text-xl font-semibold ${urbanist.className}`}
+                            className={`block text-lg lg:text-xl font-semibold ${urbanist.className}`}
                         >
                             {project.name}
                         </span>
@@ -63,11 +81,11 @@ export default function ProjectContainer({
                     <span
                         className={`text-sm block font-normal lg:font-medium mb-3 ${mona.className}`}
                     >
-                        {project.desc}
+                        {project.shortDesc}
                     </span>
                     {/* End Desc */}
                     <div className="flex flex-row gap-2 w-full h-auto">
-                        {project.techStack.map((tech) => (
+                        {project.tools.map((tech) => (
                             <Chip
                                 key={tech}
                                 className="text-black bg-stone-100 border"
@@ -78,7 +96,7 @@ export default function ProjectContainer({
                     </div>
                 </div>
                 {/* End Description Container */}
-            </div>
+            </motion.div>
             {/* End Container */}
         </>
     )

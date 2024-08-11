@@ -16,7 +16,7 @@ export default function SkillContainer({
     return (
         <>
             {/* Skill Container */}
-            <div className="w-full flex flex-col h-fit shrink-0 gap-3 lg:gap-3.5 bg-[#fafafa] p-4 lg:p-6 pb-6 lg:pb-6 rounded-xl shadow-sm">
+            <div className="w-full flex flex-col h-fit shrink-0 gap-3 lg:gap-3.5 bg-[#fafafa] p-4 lg:p-6 pb-5 lg:pb-6 rounded-xl shadow-sm">
                 {/* Heading */}
                 <span className={`block text-sm lg:text-sm font-medium`}>
                     {title}

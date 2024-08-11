@@ -2,6 +2,7 @@
 
 import Navbar from '@/components/Partials/Navbar'
 import { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
 import { AnimatePresence, motion } from 'framer-motion'
 import { overlayVariant } from '@/variants/navbar'
 import { disableScroll, enableScroll } from '@/utils/controllScroll'
@@ -12,6 +13,8 @@ import { mona } from '@/app/fonts'
 export default function Header() {
     const [isOpen, setIsOpen] = useState<boolean>(false)
     const [isScrolled, setIsScrolled] = useState<boolean>(false)
+
+    const pathname = usePathname()
 
     const handleScroll = () => {
         const scrollPosition = window.scrollY
@@ -43,6 +46,10 @@ export default function Header() {
         }
     }, [isOpen])
 
+    if (pathname !== '/') {
+        return <></>
+    }
+
     return (
         <>
             {/* Overlay */}
@@ -72,12 +79,12 @@ export default function Header() {
             >
                 {/* Nav Container */}
                 <div
-                    className={`relative w-full flex items-center justify-between bg-white/95 z-10 px-5 lg:px-6 py-3 lg:py-2 backdrop-blur-sm rounded-b-xl lg:rounded-full shadow-sm`}
+                    className={`relative w-full flex items-center justify-between bg-white/50 z-10 px-5 lg:px-6 py-3 lg:py-2 backdrop-blur-md rounded-b-xl lg:rounded-full shadow-sm`}
                 >
                     {/* Logo and Name */}
                     <Link
                         href={'https://fabianazh.vercel.app'}
-                        className={`text-xs lg:text-sm text-black w-fit h-fit inline-block font-medium group ${mona.className}`}
+                        className={`text-sm text-black w-fit h-fit inline-block font-medium group ${mona.className}`}
                     >
                         Fabian Azhar
                     </Link>
