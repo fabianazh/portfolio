@@ -23,30 +23,27 @@ export default function ProjectDetailPage({
     const projectData = [
         {
             title: 'Client',
-            content: project.client,
+            content: project?.client,
         },
         {
             title: 'Year',
-            content: `20${project.year}`,
+            content: `20${project?.year}`,
         },
         {
             title: 'Role',
-            content: project.role,
+            content: project?.role,
         },
         {
             title: 'Collaborators',
-            content: project.collaborators.map(
+            content: project?.collaborators.map(
                 (collaborator: string) => collaborator
             ),
         },
         {
             title: 'Tools',
-            content: [
-                ...project.tools
-                    .slice(0, -1)
-                    .map((tool: string) => `${tool}, `),
-                project.tools[project.tools.length - 1] + '.',
-            ].join(''),
+            content: project?.tools.map((tool: string, index: number) =>
+                index + 1 == project.tools?.length ? `${tool}.` : `${tool}, `
+            ),
         },
     ]
 
@@ -80,7 +77,7 @@ export default function ProjectDetailPage({
                 <div className="w-full flex flex-col gap-8 py-8 lg:py-16 px-6 lg:px-60">
                     <div className="w-full flex flex-col">
                         <span className="text-lg lg:text-2xl font-medium">
-                            {project.desc}
+                            {project?.desc}
                         </span>
                     </div>
                     <div className="w-full flex flex-col">
