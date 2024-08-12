@@ -28,7 +28,7 @@ export default function HeroHeader() {
                         animate="enter"
                         exit="exit"
                         initial="initial"
-                        className="fixed w-screen h-screen top-0 left-0 bg-black/20 z-10"
+                        className="fixed w-screen h-screen top-0 left-0 bg-black/20 backdrop-blur-sm z-30"
                     ></motion.div>
                 )}
             </AnimatePresence>
@@ -36,7 +36,7 @@ export default function HeroHeader() {
             {/* Header */}
             <header className="relative items-center justify-between top-0 left-0 z-40 flex h-fit w-full lg:w-full bg-transparent">
                 {/* Logo and Name */}
-                <AppIcon />
+                <AppIcon className={isOpen ? 'blur-sm' : ''} />
                 {/* End Logo and Name */}
 
                 {/* Navbar */}

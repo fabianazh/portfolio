@@ -1,17 +1,20 @@
 import Link from 'next/link'
+import { FaArrowUp } from 'react-icons/fa'
 
 export default function PrimaryButton({
     href,
     children,
     className,
     target,
-    icon,
+    icon = (
+        <FaArrowUp className="rotate-45 opacity-0 group-hover:opacity-100" />
+    ),
 }: {
     href: string
     children: React.ReactNode
     className?: string
     target?: '_blank' | '_parent' | '_top' | '_self'
-    icon: React.ReactNode
+    icon?: React.ReactNode
 }) {
     return (
         <>

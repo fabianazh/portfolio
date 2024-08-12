@@ -1,9 +1,6 @@
 'use client'
 
-import { mona, mori } from '@/app/fonts'
-import PrimaryButton from '@/components/Button/PrimaryButton'
-import Image from 'next/image'
-import { FaArrowDown } from 'react-icons/fa'
+import { mona } from '@/app/fonts'
 import HeroHeader from '@/components/Partials/HeroHeader'
 import { BackgroundBeams } from '@/components/Other/BackgroundBeams'
 import Link from 'next/link'

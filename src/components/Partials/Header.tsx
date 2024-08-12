@@ -84,7 +84,7 @@ export default function Header() {
                     {/* Logo and Name */}
                     <Link
                         href={'https://fabianazh.vercel.app'}
-                        className={`text-sm text-black w-fit h-fit inline-block font-medium group ${mona.className}`}
+                        className={`text-sm text-black w-fit h-fit inline-block font-medium lg:font-semibold group ${mona.className}`}
                     >
                         Fabian Azhar
                     </Link>

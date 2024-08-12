@@ -2,6 +2,11 @@ import { urbanist } from '@/app/fonts'
 import { projects } from '@/constants/model'
 import Image from 'next/image'
 import Link from 'next/link'
+import ScrollButton from '@/components/Button/ScrollButton'
+import PrimaryButton from '@/components/Button/PrimaryButton'
+import SecondaryButton from '@/components/Button/SecondaryButton'
+import { AnimatePresence } from 'framer-motion'
+import { FaArrowRight } from 'react-icons/fa'
 
 export async function generateStaticParams() {
     // const posts = await fetch('https://.../posts').then((res) => res.json())
@@ -18,7 +23,15 @@ export default function ProjectDetailPage({
 }) {
     const { projectId } = params
 
-    const project = projects.find((project) => project.id === projectId)
+    const project = projects.find(
+        (project: Project) => project.id === projectId
+    )
+
+    const nextProject = projects.find((nextProject: Project) =>
+        projects.length === project.index
+            ? nextProject.index === 1
+            : nextProject.index > project.index
+    )
 
     const projectData = [
         {
@@ -49,6 +62,7 @@ export default function ProjectDetailPage({
 
     return (
         <>
+            <ScrollButton />
             <section className="w-full h-fit flex px-6 lg:px-12 py-6 lg:py-10">
                 <Link href={'/'} className="font-medium lg:text-lg">
                     Back to home
@@ -93,6 +107,37 @@ export default function ProjectDetailPage({
                             </div>
                         ))}
                     </div>
+                    <div className="w-full flex flex-col lg:flex-row items-center gap-4 lg:gap-8 py-4">
+                        <PrimaryButton
+                            href={`${project?.projectLink}`}
+                            className="text-sm lg:text-base"
+                        >
+                            View website
+                        </PrimaryButton>
+                        <SecondaryButton
+                            href={`${project?.githubLink}`}
+                            className="text-sm lg:text-base"
+                        >
+                            See on github
+                        </SecondaryButton>
+                    </div>
+                </div>
+                <div className="w-full h-fit py-4 mb-8 lg:mb-12">
+                    <Image
+                        src={`/img/projects/${project?.thumbnail}`}
+                        alt={`${project?.name}`}
+                        width={900}
+                        height={500}
+                        className="w-full h-fit"
+                    />
+                </div>
+                <div className="w-full flex justify-end h-fit px-6 lg:px-12 py-4 lg:py-8">
+                    <Link
+                        href={`/${nextProject?.id}`}
+                        className="flex gap-2 font-bold items-center"
+                    >
+                        Next project <FaArrowRight />
+                    </Link>
                 </div>
             </section>
         </>

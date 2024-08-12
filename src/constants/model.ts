@@ -1,6 +1,7 @@
 export const projects = [
     {
         id: 'bind',
+        index: 1,
         name: 'Bind',
         subname: 'Bind - Connecting You with the World',
         thumbnail: 'bind.png',
@@ -19,6 +20,7 @@ export const projects = [
     {
         id: 'jitu',
         name: 'Jitu!',
+        index: 2,
         subname: 'Jitu! - Menuju Keunggulan, Dengan Kedisiplinan!',
         thumbnail: 'jitu.png',
         desc: 'A simple system to help schools track and manage student violations.',
@@ -36,6 +38,7 @@ export const projects = [
     {
         id: 'tictactest',
         name: 'TicTacTest',
+        index: 3,
         subname: 'TicTacTest - Your Classic Tic Tac Toe Playground!',
         thumbnail: 'tictactest.png',
         desc: 'TicTacTest is your go-to destination for a classic game of Tic Tac Toe in its purest form.',
@@ -52,6 +55,7 @@ export const projects = [
     },
     {
         id: 'zufar-portfolio',
+        index: 4,
         name: 'Portfolio Web',
         subname: `Zufar's Portfolio`,
         thumbnail: 'portfolio.png',
@@ -69,6 +73,7 @@ export const projects = [
     },
     {
         id: 'quranku',
+        index: 5,
         name: 'QuranKu',
         subname: 'QuranKu - Your Portable Portal to the Quranverse',
         thumbnail: 'quranku.png',
@@ -86,6 +91,7 @@ export const projects = [
     },
     {
         id: 'starbucks-clone',
+        index: 6,
         name: 'Starbucks Clone',
         subname: 'Starbucks Clone',
         thumbnail: 'starbucks.png',

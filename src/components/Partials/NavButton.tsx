@@ -33,7 +33,7 @@ export default function NavButton({
                             stroke="hsl(0, 0%, 18%)"
                             strokeLinecap="round"
                             variants={{
-                                closed: { d: 'M 2 2.5 L 20 2.5' },
+                                closed: { d: 'M 2 2.5 L 18 2.5' },
                                 open: { d: 'M 3 16.5 L 17 2.5' },
                             }}
                         />
@@ -42,7 +42,7 @@ export default function NavButton({
                             strokeWidth="2"
                             stroke="hsl(0, 0%, 18%)"
                             strokeLinecap="round"
-                            d="M 2 9.423 L 20 9.423"
+                            d="M 2 9.423 L 12 9.423"
                             variants={{
                                 closed: { opacity: 1 },
                                 open: { opacity: 0 },

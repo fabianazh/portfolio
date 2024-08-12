@@ -39,7 +39,7 @@ export default function ProjectCard({
                 {/* Thumbnail Container */}
                 <Link
                     href={`/${project.id}`}
-                    className={`w-full aspect-video lg:aspect-auto h-auto shrink-0 transition-all hover:-translate-y-1 group cursor-pointer ${thumbnailClassName}`}
+                    className={`w-full h-auto shrink-0 transition-all group cursor-pointer ${thumbnailClassName}`}
                 >
                     {/* Layer */}
                     <div className="w-full relative rounded-2xl h-full shadow-sm lg:shadow overflow-hidden transition-all">
@@ -85,7 +85,7 @@ export default function ProjectCard({
                     </span>
                     {/* End Desc */}
                     <div className="flex flex-row gap-2 w-full h-auto">
-                        {project.tools.map((tech) => (
+                        {project.tools.map((tech: string) => (
                             <Chip
                                 key={tech}
                                 className="text-black bg-stone-100 border"

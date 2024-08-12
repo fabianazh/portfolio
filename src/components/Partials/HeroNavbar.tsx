@@ -38,7 +38,7 @@ export default function Navbar({
                 >
                     <AnimatePresence>
                         {isOpen && (
-                            <motion.div className="pl-8 pr-20 lg:pl-10 lg:pr-16 flex flex-col gap-6 lg:gap-8 pt-6 lg:pt-10 pb-12 lg:pb-16 z-50">
+                            <motion.div className="pl-8 pr-20 lg:pl-10 lg:pr-16 flex flex-col gap-6 lg:gap-8 pt-6 lg:pt-10 pb-12 lg:pb-16 z-50 w-auto lg:w-72">
                                 <motion.div
                                     variants={perspectiveTextVariant}
                                     custom={0}
@@ -98,56 +98,34 @@ export default function Navbar({
                                         )}
                                     </ul>
                                 </nav>
-                                <div className="flex gap-10 lg:gap-14 w-full">
-                                    <motion.div
-                                        variants={perspectiveTextVariant}
-                                        custom={3}
-                                        animate="enter"
-                                        exit="exit"
-                                        initial="initial"
-                                        className="flex flex-col gap-1"
-                                    >
-                                        <SecondaryButton
-                                            href={
-                                                'https://instagram.com/fabianazhrr'
-                                            }
-                                            className="text-sm"
-                                        >
-                                            Instagram
-                                        </SecondaryButton>
-                                        <SecondaryButton
-                                            href={
-                                                'https://www.facebook.com/profile.php?id=61560075789729'
-                                            }
-                                            className="text-sm"
-                                        >
-                                            Facebook
-                                        </SecondaryButton>
-                                    </motion.div>
-                                    <motion.div
-                                        variants={perspectiveTextVariant}
-                                        custom={4}
-                                        animate="enter"
-                                        exit="exit"
-                                        initial="initial"
-                                        className="flex flex-col gap-1"
-                                    >
-                                        <SecondaryButton
-                                            href={
-                                                'https://github.com/fabianazh'
-                                            }
-                                            className="text-sm"
-                                        >
-                                            Github
-                                        </SecondaryButton>
-                                        <SecondaryButton
-                                            href={'#'}
-                                            className="text-sm whitespace-nowrap"
-                                        >
-                                            Linked in
-                                        </SecondaryButton>
-                                    </motion.div>
-                                </div>
+                                {/* Bottom Menu */}
+                                <motion.div
+                                    variants={perspectiveTextVariant}
+                                    custom={1}
+                                    animate="enter"
+                                    exit="exit"
+                                    initial="initial"
+                                    className="flex w-full flex-col gap-5"
+                                >
+                                    <span className="text-xs lg:text-sm whitespace-nowrap">
+                                        &copy; {new Date().getFullYear()} Fabian
+                                        Azhar.
+                                        <span className="block">
+                                            All rights reserved.
+                                        </span>
+                                    </span>
+                                    {/* Contact */}
+                                    <div className="flex gap-3 lg:gap-2 w-full">
+                                        <div className="text-xs lg:text-xs border px-3 py-0.5 rounded-full bg-stone-200 font-semibold">
+                                            EN
+                                        </div>
+                                        <div className="text-xs lg:text-xs border px-3 py-0.5 rounded-full font-semibold">
+                                            ID
+                                        </div>
+                                    </div>
+                                    {/* End Contact */}
+                                </motion.div>
+                                {/* End Bottom Menu */}
                             </motion.div>
                         )}
                     </AnimatePresence>

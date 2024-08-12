@@ -12,6 +12,7 @@ interface SquareImg {
 
 interface Project {
     id: string
+    index: number
     name: string
     subname: string
     desc: string
