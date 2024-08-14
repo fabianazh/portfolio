@@ -92,46 +92,48 @@ export default function Projects() {
                             onMouseLeave={() => setActiveProject(null)}
                             className="flex flex-col w-full"
                         >
-                            {otherProjects.map((project: Project) => (
-                                <Link
-                                    href={`/${project.id}`}
-                                    key={project.id}
-                                    onMouseOver={() =>
-                                        setActiveProject(project.index)
-                                    }
-                                    className="w-full flex gap-4 text-stone-600 border-b last:border-0 pb-4 last:pb-0 lg:last:pb-3 last:pt-4 z-10 lg:last:pt-3"
-                                >
-                                    <span className="text-sm font-medium w-4/12 lg:w-2/12 shrink-0 lg:shrink-none">
-                                        {project.name}
-                                    </span>
-                                    <div className="w-8/12 lg:w-10/12 flex flex-col lg:flex-row gap-2 lg:gap-2 lg:justify-between">
-                                        <span className="text-sm font-medium w-full lg:w-6/12">
-                                            {project.shortDesc}
+                            {otherProjects.map(
+                                (project: Project, index: number) => (
+                                    <Link
+                                        href={`/${project.id}`}
+                                        key={project.id}
+                                        onMouseOver={() =>
+                                            setActiveProject(index)
+                                        }
+                                        className="w-full flex gap-4 text-stone-600 border-b last:border-0 pb-4 last:pb-0 lg:last:pb-3 last:pt-4 z-10 lg:last:pt-3"
+                                    >
+                                        <span className="text-sm font-medium w-4/12 lg:w-2/12 shrink-0 lg:shrink-none">
+                                            {project.name}
                                         </span>
-                                        <div className="w-full lg:w-3/12 flex flex-wrap gap-2">
-                                            {project.tools.map(
-                                                (tech: string) => (
-                                                    <Chip
-                                                        key={tech}
-                                                        className="text-black bg-stone-100 border"
-                                                    >
-                                                        {tech}
-                                                    </Chip>
-                                                )
-                                            )}
+                                        <div className="w-8/12 lg:w-10/12 flex flex-col lg:flex-row gap-2 lg:gap-2 lg:justify-between">
+                                            <span className="text-sm font-medium w-full lg:w-6/12">
+                                                {project.shortDesc}
+                                            </span>
+                                            <div className="w-full lg:w-3/12 flex flex-wrap gap-2">
+                                                {project.tools.map(
+                                                    (tech: string) => (
+                                                        <Chip
+                                                            key={tech}
+                                                            className="text-black bg-stone-100 border"
+                                                        >
+                                                            {tech}
+                                                        </Chip>
+                                                    )
+                                                )}
+                                            </div>
+                                            <span className="w-fit inline-block text-sm font-medium text-stone-400">
+                                                <span className="inline-block lg:hidden">
+                                                    20
+                                                </span>
+                                                <span className="hidden lg:inline-block">
+                                                    /
+                                                </span>
+                                                {project.year}
+                                            </span>
                                         </div>
-                                        <span className="w-fit inline-block text-sm font-medium text-stone-400">
-                                            <span className="inline-block lg:hidden">
-                                                20
-                                            </span>
-                                            <span className="hidden lg:inline-block">
-                                                /
-                                            </span>
-                                            {project.year}
-                                        </span>
-                                    </div>
-                                </Link>
-                            ))}
+                                    </Link>
+                                )
+                            )}
                         </div>
                     </div>
                 </div>

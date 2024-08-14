@@ -61,8 +61,8 @@ export default function Model({
         const { x: mouseX, y: mouseY } = mouse
         const smoothX = smoothMouse.x.get()
         const smoothY = smoothMouse.y.get()
-        const xVal = mouseX.get() // Get numeric value from MotionValue
-        const yVal = mouseY.get() // Get numeric value from MotionValue
+        const xVal = mouseX.get()
+        const yVal = mouseY.get()
 
         smoothMouse.x.set(lerp(smoothX, xVal, 0.1))
         smoothMouse.y.set(lerp(smoothY, yVal, 0.1))
@@ -95,7 +95,7 @@ export default function Model({
                 vertexShader={vertex}
                 fragmentShader={fragment}
                 uniforms={uniforms.current}
-                transparent={true}
+                transparent
             />
         </motion.mesh>
     )
