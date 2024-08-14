@@ -4,7 +4,7 @@ export const projects = [
         index: 1,
         name: 'Bind',
         subname: 'Bind - Connecting You with the World',
-        thumbnail: 'bind.png',
+        thumbnail: '/img/projects/bind.png',
         desc: 'A social media platform designed to bring people closer together.',
         shortDesc:
             'A social media platform designed to bring people closer together.',
@@ -22,7 +22,7 @@ export const projects = [
         name: 'Jitu!',
         index: 2,
         subname: 'Jitu! - Menuju Keunggulan, Dengan Kedisiplinan!',
-        thumbnail: 'jitu.png',
+        thumbnail: '/img/projects/jitu.png',
         desc: 'A simple system to help schools track and manage student violations.',
         shortDesc:
             'A simple system to help schools track and manage student violations.',
@@ -40,7 +40,7 @@ export const projects = [
         name: 'TicTacTest',
         index: 3,
         subname: 'TicTacTest - Your Classic Tic Tac Toe Playground!',
-        thumbnail: 'tictactest.png',
+        thumbnail: '/img/projects/tictactest.png',
         desc: 'TicTacTest is your go-to destination for a classic game of Tic Tac Toe in its purest form.',
         shortDesc:
             'TicTacTest is your go-to destination for a classic game of Tic Tac Toe in its purest form.',
@@ -58,7 +58,7 @@ export const projects = [
         index: 4,
         name: 'Portfolio Web',
         subname: `Zufar's Portfolio`,
-        thumbnail: 'portfolio.png',
+        thumbnail: '/img/projects/portfolio.png',
         desc: 'A professional web portfolio I designed, featuring a clean and engaging interface.',
         shortDesc:
             'A professional web portfolio I designed, featuring a clean and engaging interface.',
@@ -76,7 +76,7 @@ export const projects = [
         index: 5,
         name: 'QuranKu',
         subname: 'QuranKu - Your Portable Portal to the Quranverse',
-        thumbnail: 'quranku.png',
+        thumbnail: '/img/projects/quranku.png',
         desc: 'A modern and accessible Quran web application designed to provide users with a seamless reading experience anywhere, anytime.',
         shortDesc:
             'A modern and accessible Quran web application designed to provide users with a seamless reading experience anywhere, anytime.',
@@ -94,7 +94,7 @@ export const projects = [
         index: 6,
         name: 'Starbucks Clone',
         subname: 'Starbucks Clone',
-        thumbnail: 'starbucks.png',
+        thumbnail: '/img/projects/starbucks.png',
         desc: 'A landing page from popular coffee shop.',
         shortDesc: 'A landing page from popular coffee shop.',
         tools: ['React JS', 'Tailwind CSS', 'Chakra UI'],

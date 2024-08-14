@@ -32,7 +32,7 @@ export default function Contact() {
     return (
         <section
             id="contact"
-            className={`w-full flex flex-col gap-8 lg:gap-12 py-14 px-6 lg:px-16 h-full ${mona.className}`}
+            className={`w-full flex flex-col gap-8 lg:gap-12 py-14 px-4 lg:px-16 h-full ${mona.className}`}
         >
             <div className={`w-full flex gap-4 flex-col ${mori.className}`}>
                 <h3 className="text-4xl lg:text-4xl font-semibold">

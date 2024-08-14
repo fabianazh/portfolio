@@ -5,13 +5,16 @@ import ProjectCard from '@/components/Card/ProjectCard'
 import { projects } from '@/constants/model'
 import Chip from '@/components/Other/Chip'
 import { useEffect, useRef, useState } from 'react'
-import { useInView, motion, AnimatePresence } from 'framer-motion'
+import { useInView, AnimatePresence } from 'framer-motion'
+import Scene from '@/components/Other/Scene'
+import Link from 'next/link'
 
 export default function Projects() {
     const projectRef = useRef<HTMLDivElement | null>(null)
     const otherProjectRef = useRef<HTMLDivElement | null>(null)
     const inView = useInView(projectRef, { once: true, amount: 0.5 })
     const [isInView, setIsInView] = useState<boolean>(false)
+    const [activeProject, setActiveProject] = useState<number | null>(null)
 
     useEffect(() => {
         setIsInView(true)
@@ -31,8 +34,12 @@ export default function Projects() {
             <section
                 id="projects"
                 ref={projectRef}
-                className="w-full h-auto flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-10 py-6 mb-14 px-6 lg:px-20"
+                className="relative w-full h-auto flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-10 py-6 mb-14 px-4 lg:px-20"
             >
+                <Scene
+                    activeProject={activeProject}
+                    projects={otherProjects ?? []}
+                />
                 {/* Left Content */}
                 <div className="w-full lg:w-3/12 shrink-0 flex flex-col gap-1">
                     {/* Heading Project */}
@@ -73,7 +80,7 @@ export default function Projects() {
                     </div>
                     <div
                         ref={otherProjectRef}
-                        className="flex w-full gap-4 lg:gap-4 flex-col"
+                        className="relative flex w-full h-auto gap-4 lg:gap-4 flex-col"
                     >
                         <div className="w-full items-center flex gap-2.5">
                             <span className="font-medium">Other Projects</span>
@@ -81,11 +88,18 @@ export default function Projects() {
                                 {otherProjects.length}
                             </div>
                         </div>
-                        <div className="flex flex-col w-full">
+                        <div
+                            onMouseLeave={() => setActiveProject(null)}
+                            className="flex flex-col w-full"
+                        >
                             {otherProjects.map((project: Project) => (
-                                <motion.div
+                                <Link
+                                    href={`/${project.id}`}
                                     key={project.id}
-                                    className="w-full flex gap-4 text-stone-600 border-b last:border-0 pb-4 last:pb-0 lg:last:pb-3 last:pt-4 lg:last:pt-3"
+                                    onMouseOver={() =>
+                                        setActiveProject(project.index)
+                                    }
+                                    className="w-full flex gap-4 text-stone-600 border-b last:border-0 pb-4 last:pb-0 lg:last:pb-3 last:pt-4 z-10 lg:last:pt-3"
                                 >
                                     <span className="text-sm font-medium w-4/12 lg:w-2/12 shrink-0 lg:shrink-none">
                                         {project.name}
@@ -95,23 +109,28 @@ export default function Projects() {
                                             {project.shortDesc}
                                         </span>
                                         <div className="w-full lg:w-3/12 flex flex-wrap gap-2">
-                                            {project.tools.map((tech) => (
-                                                <Chip
-                                                    key={tech}
-                                                    className="text-black bg-stone-100 border"
-                                                >
-                                                    {tech}
-                                                </Chip>
-                                            ))}
+                                            {project.tools.map(
+                                                (tech: string) => (
+                                                    <Chip
+                                                        key={tech}
+                                                        className="text-black bg-stone-100 border"
+                                                    >
+                                                        {tech}
+                                                    </Chip>
+                                                )
+                                            )}
                                         </div>
                                         <span className="w-fit inline-block text-sm font-medium text-stone-400">
                                             <span className="inline-block lg:hidden">
                                                 20
                                             </span>
+                                            <span className="hidden lg:inline-block">
+                                                /
+                                            </span>
                                             {project.year}
                                         </span>
                                     </div>
-                                </motion.div>
+                                </Link>
                             ))}
                         </div>
                     </div>
