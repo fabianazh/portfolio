@@ -60,7 +60,7 @@ export default function Header() {
                         animate="enter"
                         exit="exit"
                         initial="initial"
-                        className="fixed w-screen h-screen top-0 left-0 bg-black/20 backdrop-blur-sm z-30"
+                        className="fixed w-screen h-screen top-0 left-0 bg-black/20 backdrop-blur-sm z-40"
                     ></motion.div>
                 )}
             </AnimatePresence>
@@ -70,7 +70,7 @@ export default function Header() {
             {/* Navbar */}
             {/* Header */}
             <header
-                className={`w-full h-fit bg-transparent fixed top-0 left-0 z-40 px-0 lg:px-14 transition-all duration-300 ${
+                className={`w-full h-fit bg-transparent fixed top-0 left-0 z-30 px-0 lg:px-14 transition-all duration-300 ${
                     isScrolled
                         ? 'translate-y-0 lg:translate-y-3 opacity-100'
                         : '-translate-y-10 opacity-0'
