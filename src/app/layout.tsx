@@ -32,6 +32,13 @@ export const metadata: Metadata = {
         'Web Developer Sukabumi',
         'Fabianazh Portfolio',
         'Fabianazh Tampan',
+        'fabianazh',
+        'fabianazhrr',
+        'fabian azhrr',
+        'fabian azh',
+        'fabian azh vercel',
+        'portfolio fabian',
+        'portfolio fabianazh',
     ],
     title: {
         default: 'Fabian Azhar',

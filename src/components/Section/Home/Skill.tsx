@@ -13,7 +13,7 @@ export default function Skill() {
             {/* Skill Section */}
             <section
                 id="skill"
-                className="w-full h-auto bg-stone-100 flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-10 py-20 mb-14 px-4 lg:px-20"
+                className="w-full h-auto bg-stone-100 flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-10 py-20 mb-14 px-4 lg:px-20 z-0"
             >
                 {/* Left Content */}
                 <div className="w-full lg:w-3/12 shrink-0 flex flex-col gap-1">

@@ -34,7 +34,7 @@ export default function Projects() {
             <section
                 id="projects"
                 ref={projectRef}
-                className="relative w-full h-auto flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-10 py-6 mb-14 px-4 lg:px-20"
+                className="relative w-full h-auto flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-10 py-6 mb-14 px-4 lg:px-20 overflow-hidden"
             >
                 {/* Left Content */}
                 <div className="w-full lg:w-3/12 shrink-0 flex flex-col gap-1">
@@ -57,7 +57,7 @@ export default function Projects() {
                 {/* End Left Content */}
                 {/* Right Content */}
                 <div className="w-full lg:w-10/12 flex h-auto flex-col gap-16 lg:gap-24">
-                    <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-x-6 lg:gap-y-14 place-items-start">
+                    <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-x-6 lg:gap-y-14 place-items-start z-10">
                         <AnimatePresence>
                             {isInView && (
                                 <>
@@ -76,7 +76,7 @@ export default function Projects() {
                     </div>
                     <div
                         ref={otherProjectRef}
-                        className="relative flex w-full h-auto gap-4 lg:gap-4 flex-col"
+                        className="relative overflow-hidden flex w-full h-auto gap-4 lg:gap-4 flex-col z-0"
                     >
                         <Scene
                             activeProject={activeProject}
@@ -90,7 +90,7 @@ export default function Projects() {
                         </div>
                         <div
                             onMouseLeave={() => setActiveProject(null)}
-                            className="flex flex-col w-full"
+                            className="flex flex-col w-full z-0"
                         >
                             {otherProjects.map(
                                 (project: Project, index: number) => (
@@ -100,27 +100,31 @@ export default function Projects() {
                                         onMouseOver={() =>
                                             setActiveProject(index)
                                         }
-                                        className="w-full flex gap-4 text-stone-600 border-b last:border-0 pb-4 last:pb-0 lg:last:pb-3 last:pt-4 z-0 lg:last:pt-3"
+                                        className="relative w-full flex gap-4 border-b last:border-0 pb-4 last:pb-0 lg:last:pb-3 last:pt-4 lg:last:pt-3"
                                     >
-                                        <span className="text-sm font-medium w-4/12 lg:w-2/12 shrink-0 lg:shrink-none">
+                                        <span className="text-sm font-medium text-stone-600 w-4/12 lg:w-2/12 shrink-0 lg:shrink-none">
                                             {project.name}
                                         </span>
                                         <div className="w-8/12 lg:w-10/12 flex flex-col lg:flex-row gap-2 lg:gap-2 lg:justify-between">
-                                            <span className="text-sm font-medium w-full lg:w-6/12">
+                                            <span className="text-sm font-medium text-stone-600 w-full lg:w-6/12">
                                                 {project.shortDesc}
                                             </span>
-                                            <div className="w-full lg:w-3/12 flex flex-wrap gap-2 z-0">
+                                            <span className="text-sm font-medium text-stone-600 w-full lg:w-3/12 gap-2">
                                                 {project.tools.map(
-                                                    (tech: string) => (
-                                                        <Chip
-                                                            key={tech}
-                                                            className="text-black bg-stone-100 border"
-                                                        >
+                                                    (
+                                                        tech: string,
+                                                        index: number
+                                                    ) => (
+                                                        <>
                                                             {tech}
-                                                        </Chip>
+                                                            {index + 1 !==
+                                                            project.tools.length
+                                                                ? ', '
+                                                                : '.'}
+                                                        </>
                                                     )
                                                 )}
-                                            </div>
+                                            </span>
                                             <span className="w-fit inline-block text-sm font-medium text-stone-400">
                                                 <span className="inline-block lg:hidden">
                                                     20

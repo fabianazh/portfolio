@@ -12,8 +12,8 @@ export default function Scene({
 }) {
     return (
         <>
-            <div className="fixed left-0 top-0 h-screen w-full">
-                <Canvas className="z-50">
+            <div className={`fixed left-0 top-0 h-full w-full`}>
+                <Canvas>
                     <Model activeProject={activeProject} projects={projects} />
                 </Canvas>
             </div>
