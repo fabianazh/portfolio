@@ -30,7 +30,11 @@ export default function AppIcon({
                         draggable={false}
                     />
                 </div>
-                <div className="flex flex-grow flex-col h-fit w-fit justify-between">
+                <div
+                    className={`flex flex-grow flex-col h-fit w-fit ${
+                        size === 'sm' ? 'justify-between' : 'justify-start'
+                    }`}
+                >
                     <Link
                         href={'https://fabianazh.vercel.app'}
                         className={`text-black w-fit h-fit inline-block font-semibold group ${

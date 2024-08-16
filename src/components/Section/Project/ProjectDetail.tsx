@@ -79,10 +79,10 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
                                             rotate: '0deg',
                                             transition: {
                                                 y: {
-                                                    duration: 0.5,
+                                                    duration: 0.7,
                                                 },
                                                 rotate: {
-                                                    delay: 0.3,
+                                                    delay: 0.7,
                                                     duration: 0.6,
                                                     ease: [0.4, 0, 0.2, 1],
                                                 },

@@ -70,7 +70,7 @@ export default function Header() {
             {/* Navbar */}
             {/* Header */}
             <header
-                className={`w-full h-fit bg-transparent fixed top-0 left-0 z-20 px-0 lg:px-14 transition-all duration-300 ${
+                className={`w-full h-fit bg-transparent fixed top-0 left-0 z-40 px-0 lg:px-14 transition-all duration-300 ${
                     isScrolled
                         ? 'translate-y-0 lg:translate-y-3 opacity-100'
                         : '-translate-y-10 opacity-0'
