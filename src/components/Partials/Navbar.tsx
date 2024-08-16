@@ -47,7 +47,7 @@ export default function Navbar({
                                 initial="initial"
                                 className="w-full flex justify-between relative lg:static h-fit items-center lg:items-start"
                             >
-                                <AppIcon />
+                                <AppIcon size="lg" />
                                 <button
                                     onClick={() => setIsOpen(!isOpen)}
                                     className="outline-none grid place-items-center bg-transparent cursor-pointer w-fit h-fit relative top-0 right-0 border-none z-[100]"

@@ -39,7 +39,7 @@ export default function Hero() {
                         </span>
                         <Link
                             href={'#'}
-                            className="w-fit text-xs lg:text-sm font-medium py-2 px-4 lg:px-6 mt-4 lg:mt-6 inline-flex h-fit gap-2 bg-white rounded-full items-center"
+                            className="w-fit text-xs lg:text-sm font-medium py-2 px-4 lg:px-6 mt-4 lg:mt-6 inline-flex h-fit gap-2 bg-white rounded-full items-center shadow-sm"
                         >
                             <MailIcon className="w-fit h-4 lg:h-5" /> Request a
                             project

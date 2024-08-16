@@ -32,7 +32,6 @@ export default function ProjectCard({
                 }}
                 custom={index}
                 animate="enter"
-                exit="exit"
                 initial="initial"
                 className={`h-full flex w-full flex-col gap-3 ${className}`}
             >

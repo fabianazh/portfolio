@@ -3,7 +3,6 @@
 import { inter, mona } from '@/app/fonts'
 import ProjectCard from '@/components/Card/ProjectCard'
 import { projects } from '@/constants/model'
-import Chip from '@/components/Other/Chip'
 import { useEffect, useRef, useState } from 'react'
 import { useInView, AnimatePresence } from 'framer-motion'
 import Scene from '@/components/Other/Scene'

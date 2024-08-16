@@ -5,9 +5,11 @@ import { mona, inter } from '@/app/fonts'
 export default function AppIcon({
     className,
     nameOnly = false,
+    size = 'sm',
 }: {
     className?: string
     nameOnly?: boolean
+    size?: 'sm' | 'lg'
 }) {
     return (
         <>
@@ -17,7 +19,7 @@ export default function AppIcon({
                 <div
                     className={`h-9 w-9 z-0 bg-stone-200 items-start aspect-square shrink-0 rounded-full overflow-hidden ${
                         nameOnly ? 'hidden' : 'flex'
-                    }`}
+                    } ${size === 'sm' ? 'h-9 w-9' : 'h-10 w-10'}`}
                 >
                     <Image
                         src={'/img/f/f3.png'}
@@ -31,14 +33,16 @@ export default function AppIcon({
                 <div className="flex flex-grow flex-col h-fit w-fit justify-between">
                     <Link
                         href={'https://fabianazh.vercel.app'}
-                        className={`text-sm lg:text-sm text-black w-fit h-fit inline-block font-semibold group ${mona.className}`}
+                        className={`text-black w-fit h-fit inline-block font-semibold group ${
+                            mona.className
+                        } ${size === 'sm' ? 'text-sm' : 'text-base'}`}
                     >
                         Fabian Azhar
                     </Link>
                     <span
-                        className={`text-xs lg:text-xs w-fit h-fit inline-block font-medium group text-stone-500 ${
+                        className={`w-fit h-fit inline-block font-medium group text-stone-500 ${
                             nameOnly ? 'hidden' : 'flex'
-                        }`}
+                        } ${size === 'sm' ? 'text-xs' : 'text-sm'}`}
                     >
                         Full stack developer
                     </span>
