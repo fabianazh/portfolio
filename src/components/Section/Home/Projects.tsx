@@ -99,7 +99,7 @@ export default function Projects() {
                                         onMouseOver={() =>
                                             setActiveProject(index)
                                         }
-                                        className="relative w-full flex gap-4 border-b last:border-0 pb-4 last:pb-0 lg:last:pb-3 last:pt-4 lg:last:pt-3"
+                                        className="relative w-full flex gap-4 border-b border-stone-400 last:border-0 pb-4 last:pb-0 lg:last:pb-3 last:pt-4 lg:last:pt-3"
                                     >
                                         <span className="text-sm font-medium text-stone-600 w-4/12 lg:w-2/12 shrink-0 lg:shrink-none">
                                             {project.name}

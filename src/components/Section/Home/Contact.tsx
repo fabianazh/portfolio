@@ -32,7 +32,7 @@ export default function Contact() {
     return (
         <section
             id="contact"
-            className={`w-full flex flex-col gap-8 lg:gap-12 py-14 px-4 lg:px-16 h-full ${mona.className}`}
+            className={`w-full flex flex-col gap-8 lg:gap-12 py-14 px-4 lg:px-16 h-full z-0 ${mona.className}`}
         >
             <div className={`w-full flex gap-4 flex-col ${mori.className}`}>
                 <h3 className="text-4xl lg:text-4xl font-semibold">
@@ -45,43 +45,43 @@ export default function Contact() {
                     to reach out!
                 </span>
             </div>
-            <div className="grid lg:grid-cols-2 w-full h-auto flex-grow gap-20 items-end">
+            <div className="grid lg:grid-cols-2 w-full h-auto flex-grow gap-20 items-end z-10">
                 <form onSubmit={handleSubmit(onSubmit)} className="w-full">
                     <div className="mb-8 relative group">
                         <input
                             type={'text'}
                             id={'name'}
                             placeholder={'Enter your full name'}
-                            className={`w-full font-medium valid:bg-transparent text-sm border-stone-300 bg-transparent py-3 px-2 lg:px-3 placeholder:text-stone-700 text-stone-800 outline-none autocomplete:bg-transparent border-b-2 ${mona.className}`}
+                            className={`w-full font-medium valid:bg-transparent text-sm border-stone-300 bg-transparent py-3 px-2 lg:px-3 placeholder:text-stone-700 text-stone-800 outline-none autocomplete:bg-transparent border-b-2 focus:border-stone-400 ${mona.className}`}
                             required
                             autoComplete="off"
                             {...register('name')}
                         />
-                        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-0.5 scale-x-0 bg-stone-400 peer-focused:scale-x-100 group-hover:scale-x-100"></div>
+                        <div className="absolute transition-all duration-300 bottom-0 left-1/2 -translate-x-1/2 w-full h-0.5 scale-x-0 bg-stone-400  group-hover:scale-x-100 group-focus-within:scale-x-100"></div>
                     </div>
                     <div className="mb-8 relative group">
                         <input
                             type={'text'}
                             id={'email'}
                             placeholder={'Enter your email address'}
-                            className={`w-full font-medium valid:bg-transparent text-sm border-stone-300 bg-transparent py-3 px-2 lg:px-3 placeholder:text-stone-700 text-stone-800 outline-none autocomplete:bg-transparent border-b-2 ${mona.className}`}
+                            className={`w-full font-medium valid:bg-transparent text-sm border-stone-300 bg-transparent py-3 px-2 lg:px-3 placeholder:text-stone-700 text-stone-800 outline-none autocomplete:bg-transparent border-b-2 focus:border-stone-400 ${mona.className}`}
                             required
                             autoComplete="off"
                             {...register('email')}
                         />
-                        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-0.5 scale-x-0 bg-stone-400 peer-focused:scale-x-100 group-hover:scale-x-100"></div>
+                        <div className="absolute transition-all duration-300 bottom-0 left-1/2 -translate-x-1/2 w-full h-0.5 scale-x-0 bg-stone-400  group-hover:scale-x-100 group-focus-within:scale-x-100"></div>
                     </div>
-                    <div className="mb-8 relative group">
+                    <div className="mb-8 relative group h-fit">
                         <textarea
                             id={'message'}
                             rows={4}
                             placeholder={'Write your message here'}
-                            className={`w-full font-medium valid:bg-transparent text-sm border-stone-300 bg-transparent py-3 px-2 lg:px-3 placeholder:text-stone-700 text-stone-800 outline-none autocomplete:bg-transparent border-b-2 ${mona.className} resize-none`}
+                            className={`w-full h-fit font-medium valid:bg-transparent text-sm border-stone-300 bg-transparent py-3 px-2 lg:px-3 placeholder:text-stone-700 text-stone-800 outline-none autocomplete:bg-transparent border-b-2 focus:border-stone-400 ${mona.className}`}
                             required
                             autoComplete="off"
                             {...register('message')}
                         ></textarea>
-                        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-0.5 scale-x-0 bg-stone-400 peer-focused:scale-x-100 group-hover:scale-x-100"></div>
+                        <div className="absolute transition-all duration-300 bottom-1.5 left-1/2 -translate-x-1/2 w-full h-0.5 scale-x-0 bg-stone-400  group-hover:scale-x-100 group-focus-within:scale-x-100"></div>
                     </div>
                     <div className="flex justify-end w-full h-auto gap-4">
                         <button
@@ -95,13 +95,13 @@ export default function Contact() {
                         </button>
                     </div>
                 </form>
-                <div className="flex flex-col divide-y-2 divide-stone-300">
+                <div className="flex flex-col divide-y-2 divide-stone-300 z-10">
                     <div className="w-9/12 h-fit pb-10">
                         <span className={`hidden lg:block text-lg font-normal`}>
-                            I’m always excited to discuss new opportunities,
-                            projects, or collaborations. Whether you have a
-                            question, want to work together, or just want to say
-                            hello, feel free to reach out!
+                            I&apos;m always excited to discuss new
+                            opportunities, projects, or collaborations. Whether
+                            you have a question, want to work together, or just
+                            want to say hello, feel free to reach out!
                         </span>
                     </div>
                     <div className="w-full flex-grow flex justify-between lg:justify-start pt-10">
@@ -144,7 +144,10 @@ export default function Contact() {
                                 >
                                     Github
                                 </SecondaryButton>
-                                <SecondaryButton href={'#'} className="text-sm">
+                                <SecondaryButton
+                                    href={'https://linkedin/fabianazh'}
+                                    className="text-sm"
+                                >
                                     Linked in
                                 </SecondaryButton>
                             </div>

@@ -25,8 +25,8 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
                 : nextProject.index > project?.index
         )
         previousProject = projects.find((previousProject: Project) =>
-            projects.length === project?.index
-                ? previousProject.index === 1
+            projects.length === 1
+                ? previousProject.index === projects.length
                 : previousProject.index < project?.index
         )
     }
@@ -112,7 +112,7 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
                                     variants={{
                                         initial: {
                                             rotate: '-3deg',
-                                            y: '0%',
+                                            y: '-30%',
                                         },
                                         enter: {
                                             y: '-100%',
@@ -130,12 +130,12 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
                                     }}
                                     animate="enter"
                                     initial="initial"
-                                    className="absolute w-[200vw] h-2/3 -left-1/2 bg-Gray-200 z-10"
+                                    className="absolute w-[200vw] h-full -left-1/2 bg-Gray-200 z-10"
                                 ></motion.div>
                                 <motion.div
                                     variants={{
                                         initial: {
-                                            opacity: 0.5,
+                                            opacity: 0.3,
                                         },
                                         enter: {
                                             opacity: 1,
