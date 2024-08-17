@@ -104,11 +104,11 @@ export default function Projects() {
                                         <span className="text-sm font-medium text-stone-600 w-4/12 lg:w-2/12 shrink-0 lg:shrink-none">
                                             {project.name}
                                         </span>
-                                        <div className="w-8/12 lg:w-10/12 flex flex-col lg:flex-row gap-2 lg:gap-2 lg:justify-between">
+                                        <div className="w-8/12 lg:w-10/12 flex flex-col lg:flex-row gap-3 lg:gap-2 lg:justify-between">
                                             <span className="text-sm font-medium text-stone-600 w-full lg:w-6/12">
                                                 {project.shortDesc}
                                             </span>
-                                            <span className="text-sm font-medium text-stone-600 w-full lg:w-3/12 gap-2">
+                                            <span className="text-xs lg:text-sm font-medium text-stone-600 w-full lg:w-3/12 gap-2">
                                                 {project.tools.map(
                                                     (
                                                         tech: string,

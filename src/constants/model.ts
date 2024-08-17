@@ -12,9 +12,9 @@ export const projects = [
         year: '24',
         projectLink: 'https://bind-app-demo.vercel.app',
         githubLink: 'https://github.com/BimaPn/bind-server',
-        collaborators: ['-'],
+        collaborators: ['Bima PN'],
         client: '-',
-        role: '-',
+        role: 'Backend Developer',
         isHighlighted: true,
     },
     {
@@ -32,7 +32,7 @@ export const projects = [
         githubLink: 'https://github.com/fabianazh/jitu',
         collaborators: ['-'],
         client: '-',
-        role: '-',
+        role: 'Full Stack Developer',
         isHighlighted: true,
     },
     {
@@ -50,7 +50,7 @@ export const projects = [
         githubLink: 'https://github.com/fabianazh/tic-tac-test',
         collaborators: ['-'],
         client: '-',
-        role: '-',
+        role: 'Frontend Developer',
         isHighlighted: false,
     },
     {
@@ -68,7 +68,7 @@ export const projects = [
         githubLink: 'https://fabianazh.github.io/portfolio-zufar',
         collaborators: ['-'],
         client: '-',
-        role: '-',
+        role: 'Full Stack Developer',
         isHighlighted: true,
     },
     {
@@ -86,7 +86,7 @@ export const projects = [
         githubLink: 'https://github.com/fabianazh/quranku',
         collaborators: ['-'],
         client: '-',
-        role: '-',
+        role: 'Frontend Developer',
         isHighlighted: true,
     },
     {
@@ -103,7 +103,7 @@ export const projects = [
         githubLink: 'https://github.com/fabianazh/quranku',
         collaborators: ['-'],
         client: '-',
-        role: '-',
+        role: 'Frontend Developer',
         isHighlighted: false,
     },
 ]

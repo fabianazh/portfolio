@@ -1,14 +1,14 @@
 'use client'
 
+import React from 'react'
 import PrimaryButton from '@/components/Button/PrimaryButton'
 import SecondaryButton from '@/components/Button/SecondaryButton'
-import { FaArrowRight } from 'react-icons/fa'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import { urbanist } from '@/app/fonts'
 import Link from 'next/link'
 import { projects } from '@/constants/model'
-import ArrowIcon from '../../Icon/ArrowIcon'
+import ArrowIcon from '@/components/Icon/ArrowIcon'
 
 export default function ProjectDetail({ projectId }: { projectId: string }) {
     let nextProject: Project | null | undefined
@@ -19,15 +19,15 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
     )
 
     if (project) {
-        nextProject = projects.find((nextProject: Project) =>
+        nextProject = projects.find((item: Project) =>
             projects.length === project?.index
-                ? nextProject.index === 1
-                : nextProject.index > project?.index
+                ? item.index === 1
+                : item.index > project?.index
         )
-        previousProject = projects.find((previousProject: Project) =>
-            projects.length === 1
-                ? previousProject.index === projects.length
-                : previousProject.index < project?.index
+        previousProject = projects.find((item: Project) =>
+            project?.index === 1
+                ? item.index === projects.length
+                : item.index < project?.index
         )
     }
 
@@ -160,31 +160,90 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
 
                             <div className="w-full flex flex-col gap-8 py-8 lg:py-16 px-4 lg:px-60">
                                 <div className="w-full flex flex-col">
-                                    <span className="text-lg lg:text-3xl font-medium">
+                                    <motion.span
+                                        variants={{
+                                            initial: {
+                                                opacity: 0,
+                                                y: '6px',
+                                            },
+                                            enter: {
+                                                y: '0px',
+                                                opacity: 1,
+                                                transition: {
+                                                    duration: 0.5,
+                                                },
+                                            },
+                                        }}
+                                        animate="enter"
+                                        initial="initial"
+                                        className="text-lg lg:text-3xl font-medium"
+                                    >
                                         {project?.desc}
-                                    </span>
+                                    </motion.span>
                                 </div>
                                 <div className="w-full flex flex-col">
-                                    {projectData.map((data, index) => (
-                                        <div
+                                    {projectData.map((data, index: number) => (
+                                        <motion.div
                                             key={index}
+                                            variants={{
+                                                initial: {
+                                                    opacity: 0,
+                                                },
+                                                enter: (index: number) => ({
+                                                    opacity: 1,
+
+                                                    transition: {
+                                                        delay:
+                                                            0.5 + index * 0.1,
+                                                    },
+                                                }),
+                                            }}
+                                            custom={index}
+                                            animate="enter"
+                                            initial="initial"
                                             className="w-full border-b border-stone-300 font-medium text-stone-500 flex gap-7 lg:gap-4 py-4 text-sm lg:text-base"
                                         >
                                             <span className="block w-3/12 shrink-0">
                                                 {data.title}
                                             </span>
                                             <span>{data.content}</span>
-                                        </div>
+                                        </motion.div>
                                     ))}
                                 </div>
                                 <div className="w-full flex flex-col lg:flex-row items-center gap-4 lg:gap-8 py-0 lg:py-4">
                                     <PrimaryButton
+                                        variants={{
+                                            initial: {
+                                                opacity: 0,
+                                            },
+                                            enter: {
+                                                opacity: 1,
+                                                transition: {
+                                                    delay: 0.5 + 6 * 0.1,
+                                                },
+                                            },
+                                        }}
+                                        animate="enter"
+                                        initial="initial"
                                         href={`${project?.projectLink}`}
                                         className="text-xs lg:text-sm"
                                     >
                                         View website
                                     </PrimaryButton>
                                     <SecondaryButton
+                                        variants={{
+                                            initial: {
+                                                opacity: 0,
+                                            },
+                                            enter: {
+                                                opacity: 2,
+                                                transition: {
+                                                    delay: 0.5 + 7 * 0.1,
+                                                },
+                                            },
+                                        }}
+                                        animate="enter"
+                                        initial="initial"
                                         href={`${project?.githubLink}`}
                                         className="text-xs lg:text-sm"
                                     >
@@ -193,13 +252,30 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
                                 </div>
                             </div>
                             <div className="w-full h-fit py-4 mb-8 lg:mb-12">
-                                <Image
-                                    src={`${project?.thumbnail}`}
-                                    alt={`${project?.name}`}
-                                    width={900}
-                                    height={500}
-                                    className="w-full h-fit"
-                                />
+                                <motion.div
+                                    variants={{
+                                        initial: {
+                                            opacity: 0.3,
+                                        },
+                                        enter: {
+                                            opacity: 1,
+                                            transition: {
+                                                duration: 0.7,
+                                            },
+                                        },
+                                    }}
+                                    animate="enter"
+                                    initial="initial"
+                                    className="w-full fit z-0"
+                                >
+                                    <Image
+                                        src={`${project?.thumbnail}`}
+                                        alt={`${project?.name}`}
+                                        width={900}
+                                        height={500}
+                                        className="w-full h-fit"
+                                    />
+                                </motion.div>
                             </div>
                         </>
                     )}
