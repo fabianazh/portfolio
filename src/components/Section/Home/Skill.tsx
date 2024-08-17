@@ -1,6 +1,5 @@
 import { inter, mona } from '@/app/fonts'
 import SkillContainer from '@/components/Container/SkillContainer'
-import Image from 'next/image'
 import {
     languagesAndFrameworksStack,
     databasesStack,
@@ -40,7 +39,7 @@ export default function Skill() {
                         title="Languages and frameworks"
                         stacks={languagesAndFrameworksStack}
                     />
-                    <SkillContainer title="Database" stacks={databasesStack} />
+                    <SkillContainer title="Databases" stacks={databasesStack} />
                     <SkillContainer
                         title="Additional proficiencies"
                         stacks={otherToolsStack}

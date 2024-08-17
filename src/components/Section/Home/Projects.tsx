@@ -33,7 +33,7 @@ export default function Projects() {
             <section
                 id="projects"
                 ref={projectRef}
-                className="relative w-full h-auto flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-10 py-6 mb-14 px-4 lg:px-20 overflow-hidden"
+                className="relative w-full h-auto flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-10 py-9 lg:py-16 mb-14 px-4 lg:px-20 overflow-hidden"
             >
                 {/* Left Content */}
                 <div className="w-full lg:w-3/12 shrink-0 flex flex-col gap-1">

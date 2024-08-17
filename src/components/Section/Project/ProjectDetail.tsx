@@ -12,7 +12,7 @@ import ArrowIcon from '@/components/Icon/ArrowIcon'
 
 export default function ProjectDetail({ projectId }: { projectId: string }) {
     let nextProject: Project | null | undefined
-    let previousProject: Project | null | undefined
+    let prevProject: Project | null | undefined
 
     const project = projects.find(
         (project: Project) => project.id === projectId
@@ -24,7 +24,7 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
                 ? item.index === 1
                 : item.index > project?.index
         )
-        previousProject = projects.find((item: Project) =>
+        prevProject = projects.find((item: Project) =>
             project?.index === 1
                 ? item.index === projects.length
                 : item.index < project?.index
@@ -191,7 +191,6 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
                                                 },
                                                 enter: (index: number) => ({
                                                     opacity: 1,
-
                                                     transition: {
                                                         delay:
                                                             0.5 + index * 0.1,
@@ -210,46 +209,35 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
                                         </motion.div>
                                     ))}
                                 </div>
-                                <div className="w-full flex flex-col lg:flex-row items-center gap-4 lg:gap-8 py-0 lg:py-4">
+                                <motion.div
+                                    variants={{
+                                        initial: {
+                                            opacity: 0,
+                                        },
+                                        enter: {
+                                            opacity: 1,
+                                            transition: {
+                                                delay: 0.5 + 7 * 0.1,
+                                            },
+                                        },
+                                    }}
+                                    animate="enter"
+                                    initial="initial"
+                                    className="w-full flex flex-col lg:flex-row items-center gap-4 lg:gap-8 py-0 lg:py-4"
+                                >
                                     <PrimaryButton
-                                        variants={{
-                                            initial: {
-                                                opacity: 0,
-                                            },
-                                            enter: {
-                                                opacity: 1,
-                                                transition: {
-                                                    delay: 0.5 + 6 * 0.1,
-                                                },
-                                            },
-                                        }}
-                                        animate="enter"
-                                        initial="initial"
                                         href={`${project?.projectLink}`}
                                         className="text-xs lg:text-sm"
                                     >
                                         View website
                                     </PrimaryButton>
                                     <SecondaryButton
-                                        variants={{
-                                            initial: {
-                                                opacity: 0,
-                                            },
-                                            enter: {
-                                                opacity: 2,
-                                                transition: {
-                                                    delay: 0.5 + 7 * 0.1,
-                                                },
-                                            },
-                                        }}
-                                        animate="enter"
-                                        initial="initial"
                                         href={`${project?.githubLink}`}
                                         className="text-xs lg:text-sm"
                                     >
                                         See on github
                                     </SecondaryButton>
-                                </div>
+                                </motion.div>
                             </div>
                             <div className="w-full h-fit py-4 mb-8 lg:mb-12">
                                 <motion.div
@@ -284,7 +272,7 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
 
             <section className="w-full flex justify-between gap-6 h-fit px-4 lg:px-16 py-4 lg:py-8 mb-3">
                 <Link
-                    href={`/${previousProject?.id}`}
+                    href={`/${prevProject?.id}`}
                     className="text-xs lg:text-sm flex gap-2 font-semibold items-center w-fit"
                 >
                     <ArrowIcon className="rotate-180" />
