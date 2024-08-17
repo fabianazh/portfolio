@@ -83,7 +83,7 @@ export default function Navbar({
                                     animate="enter"
                                     exit="exit"
                                     initial="initial"
-                                    className={`text-lg lg:text-xl font-semibold ${mona.className}`}
+                                    className={`text-xl lg:text-xl font-semibold ${mona.className}`}
                                 >
                                     Fabian Azhar
                                 </motion.span>
@@ -111,7 +111,7 @@ export default function Navbar({
                                                     onClick={() =>
                                                         setIsOpen(!isOpen)
                                                     }
-                                                    className={`text-sm lg:text-base cursor-pointer relative pb-[1px] text-black font-medium`}
+                                                    className={`text-base lg:text-base cursor-pointer relative pb-[1px] text-black font-medium`}
                                                     smooth={true}
                                                     to={item.link}
                                                     spy={true}

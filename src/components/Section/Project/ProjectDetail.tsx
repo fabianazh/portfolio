@@ -27,7 +27,7 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
         prevProject = projects.find((item: Project) =>
             project?.index === 1
                 ? item.index === projects.length
-                : item.index < project?.index
+                : item.index === project?.index - 1
         )
     }
 
@@ -76,34 +76,50 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
                 </Link>
             </section>
             <section className="w-full flex flex-col gap-3 lg:gap-8 py-0.5 h-auto">
-                <motion.div
-                    variants={{
-                        initial: {
-                            opacity: 0,
-                            y: '8px',
-                        },
-                        enter: {
-                            y: '0px',
-                            opacity: 1,
-                            transition: {
-                                delay: 0.3,
-                                duration: 0.5,
+                <div className="w-full px-4 lg:px-12 relative flex h-auto justify-between lg:gap-12 items-end">
+                    <motion.span
+                        variants={{
+                            initial: {
+                                opacity: 0,
+                                y: '10px',
                             },
-                        },
-                    }}
-                    animate="enter"
-                    initial="initial"
-                    className="w-full px-4 lg:px-12 relative flex h-auto justify-between lg:gap-12 items-end"
-                >
-                    <span
+                            enter: {
+                                y: '0px',
+                                opacity: 1,
+                                transition: {
+                                    delay: 0.3,
+                                    duration: 0.5,
+                                },
+                            },
+                        }}
+                        animate="enter"
+                        initial="initial"
                         className={`font-semibold text-4xl lg:text-6xl ${urbanist.className}`}
                     >
                         {project?.name}
-                    </span>
-                    <span className="font-medium text-2xl lg:text-4xl">
+                    </motion.span>
+                    <motion.span
+                        variants={{
+                            initial: {
+                                opacity: 0,
+                                y: '10px',
+                            },
+                            enter: {
+                                y: '0px',
+                                opacity: 1,
+                                transition: {
+                                    delay: 0.5,
+                                    duration: 0.5,
+                                },
+                            },
+                        }}
+                        animate="enter"
+                        initial="initial"
+                        className="font-medium text-2xl lg:text-4xl"
+                    >
                         /{project?.year}
-                    </span>
-                </motion.div>
+                    </motion.span>
+                </div>
                 <AnimatePresence>
                     {project !== null && (
                         <>
@@ -119,11 +135,11 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
                                             rotate: '0deg',
                                             transition: {
                                                 y: {
-                                                    duration: 0.5,
+                                                    duration: 0.7,
                                                 },
                                                 rotate: {
-                                                    delay: 0.2,
-                                                    duration: 0.4,
+                                                    delay: 0.4,
+                                                    duration: 0.6,
                                                 },
                                             },
                                         },
@@ -170,6 +186,7 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
                                                 y: '0px',
                                                 opacity: 1,
                                                 transition: {
+                                                    delay: 0.3,
                                                     duration: 0.5,
                                                 },
                                             },
@@ -193,7 +210,7 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
                                                     opacity: 1,
                                                     transition: {
                                                         delay:
-                                                            0.5 + index * 0.1,
+                                                            0.4 + index * 0.1,
                                                     },
                                                 }),
                                             }}
@@ -239,7 +256,31 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
                                     </SecondaryButton>
                                 </motion.div>
                             </div>
-                            <div className="w-full h-fit py-4 mb-8 lg:mb-12">
+                            <div className="w-full h-fit relative overflow-hidden z-0 py-4 mb-4 lg:mb-8">
+                                <motion.div
+                                    variants={{
+                                        initial: {
+                                            rotate: '-3deg',
+                                            y: '-30%',
+                                        },
+                                        enter: {
+                                            y: '-100%',
+                                            rotate: '0deg',
+                                            transition: {
+                                                y: {
+                                                    duration: 0.7,
+                                                },
+                                                rotate: {
+                                                    delay: 0.4,
+                                                    duration: 0.6,
+                                                },
+                                            },
+                                        },
+                                    }}
+                                    animate="enter"
+                                    initial="initial"
+                                    className="absolute w-[200vw] h-full -left-1/2 bg-Gray-200 z-10"
+                                ></motion.div>
                                 <motion.div
                                     variants={{
                                         initial: {
