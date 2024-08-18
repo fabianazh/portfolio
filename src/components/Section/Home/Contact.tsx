@@ -86,7 +86,7 @@ export default function Contact() {
                     <div className="flex justify-end w-full h-auto gap-4">
                         <button
                             type="submit"
-                            className="bg-black grid place-items-center transition-colors duration-300 text-white gap-2.5 grid-flow-col pr-1 pl-5 py-1 rounded-full group"
+                            className="text-sm lg:text-base bg-black grid place-items-center transition-colors duration-300 text-white gap-2.5 grid-flow-col pr-1 pl-5 py-1 rounded-full group"
                         >
                             Submit
                             <div className="text-sm rounded-full grid place-items-center bg-Gray-200 text-black w-7 aspect-square shrink-0 scale-[.2] group-hover:scale-100 transition-transform">

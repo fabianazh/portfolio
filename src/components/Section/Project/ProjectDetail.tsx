@@ -108,7 +108,7 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
                                 y: '0px',
                                 opacity: 1,
                                 transition: {
-                                    delay: 0.5,
+                                    delay: 0.4,
                                     duration: 0.5,
                                 },
                             },

@@ -1,8 +1,20 @@
-export default async function sitemap() {
-    let routes = ['', '/projects'].map((route) => ({
-        url: `https://fabianazh.vercel.app${route}`,
-        lastModified: new Date().toISOString().split('T')[0],
-    }))
+import { projects } from '@/constants/model'
 
-    return [...routes]
+export default async function sitemap() {
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+
+    const projectsData = projects.map((project: Project) => {
+        return {
+            url: `${baseUrl}/${project.id}`,
+            lastModified: new Date(),
+        }
+    })
+
+    return [
+        {
+            url: baseUrl,
+            lastModified: new Date(),
+        },
+        ...projectsData,
+    ]
 }
