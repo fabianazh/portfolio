@@ -7,10 +7,10 @@ export const navItems = [
         link: 'projects',
         text: 'Projects',
     },
-    // {
-    //     link: 'about',
-    //     text: 'About',
-    // },
+    {
+        link: 'about',
+        text: 'About',
+    },
     {
         link: 'skill',
         text: 'Skill',
