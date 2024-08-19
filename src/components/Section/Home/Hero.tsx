@@ -15,7 +15,7 @@ export default function Hero() {
                 className="z-0 w-screen h-fit lg:h-screen py-4 lg:py-6 px-0 lg:px-12 z-0"
             >
                 {/* Content Container */}
-                <div className="relative w-full h-full flex flex-col justify-between bg-stone-200/30 rounded-2xl px-4 lg:px-10 py-4 lg:py-6">
+                <div className="relative w-full h-full flex flex-col justify-between bg-stone-200/30 shadow-sm rounded-2xl px-4 lg:px-10 py-4 lg:py-6">
                     {/* Background */}
                     <BackgroundBeams className="absolute w-full h-full top-0 left-0" />
                     {/* End Background */}

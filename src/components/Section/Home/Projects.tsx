@@ -113,15 +113,13 @@ export default function Projects() {
                                                     (
                                                         tech: string,
                                                         index: number
-                                                    ) => (
-                                                        <>
-                                                            {tech}
-                                                            {index + 1 !==
+                                                    ) =>
+                                                        `${tech}${
+                                                            index + 1 !==
                                                             project.tools.length
                                                                 ? ', '
-                                                                : '.'}
-                                                        </>
-                                                    )
+                                                                : '.'
+                                                        }`
                                                 )}
                                             </span>
                                             <span className="w-fit inline-block text-sm font-medium text-stone-400">

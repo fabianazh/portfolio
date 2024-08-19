@@ -41,16 +41,20 @@ export default function ProjectCard({
                     className={`w-full h-auto shrink-0 transition-all group cursor-pointer ${thumbnailClassName}`}
                 >
                     {/* Layer */}
-                    <div className="w-full relative rounded-xl lg:rounded-2xl h-full shadow-sm lg:shadow overflow-hidden transition-all">
+                    <div className="w-full relative rounded-xl lg:rounded-2xl h-full z-0 shadow-sm lg:shadow overflow-hidden transition-all">
                         {/* Image */}
                         <Image
                             src={`${project.thumbnail}`}
                             alt={project.name}
-                            className="w-full h-full transition-all object-cover"
+                            className="w-full h-full object-cover z-0"
                             width={400}
                             height={300}
                         />
                         {/* End Image */}
+
+                        {/* Overlay */}
+                        <div className="absolute w-full h-full bg-radial-gradient-at-b transition-all duration-500 top-0 left-0 from-black/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 z-10"></div>
+                        {/* End Overlay */}
                     </div>
                     {/* End Layer */}
                 </Link>

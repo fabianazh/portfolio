@@ -61,17 +61,20 @@ export default function Model({
         const { x: mouseX, y: mouseY } = mouse
         const smoothX = smoothMouse.x.get()
         const smoothY = smoothMouse.y.get()
-        const xVal = mouseX.get()
-        const yVal = mouseY.get()
 
-        smoothMouse.x.set(lerp(smoothX, xVal, 0.1))
-        smoothMouse.y.set(lerp(smoothY, yVal, 0.1))
+        const deltaX = mouseX.get() - smoothX
+        const deltaY = mouseY.get() - smoothY
 
-        const material = plane?.current?.material as any
+        if (Math.abs(deltaX) > 0.01 || Math.abs(deltaY) > 0.01) {
+            smoothMouse.x.set(lerp(smoothX, mouseX.get(), 0.1))
+            smoothMouse.y.set(lerp(smoothY, mouseY.get(), 0.1))
+        }
+
+        const material = plane?.current?.material
         if (plane?.current && material) {
             material.uniforms.uDelta.value = {
-                x: xVal - smoothX,
-                y: -1 * (yVal - smoothY),
+                x: deltaX,
+                y: -1 * deltaY,
             }
         }
     })
