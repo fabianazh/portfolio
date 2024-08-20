@@ -180,10 +180,8 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
                                         variants={{
                                             initial: {
                                                 opacity: 0,
-                                                y: '6px',
                                             },
                                             enter: {
-                                                y: '0px',
                                                 opacity: 1,
                                                 transition: {
                                                     delay: 0.3,

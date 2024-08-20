@@ -27,3 +27,9 @@ interface Project {
     projectLink: string
     isHighlighted: boolean
 }
+
+interface Skill {
+    name: string
+    src: string
+    url: string
+}

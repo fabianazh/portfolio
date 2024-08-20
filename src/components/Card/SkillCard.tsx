@@ -1,21 +1,16 @@
-import { dmSans, inter } from '@/app/fonts'
 import { LinkPreview } from '@/components/Other/LinkPreview'
 import Image from 'next/image'
 
-export default function SkillContainer({
+export default function SkillCard({
     title,
     stacks,
 }: {
     title: string
-    stacks: {
-        name: string
-        src: string
-        url: string
-    }[]
+    stacks: Skill[]
 }) {
     return (
         <>
-            {/* Skill Container */}
+            {/* Skill Card */}
             <div className="w-full flex flex-col h-fit shrink-0 gap-3 lg:gap-3.5 bg-[#fafafa] p-4 lg:p-6 pb-5 lg:pb-6 rounded-xl shadow-sm">
                 {/* Heading */}
                 <span className={`block text-sm lg:text-sm font-medium`}>
@@ -46,7 +41,7 @@ export default function SkillContainer({
                 </div>
                 {/* Content */}
             </div>
-            {/* End Skill Container */}
+            {/* End Skill Card */}
         </>
     )
 }

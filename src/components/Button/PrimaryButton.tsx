@@ -4,7 +4,7 @@ import { FaArrowUp } from 'react-icons/fa'
 export default function PrimaryButton({
     href,
     children,
-    className,
+    className = 'bg-black text-white',
     target,
     icon = (
         <FaArrowUp className="rotate-45 opacity-0 group-hover:opacity-100" />
@@ -20,7 +20,7 @@ export default function PrimaryButton({
         <>
             <Link
                 href={href}
-                className={`bg-black grid min-h-10 place-items-center transition-colors duration-300 text-white gap-3 grid-flow-col pr-1 pl-5 py-1 rounded-full group ${className}`}
+                className={`grid min-h-10 place-items-center transition-colors duration-500 gap-3 grid-flow-col pr-1 pl-5 py-1 rounded-full group ${className}`}
                 target={target}
             >
                 {children}
