@@ -76,7 +76,7 @@ export default function Navbar({
                                 </button>
                             </motion.div>
                             {/* Nav Item */}
-                            <nav className="border-box flex flex-col gap-2">
+                            <nav className="border-box flex flex-col gap-4">
                                 <motion.span
                                     variants={perspectiveTextVariant}
                                     custom={1}

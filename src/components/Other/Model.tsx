@@ -57,27 +57,37 @@ export default function Model({
         uAlpha: { value: 0 },
     })
 
-    useFrame(() => {
-        const { x: mouseX, y: mouseY } = mouse
-        const smoothX = smoothMouse.x.get()
-        const smoothY = smoothMouse.y.get()
+    useEffect(() => {
+        let frameId: number
 
-        const deltaX = mouseX.get() - smoothX
-        const deltaY = mouseY.get() - smoothY
+        const update = () => {
+            const { x: mouseX, y: mouseY } = mouse
+            const smoothX = smoothMouse.x.get()
+            const smoothY = smoothMouse.y.get()
 
-        if (Math.abs(deltaX) > 0.01 || Math.abs(deltaY) > 0.01) {
-            smoothMouse.x.set(lerp(smoothX, mouseX.get(), 0.1))
-            smoothMouse.y.set(lerp(smoothY, mouseY.get(), 0.1))
-        }
+            const deltaX = mouseX.get() - smoothX
+            const deltaY = mouseY.get() - smoothY
 
-        const material = plane?.current?.material
-        if (plane?.current && material) {
-            material.uniforms.uDelta.value = {
-                x: deltaX,
-                y: -1 * deltaY,
+            if (Math.abs(deltaX) > 0.01 || Math.abs(deltaY) > 0.01) {
+                smoothMouse.x.set(lerp(smoothX, mouseX.get(), 0.1))
+                smoothMouse.y.set(lerp(smoothY, mouseY.get(), 0.1))
+
+                const material = plane?.current?.material
+                if (material) {
+                    material.uniforms.uDelta.value = {
+                        x: deltaX,
+                        y: -1 * deltaY,
+                    }
+                }
             }
+
+            frameId = requestAnimationFrame(update)
         }
-    })
+
+        frameId = requestAnimationFrame(update)
+
+        return () => cancelAnimationFrame(frameId)
+    }, [])
 
     const x = useTransform(
         smoothMouse.x,

@@ -242,7 +242,8 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
                                 >
                                     <PrimaryButton
                                         href={`${project?.projectLink}`}
-                                        className="text-xs lg:text-sm"
+                                        className="text-xs lg:text-sm bg-black text-white"
+                                        as="link"
                                     >
                                         View website
                                     </PrimaryButton>

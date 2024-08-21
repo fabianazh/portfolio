@@ -1,32 +1,42 @@
 import Link from 'next/link'
-import { FaArrowUp } from 'react-icons/fa'
+import { IoChevronForward } from 'react-icons/io5'
 
 export default function PrimaryButton({
     href,
     children,
     className = 'bg-black text-white',
     target,
-    icon = (
-        <FaArrowUp className="rotate-45 opacity-0 group-hover:opacity-100" />
-    ),
+    icon = <IoChevronForward />,
+    as = 'link',
+    type,
 }: {
-    href: string
+    href?: string
     children: React.ReactNode
     className?: string
     target?: '_blank' | '_parent' | '_top' | '_self'
     icon?: React.ReactNode
+    as: 'button' | 'link'
+    type?: 'button' | 'submit' | 'reset'
 }) {
+    if (as === 'button') {
+        return (
+            <button
+                type={type}
+                className={`grid place-items-center transition-colors duration-500 gap-1 grid-flow-col px-5 py-1.5 rounded-full group ${className}`}
+            >
+                {children} {icon}
+            </button>
+        )
+    }
+
     return (
         <>
             <Link
-                href={href}
-                className={`grid min-h-10 place-items-center transition-colors duration-500 gap-3 grid-flow-col pr-1 pl-5 py-1 rounded-full group ${className}`}
+                href={`${href}`}
+                className={`grid place-items-center transition-colors duration-500 gap-1 grid-flow-col px-5 py-1.5 rounded-full group ${className}`}
                 target={target}
             >
-                {children}
-                <div className="text-sm rounded-full grid place-items-center bg-Gray-200 text-black h-full aspect-square shrink-0 scale-[.2] group-hover:scale-100 transition-transform">
-                    {icon}
-                </div>
+                {children} {icon}
             </Link>
         </>
     )

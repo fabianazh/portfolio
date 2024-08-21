@@ -41,7 +41,7 @@ export const projects = [
         index: 3,
         subname: 'TicTacTest - Your Classic Tic Tac Toe Playground!',
         thumbnail: '/img/projects/tictactest.png',
-        desc: 'TicTacTest is your go-to destination for a classic game of Tic Tac Toe in its purest form.',
+        desc: 'Your go-to destination for a classic game of TicTacToe.',
         shortDesc:
             'TicTacTest is your go-to destination for a classic game of Tic Tac Toe in its purest form.',
         tools: ['React JS', 'Tailwind CSS', 'Chakra UI'],

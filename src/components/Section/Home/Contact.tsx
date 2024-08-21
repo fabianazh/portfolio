@@ -2,13 +2,14 @@
 
 import { useForm } from 'react-hook-form'
 import { FaArrowUp } from 'react-icons/fa'
-import { mona, mori } from '@/app/fonts'
+import { mona, inter } from '@/app/fonts'
 import SecondaryButton from '@/components/Button/SecondaryButton'
+import PrimaryButton from '../../Button/PrimaryButton'
 
 export default function Contact() {
     const { register, handleSubmit, reset } = useForm<FormData>()
 
-    function sendEmail(data: FormData) {
+    async function sendEmail(data: FormData) {
         const apiEndpoint = '/api/email'
 
         fetch(apiEndpoint, {
@@ -32,13 +33,13 @@ export default function Contact() {
     return (
         <section
             id="contact"
-            className={`w-full flex flex-col gap-8 lg:gap-12 py-14 px-4 lg:px-16 h-full z-0 ${mona.className}`}
+            className={`relative w-full flex flex-col gap-8 lg:gap-12 py-14 px-4 lg:px-16 h-full z-0 ${mona.className}`}
         >
-            <div className={`w-full flex gap-4 flex-col ${mori.className}`}>
-                <h3 className="text-4xl lg:text-4xl font-semibold">
+            <div className={`w-full flex gap-4 flex-col ${inter.className}`}>
+                <h3 className="text-4xl lg:text-5xl font-semibold">
                     Contact Me
                 </h3>
-                <span className={`block lg:hidden text-base font-medium`}>
+                <span className={`block lg:hidden text-base font-normal`}>
                     I&apos;m always excited to discuss new opportunities,
                     projects, or collaborations. Whether you have a question,
                     want to work together, or just want to say hello, feel free
@@ -84,15 +85,13 @@ export default function Contact() {
                         <div className="absolute transition-all duration-300 bottom-1.5 left-1/2 -translate-x-1/2 w-full h-0.5 scale-x-0 bg-stone-400  group-hover:scale-x-100 group-focus-within:scale-x-100"></div>
                     </div>
                     <div className="flex justify-end w-full h-auto gap-4">
-                        <button
+                        <PrimaryButton
+                            as="button"
                             type="submit"
-                            className="text-sm lg:text-base bg-black grid place-items-center transition-colors duration-300 text-white gap-2.5 grid-flow-col pr-1 pl-5 py-1 rounded-full group"
+                            className="bg-black text-white text-sm"
                         >
                             Submit
-                            <div className="text-sm rounded-full grid place-items-center bg-Gray-200 text-black w-7 aspect-square shrink-0 scale-[.2] group-hover:scale-100 transition-transform">
-                                <FaArrowUp className="rotate-45 scale-0 group-hover:scale-100 transition-transform" />
-                            </div>
-                        </button>
+                        </PrimaryButton>
                     </div>
                 </form>
                 <div className="flex flex-col divide-y-2 divide-stone-300 z-10">
@@ -155,6 +154,9 @@ export default function Contact() {
                     </div>
                 </div>
             </div>
+            {/* Border */}
+            <div className="h-0.5 bg-stone-300 w-11/12 mx-auto block absolute bottom-0" />
+            {/* End Border */}
         </section>
     )
 }

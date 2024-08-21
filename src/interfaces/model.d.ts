@@ -33,3 +33,9 @@ interface Skill {
     src: string
     url: string
 }
+
+interface Service {
+    title: string
+    desc: string
+    href: string
+}

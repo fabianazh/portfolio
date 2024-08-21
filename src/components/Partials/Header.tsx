@@ -78,7 +78,7 @@ export default function Header() {
             >
                 {/* Nav Container */}
                 <div
-                    className={`relative w-full flex items-center justify-between bg-white/50 z-10 px-5 lg:px-6 py-3 lg:py-2 backdrop-blur-md rounded-b-xl lg:rounded-b-lg lg:rounded-lg shadow-sm`}
+                    className={`relative w-full flex items-center justify-between bg-white/50 z-10 px-5 lg:px-6 py-3 lg:py-2 backdrop-blur-md rounded-b-xl lg:rounded-b-full lg:rounded-full lg:border border-stone-100 shadow-sm`}
                 >
                     {/* Logo and Name */}
                     <Link
