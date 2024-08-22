@@ -6,6 +6,8 @@ import { useEffect, useState } from 'react'
 import { services } from '@/constants/component'
 import { AnimatePresence, motion } from 'framer-motion'
 import { disableScroll, enableScroll } from '@/utils/controllScroll'
+import { FiX } from 'react-icons/fi'
+import PrimaryButton from '@/components/Button/PrimaryButton'
 
 export default function Service() {
     const [cardActive, setCardActive] = useState<number>(0)
@@ -38,25 +40,16 @@ export default function Service() {
                 {/* End Left Content */}
                 {/* Right Content */}
                 <div className="w-full lg:w-9/12 grid lg:grid-cols-2 h-auto gap-6 z-10">
-                    {services.map(
-                        (
-                            service: {
-                                title: string
-                                desc: string
-                                href: string
-                            },
-                            index: number
-                        ) => (
-                            <ServiceCard
-                                key={index}
-                                index={index}
-                                service={service}
-                                isActive={cardActive === index}
-                                setActive={setCardActive}
-                                setModal={setModal}
-                            />
-                        )
-                    )}
+                    {services.map((service: Service, index: number) => (
+                        <ServiceCard
+                            key={index}
+                            index={index}
+                            service={service}
+                            isActive={cardActive === index}
+                            setActive={setCardActive}
+                            setModal={setModal}
+                        />
+                    ))}
                 </div>
                 {/* End Right Content */}
                 {/* Modal */}
@@ -120,7 +113,7 @@ export default function Service() {
                                     animate="enter"
                                     exit="exit"
                                     initial="initial"
-                                    className="w-auto bg-white z-10 shadow-sm rounded-2xl h-auto p-3 lg:p-6 pb-4 lg:pb-8 flex flex-col"
+                                    className="w-auto bg-white z-10 shadow-sm rounded-2xl h-auto p-3 lg:p-8 pt-2 lg:pt-7 pb-4 lg:pb-8 flex flex-col"
                                 >
                                     {/* Close Button */}
                                     <div
@@ -130,18 +123,44 @@ export default function Service() {
                                                 data: null,
                                             })
                                         }
-                                        className="flex justify-end w-full h-fit z-0 cursor-pointer"
+                                        className="flex justify-end w-full h-fit z-0 cursor-pointer translate-x-1"
                                     >
-                                        X
+                                        <FiX className="text-lg lg:text-xl" />
                                     </div>
                                     {/* End Close Button */}
                                     {/* Content */}
-                                    <div className="w-fit min-w-56 lg:min-w-80 min-h-40 lg:min-h-56 flex flex-col gap-1">
+                                    <div className="w-fit min-w-56 min-h-40 lg:min-h-56 flex flex-col gap-3">
                                         <h4
                                             className={`text-lg lg:text-xl font-semibold`}
                                         >
                                             {modal?.data?.title}
                                         </h4>
+                                        {/* Project List */}
+                                        <ul className="w-full flex flex-col pr-9">
+                                            {modal?.data?.projects.map(
+                                                (
+                                                    item: string,
+                                                    index: number
+                                                ) => (
+                                                    <li
+                                                        key={index}
+                                                        className="list-inside list-disc text-sm font-medium"
+                                                    >
+                                                        {item}
+                                                    </li>
+                                                )
+                                            )}
+                                        </ul>
+                                        {/* End Project List */}
+                                        {/* Button */}
+                                        <PrimaryButton
+                                            href={modal?.data?.href}
+                                            className={`inline-block w-fit text-sm font-medium bg-black text-white mt-5`}
+                                            as="link"
+                                        >
+                                            Order
+                                        </PrimaryButton>
+                                        {/* End Button */}
                                     </div>
                                     {/* End Content */}
                                 </motion.div>

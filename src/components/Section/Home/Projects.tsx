@@ -3,7 +3,7 @@
 import { inter, mona } from '@/app/fonts'
 import ProjectCard from '@/components/Card/ProjectCard'
 import { projects } from '@/constants/model'
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useInView, AnimatePresence } from 'framer-motion'
 import Scene from '@/components/Other/Scene'
 import Link from 'next/link'
@@ -13,19 +13,35 @@ export default function Projects() {
     const otherProjectRef = useRef<HTMLDivElement | null>(null)
     const inView = useInView(projectRef, { once: true, amount: 0.5 })
     const [isInView, setIsInView] = useState<boolean>(false)
+    const [isOtherPorjectsActive, setIsOtherPorjectsActive] =
+        useState<boolean>(false)
     const [activeProject, setActiveProject] = useState<number | null>(null)
 
     useEffect(() => {
         setIsInView(true)
     }, [inView])
 
-    const highlightedProjects = projects.filter(
-        (project: Project) => project.isHighlighted === true
+    const highlightedProjects = useMemo(
+        () =>
+            projects.filter(
+                (project: Project) => project.isHighlighted === true
+            ),
+        [projects]
     )
 
-    const otherProjects = projects.filter(
-        (project: Project) => project.isHighlighted === false
+    const otherProjects = useMemo(
+        () =>
+            projects.filter(
+                (project: Project) => project.isHighlighted === false
+            ),
+        [projects]
     )
+
+    const handleMouseOver = useCallback((index: number) => {
+        setActiveProject(index)
+    }, [])
+
+    console.log('p')
 
     return (
         <>
@@ -77,10 +93,10 @@ export default function Projects() {
                         ref={otherProjectRef}
                         className="relative overflow-hidden flex w-full h-auto gap-4 lg:gap-4 flex-col z-0"
                     >
-                        <Scene
+                        {/* <Scene
                             activeProject={activeProject}
                             projects={otherProjects ?? []}
-                        />
+                        /> */}
                         <div className="w-full items-center flex gap-2.5">
                             <span className="font-medium">Other Projects</span>
                             <div className="font-medium bg-stone-200 px-3 py-0.5 text-xs rounded-full grid place-items-center">
@@ -97,7 +113,7 @@ export default function Projects() {
                                         href={`/${project.id}`}
                                         key={project.id}
                                         onMouseOver={() =>
-                                            setActiveProject(index)
+                                            handleMouseOver(index)
                                         }
                                         className="relative w-full flex gap-4 border-b border-stone-400 last:border-0 pb-4 last:pb-0 lg:last:pb-3 last:pt-4 lg:last:pt-3"
                                     >

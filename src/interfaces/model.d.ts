@@ -38,4 +38,5 @@ interface Service {
     title: string
     desc: string
     href: string
+    projects: string[]
 }

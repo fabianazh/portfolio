@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useMemo, useRef } from 'react'
 import { useFrame, useThree } from '@react-three/fiber'
 import { motion } from 'framer-motion-3d'
 import { animate, useMotionValue, useTransform } from 'framer-motion'
@@ -8,7 +8,7 @@ import { useTexture, useAspect } from '@react-three/drei'
 import useMouse from '@/hooks/useMouse'
 import useDimension from '@/hooks/useDimension'
 
-export default function Model({
+const Model = React.memo(function Model({
     activeProject,
     projects,
 }: {
@@ -20,8 +20,9 @@ export default function Model({
     const dimension = useDimension()
     const mouse = useMouse()
     const opacity = useMotionValue(0)
-    const textures = projects.map((project: Project) =>
-        useTexture(project.thumbnail)
+    const textures = useMemo(
+        () => useTexture(projects.map((project: Project) => project.thumbnail)),
+        [projects]
     )
     const { width, height } = textures[0].image
     const lerp = (x: number, y: number, a: number) => x * (1 - a) + y * a
@@ -32,23 +33,28 @@ export default function Model({
         y: useMotionValue(0),
     }
 
+    // console.log(1)
+
     useEffect(() => {
-        if (activeProject != null) {
-            plane.current.material.uniforms.uTexture.value =
-                textures[activeProject]
-            animate(opacity, 1, {
-                duration: 0.2,
-                onUpdate: (latest) =>
-                    (plane.current.material.uniforms.uAlpha.value = latest),
-            })
-        } else {
-            animate(opacity, 0, {
-                duration: 0.2,
-                onUpdate: (latest) =>
-                    (plane.current.material.uniforms.uAlpha.value = latest),
-            })
+        const material = plane?.current?.material
+        if (material && material.uniforms) {
+            if (activeProject != null) {
+                plane.current.material.uniforms.uTexture.value =
+                    textures[activeProject]
+                animate(opacity, 1, {
+                    duration: 0.2,
+                    onUpdate: (latest) =>
+                        (material.uniforms.uAlpha.value = latest),
+                })
+            } else {
+                animate(opacity, 0, {
+                    duration: 0.2,
+                    onUpdate: (latest) =>
+                        (material.uniforms.uAlpha.value = latest),
+                })
+            }
         }
-    }, [activeProject])
+    }, [activeProject, textures, opacity])
 
     const uniforms = useRef({
         uDelta: { value: { x: 0, y: 0 } },
@@ -57,37 +63,39 @@ export default function Model({
         uAlpha: { value: 0 },
     })
 
-    useEffect(() => {
-        let frameId: number
+    const lastTime = useRef(0)
+    const updateInterval = 12
 
-        const update = () => {
-            const { x: mouseX, y: mouseY } = mouse
-            const smoothX = smoothMouse.x.get()
-            const smoothY = smoothMouse.y.get()
+    useFrame(({ clock }) => {
+        const time = clock.getElapsedTime() * 1000
 
-            const deltaX = mouseX.get() - smoothX
-            const deltaY = mouseY.get() - smoothY
-
-            if (Math.abs(deltaX) > 0.01 || Math.abs(deltaY) > 0.01) {
-                smoothMouse.x.set(lerp(smoothX, mouseX.get(), 0.1))
-                smoothMouse.y.set(lerp(smoothY, mouseY.get(), 0.1))
-
-                const material = plane?.current?.material
-                if (material) {
-                    material.uniforms.uDelta.value = {
-                        x: deltaX,
-                        y: -1 * deltaY,
-                    }
-                }
-            }
-
-            frameId = requestAnimationFrame(update)
+        if (time - lastTime.current < updateInterval) {
+            return
         }
 
-        frameId = requestAnimationFrame(update)
+        lastTime.current = time
+        // console.log(3)
+        const { x: mouseX, y: mouseY } = mouse
+        const smoothX = smoothMouse.x.get()
+        const smoothY = smoothMouse.y.get()
 
-        return () => cancelAnimationFrame(frameId)
-    }, [])
+        const deltaX = mouseX.get() - smoothX
+        const deltaY = mouseY.get() - smoothY
+
+        if (Math.abs(deltaX) > 0.01 || Math.abs(deltaY) > 0.01) {
+            smoothMouse.x.set(lerp(smoothX, mouseX.get(), 0.15))
+            smoothMouse.y.set(lerp(smoothY, mouseY.get(), 0.15))
+
+            const material = plane?.current?.material
+            if (material) {
+                material.uniforms.uDelta.value = {
+                    x: deltaX,
+                    y: -deltaY,
+                }
+            }
+            // console.log(4)
+        }
+    })
 
     const x = useTransform(
         smoothMouse.x,
@@ -103,7 +111,6 @@ export default function Model({
     return (
         <motion.mesh position-x={x} position-y={y} ref={plane} scale={scale}>
             <planeGeometry args={[1, 1, 15, 15]} />
-            {/* <meshBasicMaterial wireframe={true} color="red"/> */}
             <shaderMaterial
                 vertexShader={vertex}
                 fragmentShader={fragment}
@@ -112,4 +119,6 @@ export default function Model({
             />
         </motion.mesh>
     )
-}
+})
+
+export default Model
