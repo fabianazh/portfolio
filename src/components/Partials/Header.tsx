@@ -8,6 +8,8 @@ import { overlayVariant } from '@/variants/navbar'
 import NavButton from '@/components/Partials/NavButton'
 import Link from 'next/link'
 import { mona } from '@/app/fonts'
+import { navItems } from '@/constants/component'
+import { Link as SamePageLink } from 'react-scroll'
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -80,14 +82,35 @@ export default function Header() {
                 <div
                     className={`relative w-full flex items-center justify-between bg-white/50 z-10 px-5 lg:px-6 py-3 lg:py-2 backdrop-blur-md rounded-b-xl lg:rounded-b-full lg:rounded-full lg:border border-stone-100 shadow-sm`}
                 >
-                    {/* Logo and Name */}
-                    <Link
-                        href={'https://fabianazh.vercel.app'}
-                        className={`text-sm text-black w-fit h-fit inline-block font-medium lg:font-semibold group ${mona.className}`}
-                    >
-                        Fabian Azhar
-                    </Link>
-                    {/* End Logo and Name */}
+                    <div className="w-fit flex gap-10 items-center">
+                        {/* Logo and Name */}
+                        <Link
+                            href={'https://fabianazh.vercel.app'}
+                            className={`text-sm text-black w-fit h-fit inline-block font-medium lg:font-semibold group ${mona.className}`}
+                        >
+                            Fabian Azhar
+                        </Link>
+                        {/* End Logo and Name */}
+                        {/* Navbar */}
+                        <nav className="w-fit hidden lg:flex z-0">
+                            <ul className="w-fit flex gap-2 lg:gap-3 z-[1]">
+                                {navItems.map((navitem, index: number) => (
+                                    <li key={index}>
+                                        <SamePageLink
+                                            className={`text-[0.8em] cursor-pointer relative text-black font-medium`}
+                                            smooth={true}
+                                            to={navitem.link}
+                                            spy={true}
+                                        >
+                                            {navitem.text}
+                                            <div className="absolute w-full h-[2px] scale-x-0 bottom-0 left-0 bg-stone-600 origin-bottom-right transition-transform duration-300 group-hover:scale-x-100 group-hover:origin-bottom-left" />
+                                        </SamePageLink>
+                                    </li>
+                                ))}
+                            </ul>
+                        </nav>
+                        {/* End Navbar */}
+                    </div>
 
                     {/* Nav Button */}
                     <NavButton isOpen={isOpen} setIsOpen={setIsOpen} />

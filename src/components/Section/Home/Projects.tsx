@@ -41,8 +41,6 @@ export default function Projects() {
         setActiveProject(index)
     }, [])
 
-    console.log('p')
-
     return (
         <>
             {/* Project Section */}
