@@ -29,13 +29,13 @@ export default function ServiceCard({
                     className={`w-full flex flex-col gap-0.5 ${mona.className}`}
                 >
                     {/* Heading */}
-                    <span className={`block text-lg font-medium`}>
+                    <span className={`block text-base text-lg font-medium`}>
                         {service.title}
                     </span>
                     {/* End Heading */}
                     {/* Desc */}
                     <span
-                        className={`block text-sm font-normal text-stone-500`}
+                        className={`block text-xs lg:text-sm font-normal text-stone-500`}
                     >
                         {service.desc}
                     </span>

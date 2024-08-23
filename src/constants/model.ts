@@ -98,7 +98,7 @@ export const projects = [
         shortDesc: 'A landing page from popular coffee shop.',
         tools: ['React JS', 'Tailwind CSS', 'Chakra UI'],
         year: '23',
-        projectLink: 'https://quranku-one.vercel.app',
+        projectLink: 'https://fabianazh.github.io/starbucks-clone',
         githubLink: 'https://github.com/fabianazh/quranku',
         collaborators: ['-'],
         client: '-',

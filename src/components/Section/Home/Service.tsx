@@ -8,6 +8,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { disableScroll, enableScroll } from '@/utils/controllScroll'
 import { FiX } from 'react-icons/fi'
 import PrimaryButton from '@/components/Button/PrimaryButton'
+import { exit } from 'process'
 
 export default function Service() {
     const [cardActive, setCardActive] = useState<number>(0)
@@ -144,13 +145,36 @@ export default function Service() {
                                                     item: string,
                                                     index: number
                                                 ) => (
-                                                    <li
+                                                    <motion.li
+                                                        variants={{
+                                                            initial: {
+                                                                opacity: 0,
+                                                            },
+                                                            enter: {
+                                                                opacity: 1,
+                                                                transition: {
+                                                                    delay:
+                                                                        0.2 +
+                                                                        index *
+                                                                            0.1,
+                                                                },
+                                                            },
+                                                            exit: {
+                                                                opacity: 0,
+                                                                transition: {
+                                                                    delay: 0.2,
+                                                                },
+                                                            },
+                                                        }}
+                                                        initial="initial"
+                                                        animate="enter"
+                                                        exit="exit"
                                                         key={index}
                                                         className="text-sm font-normal flex items-center text-stone-700"
                                                     >
                                                         <span className="inline-block w-1 h-1 mr-2 rounded-full bg-black"></span>
                                                         {item}
-                                                    </li>
+                                                    </motion.li>
                                                 )
                                             )}
                                         </ul>

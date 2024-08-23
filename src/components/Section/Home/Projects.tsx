@@ -5,22 +5,14 @@ import ProjectCard from '@/components/Card/ProjectCard'
 import { projects } from '@/constants/model'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useInView, AnimatePresence, motion } from 'framer-motion'
-import Scene from '@/components/Other/Scene'
 import Link from 'next/link'
 import ArrowIcon from '@/components/Icon/ArrowIcon'
 
 export default function Projects() {
     const projectRef = useRef<HTMLDivElement | null>(null)
     const otherProjectRef = useRef<HTMLDivElement | null>(null)
-    const inView = useInView(projectRef, { once: true, amount: 0.5 })
-    const [isInView, setIsInView] = useState<boolean>(false)
-    const [isOtherPorjectsActive, setIsOtherPorjectsActive] =
-        useState<boolean>(false)
+    const highlightedProjectsRef = useRef<HTMLDivElement | null>(null)
     const [activeProject, setActiveProject] = useState<number | null>(null)
-
-    useEffect(() => {
-        setIsInView(true)
-    }, [inView])
 
     const highlightedProjects = useMemo(
         () =>
@@ -71,31 +63,24 @@ export default function Projects() {
                 {/* End Left Content */}
                 {/* Right Content */}
                 <div className="w-full lg:w-10/12 flex h-auto flex-col gap-16 lg:gap-24">
-                    <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-x-6 lg:gap-y-14 place-items-start z-10">
-                        <AnimatePresence>
-                            {isInView && (
-                                <>
-                                    {highlightedProjects.map(
-                                        (project: Project, index: number) => (
-                                            <ProjectCard
-                                                key={project.id}
-                                                project={project}
-                                                index={index}
-                                            />
-                                        )
-                                    )}
-                                </>
-                            )}
-                        </AnimatePresence>
-                    </div>
+                    <motion.div
+                        ref={highlightedProjectsRef}
+                        className="w-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-x-6 lg:gap-y-14 place-items-start z-10"
+                    >
+                        {highlightedProjects.map(
+                            (project: Project, index: number) => (
+                                <ProjectCard
+                                    key={project.id}
+                                    project={project}
+                                    index={index}
+                                />
+                            )
+                        )}
+                    </motion.div>
                     <div
                         ref={otherProjectRef}
                         className="relative overflow-hidden flex w-full h-auto gap-4 lg:gap-4 flex-col z-0"
                     >
-                        {/* <Scene
-                            activeProject={activeProject}
-                            projects={otherProjects ?? []}
-                        /> */}
                         <div className="w-full items-center flex gap-2.5">
                             <span className="font-medium">Other Projects</span>
                             <div className="font-medium bg-stone-200 px-3 py-0.5 text-xs rounded-full grid place-items-center">

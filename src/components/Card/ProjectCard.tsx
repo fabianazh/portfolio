@@ -22,18 +22,20 @@ export default function ProjectCard({
         <>
             {/* Container */}
             <motion.div
-                variants={{
-                    enter: (i: number) => ({
-                        opacity: 1,
-                        transition: { delay: 0.4 + i * 0.2 },
-                    }),
-                    initial: {
-                        opacity: 0,
-                    },
-                }}
-                custom={index}
                 animate="enter"
-                initial="initial"
+                initial={{
+                    opacity: 0,
+                }}
+                whileInView={{
+                    opacity: 1,
+                }}
+                viewport={{
+                    amount: 'some',
+                    once: true,
+                }}
+                transition={{
+                    delay: 0.4 + index * 0.2,
+                }}
                 className={`h-full flex w-full flex-col gap-3 ${className}`}
             >
                 {/* Thumbnail Container */}
@@ -42,7 +44,7 @@ export default function ProjectCard({
                     className={`w-full h-auto shrink-0 transition-all group cursor-pointer ${thumbnailClassName}`}
                 >
                     {/* Layer */}
-                    <div className="w-full relative rounded-xl lg:rounded-2xl h-full z-0 shadow-sm lg:shadow overflow-hidden transition-all">
+                    <div className="w-full relative rounded-xl lg:rounded-2xl h-full z-0 shadow-sm lg:shadow overflow-hidden transition-all hover:-translate-y-0.5">
                         {/* Image */}
                         <Image
                             src={`${project.thumbnail}`}
@@ -54,7 +56,7 @@ export default function ProjectCard({
                         {/* End Image */}
 
                         {/* Overlay */}
-                        <div className="absolute flex items-center gap-1 w-fit h-fit bottom-3.5 right-3.5 z-10 bg-stone-100 shadow rounded-full px-3 py-1 opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-300">
+                        <div className="absolute flex items-center gap-1 w-fit h-fit bottom-3.5 right-3.5 z-10 bg-stone-100 shadow rounded-full px-3 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <span className="text-xs font-medium">
                                 View Detail
                             </span>{' '}

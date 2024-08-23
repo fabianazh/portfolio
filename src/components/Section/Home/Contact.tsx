@@ -4,13 +4,13 @@ import { useForm } from 'react-hook-form'
 import { FaArrowUp } from 'react-icons/fa'
 import { mona, inter } from '@/app/fonts'
 import SecondaryButton from '@/components/Button/SecondaryButton'
-import PrimaryButton from '../../Button/PrimaryButton'
+import PrimaryButton from '@/components/Button/PrimaryButton'
 
 export default function Contact() {
     const { register, handleSubmit, reset } = useForm<FormData>()
 
     async function sendEmail(data: FormData) {
-        const apiEndpoint = '/api/email'
+        const apiEndpoint = 'https://fabianazh.vercel.app/api/email'
 
         fetch(apiEndpoint, {
             method: 'POST',
