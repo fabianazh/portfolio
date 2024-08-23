@@ -45,7 +45,7 @@ export default function ServiceCard({
                 {/* Button */}
                 <PrimaryButton
                     href={service.href}
-                    className={`inline-block w-fit text-sm font-medium ${
+                    className={`inline-block w-fit text-xs lg:text-sm font-medium ${
                         isActive
                             ? 'bg-black text-white'
                             : 'bg-stone-200 text-black'

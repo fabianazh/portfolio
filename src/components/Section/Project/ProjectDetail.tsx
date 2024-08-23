@@ -315,7 +315,7 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
                     href={`/${prevProject?.id}`}
                     className="text-xs lg:text-sm flex gap-2 font-semibold items-center w-fit"
                 >
-                    <ArrowIcon className="rotate-180" />
+                    <ArrowIcon className="rotate-180 w-5 h-fit" />
                     <span>Previous project</span>
                 </Link>
                 <Link

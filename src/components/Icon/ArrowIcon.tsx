@@ -1,4 +1,8 @@
-export default function ArrowIcon({ className }: { className?: string }) {
+export default function ArrowIcon({
+    className = 'w-5 h-fit',
+}: {
+    className?: string
+}) {
     return (
         <svg
             version="1.1"
@@ -10,7 +14,7 @@ export default function ArrowIcon({ className }: { className?: string }) {
             fill="#000000"
             stroke="#000000"
             strokeWidth="5"
-            className={`w-5 h-fit ${className}`}
+            className={`${className}`}
         >
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
             <g

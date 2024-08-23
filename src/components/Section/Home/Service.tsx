@@ -146,7 +146,7 @@ export default function Service() {
                                                 ) => (
                                                     <li
                                                         key={index}
-                                                        className="text-sm font-medium flex items-center"
+                                                        className="text-sm font-normal flex items-center text-stone-700"
                                                     >
                                                         <span className="inline-block w-1 h-1 mr-2 rounded-full bg-black"></span>
                                                         {item}
@@ -158,7 +158,7 @@ export default function Service() {
                                         {/* Button */}
                                         <PrimaryButton
                                             href={modal?.data?.href}
-                                            className={`inline-block w-fit text-sm font-medium bg-black text-white mt-5`}
+                                            className={`inline-block w-fit text-xs font-medium bg-black text-white mt-3 lg:mt-5`}
                                             as="link"
                                         >
                                             Order

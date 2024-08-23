@@ -17,7 +17,7 @@
     }
 
     body::-webkit-scrollbar-track {
-        @apply lg:bg-Gray-200;
+        @apply lg:bg-stone-400;
     }
 
     body::-webkit-scrollbar-thumb {

@@ -3,6 +3,7 @@ import { urbanist, mona } from '@/app/fonts'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import ArrowIcon from '@/components/Icon/ArrowIcon'
 
 export default function ProjectCard({
     project,
@@ -53,7 +54,12 @@ export default function ProjectCard({
                         {/* End Image */}
 
                         {/* Overlay */}
-                        <div className="absolute w-full h-full bg-radial-gradient-at-b transition-all duration-500 top-0 left-0 from-black/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 z-10"></div>
+                        <div className="absolute flex items-center gap-1 w-fit h-fit bottom-3.5 right-3.5 z-10 bg-stone-100 shadow rounded-full px-3 py-1 opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-300">
+                            <span className="text-xs font-medium">
+                                View Detail
+                            </span>{' '}
+                            <ArrowIcon className="w-3.5 h-fit" />
+                        </div>
                         {/* End Overlay */}
                     </div>
                     {/* End Layer */}
