@@ -6,7 +6,7 @@ export default function About() {
             {/* About Section */}
             <section
                 id="about"
-                className="w-full h-auto flex flex-col lg:flex-row lg:justify-between gap-6 lg:gap-10 lg:pb-24 px-4 lg:px-20 z-0"
+                className="w-full h-auto flex flex-col lg:flex-row lg:justify-between gap-6 py-8 lg:py-16 lg:gap-10 pb-16 lg:pb-24 px-4 lg:px-20 z-0"
             >
                 {/* Left Content */}
                 <div className="w-full lg:w-3/12 shrink-0 flex flex-col gap-1">
@@ -22,7 +22,7 @@ export default function About() {
                 {/* Right Content */}
                 <div className="w-full lg:w-9/12 flex h-auto flex-col gap-2 lg:gap-4 z-10">
                     <span
-                        className={`text-base lg:text-lg font-medium text-black ${mona.className}`}
+                        className={`text-sm lg:text-lg font-medium text-black ${mona.className}`}
                     >
                         I am passionate about web development, with a strong
                         interest in both front-end and back-end technologies.

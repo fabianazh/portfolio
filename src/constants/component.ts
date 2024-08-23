@@ -152,6 +152,7 @@ export const skills = [
         ],
     },
 ]
+
 export const services = [
     {
         title: 'UI/UX Design',

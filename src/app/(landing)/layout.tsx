@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect } from 'react'
-import Header from '@/components/Partials/Header'
 import Footer from '@/components/Partials/Footer'
 import Lenis from 'lenis'
 
@@ -23,8 +22,7 @@ export default function LandingLayout({
 
     return (
         <>
-            <Header />
-            <main>{children}</main>
+            {children}
             <Footer />
         </>
     )

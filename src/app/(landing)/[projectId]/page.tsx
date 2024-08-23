@@ -20,7 +20,9 @@ export default function ProjectDetailPage({
     return (
         <>
             <ScrollButton />
-            <ProjectDetail projectId={projectId} />
+            <main>
+                <ProjectDetail projectId={projectId} />
+            </main>
         </>
     )
 }

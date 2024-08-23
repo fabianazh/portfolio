@@ -113,7 +113,7 @@ export default function Service() {
                                     animate="enter"
                                     exit="exit"
                                     initial="initial"
-                                    className="w-auto bg-white z-10 shadow-sm rounded-2xl h-auto p-3 lg:p-8 pt-2 lg:pt-7 pb-4 lg:pb-8 flex flex-col"
+                                    className="w-auto min-w-56 lg:min-w-72 min-h-40 lg:min-h-56 bg-white z-10 shadow-sm rounded-2xl h-auto p-6 lg:p-8 pt-5 lg:pt-7 flex flex-row-reverse gap-6"
                                 >
                                     {/* Close Button */}
                                     <div
@@ -123,20 +123,22 @@ export default function Service() {
                                                 data: null,
                                             })
                                         }
-                                        className="flex justify-end w-full h-fit z-0 cursor-pointer translate-x-1"
+                                        className="w-fit h-fit z-0 cursor-pointer translate-y-1 translate-x-1"
                                     >
                                         <FiX className="text-lg lg:text-xl" />
                                     </div>
                                     {/* End Close Button */}
                                     {/* Content */}
-                                    <div className="w-fit min-w-56 min-h-40 lg:min-h-56 flex flex-col gap-3">
+                                    <div className="w-fit flex flex-col shrink-0 gap-3">
+                                        {/* Title */}
                                         <h4
-                                            className={`text-lg lg:text-xl font-semibold`}
+                                            className={`text-xl lg:text-2xl font-semibold`}
                                         >
                                             {modal?.data?.title}
                                         </h4>
+                                        {/* End Title */}
                                         {/* Project List */}
-                                        <ul className="w-full flex flex-col pr-9">
+                                        <ul className="w-full flex flex-col list-none px-1">
                                             {modal?.data?.projects.map(
                                                 (
                                                     item: string,
@@ -144,8 +146,9 @@ export default function Service() {
                                                 ) => (
                                                     <li
                                                         key={index}
-                                                        className="list-inside list-disc text-sm font-medium"
+                                                        className="text-sm font-medium flex items-center"
                                                     >
+                                                        <span className="inline-block w-1 h-1 mr-2 rounded-full bg-black"></span>
                                                         {item}
                                                     </li>
                                                 )

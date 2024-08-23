@@ -1,7 +1,7 @@
 'use client'
 
 import Navbar from '@/components/Partials/Navbar'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { AnimatePresence, motion } from 'framer-motion'
 import { overlayVariant } from '@/variants/navbar'
@@ -14,6 +14,7 @@ import { Link as SamePageLink } from 'react-scroll'
 export default function Header() {
     const [isOpen, setIsOpen] = useState<boolean>(false)
     const [isScrolled, setIsScrolled] = useState<boolean>(false)
+    const [activeSection, setActiveSection] = useState<string>('home')
 
     const pathname = usePathname()
 
@@ -29,6 +30,32 @@ export default function Header() {
             setIsScrolled(false)
         }
     }
+
+    const handleIntersection = useCallback(
+        (entries: IntersectionObserverEntry[]) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setActiveSection(entry.target.id)
+                }
+            })
+        },
+        []
+    )
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(handleIntersection, {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5,
+        })
+
+        const sections = document.querySelectorAll('section')
+        sections.forEach((section) => observer.observe(section))
+
+        return () => {
+            sections.forEach((section) => observer.unobserve(section))
+        }
+    }, [handleIntersection])
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll)
@@ -46,10 +73,6 @@ export default function Header() {
             window.removeEventListener('scroll', () => setIsOpen(false))
         }
     }, [isOpen])
-
-    if (pathname !== '/') {
-        return <></>
-    }
 
     return (
         <>
@@ -94,19 +117,36 @@ export default function Header() {
                         {/* Navbar */}
                         <nav className="w-fit hidden lg:flex z-0">
                             <ul className="w-fit flex gap-2 lg:gap-3 z-[1]">
-                                {navItems.map((navitem, index: number) => (
-                                    <li key={index}>
-                                        <SamePageLink
-                                            className={`text-[0.8em] cursor-pointer relative text-black font-medium`}
-                                            smooth={true}
-                                            to={navitem.link}
-                                            spy={true}
-                                        >
-                                            {navitem.text}
-                                            <div className="absolute w-full h-[2px] scale-x-0 bottom-0 left-0 bg-stone-600 origin-bottom-right transition-transform duration-300 group-hover:scale-x-100 group-hover:origin-bottom-left" />
-                                        </SamePageLink>
-                                    </li>
-                                ))}
+                                {navItems.map(
+                                    (
+                                        navitem: { link: string; text: string },
+                                        index: number
+                                    ) => (
+                                        <li key={index}>
+                                            <SamePageLink
+                                                className={`group text-[0.8em] cursor-pointer relative text-black font-medium ${
+                                                    activeSection ===
+                                                    navitem.link
+                                                        ? 'active'
+                                                        : ''
+                                                }`}
+                                                smooth={true}
+                                                to={navitem.link}
+                                                spy={true}
+                                            >
+                                                {navitem.text}
+                                                <div
+                                                    className={`absolute w-full h-[2px] ${
+                                                        activeSection ===
+                                                        navitem.link
+                                                            ? 'scale-x-100'
+                                                            : 'scale-x-0'
+                                                    } bottom-0 left-0 bg-stone-600 origin-bottom-right transition-transform duration-300 group-hover:scale-x-100 group-hover:origin-bottom-left`}
+                                                />
+                                            </SamePageLink>
+                                        </li>
+                                    )
+                                )}
                             </ul>
                         </nav>
                         {/* End Navbar */}

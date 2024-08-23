@@ -15,7 +15,7 @@ export default function SecondaryButton({
         <>
             <Link
                 href={href}
-                className={`relative w-fit inline-block pb-[1px] font-medium group ${className}`}
+                className={`relative w-fit inline-block font-medium group ${className}`}
                 target={target}
             >
                 {children}
