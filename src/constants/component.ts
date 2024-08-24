@@ -203,3 +203,34 @@ export const services = [
         href: 'mailto:fabianazhrr@gmail.com?subject=Full-Stack%20Development%20Project%20Request&body=Hello%20Muhammad%20Fabian%20Azhar,%0D%0A%0D%0AI%20am%20interested%20in%20discussing%20a%20full-stack%20development%20project%20with%20you.%20Please%20let%20me%20know%20a%20convenient%20time%20to%20talk%20further.%0D%0A%0D%0AThank%20you!%0D%0A%0D%0ABest%20regards,%0D%0A%5BYour%20Name%5D',
     },
 ]
+
+export const enquires = [
+    {
+        name: 'Muhammad Fabian Azhar',
+    },
+    {
+        name: 'West Java, Indonesia.',
+    },
+    {
+        name: 'fabianazhrr@gmail.com',
+    },
+]
+
+export const contacts = [
+    {
+        name: 'Instagram',
+        link: 'https://instagram.com/fabianazhrr',
+    },
+    {
+        name: 'Facebook',
+        link: 'https://www.facebook.com/profile.php?id=61560075789729',
+    },
+    {
+        name: 'Github',
+        link: 'https://github.com/fabianazh',
+    },
+    {
+        name: 'Linked In',
+        link: 'https://linkedin/fabianazh',
+    },
+]

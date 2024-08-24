@@ -100,15 +100,15 @@ export default function Projects() {
                                         }}
                                         whileInView={{
                                             opacity: 1,
+                                            transition: {
+                                                delay: 0.4 + index * 0.2,
+                                            },
                                         }}
                                         viewport={{
                                             amount: 'some',
                                             once: true,
                                         }}
-                                        transition={{
-                                            delay: 0.4 + index * 0.2,
-                                        }}
-                                        className="relative w-full h-fit border-stone-400 last:border-0 pb-4 last:pb-0 lg:last:pb-3 pt-4 lg:pt-3 border-b overflow-hidden group"
+                                        className="relative w-full h-fit border-stone-400 last:border-0 pb-4 last:pb-0 lg:last:pb-3 pt-4 lg:pt-3 border-b overflow-hidden group cursor-pointer"
                                         onMouseOver={() =>
                                             handleMouseOver(index)
                                         }
@@ -117,93 +117,14 @@ export default function Projects() {
                                             href={`/${project.id}`}
                                             className="relative w-full flex gap-4"
                                         >
-                                            <span className="text-sm font-medium text-stone-600 w-4/12 lg:w-2/12 shrink-0 lg:shrink-none">
+                                            <span className="text-sm font-medium text-stone-600 w-4/12 lg:w-2/12 shrink-0 lg:shrink-none group-hover:text-black transition-colors">
                                                 {project.name}
                                             </span>
-                                            <div className="w-8/12 lg:w-10/12 flex flex-col lg:flex-row gap-3 lg:gap-2 lg:justify-between">
+                                            <div className="w-8/12 lg:w-10/12 flex flex-col lg:flex-row gap-3 lg:gap-2 lg:justify-between group-hover:-translate-y-12 group-hover:opacity-0 transition-all duration-300">
                                                 <span className="text-sm font-medium text-stone-600 w-full lg:w-6/12 shrink-0">
                                                     {project.shortDesc}
                                                 </span>
-                                                <div className="w-full h-fit flex flex-col lg:flex-row gap-3 lg:gap-2 lg:justify-between lg:group-hover:-translate-y-12 lg:group-hover:opacity-0 transition-all">
-                                                    <motion.span className="text-xs lg:text-sm font-medium text-stone-600 w-full lg:w-fit gap-2">
-                                                        {project.tools.map(
-                                                            (
-                                                                tech: string,
-                                                                index: number
-                                                            ) =>
-                                                                `${tech}${
-                                                                    index +
-                                                                        1 !==
-                                                                    project
-                                                                        .tools
-                                                                        .length
-                                                                        ? ', '
-                                                                        : '.'
-                                                                }`
-                                                        )}
-                                                    </motion.span>
-                                                    <span className="w-fit inline-block text-sm font-medium text-stone-400">
-                                                        <span className="inline-block lg:hidden">
-                                                            20
-                                                        </span>
-                                                        <span className="hidden lg:inline-block">
-                                                            /
-                                                        </span>
-                                                        {project.year}
-                                                    </span>
-                                                </div>
-                                                <AnimatePresence>
-                                                    {activeProject ===
-                                                        index && (
-                                                        <motion.div
-                                                            variants={{
-                                                                initial: {
-                                                                    opacity: 0,
-                                                                    y: '100%',
-                                                                },
-                                                                enter: {
-                                                                    opacity: 1,
-                                                                    y: '50%',
-                                                                    transition:
-                                                                        {
-                                                                            duration: 0.3,
-                                                                        },
-                                                                },
-                                                                exit: {
-                                                                    opacity: 0,
-                                                                    y: '100%',
-                                                                },
-                                                            }}
-                                                            animate="enter"
-                                                            initial="initial"
-                                                            exit="exit"
-                                                            className="absolute right-0 shrink-0 hidden lg:flex items-center gap-3"
-                                                        >
-                                                            <span className="text-sm font-semibold text-stone-600">
-                                                                View Detail
-                                                            </span>
-                                                            <ArrowIcon />
-                                                        </motion.div>
-                                                    )}
-                                                </AnimatePresence>
-                                            </div>
-                                        </Link>
-                                    </motion.div>
-                                )
-                            )}
-                        </div>
-                    </div>
-                </div>
-                {/* End Right Content */}
-            </section>
-            {/* End Project Section */}
-        </>
-    )
-}
-
-{
-    /* <div className="w-full flex flex-col lg:flex-row gap-3 lg:gap-2 lg:justify-between">
-                                                <motion.span className="text-xs lg:text-sm font-medium text-stone-600 w-full lg:w-fit gap-2">
+                                                <span className="text-xs lg:text-sm font-medium text-stone-600 w-full lg:w-fit gap-2">
                                                     {project.tools.map(
                                                         (
                                                             tech: string,
@@ -217,8 +138,8 @@ export default function Projects() {
                                                                     : '.'
                                                             }`
                                                     )}
-                                                </motion.span>
-                                                <span className="w-fit inline-block text-sm font-medium text-stone-400">
+                                                </span>
+                                                <div className="w-fit inline-block text-sm font-medium text-stone-400">
                                                     <span className="inline-block lg:hidden">
                                                         20
                                                     </span>
@@ -226,7 +147,24 @@ export default function Projects() {
                                                         /
                                                     </span>
                                                     {project.year}
-                                                </span>
+                                                </div>
                                             </div>
-                                        </div> */
+                                            <div className="absolute right-0 shrink-0 flex items-center gap-3 translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transiton-all duration-300">
+                                                <span className="text-sm font-semibold text-stone-600">
+                                                    View Detail
+                                                </span>
+                                                <ArrowIcon />
+                                            </div>
+                                        </Link>
+                                    </motion.div>
+                                )
+                            )}
+                        </div>
+                    </div>
+                </div>
+                {/* End Right Content */}
+            </section>
+            {/* End Project Section */}
+        </>
+    )
 }

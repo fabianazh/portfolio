@@ -27,13 +27,13 @@ export default function ProjectCard({
                 }}
                 whileInView={{
                     opacity: 1,
+                    transition: {
+                        delay: 0.4 + index * 0.2,
+                    },
                 }}
                 viewport={{
                     amount: 'some',
                     once: true,
-                }}
-                transition={{
-                    delay: 0.4 + index * 0.2,
                 }}
                 className={`h-full flex w-full flex-col gap-3 ${className}`}
             >

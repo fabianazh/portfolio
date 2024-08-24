@@ -78,43 +78,43 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
             <section className="w-full flex flex-col gap-3 lg:gap-8 py-0.5 h-auto">
                 <div className="w-full px-4 lg:px-12 relative flex h-auto justify-between lg:gap-12 items-end">
                     <motion.span
-                        variants={{
-                            initial: {
-                                opacity: 0,
-                                y: '10px',
-                            },
-                            enter: {
-                                y: '0px',
-                                opacity: 1,
-                                transition: {
-                                    delay: 0.3,
-                                    duration: 0.5,
-                                },
+                        initial={{
+                            opacity: 0,
+                            y: '10px',
+                        }}
+                        whileInView={{
+                            y: '0px',
+                            opacity: 1,
+                            transition: {
+                                delay: 0.3,
+                                duration: 0.5,
                             },
                         }}
-                        animate="enter"
-                        initial="initial"
+                        viewport={{
+                            amount: 'some',
+                            once: true,
+                        }}
                         className={`font-semibold text-4xl lg:text-6xl ${urbanist.className}`}
                     >
                         {project?.name}
                     </motion.span>
                     <motion.span
-                        variants={{
-                            initial: {
-                                opacity: 0,
-                                y: '10px',
-                            },
-                            enter: {
-                                y: '0px',
-                                opacity: 1,
-                                transition: {
-                                    delay: 0.35,
-                                    duration: 0.6,
-                                },
+                        initial={{
+                            opacity: 0,
+                            y: '10px',
+                        }}
+                        whileInView={{
+                            y: '0px',
+                            opacity: 1,
+                            transition: {
+                                delay: 0.35,
+                                duration: 0.6,
                             },
                         }}
-                        animate="enter"
-                        initial="initial"
+                        viewport={{
+                            amount: 'some',
+                            once: true,
+                        }}
                         className="font-medium text-2xl lg:text-4xl"
                     >
                         /{project?.year}
@@ -125,43 +125,43 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
                         <>
                             <div className="w-full h-fit relative overflow-hidden z-0">
                                 <motion.div
-                                    variants={{
-                                        initial: {
-                                            rotate: '-3deg',
-                                            y: '-30%',
-                                        },
-                                        enter: {
-                                            y: '-100%',
-                                            rotate: '0deg',
-                                            transition: {
-                                                y: {
-                                                    duration: 0.7,
-                                                },
-                                                rotate: {
-                                                    delay: 0.4,
-                                                    duration: 0.6,
-                                                },
+                                    initial={{
+                                        rotate: '-3deg',
+                                        y: '-30%',
+                                    }}
+                                    whileInView={{
+                                        y: '-100%',
+                                        rotate: '0deg',
+                                        transition: {
+                                            y: {
+                                                duration: 0.7,
+                                            },
+                                            rotate: {
+                                                delay: 0.4,
+                                                duration: 0.6,
                                             },
                                         },
                                     }}
-                                    animate="enter"
-                                    initial="initial"
+                                    viewport={{
+                                        amount: 'some',
+                                        once: true,
+                                    }}
                                     className="absolute w-[200vw] h-full -left-1/2 bg-Gray-200 z-10"
                                 ></motion.div>
                                 <motion.div
-                                    variants={{
-                                        initial: {
-                                            opacity: 0.3,
-                                        },
-                                        enter: {
-                                            opacity: 1,
-                                            transition: {
-                                                duration: 0.7,
-                                            },
+                                    initial={{
+                                        opacity: 0.3,
+                                    }}
+                                    whileInView={{
+                                        opacity: 1,
+                                        transition: {
+                                            duration: 0.7,
                                         },
                                     }}
-                                    animate="enter"
-                                    initial="initial"
+                                    viewport={{
+                                        amount: 'some',
+                                        once: true,
+                                    }}
                                     className="w-full fit z-0"
                                 >
                                     <Image
@@ -177,20 +177,20 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
                             <div className="w-full flex flex-col gap-8 py-8 lg:py-16 px-4 lg:px-60">
                                 <div className="w-full flex flex-col">
                                     <motion.span
-                                        variants={{
-                                            initial: {
-                                                opacity: 0,
-                                            },
-                                            enter: {
-                                                opacity: 1,
-                                                transition: {
-                                                    delay: 0.3,
-                                                    duration: 0.5,
-                                                },
+                                        initial={{
+                                            opacity: 0,
+                                        }}
+                                        whileInView={{
+                                            opacity: 1,
+                                            transition: {
+                                                delay: 0.3,
+                                                duration: 0.5,
                                             },
                                         }}
-                                        animate="enter"
-                                        initial="initial"
+                                        viewport={{
+                                            amount: 'some',
+                                            once: true,
+                                        }}
                                         className="text-lg lg:text-3xl font-medium"
                                     >
                                         {project?.desc}
@@ -200,21 +200,19 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
                                     {projectData.map((data, index: number) => (
                                         <motion.div
                                             key={index}
-                                            variants={{
-                                                initial: {
-                                                    opacity: 0,
-                                                },
-                                                enter: (index: number) => ({
-                                                    opacity: 1,
-                                                    transition: {
-                                                        delay:
-                                                            0.4 + index * 0.1,
-                                                    },
-                                                }),
+                                            initial={{
+                                                opacity: 0,
                                             }}
-                                            custom={index}
-                                            animate="enter"
-                                            initial="initial"
+                                            whileInView={{
+                                                opacity: 1,
+                                                transition: {
+                                                    delay: 0.4 + index * 0.1,
+                                                },
+                                            }}
+                                            viewport={{
+                                                amount: 'some',
+                                                once: true,
+                                            }}
                                             className="w-full border-b border-stone-300 font-medium text-stone-500 flex gap-7 lg:gap-4 py-4 text-sm lg:text-base"
                                         >
                                             <span className="block w-3/12 shrink-0">
@@ -225,19 +223,19 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
                                     ))}
                                 </div>
                                 <motion.div
-                                    variants={{
-                                        initial: {
-                                            opacity: 0,
-                                        },
-                                        enter: {
-                                            opacity: 1,
-                                            transition: {
-                                                delay: 0.5 + 7 * 0.1,
-                                            },
+                                    initial={{
+                                        opacity: 0,
+                                    }}
+                                    whileInView={{
+                                        opacity: 1,
+                                        transition: {
+                                            delay: 0.5 + 7 * 0.1,
                                         },
                                     }}
-                                    animate="enter"
-                                    initial="initial"
+                                    viewport={{
+                                        amount: 'some',
+                                        once: true,
+                                    }}
                                     className="w-full flex flex-col lg:flex-row items-center gap-4 lg:gap-8 py-0 lg:py-4"
                                 >
                                     <PrimaryButton
@@ -257,27 +255,27 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
                             </div>
                             <div className="w-full h-fit relative overflow-hidden z-0 py-4 mb-4 lg:mb-8">
                                 <motion.div
-                                    variants={{
-                                        initial: {
-                                            rotate: '-3deg',
-                                            y: '-30%',
-                                        },
-                                        enter: {
-                                            y: '-100%',
-                                            rotate: '0deg',
-                                            transition: {
-                                                y: {
-                                                    duration: 0.7,
-                                                },
-                                                rotate: {
-                                                    delay: 0.4,
-                                                    duration: 0.6,
-                                                },
+                                    initial={{
+                                        rotate: '-3deg',
+                                        y: '-30%',
+                                    }}
+                                    whileInView={{
+                                        y: '-100%',
+                                        rotate: '0deg',
+                                        transition: {
+                                            y: {
+                                                duration: 0.7,
+                                            },
+                                            rotate: {
+                                                delay: 0.4,
+                                                duration: 0.6,
                                             },
                                         },
                                     }}
-                                    animate="enter"
-                                    initial="initial"
+                                    viewport={{
+                                        amount: 'some',
+                                        once: true,
+                                    }}
                                     className="absolute w-[200vw] h-full -left-1/2 bg-Gray-200 z-10"
                                 ></motion.div>
                                 <motion.div

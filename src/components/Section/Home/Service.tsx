@@ -80,7 +80,27 @@ export default function Service() {
                                 {/* End Overlay */}
                                 {/* Modal */}
                                 <motion.div
-                                    variants={perspectiveVariant}
+                                    variants={{
+                                        initial: {
+                                            opacity: 0,
+                                            scale: 0.95,
+                                        },
+                                        enter: {
+                                            opacity: 1,
+                                            scale: 1,
+                                            transition: {
+                                                delay: 0.3,
+                                                duration: 0.2,
+                                            },
+                                        },
+                                        exit: {
+                                            opacity: 0,
+                                            scale: 0.95,
+                                            transition: {
+                                                duration: 0.2,
+                                            },
+                                        },
+                                    }}
                                     animate="enter"
                                     exit="exit"
                                     initial="initial"

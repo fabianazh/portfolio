@@ -1,4 +1,9 @@
+'use client'
+
 import { mona, inter } from '@/app/fonts'
+import AnimatedNumber from '@/components/Other/AnimateNumber'
+import { motion } from 'framer-motion'
+import TextReveal from '@/components/Other/TextReveal'
 
 export default function About() {
     return (
@@ -21,39 +26,46 @@ export default function About() {
                 {/* End Left Content */}
                 {/* Right Content */}
                 <div className="w-full lg:w-9/12 flex h-auto flex-col gap-2 lg:gap-4 z-10">
-                    <span
+                    <TextReveal
+                        text="I am passionate about web development, with a strong interest in both front-end and back-end technologies. I'm committed to continuous learning and staying updated with industry trends."
                         className={`text-sm lg:text-lg font-medium text-black ${mona.className}`}
-                    >
-                        I am passionate about web development, with a strong
-                        interest in both front-end and back-end technologies.
-                        I&apos;m committed to continuous learning and staying
-                        updated with industry trends.
-                    </span>
+                    />
                     <div className="w-full grid grid-rows-2 lg:grid-rows-1 lg:grid-cols-2 gap-2 lg:gap-4">
-                        <span
+                        <TextReveal
+                            text="I graduated with a degree in Software Engineering, where I developed strong skills in design and problem-solving. My education provided a solid foundation in both technical and creative aspects of development."
                             className={`text-sm lg:text-sm font-medium text-stone-500 ${mona.className}`}
-                        >
-                            I graduated with a degree in Software Engineering,
-                            where I developed strong skills in design and
-                            problem-solving. My education provided a solid
-                            foundation in both technical and creative aspects of
-                            development.
-                        </span>
-                        <span
+                            index={0.8}
+                        />
+                        <TextReveal
+                            text="My background in software engineering allows me to approach projects with a well-rounded perspective. I focus on finding efficient solutions that balance technical precision with creativity."
                             className={`text-sm lg:text-sm font-medium text-stone-500 ${mona.className}`}
-                        >
-                            My background in software engineering allows me to
-                            approach projects with a well-rounded perspective. I
-                            focus on finding efficient solutions that balance
-                            technical precision with creativity.
-                        </span>
+                            index={1.8}
+                        />
                     </div>
                     <div className="w-full flex items-center gap-16 py-1 lg:py-4">
                         <div className="w-fit flex flex-col">
                             <span
                                 className={`text-3xl lg:text-4xl font-medium text-black ${inter.className}`}
                             >
-                                2+
+                                <AnimatedNumber number={2} />
+                                <motion.span
+                                    initial={{
+                                        opacity: 0,
+                                    }}
+                                    whileInView={{
+                                        opacity: 1,
+                                        transition: {
+                                            delay: 0.8,
+                                            transition: 0.8,
+                                        },
+                                    }}
+                                    viewport={{
+                                        amount: 'some',
+                                        once: true,
+                                    }}
+                                >
+                                    +
+                                </motion.span>
                             </span>
                             <span className="text-sm lg:text-base block text-stone-500">
                                 years in web development
@@ -63,7 +75,25 @@ export default function About() {
                             <span
                                 className={`text-3xl lg:text-4xl font-medium text-black ${inter.className}`}
                             >
-                                10+
+                                <AnimatedNumber number={10} />
+                                <motion.span
+                                    initial={{
+                                        opacity: 0,
+                                    }}
+                                    whileInView={{
+                                        opacity: 1,
+                                        transition: {
+                                            delay: 0.8,
+                                            transition: 0.8,
+                                        },
+                                    }}
+                                    viewport={{
+                                        amount: 'some',
+                                        once: true,
+                                    }}
+                                >
+                                    +
+                                </motion.span>
                             </span>
                             <span className="text-sm lg:text-base block text-stone-500">
                                 completed projects

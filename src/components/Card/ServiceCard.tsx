@@ -24,13 +24,13 @@ export default function ServiceCard({
                 }}
                 whileInView={{
                     opacity: 1,
+                    transition: {
+                        delay: 0.4 + index * 0.2,
+                    },
                 }}
                 viewport={{
                     amount: 'some',
                     once: true,
-                }}
-                transition={{
-                    delay: 0.4 + index * 0.2,
                 }}
                 onMouseOver={() => setActive(index)}
                 onClick={() => setModal({ isOpen: true, data: service })}

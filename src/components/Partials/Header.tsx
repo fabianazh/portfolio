@@ -97,7 +97,7 @@ export default function Header() {
             <header
                 className={`w-full h-fit bg-transparent fixed top-0 left-0 z-30 px-0 lg:px-14 transition-all duration-300 ${
                     isScrolled
-                        ? 'translate-y-0 lg:translate-y-3 opacity-100'
+                        ? 'translate-y-0 lg:translate-y-2.5 opacity-100'
                         : '-translate-y-10 opacity-0'
                 }`}
             >
@@ -116,7 +116,7 @@ export default function Header() {
                         {/* End Logo and Name */}
                         {/* Navbar */}
                         <nav className="w-fit hidden lg:flex z-0">
-                            <ul className="w-fit flex gap-2 lg:gap-3 z-[1]">
+                            <ul className="w-fit flex gap-2 lg:gap-4">
                                 {navItems.map(
                                     (
                                         navitem: { link: string; text: string },

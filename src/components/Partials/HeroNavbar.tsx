@@ -35,7 +35,7 @@ export default function Navbar({
                             width: 'auto',
                             height: 'auto',
                             transition: {
-                                duration: 0.5,
+                                duration: 0.7,
                                 ease: [0.76, 0, 0.24, 1],
                             },
                             opacity: 100,
