@@ -8,7 +8,11 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { disableScroll, enableScroll } from '@/utils/controllScroll'
 import { FiX } from 'react-icons/fi'
 import PrimaryButton from '@/components/Button/PrimaryButton'
-import { exit } from 'process'
+import {
+    perspectiveVariant,
+    perspectiveItemVariant,
+    overlayVariant,
+} from '@/constants/variants'
 
 export default function Service() {
     const [cardActive, setCardActive] = useState<number>(0)
@@ -67,24 +71,7 @@ export default function Service() {
                                             data: null,
                                         })
                                     }
-                                    variants={{
-                                        initial: {
-                                            opacity: 0,
-                                        },
-                                        enter: {
-                                            opacity: 1,
-                                            transition: {
-                                                duration: 0.3,
-                                            },
-                                        },
-                                        exit: {
-                                            opacity: 0,
-                                            transition: {
-                                                delay: 0.3,
-                                                duration: 0.3,
-                                            },
-                                        },
-                                    }}
+                                    variants={overlayVariant}
                                     animate="enter"
                                     exit="exit"
                                     initial="initial"
@@ -93,24 +80,7 @@ export default function Service() {
                                 {/* End Overlay */}
                                 {/* Modal */}
                                 <motion.div
-                                    variants={{
-                                        initial: {
-                                            opacity: 0,
-                                        },
-                                        enter: {
-                                            opacity: 1,
-                                            transition: {
-                                                delay: 0.3,
-                                                duration: 0.4,
-                                            },
-                                        },
-                                        exit: {
-                                            opacity: 0,
-                                            transition: {
-                                                duration: 0.3,
-                                            },
-                                        },
-                                    }}
+                                    variants={perspectiveVariant}
                                     animate="enter"
                                     exit="exit"
                                     initial="initial"
@@ -146,26 +116,10 @@ export default function Service() {
                                                     index: number
                                                 ) => (
                                                     <motion.li
-                                                        variants={{
-                                                            initial: {
-                                                                opacity: 0,
-                                                            },
-                                                            enter: {
-                                                                opacity: 1,
-                                                                transition: {
-                                                                    delay:
-                                                                        0.2 +
-                                                                        index *
-                                                                            0.1,
-                                                                },
-                                                            },
-                                                            exit: {
-                                                                opacity: 0,
-                                                                transition: {
-                                                                    delay: 0.2,
-                                                                },
-                                                            },
-                                                        }}
+                                                        variants={
+                                                            perspectiveItemVariant
+                                                        }
+                                                        custom={index}
                                                         initial="initial"
                                                         animate="enter"
                                                         exit="exit"

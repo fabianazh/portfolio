@@ -3,9 +3,8 @@
 import { Link } from 'react-scroll'
 import { navItems } from '@/constants/component'
 import { AnimatePresence, motion } from 'framer-motion'
-import { navContainerVariant, perspectiveTextVariant } from '@/variants/navbar'
+import { perspectiveItemVariant } from '@/constants/variants'
 import { mona } from '@/app/fonts'
-import SecondaryButton from '@/components/Button/SecondaryButton'
 import NavButton from '@/components/Partials/NavButton'
 
 export default function Navbar({
@@ -31,7 +30,28 @@ export default function Navbar({
                     className={`w-6 h-6 lg:w-5 lg:h-5`}
                 />
                 <motion.div
-                    variants={navContainerVariant}
+                    variants={{
+                        open: {
+                            width: 'auto',
+                            height: 'auto',
+                            transition: {
+                                duration: 0.5,
+                                ease: [0.76, 0, 0.24, 1],
+                            },
+                            opacity: 100,
+                        },
+                        closed: {
+                            width: 0,
+                            height: 0,
+                            padding: 0,
+                            transition: {
+                                duration: 0.5,
+                                delay: 0.35,
+                                ease: [0.76, 0, 0.24, 1],
+                            },
+                            opacity: 0,
+                        },
+                    }}
                     animate={isOpen ? 'open' : 'closed'}
                     initial="closed"
                     className={`absolute -right-3 -top-5 lg:-top-3 bg-white rounded-xl border flex flex-col gap-2 lg:gap-2`}
@@ -40,7 +60,7 @@ export default function Navbar({
                         {isOpen && (
                             <motion.div className="pl-8 pr-20 lg:pl-10 lg:pr-16 flex flex-col gap-6 lg:gap-8 pt-6 lg:pt-10 pb-12 lg:pb-16 z-50 w-auto lg:w-72">
                                 <motion.div
-                                    variants={perspectiveTextVariant}
+                                    variants={perspectiveItemVariant}
                                     custom={0}
                                     animate="enter"
                                     exit="exit"
@@ -73,7 +93,7 @@ export default function Navbar({
                                                 <motion.li
                                                     key={index}
                                                     variants={
-                                                        perspectiveTextVariant
+                                                        perspectiveItemVariant
                                                     }
                                                     custom={index}
                                                     animate="enter"
@@ -100,7 +120,7 @@ export default function Navbar({
                                 </nav>
                                 {/* Bottom Menu */}
                                 <motion.div
-                                    variants={perspectiveTextVariant}
+                                    variants={perspectiveItemVariant}
                                     custom={1}
                                     animate="enter"
                                     exit="exit"

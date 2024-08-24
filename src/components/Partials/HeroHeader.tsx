@@ -4,7 +4,7 @@ import HeroNavbar from '@/components/Partials/HeroNavbar'
 import AppIcon from '@/components/Icon/AppIcon'
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { overlayVariant } from '@/variants/navbar'
+import { overlayVariant } from '@/constants/variants'
 
 export default function HeroHeader() {
     const [isOpen, setIsOpen] = useState<boolean>(false)

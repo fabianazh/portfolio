@@ -3,7 +3,7 @@
 import { Link } from 'react-scroll'
 import { navItems } from '@/constants/component'
 import { AnimatePresence, motion } from 'framer-motion'
-import { perspectiveTextVariant } from '@/variants/navbar'
+import { perspectiveItemVariant } from '@/constants/variants'
 import { mona } from '@/app/fonts'
 import AppIcon from '@/components/Icon/AppIcon'
 
@@ -40,7 +40,7 @@ export default function Navbar({
                     {isOpen && (
                         <div className="pl-8 pr-8 lg:pl-10 lg:pr-10 flex flex-col gap-12 lg:gap-16 bg-white rounded-b-none lg:rounded-b-xl rounded-xl pt-6 lg:pt-10 pb-9 lg:pb-16 w-full lg:w-80">
                             <motion.div
-                                variants={perspectiveTextVariant}
+                                variants={perspectiveItemVariant}
                                 custom={0}
                                 animate="enter"
                                 exit="exit"
@@ -78,7 +78,7 @@ export default function Navbar({
                             {/* Nav Item */}
                             <nav className="border-box flex flex-col gap-4">
                                 <motion.span
-                                    variants={perspectiveTextVariant}
+                                    variants={perspectiveItemVariant}
                                     custom={1}
                                     animate="enter"
                                     exit="exit"
@@ -99,7 +99,7 @@ export default function Navbar({
                                             <motion.li
                                                 key={index}
                                                 variants={
-                                                    perspectiveTextVariant
+                                                    perspectiveItemVariant
                                                 }
                                                 custom={index}
                                                 animate="enter"
@@ -127,7 +127,7 @@ export default function Navbar({
                             {/* End Nav Item */}
                             {/* Bottom Menu */}
                             <motion.div
-                                variants={perspectiveTextVariant}
+                                variants={perspectiveItemVariant}
                                 custom={1}
                                 animate="enter"
                                 exit="exit"

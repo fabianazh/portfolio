@@ -1,5 +1,6 @@
 import { mona } from '@/app/fonts'
 import PrimaryButton from '@/components/Button/PrimaryButton'
+import { motion } from 'framer-motion'
 
 export default function ServiceCard({
     service,
@@ -17,7 +18,20 @@ export default function ServiceCard({
     return (
         <>
             {/* Service Card */}
-            <div
+            <motion.div
+                initial={{
+                    opacity: 0,
+                }}
+                whileInView={{
+                    opacity: 1,
+                }}
+                viewport={{
+                    amount: 'some',
+                    once: true,
+                }}
+                transition={{
+                    delay: 0.4 + index * 0.2,
+                }}
                 onMouseOver={() => setActive(index)}
                 onClick={() => setModal({ isOpen: true, data: service })}
                 className={`w-full transition-colors cursor-pointer duration-500 flex flex-col h-fit shrink-0 gap-6 lg:gap-6 p-4 lg:p-5 pb-5 lg:pb-5 rounded-xl shadow-sm ${
@@ -55,7 +69,7 @@ export default function ServiceCard({
                     Order
                 </PrimaryButton>
                 {/* End Button */}
-            </div>
+            </motion.div>
             {/* End Service Card */}
         </>
     )

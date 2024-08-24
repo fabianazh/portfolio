@@ -38,8 +38,8 @@ export default function Skill() {
                         ) => (
                             <SkillCard
                                 key={index}
-                                title={skill.title}
-                                stacks={skill.stacks}
+                                index={index}
+                                skill={skill}
                             />
                         )
                     )}

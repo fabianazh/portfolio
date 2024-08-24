@@ -22,7 +22,6 @@ export default function ProjectCard({
         <>
             {/* Container */}
             <motion.div
-                animate="enter"
                 initial={{
                     opacity: 0,
                 }}
