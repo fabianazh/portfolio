@@ -8,8 +8,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { disableScroll, enableScroll } from '@/utils/controllScroll'
 import { FiX } from 'react-icons/fi'
 import PrimaryButton from '@/components/Button/PrimaryButton'
-import {
-    perspectiveVariant,
+import { 
     perspectiveItemVariant,
     overlayVariant,
 } from '@/constants/variants'
@@ -104,7 +103,7 @@ export default function Service() {
                                     animate="enter"
                                     exit="exit"
                                     initial="initial"
-                                    className="w-auto min-w-56 lg:min-w-72 min-h-40 lg:min-h-56 bg-white z-10 shadow-sm rounded-2xl h-auto p-6 lg:p-8 pt-5 lg:pt-7 flex flex-row-reverse gap-6"
+                                    className="w-auto min-w-56 max-w-[95vw] lg:min-w-72 min-h-40 lg:min-h-56 bg-white z-10 shadow-sm rounded-2xl h-auto p-6 lg:p-8 pt-5 lg:pt-7 flex flex-row-reverse gap-6"
                                 >
                                     {/* Close Button */}
                                     <div
@@ -114,13 +113,13 @@ export default function Service() {
                                                 data: null,
                                             })
                                         }
-                                        className="w-fit h-fit z-0 cursor-pointer translate-y-1 translate-x-1"
+                                        className="w-fit h-fit z-0 cursor-pointer translate-y-1 translate-x-1 text-stone-500"
                                     >
                                         <FiX className="text-lg lg:text-xl" />
                                     </div>
                                     {/* End Close Button */}
                                     {/* Content */}
-                                    <div className="w-fit flex flex-col shrink-0 gap-3">
+                                    <div className="w-fit flex flex-col shrink-0 gap-3 py-2">
                                         {/* Title */}
                                         <h4
                                             className={`text-xl lg:text-2xl font-semibold`}
@@ -146,7 +145,7 @@ export default function Service() {
                                                         key={index}
                                                         className="text-sm font-normal flex items-center text-stone-700"
                                                     >
-                                                        <span className="inline-block w-1 h-1 mr-2 rounded-full bg-black"></span>
+                                                        <span className="inline-block w-1 h-1 mr-2 rounded-full bg-stone-700"></span>
                                                         {item}
                                                     </motion.li>
                                                 )

@@ -39,7 +39,7 @@ export default function PrimaryButton({
         <>
             <Link
                 href={`${href}`}
-                className={`grid place-items-center transition-colors duration-500 gap-1 grid-flow-col px-5 py-1.5 rounded-full group ${className}`}
+                className={`grid place-items-center transition-colors duration-500 gap-1 grid-flow-col px-5 py-1.5 rounded-full group hover:opacity-80 ${className}`}
                 target={target}
             >
                 {children}{' '}

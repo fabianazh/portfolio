@@ -35,7 +35,7 @@ export default function Footer() {
                     </span>
                     <Link
                         href={'https://fabianazh.vercel.app'}
-                        className="font-medium block"
+                        className="font-medium block text-stone-700 lg:text-black"
                     >
                         v1
                     </Link>
