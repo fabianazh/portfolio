@@ -26,6 +26,7 @@ interface Project {
     githubLink: string
     projectLink: string
     isHighlighted: boolean
+    photos: string[]
 }
 
 interface Skill {

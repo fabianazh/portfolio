@@ -7,24 +7,25 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import { urbanist } from '@/app/fonts'
 import Link from 'next/link'
-import { projects } from '@/constants/model'
 import ArrowIcon from '@/components/Icon/ArrowIcon'
+import projectServices from '@/services/project'
 
 export default function ProjectDetail({ projectId }: { projectId: string }) {
     let nextProject: Project | null | undefined
     let prevProject: Project | null | undefined
 
-    const project = projects.find(
-        (project: Project) => project.id === projectId
-    )
+    const project: Project | null | undefined =
+        projectServices.getProjectDetail(projectId)
+
+    const projects: Project[] | null = projectServices.getAllProjects()
 
     if (project) {
-        nextProject = projects.find((item: Project) =>
+        nextProject = projects?.find((item: Project) =>
             projects.length === project?.index
                 ? item.index === 1
                 : item.index > project?.index
         )
-        prevProject = projects.find((item: Project) =>
+        prevProject = projects?.find((item: Project) =>
             project?.index === 1
                 ? item.index === projects.length
                 : item.index === project?.index - 1

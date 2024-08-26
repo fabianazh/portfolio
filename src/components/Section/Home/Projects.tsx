@@ -2,37 +2,33 @@
 
 import { inter, mona } from '@/app/fonts'
 import ProjectCard from '@/components/Card/ProjectCard'
-import { projects } from '@/constants/model'
-import { useCallback, useMemo, useRef, useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { useMemo, useRef } from 'react'
+import { motion } from 'framer-motion'
 import Link from 'next/link'
 import ArrowIcon from '@/components/Icon/ArrowIcon'
+import projectServices from '@/services/project'
 
 export default function Projects() {
     const projectRef = useRef<HTMLDivElement | null>(null)
     const otherProjectRef = useRef<HTMLDivElement | null>(null)
     const highlightedProjectsRef = useRef<HTMLDivElement | null>(null)
-    const [activeProject, setActiveProject] = useState<number | null>(null)
+    const projectsData = projectServices.getAllProjects()
 
     const highlightedProjects = useMemo(
         () =>
-            projects.filter(
+            projectsData.filter(
                 (project: Project) => project.isHighlighted === true
             ),
-        [projects]
+        [projectsData]
     )
 
     const otherProjects = useMemo(
         () =>
-            projects.filter(
+            projectsData.filter(
                 (project: Project) => project.isHighlighted === false
             ),
-        [projects]
+        [projectsData]
     )
-
-    const handleMouseOver = useCallback((index: number) => {
-        setActiveProject(index)
-    }, [])
 
     return (
         <>
@@ -87,10 +83,7 @@ export default function Projects() {
                                 {otherProjects.length}
                             </div>
                         </div>
-                        <div
-                            onMouseLeave={() => setActiveProject(null)}
-                            className="flex flex-col w-full z-0"
-                        >
+                        <div className="flex flex-col w-full z-0">
                             {otherProjects.map(
                                 (project: Project, index: number) => (
                                     <motion.div
@@ -109,9 +102,6 @@ export default function Projects() {
                                             once: true,
                                         }}
                                         className="relative w-full h-fit border-stone-400 last:border-0 pb-4 last:pb-0 lg:last:pb-3 pt-4 lg:pt-3 border-b overflow-hidden group cursor-pointer"
-                                        onMouseOver={() =>
-                                            handleMouseOver(index)
-                                        }
                                     >
                                         <Link
                                             href={`/${project.id}`}

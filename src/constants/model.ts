@@ -16,6 +16,7 @@ export const projects = [
         client: '-',
         role: 'Backend Developer',
         isHighlighted: true,
+        photos: [],
     },
     {
         id: 'jitu',
@@ -34,6 +35,7 @@ export const projects = [
         client: '-',
         role: 'Full Stack Developer',
         isHighlighted: true,
+        photos: [],
     },
     {
         id: 'tictactest',
@@ -51,6 +53,7 @@ export const projects = [
         client: '-',
         role: 'Frontend Developer',
         isHighlighted: false,
+        photos: [],
     },
     {
         id: 'zufar-portfolio',
@@ -69,6 +72,7 @@ export const projects = [
         client: '-',
         role: 'Full Stack Developer',
         isHighlighted: true,
+        photos: [],
     },
     {
         id: 'quranku',
@@ -87,6 +91,7 @@ export const projects = [
         client: '-',
         role: 'Frontend Developer',
         isHighlighted: true,
+        photos: [],
     },
     {
         id: 'starbucks-clone',
@@ -104,5 +109,6 @@ export const projects = [
         client: '-',
         role: 'Frontend Developer',
         isHighlighted: false,
+        photos: [],
     },
 ]
