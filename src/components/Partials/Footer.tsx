@@ -34,7 +34,7 @@ export default function Footer() {
                                         opacity: 1,
                                         y: 0,
                                         transition: {
-                                            delay: 0.15 + index * 0.1,
+                                            delay: 0.1 + index * 0.12,
                                         },
                                     }}
                                     viewport={{

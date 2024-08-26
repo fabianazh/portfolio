@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import ArrowIcon from '@/components/Icon/ArrowIcon'
+import { IoArrowUp } from 'react-icons/io5'
 
 export default function ProjectCard({
     project,
@@ -73,7 +74,7 @@ export default function ProjectCard({
                     {/* Title */}
                     <Link
                         href={`/${project.id}`}
-                        className="flex w-full gap-1 items-center"
+                        className="relative flex w-fit gap-1 items-center group overflow-hidden"
                     >
                         <span
                             className={`block text-lg lg:text-xl font-semibold ${urbanist.className}`}
@@ -81,10 +82,11 @@ export default function ProjectCard({
                             {project.name}
                         </span>
                         <span
-                            className={`block text-sm lg:text-sm font-semibold text-stone-500 ${urbanist.className}`}
+                            className={`block text-sm lg:text-sm font-semibold text-stone-500 inline-block group-hover:-translate-y-12 group-hover:opacity-0 transition-all duration-300 ${urbanist.className}`}
                         >
                             /{project.year}
                         </span>
+                        <IoArrowUp className="rotate-45 text-stone-700 absolute translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 right-1" />
                     </Link>
                     {/* End Title */}
                     {/* Desc */}

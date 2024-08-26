@@ -27,6 +27,7 @@ interface Project {
     projectLink: string
     isHighlighted: boolean
     photos: string[]
+    created_at: string
 }
 
 interface Skill {

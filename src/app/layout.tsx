@@ -39,6 +39,10 @@ export const metadata: Metadata = {
         'fabian azh vercel',
         'portfolio fabian',
         'portfolio fabianazh',
+        'Fabianazh Projects',
+        'Fabianazh Project',
+        'Fabian Project',
+        'Projek Fabian',
     ],
     title: {
         default: 'Fabian Azhar',

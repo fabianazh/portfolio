@@ -129,7 +129,22 @@ export default function Contact() {
                         ></textarea>
                         <div className="absolute transition-all duration-300 bottom-1.5 left-1/2 -translate-x-1/2 w-full h-0.5 scale-x-0 bg-stone-400  group-hover:scale-x-100 group-focus-within:scale-x-100"></div>
                     </motion.div>
-                    <div className="flex justify-end w-full h-auto gap-4">
+                    <motion.div
+                        initial={{
+                            opacity: 0,
+                        }}
+                        whileInView={{
+                            opacity: 1,
+                            transition: {
+                                delay: 0.4 + 1.5 * 0.2,
+                            },
+                        }}
+                        viewport={{
+                            amount: 'some',
+                            once: true,
+                        }}
+                        className="flex justify-end w-full h-auto gap-4"
+                    >
                         <PrimaryButton
                             as="button"
                             type="submit"
@@ -137,7 +152,7 @@ export default function Contact() {
                         >
                             Submit
                         </PrimaryButton>
-                    </div>
+                    </motion.div>
                 </form>
                 <div className="flex flex-col divide-y-2 divide-stone-300 z-10">
                     <div className="w-9/12 h-fit pb-10">
@@ -148,9 +163,24 @@ export default function Contact() {
                     </div>
                     <div className="w-full flex-grow flex justify-between lg:justify-start pt-10">
                         <div className="w-fit lg:w-1/2 shrink-0 flex flex-col gap-4">
-                            <span className="text-lg font-medium">
+                            <motion.span
+                                initial={{
+                                    opacity: 0,
+                                }}
+                                whileInView={{
+                                    opacity: 1,
+                                    transition: {
+                                        delay: 0.4,
+                                    },
+                                }}
+                                viewport={{
+                                    amount: 'some',
+                                    once: true,
+                                }}
+                                className="text-lg font-medium"
+                            >
                                 General Enquires
-                            </span>
+                            </motion.span>
                             {enquires.map(
                                 (enquire: { name: string }, index: number) => (
                                     <motion.span
@@ -176,9 +206,24 @@ export default function Contact() {
                             )}
                         </div>
                         <div className="w-fit lg:w-1/2 shrink-0 flex flex-col gap-4">
-                            <span className="text-lg font-medium">
+                            <motion.span
+                                initial={{
+                                    opacity: 0,
+                                }}
+                                whileInView={{
+                                    opacity: 1,
+                                    transition: {
+                                        delay: 0.4,
+                                    },
+                                }}
+                                viewport={{
+                                    amount: 'some',
+                                    once: true,
+                                }}
+                                className="text-lg font-medium"
+                            >
                                 Social Media
-                            </span>
+                            </motion.span>
                             <div className="flex flex-col gap-1">
                                 {contacts.map(
                                     (

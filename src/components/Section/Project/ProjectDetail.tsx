@@ -223,36 +223,55 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
                                         </motion.div>
                                     ))}
                                 </div>
-                                <motion.div
-                                    initial={{
-                                        opacity: 0,
-                                    }}
-                                    whileInView={{
-                                        opacity: 1,
-                                        transition: {
-                                            delay: 0.5 + 7 * 0.1,
-                                        },
-                                    }}
-                                    viewport={{
-                                        amount: 'some',
-                                        once: true,
-                                    }}
-                                    className="w-full flex flex-col lg:flex-row items-center gap-4 lg:gap-8 py-0 lg:py-4"
-                                >
-                                    <PrimaryButton
-                                        href={`${project?.projectLink}`}
-                                        className="text-xs lg:text-sm bg-black text-white"
-                                        as="link"
+                                <div className="w-full flex flex-col lg:flex-row items-center gap-4 lg:gap-8 py-0 lg:py-4">
+                                    <motion.div
+                                        initial={{
+                                            opacity: 0,
+                                        }}
+                                        whileInView={{
+                                            opacity: 1,
+                                            transition: {
+                                                delay: 0.5 + 0 * 0.1,
+                                            },
+                                        }}
+                                        viewport={{
+                                            amount: 'some',
+                                            once: true,
+                                        }}
+                                        className="w-fit h-fit inline-block"
                                     >
-                                        View website
-                                    </PrimaryButton>
-                                    <SecondaryButton
-                                        href={`${project?.githubLink}`}
-                                        className="text-xs lg:text-sm"
+                                        <PrimaryButton
+                                            href={`${project?.projectLink}`}
+                                            className="text-xs lg:text-sm bg-black text-white"
+                                            as="link"
+                                        >
+                                            View website
+                                        </PrimaryButton>
+                                    </motion.div>
+                                    <motion.div
+                                        initial={{
+                                            opacity: 0,
+                                        }}
+                                        whileInView={{
+                                            opacity: 1,
+                                            transition: {
+                                                delay: 0.5 + 1 * 0.1,
+                                            },
+                                        }}
+                                        viewport={{
+                                            amount: 'some',
+                                            once: true,
+                                        }}
+                                        className="w-fit h-fit inline-block"
                                     >
-                                        See on github
-                                    </SecondaryButton>
-                                </motion.div>
+                                        <SecondaryButton
+                                            href={`${project?.githubLink}`}
+                                            className="text-xs lg:text-sm"
+                                        >
+                                            See on github
+                                        </SecondaryButton>
+                                    </motion.div>
+                                </div>
                             </div>
                             <div className="w-full h-fit relative overflow-hidden z-0 py-4 mb-4 lg:mb-8">
                                 <motion.div
