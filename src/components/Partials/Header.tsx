@@ -2,8 +2,12 @@
 
 import Navbar from '@/components/Partials/Navbar'
 import { useCallback, useEffect, useState } from 'react'
-import { usePathname } from 'next/navigation'
-import { AnimatePresence, motion } from 'framer-motion'
+import {
+    AnimatePresence,
+    motion,
+    useMotionValueEvent,
+    useScroll,
+} from 'framer-motion'
 import { overlayVariant } from '@/constants/variants'
 import NavButton from '@/components/Partials/NavButton'
 import Link from 'next/link'
@@ -12,24 +16,33 @@ import { navItems } from '@/constants/component'
 import { Link as SamePageLink } from 'react-scroll'
 
 export default function Header() {
+    const [hidden, setHidden] = useState<boolean>(true)
     const [isOpen, setIsOpen] = useState<boolean>(false)
-    const [isScrolled, setIsScrolled] = useState<boolean>(false)
     const [activeSection, setActiveSection] = useState<string>('home')
 
-    const pathname = usePathname()
+    const { scrollY } = useScroll()
 
-    const handleScroll = () => {
-        const scrollPosition = window.scrollY
+    useMotionValueEvent(scrollY, 'change', (latest) => {
+        const previous = scrollY.getPrevious() ?? 0
         const viewportHeight = window.innerHeight
+        const halfScreen = viewportHeight / 2
 
-        const threshold = viewportHeight / 2
-
-        if (scrollPosition > threshold) {
-            setIsScrolled(true)
-        } else {
-            setIsScrolled(false)
+        if (latest < halfScreen) {
+            setHidden(true)
+        } else if (latest > halfScreen && latest < viewportHeight) {
+            setHidden(false)
+        } else if (latest > viewportHeight) {
+            if (latest > previous && latest > 300) {
+                setHidden(true)
+            } else {
+                setHidden(false)
+            }
         }
-    }
+
+        if (isOpen) {
+            setIsOpen(false)
+        }
+    })
 
     const handleIntersection = useCallback(
         (entries: IntersectionObserverEntry[]) => {
@@ -57,23 +70,6 @@ export default function Header() {
         }
     }, [handleIntersection])
 
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll)
-        handleScroll()
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll)
-        }
-    }, [])
-
-    useEffect(() => {
-        window.addEventListener('scroll', () => setIsOpen(false))
-
-        return () => {
-            window.removeEventListener('scroll', () => setIsOpen(false))
-        }
-    }, [isOpen])
-
     return (
         <>
             {/* Overlay */}
@@ -94,11 +90,17 @@ export default function Header() {
             <Navbar isOpen={isOpen} setIsOpen={setIsOpen} />
             {/* Navbar */}
             {/* Header */}
-            <header
+            <motion.header
+                // variants={{
+                //     visible: { y: 0 },
+                //     hidden: { y: '-100%' },
+                // }}
+                // animate={hidden ? 'hidden' : 'visible'}
+                // transition={{ duration: 0.35, ease: 'easeInOut' }}
                 className={`w-full h-fit bg-transparent fixed top-0 left-0 z-30 px-0 lg:px-14 transition-all duration-300 ${
-                    isScrolled
-                        ? 'translate-y-0 lg:translate-y-2.5 opacity-100'
-                        : '-translate-y-10 opacity-0'
+                    hidden
+                        ? '-translate-y-10 opacity-0'
+                        : 'translate-y-0 lg:translate-y-2.5 opacity-100'
                 }`}
             >
                 {/* Nav Container */}
@@ -157,7 +159,7 @@ export default function Header() {
                     {/* End Nav Button */}
                 </div>
                 {/* End Nav Container */}
-            </header>
+            </motion.header>
             {/* End Header */}
         </>
     )

@@ -21,9 +21,10 @@ export default function TextReveal({
                 <motion.span
                     key={i}
                     className={`inline-block ${wordClassName}`}
-                    initial={{ opacity: 0 }}
+                    initial={{ opacity: 0, y: 3 }}
                     whileInView={{
                         opacity: 1,
+                        y: 0,
                         transition: {
                             duration: duration,
                             ease: 'easeOut',

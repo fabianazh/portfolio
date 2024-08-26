@@ -2,6 +2,7 @@ import { mona } from '@/app/fonts'
 import Link from 'next/link'
 import { navItems } from '@/constants/component'
 import AppIcon from '@/components/Icon/AppIcon'
+import { Link as SamePageLink } from 'react-scroll'
 
 export default function Footer() {
     const currentYear = new Date().getFullYear()
@@ -10,32 +11,42 @@ export default function Footer() {
         <>
             <footer
                 id="footer"
-                className={`flex flex-col relative gap-1 px-5 lg:px-16 py-4 ${mona.className}`}
+                className={`flex flex-col gap-1 lg:gap-1 relative px-5 lg:px-16 py-4 lg:py-6 ${mona.className}`}
             >
-                {/* <nav className="w-full flex justify-between items-center gap-4">
-                    <AppIcon nameOnly />
+                <nav className="w-full flex flex-col lg:flex-row justify-between lg:items-center lg:gap-4">
+                    <AppIcon nameOnly size="lg" />
                     <ul className="w-fit flex gap-2 lg:gap-4">
-                        {navItems.map((navitem, index: number) => (
-                            <li key={index}>
-                                <Link
-                                    href={navitem.link}
-                                    className="text-xs lg:text-sm font-medium"
-                                >
-                                    {navitem.text}
-                                </Link>
-                            </li>
-                        ))}
+                        {navItems.map(
+                            (
+                                navitem: { link: string; text: string },
+                                index: number
+                            ) => (
+                                <li key={index}>
+                                    <SamePageLink
+                                        className={`group text-[0.8em] pb-[0.5px] cursor-pointer relative text-black font-medium`}
+                                        smooth={true}
+                                        to={navitem.link}
+                                        spy={true}
+                                    >
+                                        {navitem.text}
+                                        <div
+                                            className={`absolute w-full h-[2px] scale-x-0 bottom-0 left-0 bg-stone-600 origin-bottom-right transition-transform duration-300 group-hover:scale-x-100 group-hover:origin-bottom-left`}
+                                        />
+                                    </SamePageLink>
+                                </li>
+                            )
+                        )}
                     </ul>
-                </nav> */}
+                </nav>
                 <div
-                    className={`flex flex-col lg:flex-row items-center justify-between gap-6${mona.className}`}
+                    className={`flex items-center justify-between gap-6 ${mona.className}`}
                 >
-                    <span className="font-medium lg:font-semibold text-sm text-stone-700">
+                    <span className="font-medium lg:font-semibold text-sm text-stone-600">
                         ©{currentYear} Fabianazh. All rights reserved
                     </span>
                     <Link
                         href={'https://fabianazh.vercel.app'}
-                        className="font-medium block text-stone-700 lg:text-black"
+                        className="font-medium block text-stone-600 text-sm shrink-0 block"
                     >
                         v1
                     </Link>

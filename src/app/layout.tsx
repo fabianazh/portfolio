@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     ],
     title: {
         default: 'Fabian Azhar',
-        template: '%s | Fabian Azhar',
+        template: ' ',
     },
     description:
         'Welcome to my professional portfolio! I am Fabian Azhar, a passionate Full Stack Web Developer with a strong background in software engineering. I specialize in both front-end and back-end development, crafting seamless and interactive web applications. My expertise includes modern frameworks and technologies, ensuring efficient and robust solutions. Explore my projects, designs, and problem-solving approaches that showcase my dedication to delivering high-quality digital experiences.',
