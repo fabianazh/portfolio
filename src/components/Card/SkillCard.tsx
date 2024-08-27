@@ -28,7 +28,7 @@ export default function SkillCard({
                             <motion.div
                                 initial={{
                                     opacity: 0,
-                                    y: 8,
+                                    y: 3,
                                 }}
                                 whileInView={{
                                     opacity: 1,

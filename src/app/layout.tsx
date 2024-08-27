@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { dmSans } from './fonts'
 import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 export const metadata: Metadata = {
     metadataBase: new URL('https://fabianazh.vercel.app'),
@@ -81,6 +82,7 @@ export default function RootLayout({
         <html lang="en">
             <body className={dmSans.className}>
                 <Analytics />
+                <SpeedInsights />
                 {children}
             </body>
         </html>
