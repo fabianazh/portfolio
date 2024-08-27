@@ -6,9 +6,11 @@ import { navItems } from '@/constants/component'
 import AppIcon from '@/components/Icon/AppIcon'
 import { Link as SamePageLink } from 'react-scroll'
 import { motion } from 'framer-motion'
+import { usePathname } from 'next/navigation'
 
 export default function Footer() {
     const currentYear = new Date().getFullYear()
+    const pathname = usePathname()
 
     return (
         <>
@@ -21,20 +23,20 @@ export default function Footer() {
                     <ul className="w-fit flex gap-2 lg:gap-4">
                         {navItems.map(
                             (
-                                navitem: { link: string; text: string },
+                                navItem: { link: string; text: string },
                                 index: number
                             ) => (
                                 <motion.li
                                     key={index}
                                     initial={{
                                         opacity: 0,
-                                        y: 4,
+                                        y: 2,
                                     }}
                                     whileInView={{
                                         opacity: 1,
                                         y: 0,
                                         transition: {
-                                            delay: 0.1 + index * 0.12,
+                                            delay: 0.1 + index * 0.2,
                                         },
                                     }}
                                     viewport={{
@@ -42,17 +44,33 @@ export default function Footer() {
                                         once: true,
                                     }}
                                 >
-                                    <SamePageLink
-                                        className={`group text-[0.8em] pb-[0.5px] cursor-pointer relative text-black font-medium`}
-                                        smooth={true}
-                                        to={navitem.link}
-                                        spy={true}
-                                    >
-                                        {navitem.text}
-                                        <div
-                                            className={`absolute w-full h-[2px] scale-x-0 bottom-0 left-0 bg-stone-600 origin-bottom-right transition-transform duration-300 group-hover:scale-x-100 group-hover:origin-bottom-left`}
-                                        />
-                                    </SamePageLink>
+                                    {pathname === '/' ? (
+                                        <>
+                                            <SamePageLink
+                                                className={`group text-[0.8em] pb-[0.5px] cursor-pointer relative text-black font-medium`}
+                                                smooth={true}
+                                                to={navItem.link}
+                                                spy={true}
+                                            >
+                                                {navItem.text}
+                                                <div
+                                                    className={`absolute w-full h-[2px] scale-x-0 bottom-0 left-0 bg-stone-600 origin-bottom-right transition-transform duration-300 group-hover:scale-x-100 group-hover:origin-bottom-left`}
+                                                />
+                                            </SamePageLink>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <Link
+                                                className={`group text-[0.8em] pb-[0.5px] cursor-pointer relative text-black font-medium`}
+                                                href={`/#${navItem.link}`}
+                                            >
+                                                {navItem.text}
+                                                <div
+                                                    className={`absolute w-full h-[2px] scale-x-0 bottom-0 left-0 bg-stone-600 origin-bottom-right transition-transform duration-300 group-hover:scale-x-100 group-hover:origin-bottom-left`}
+                                                />
+                                            </Link>
+                                        </>
+                                    )}
                                 </motion.li>
                             )
                         )}

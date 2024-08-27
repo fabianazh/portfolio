@@ -9,13 +9,25 @@ import TextReveal from '@/components/Other/TextReveal'
 import { enquires, contacts } from '@/constants/component'
 import Toaster from '@/components/Other/Toaster'
 import { useToaster } from '@/contexts/ToasterContext'
+import * as z from 'zod'
+import { mailSchema } from '@/schemas/zod'
+import { zodResolver } from '@hookform/resolvers/zod'
+
+type FormData = z.infer<typeof mailSchema>
 
 export default function Contact() {
-    const { register, handleSubmit, reset } = useForm<FormData>()
+    const {
+        handleSubmit,
+        register,
+        reset,
+        formState: { errors, isSubmitting },
+    } = useForm<FormData>({
+        resolver: zodResolver(mailSchema),
+    })
     const { addMessage } = useToaster()
 
     async function sendEmail(data: FormData) {
-        const apiEndpoint = 'https://fabianazh.vercel.app/api/email'
+        const apiEndpoint = '/api/email'
 
         try {
             const response = await fetch(apiEndpoint, {
@@ -69,18 +81,33 @@ export default function Contact() {
                             amount: 'some',
                             once: true,
                         }}
-                        className="mb-8 relative group"
+                        className="mb-8 relative group flex flex-col gap-1"
                     >
-                        <input
-                            type={'text'}
-                            id={'name'}
-                            placeholder={'Enter your full name'}
-                            className={`w-full font-medium valid:bg-transparent text-sm border-stone-300 bg-transparent py-3 px-2 lg:px-3 placeholder:text-stone-700 text-stone-800 outline-none autocomplete:bg-transparent border-b-2 focus:border-stone-400 ${mona.className}`}
-                            required
-                            autoComplete="off"
-                            {...register('name')}
-                        />
-                        <div className="absolute transition-all duration-300 bottom-0 left-1/2 -translate-x-1/2 w-full h-0.5 scale-x-0 bg-stone-400  group-hover:scale-x-100 group-focus-within:scale-x-100"></div>
+                        <div className="w-full h-fit relative">
+                            <input
+                                type={'text'}
+                                id={'name'}
+                                placeholder={'Enter your full name'}
+                                className={`w-full font-medium valid:bg-transparent text-sm bg-transparent py-3 px-2 lg:px-3 placeholder:text-stone-700 text-stone-800 outline-none autocomplete:bg-transparent border-b-2 ${
+                                    errors.name
+                                        ? 'border-red-400 focus:border-red-500'
+                                        : 'border-stone-300 focus:border-stone-400'
+                                } ${mona.className}`}
+                                required
+                                autoComplete="off"
+                                {...register('name')}
+                            />
+                            <div
+                                className={`absolute transition-all duration-300 bottom-0 left-1/2 -translate-x-1/2 w-full h-0.5 scale-x-0  group-hover:scale-x-100 group-focus-within:scale-x-100 ${
+                                    errors.name ? 'bg-red-500' : 'bg-stone-400'
+                                }`}
+                            />
+                        </div>
+                        {errors.name && (
+                            <span className="text-red-600 text-sm">
+                                {errors.name.message}
+                            </span>
+                        )}
                     </motion.div>
                     <motion.div
                         initial={{
@@ -96,18 +123,33 @@ export default function Contact() {
                             amount: 'some',
                             once: true,
                         }}
-                        className="mb-8 relative group"
+                        className="mb-8 relative group flex flex-col gap-1"
                     >
-                        <input
-                            type={'text'}
-                            id={'email'}
-                            placeholder={'Enter your email address'}
-                            className={`w-full font-medium valid:bg-transparent text-sm border-stone-300 bg-transparent py-3 px-2 lg:px-3 placeholder:text-stone-700 text-stone-800 outline-none autocomplete:bg-transparent border-b-2 focus:border-stone-400 ${mona.className}`}
-                            required
-                            autoComplete="off"
-                            {...register('email')}
-                        />
-                        <div className="absolute transition-all duration-300 bottom-0 left-1/2 -translate-x-1/2 w-full h-0.5 scale-x-0 bg-stone-400  group-hover:scale-x-100 group-focus-within:scale-x-100"></div>
+                        <div className="w-full h-fit relative">
+                            <input
+                                type={'text'}
+                                id={'email'}
+                                placeholder={'Enter your email address'}
+                                className={`w-full font-medium valid:bg-transparent text-sm bg-transparent py-3 px-2 lg:px-3 placeholder:text-stone-700 text-stone-800 outline-none autocomplete:bg-transparent border-b-2 ${
+                                    errors.email
+                                        ? 'border-red-400 focus:border-red-500'
+                                        : 'border-stone-300 focus:border-stone-400'
+                                } ${mona.className}`}
+                                required
+                                autoComplete="off"
+                                {...register('email')}
+                            />
+                            <div
+                                className={`absolute transition-all duration-300 bottom-0 left-1/2 -translate-x-1/2 w-full h-0.5 scale-x-0  group-hover:scale-x-100 group-focus-within:scale-x-100 ${
+                                    errors.email ? 'bg-red-500' : 'bg-stone-400'
+                                }`}
+                            />
+                        </div>
+                        {errors.email && (
+                            <span className="text-red-600 text-sm">
+                                {errors.email?.message}
+                            </span>
+                        )}
                     </motion.div>
                     <motion.div
                         initial={{
@@ -123,18 +165,35 @@ export default function Contact() {
                             amount: 'some',
                             once: true,
                         }}
-                        className="mb-8 relative group h-fit"
+                        className="mb-8 relative group flex flex-col h-fit"
                     >
-                        <textarea
-                            id={'message'}
-                            rows={4}
-                            placeholder={'Write your message here'}
-                            className={`w-full h-fit font-medium valid:bg-transparent text-sm border-stone-300 bg-transparent py-3 px-2 lg:px-3 placeholder:text-stone-700 text-stone-800 outline-none autocomplete:bg-transparent border-b-2 focus:border-stone-400 ${mona.className}`}
-                            required
-                            autoComplete="off"
-                            {...register('message')}
-                        ></textarea>
-                        <div className="absolute transition-all duration-300 bottom-1.5 left-1/2 -translate-x-1/2 w-full h-0.5 scale-x-0 bg-stone-400  group-hover:scale-x-100 group-focus-within:scale-x-100"></div>
+                        <div className="w-full h-fit relative">
+                            <textarea
+                                id={'message'}
+                                rows={4}
+                                placeholder={'Write your message here'}
+                                className={`w-full h-fit font-medium valid:bg-transparent text-sm bg-transparent py-3 px-2 lg:px-3 placeholder:text-stone-700 text-stone-800 outline-none autocomplete:bg-transparent border-b-2 ${
+                                    errors.message
+                                        ? 'border-red-400 focus:border-red-500'
+                                        : 'border-stone-300 focus:border-stone-400'
+                                } ${mona.className}`}
+                                required
+                                autoComplete="off"
+                                {...register('message')}
+                            ></textarea>
+                            <div
+                                className={`absolute transition-all duration-300 bottom-1.5 left-1/2 -translate-x-1/2 w-full h-0.5 scale-x-0 group-hover:scale-x-100 group-focus-within:scale-x-100 ${
+                                    errors.message
+                                        ? 'bg-red-500'
+                                        : 'bg-stone-400'
+                                }`}
+                            />
+                        </div>
+                        {errors.message && (
+                            <span className="text-red-600 text-sm">
+                                {errors.message?.message}
+                            </span>
+                        )}
                     </motion.div>
                     <motion.div
                         initial={{
@@ -157,7 +216,7 @@ export default function Contact() {
                             type="submit"
                             className="bg-black text-white text-sm"
                         >
-                            Submit
+                            {isSubmitting ? 'Submiting...' : 'Submit'}
                         </PrimaryButton>
                     </motion.div>
                 </form>

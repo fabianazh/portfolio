@@ -192,7 +192,7 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
                                             amount: 'some',
                                             once: true,
                                         }}
-                                        className="text-lg lg:text-3xl font-medium"
+                                        className="text-lg lg:text-3xl font-normal lg:font-medium"
                                     >
                                         {project?.desc}
                                     </motion.span>
