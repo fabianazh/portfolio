@@ -7,25 +7,32 @@ import PrimaryButton from '@/components/Button/PrimaryButton'
 import { motion } from 'framer-motion'
 import TextReveal from '@/components/Other/TextReveal'
 import { enquires, contacts } from '@/constants/component'
+import Toaster from '@/components/Other/Toaster'
+import { useToaster } from '@/contexts/ToasterContext'
 
 export default function Contact() {
     const { register, handleSubmit, reset } = useForm<FormData>()
+    const { addMessage } = useToaster()
 
     async function sendEmail(data: FormData) {
         const apiEndpoint = 'https://fabianazh.vercel.app/api/email'
 
-        fetch(apiEndpoint, {
-            method: 'POST',
-            body: JSON.stringify(data),
-        })
-            .then((res) => res.json())
-            .then((response) => {
-                alert(response.message)
-                reset()
+        try {
+            const response = await fetch(apiEndpoint, {
+                method: 'POST',
+                body: JSON.stringify(data),
             })
-            .catch((err) => {
-                alert(err)
-            })
+            const result = await response.json()
+            addMessage('success', result.message)
+            reset()
+        } catch (error) {
+            addMessage(
+                'error',
+                error instanceof Error
+                    ? error.message
+                    : 'An unknown error occurred'
+            )
+        }
     }
 
     function onSubmit(data: FormData) {
@@ -35,7 +42,7 @@ export default function Contact() {
     return (
         <section
             id="contact"
-            className={`relative w-full flex flex-col gap-8 lg:gap-12 py-14 px-4 lg:px-16 h-full z-0 ${mona.className}`}
+            className={`relative w-full flex flex-col gap-8 lg:gap-12 py-14 px-4 lg:px-16 h-full z-10 ${mona.className}`}
         >
             <div className={`w-full flex gap-4 flex-col ${inter.className}`}>
                 <h3 className="text-3xl lg:text-5xl font-semibold">
@@ -264,6 +271,7 @@ export default function Contact() {
             {/* Border */}
             <div className="h-0.5 bg-stone-300 w-11/12 mx-auto block absolute bottom-0" />
             {/* End Border */}
+            <Toaster />
         </section>
     )
 }

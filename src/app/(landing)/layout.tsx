@@ -3,6 +3,7 @@
 import { useEffect } from 'react'
 import Footer from '@/components/Partials/Footer'
 import Lenis from 'lenis'
+import { ToasterProvider } from '@/contexts/ToasterContext'
 
 export default function LandingLayout({
     children,
@@ -22,8 +23,10 @@ export default function LandingLayout({
 
     return (
         <>
-            {children}
-            <Footer />
+            <ToasterProvider>
+                {children}
+                <Footer />
+            </ToasterProvider>
         </>
     )
 }

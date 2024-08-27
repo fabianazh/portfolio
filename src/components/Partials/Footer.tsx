@@ -28,7 +28,7 @@ export default function Footer() {
                                     key={index}
                                     initial={{
                                         opacity: 0,
-                                        y: 8,
+                                        y: 4,
                                     }}
                                     whileInView={{
                                         opacity: 1,

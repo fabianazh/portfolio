@@ -28,6 +28,7 @@ interface Project {
     isHighlighted: boolean
     photos: string[]
     created_at: string
+    keywords: string[]
 }
 
 interface Skill {

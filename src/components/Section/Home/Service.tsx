@@ -56,7 +56,7 @@ export default function Service() {
                 {/* Modal */}
                 <AnimatePresence>
                     {modal.isOpen === true && (
-                        <motion.div className="w-screen h-screen fixed top-0 left-0 bg-transparent z-[90]">
+                        <motion.div className="w-screen h-screen fixed top-0 left-0 bg-transparent z-[60]">
                             {/* Modal Container */}
                             <div className="w-full h-full relative flex justify-center items-center z-0">
                                 {/* Overlay */}

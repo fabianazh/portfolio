@@ -101,7 +101,7 @@ export default function Projects() {
                                             amount: 'some',
                                             once: true,
                                         }}
-                                        className="relative w-full h-fit border-stone-400 last:border-0 pb-4 last:pb-0 lg:last:pb-3 pt-4 lg:pt-3 border-b overflow-hidden group cursor-pointer"
+                                        className="relative w-full h-fit border-stone-400 last:border-0 pb-5 last:pb-0 lg:last:pb-5 pt-4 lg:pt-5 border-b overflow-hidden group cursor-pointer"
                                     >
                                         <Link
                                             href={`/${project.id}`}

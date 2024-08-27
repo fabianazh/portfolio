@@ -23,7 +23,7 @@ export async function generateMetadata({
         const project: Project | undefined | null =
             projectServices.getProjectDetail(projectId)
 
-        if (project === undefined) {
+        if (project === undefined || project === null) {
             return {
                 title: 'Project not found.',
                 description:
@@ -34,17 +34,21 @@ export async function generateMetadata({
                         'The project you are looking for may have been removed or is no longer available. Please check other projects in the portfolio.',
                     images: [],
                 },
+                robots: 'noindex, nofollow',
             }
         }
         return {
             title: `${project?.name} | Fabian Azhar's Projects`,
             description: project?.desc,
+            keywords: project?.keywords || `Fabian Azhar's Project`,
+            robots: 'index, follow',
+            canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/${projectId}`,
             openGraph: {
-                title: `${project.name} | Fabian Azhar's Projects`,
-                description: project.desc,
-                images: project.photos
-                    ? [project.thumbnail, ...project.photos]
-                    : [project.thumbnail],
+                title: `${project?.name} | Fabian Azhar's Projects`,
+                description: project?.desc,
+                images: project?.photos
+                    ? [project?.thumbnail, ...project?.photos]
+                    : [project?.thumbnail],
             },
             structuredData: {
                 '@context': 'https://schema.org',
@@ -57,6 +61,16 @@ export async function generateMetadata({
                 author: {
                     '@type': 'Person',
                     name: 'Fabian Azhar',
+                },
+                headline: project?.name,
+                keywords: project?.keywords || `Fabian Azhar's Project`,
+                publisher: {
+                    '@type': 'Organization',
+                    name: 'Fabian Azhar',
+                    logo: {
+                        '@type': 'ImageObject',
+                        url: `${process.env.NEXT_PUBLIC_BASE_URL}/img/f/f3.png`,
+                    },
                 },
             },
         }
@@ -71,6 +85,7 @@ export async function generateMetadata({
                     'The project you are looking for may have been removed or is no longer available. Please check other projects in the portfolio.',
                 images: [],
             },
+            robots: 'noindex, nofollow',
         }
     }
 }
