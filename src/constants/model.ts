@@ -128,7 +128,7 @@ export const projects = [
     {
         id: 'zufar-portfolio',
         index: 4,
-        name: 'Portfolio Web',
+        name: 'Zufar Portfolio',
         subname: `Zufar's Portfolio`,
         thumbnail: '/img/projects/portfolio.png',
         desc: 'This professional web portfolio is crafted to effectively display a wide range of projects and skills. It features a user-friendly design with sections for project details, skill highlights, and contact information. The modern and engaging layout enhances personal branding and communicates professional expertise, providing visitors with a comprehensive view of achievements and capabilities.',

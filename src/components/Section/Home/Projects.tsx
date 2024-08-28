@@ -114,7 +114,7 @@ export default function Projects() {
                                                 <span className="text-sm font-medium text-stone-600 w-full lg:w-6/12 shrink-0">
                                                     {project.shortDesc}
                                                 </span>
-                                                <span className="text-xs lg:text-sm font-medium text-stone-600 w-full lg:w-fit gap-2">
+                                                <span className="text-xs lg:text-sm font-medium text-stone-600 w-full lg:w-4/12 gap-2 text-start shrink-0">
                                                     {project.tools.map(
                                                         (
                                                             tech: string,
@@ -139,7 +139,7 @@ export default function Projects() {
                                                     {project.year}
                                                 </div>
                                             </div>
-                                            <div className="absolute right-0 shrink-0 flex items-center gap-3 translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transiton-all duration-300">
+                                            <div className="absolute top-0 right-0 shrink-0 flex items-center gap-3 translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transiton-all duration-300">
                                                 <span className="text-sm font-semibold text-stone-600">
                                                     View Detail
                                                 </span>

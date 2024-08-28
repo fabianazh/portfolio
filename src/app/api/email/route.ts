@@ -6,7 +6,7 @@ export async function POST(request: NextRequest) {
     const { email, name, message } = await request.json()
 
     const transport = nodemailer.createTransport({
-        service: 'yahoo',
+        service: 'google',
         auth: {
             user: process.env.MY_EMAIL,
             pass: process.env.MY_PASSWORD,

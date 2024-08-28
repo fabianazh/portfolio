@@ -62,7 +62,7 @@ export default function Footer() {
                                         <>
                                             <Link
                                                 className={`group text-[0.8em] pb-[0.5px] cursor-pointer relative text-black font-medium`}
-                                                href={`/#${navItem.link}`}
+                                                href={`https://fabianazh.vercel.app#${navItem.link}`}
                                             >
                                                 {navItem.text}
                                                 <div

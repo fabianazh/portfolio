@@ -27,7 +27,7 @@ export default function Contact() {
     const { addMessage } = useToaster()
 
     async function sendEmail(data: FormData) {
-        const apiEndpoint = '/api/email'
+        const apiEndpoint = `/api/email`
 
         try {
             const response = await fetch(apiEndpoint, {

@@ -27,7 +27,7 @@ export default function ServiceCard({
                     opacity: 1,
                     y: 0,
                     transition: {
-                        delay: 0.4 + index * 0.2,
+                        delay: 0.4 + index * 0.35,
                     },
                 }}
                 viewport={{
