@@ -26,16 +26,14 @@ export default function Contact() {
     })
     const { addMessage } = useToaster()
 
-    async function sendEmail(data: FormData) {
-        const apiEndpoint = `/api/email`
-
+    async function onSubmit(data: FormData) {
         try {
-            const response = await fetch(apiEndpoint, {
+            const response = await fetch(`/api/email`, {
                 method: 'POST',
                 body: JSON.stringify(data),
             })
             const result = await response.json()
-            addMessage('success', result.message)
+            addMessage(result.status, result.message)
             reset()
         } catch (error) {
             addMessage(
@@ -47,19 +45,13 @@ export default function Contact() {
         }
     }
 
-    function onSubmit(data: FormData) {
-        sendEmail(data)
-    }
-
     return (
         <section
             id="contact"
-            className={`relative w-full flex flex-col gap-8 lg:gap-12 py-14 px-4 lg:px-16 h-full z-10 ${mona.className}`}
+            className={`relative w-full flex flex-col gap-8 lg:gap-10 py-14 px-4 lg:px-16 h-full z-10 ${mona.className}`}
         >
             <div className={`w-full flex gap-4 flex-col ${inter.className}`}>
-                <h3 className="text-3xl lg:text-5xl font-semibold">
-                    Contact Me
-                </h3>
+                <h3 className="text-3xl lg:text-4xl font-medium">Contact Me</h3>
                 <TextReveal
                     className={`block lg:hidden text-base font-normal`}
                     text={`I'm always excited to discuss new opportunities, projects, or collaborations. Whether you have a question, want to work together, or just want to say hello, feel free to reach out!`}

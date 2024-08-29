@@ -1,4 +1,4 @@
-import { type NextRequest, NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
 import Mail from 'nodemailer/lib/mailer'
 
@@ -6,7 +6,7 @@ export async function POST(request: NextRequest) {
     const { email, name, message } = await request.json()
 
     const transport = nodemailer.createTransport({
-        service: 'google',
+        service: 'gmail',
         auth: {
             user: process.env.MY_EMAIL,
             pass: process.env.MY_PASSWORD,
@@ -34,8 +34,16 @@ export async function POST(request: NextRequest) {
 
     try {
         await sendMailPromise()
-        return NextResponse.json({ message: 'Email sent' })
+        return NextResponse.json({
+            statusCode: 200,
+            status: 'success',
+            message: 'Email sent successfully!',
+        })
     } catch (err) {
-        return NextResponse.json({ error: err }, { status: 500 })
+        return NextResponse.json({
+            statusCode: 500,
+            status: 'error',
+            message: 'Email failed to send!',
+        })
     }
 }

@@ -26,7 +26,7 @@ export default function Toaster() {
                             },
                         }}
                         onClick={() => removeMessage(id)}
-                        className="relative w-full lg:w-80 py-2 lg:py-2.5 px-5 gap-2 lg:gap-10 bg-stone-50 border border-b-0 rounded-md shadow flex justify-between items-center cursor-pointer"
+                        className={`relative w-full lg:w-80 py-2 lg:py-2.5 px-5 gap-2 lg:gap-10 bg-stone-50 border border-b-0 rounded-md shadow flex justify-between items-center cursor-pointer`}
                     >
                         {/* Message */}
                         <span className="text-sm text-black font-medium">
@@ -49,7 +49,7 @@ export default function Toaster() {
                                 initial={{ width: '100%' }}
                                 animate={{ width: 0 }}
                                 transition={{ duration: 3.5, ease: 'linear' }}
-                                className={`h-full bg-white ${
+                                className={`h-full ${
                                     type === 'success'
                                         ? 'bg-green-400'
                                         : 'bg-red-500'

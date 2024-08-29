@@ -159,7 +159,7 @@ export const services = [
             'Mobile App Design',
             'Responsive Web Design',
         ],
-        href: 'mailto:fabianazh@yahoo.com?subject=UI/UX%20Design%20Project%20Request&body=Hello%20Muhammad%20Fabian%20Azhar,%0D%0A%0D%0AI%20am%20interested%20in%20discussing%20a%20UI/UX%20design%20project%20with%20you.%20Please%20let%20me%20know%20a%20convenient%20time%20to%20talk%20further.%0D%0A%0D%0AThank%20you!%0D%0A%0D%0ABest%20regards,%0D%0A%5BYour%20Name%5D',
+        href: 'mailto:fabianazharr@gmail.com?subject=UI/UX%20Design%20Project%20Request&body=Hello%20Muhammad%20Fabian%20Azhar,%0D%0A%0D%0AI%20am%20interested%20in%20discussing%20a%20UI/UX%20design%20project%20with%20you.%20Please%20let%20me%20know%20a%20convenient%20time%20to%20talk%20further.%0D%0A%0D%0AThank%20you!%0D%0A%0D%0ABest%20regards,%0D%0A%5BYour%20Name%5D',
     },
     {
         title: 'Frontend Development',
@@ -171,7 +171,7 @@ export const services = [
             'Custom Animations',
             'Web Performance Optimization',
         ],
-        href: 'mailto:fabianazh@yahoo.com?subject=Frontend%20Development%20Project%20Request&body=Hello%20Muhammad%20Fabian%20Azhar,%0D%0A%0D%0AI%20am%20interested%20in%20discussing%20a%20frontend%20development%20project%20with%20you.%20Please%20let%20me%20know%20a%20convenient%20time%20to%20talk%20further.%0D%0A%0D%0AThank%20you!%0D%0A%0D%0ABest%20regards,%0D%0A%5BYour%20Name%5D',
+        href: 'mailto:fabianazharr@gmail.com?subject=Frontend%20Development%20Project%20Request&body=Hello%20Muhammad%20Fabian%20Azhar,%0D%0A%0D%0AI%20am%20interested%20in%20discussing%20a%20frontend%20development%20project%20with%20you.%20Please%20let%20me%20know%20a%20convenient%20time%20to%20talk%20further.%0D%0A%0D%0AThank%20you!%0D%0A%0D%0ABest%20regards,%0D%0A%5BYour%20Name%5D',
     },
     {
         title: 'Backend Development',
@@ -183,7 +183,7 @@ export const services = [
             'Server-Side Logic Implementation',
             'Third-Party Service Integration',
         ],
-        href: 'mailto:fabianazh@yahoo.com?subject=Backend%20Development%20Project%20Request&body=Hello%20Muhammad%20Fabian%20Azhar,%0D%0A%0D%0AI%20am%20interested%20in%20discussing%20a%20backend%20development%20project%20with%20you.%20Please%20let%20me%20know%20a%20convenient%20time%20to%20talk%20further.%0D%0A%0D%0AThank%20you!%0D%0A%0D%0ABest%20regards,%0D%0A%5BYour%20Name%5D',
+        href: 'mailto:fabianazharr@gmail.com?subject=Backend%20Development%20Project%20Request&body=Hello%20Muhammad%20Fabian%20Azhar,%0D%0A%0D%0AI%20am%20interested%20in%20discussing%20a%20backend%20development%20project%20with%20you.%20Please%20let%20me%20know%20a%20convenient%20time%20to%20talk%20further.%0D%0A%0D%0AThank%20you!%0D%0A%0D%0ABest%20regards,%0D%0A%5BYour%20Name%5D',
     },
     {
         title: 'Full Stack Development',
@@ -195,7 +195,7 @@ export const services = [
             'RESTful API Development',
             'Full-Stack Web Application Maintenance',
         ],
-        href: 'mailto:fabianazh@yahoo.com?subject=Full-Stack%20Development%20Project%20Request&body=Hello%20Muhammad%20Fabian%20Azhar,%0D%0A%0D%0AI%20am%20interested%20in%20discussing%20a%20full-stack%20development%20project%20with%20you.%20Please%20let%20me%20know%20a%20convenient%20time%20to%20talk%20further.%0D%0A%0D%0AThank%20you!%0D%0A%0D%0ABest%20regards,%0D%0A%5BYour%20Name%5D',
+        href: 'mailto:fabianazharr@gmail.com?subject=Full-Stack%20Development%20Project%20Request&body=Hello%20Muhammad%20Fabian%20Azhar,%0D%0A%0D%0AI%20am%20interested%20in%20discussing%20a%20full-stack%20development%20project%20with%20you.%20Please%20let%20me%20know%20a%20convenient%20time%20to%20talk%20further.%0D%0A%0D%0AThank%20you!%0D%0A%0D%0ABest%20regards,%0D%0A%5BYour%20Name%5D',
     },
 ]
 
@@ -207,7 +207,7 @@ export const enquires = [
         name: 'West Java, Indonesia.',
     },
     {
-        name: 'fabianazh@yahoo.com',
+        name: 'fabianazharr@gmail.com',
     },
 ]
 

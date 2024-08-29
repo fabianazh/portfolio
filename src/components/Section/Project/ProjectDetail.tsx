@@ -299,19 +299,19 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
                                     className="absolute w-[200vw] h-full -left-1/2 bg-Gray-200 z-10"
                                 ></motion.div>
                                 <motion.div
-                                    variants={{
-                                        initial: {
-                                            opacity: 0.3,
-                                        },
-                                        enter: {
-                                            opacity: 1,
-                                            transition: {
-                                                duration: 0.7,
-                                            },
+                                    initial={{
+                                        opacity: 0.3,
+                                    }}
+                                    whileInView={{
+                                        opacity: 1,
+                                        transition: {
+                                            duration: 0.7,
                                         },
                                     }}
-                                    animate="enter"
-                                    initial="initial"
+                                    viewport={{
+                                        amount: 'some',
+                                        once: true,
+                                    }}
                                     className="w-full fit z-0"
                                 >
                                     <Image
