@@ -1,6 +1,5 @@
 'use client'
 
-import React from 'react'
 import PrimaryButton from '@/components/Button/PrimaryButton'
 import SecondaryButton from '@/components/Button/SecondaryButton'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -9,6 +8,7 @@ import { urbanist } from '@/app/fonts'
 import Link from 'next/link'
 import ArrowIcon from '@/components/Icon/ArrowIcon'
 import projectServices from '@/services/project'
+import TextReveal from '@/components/Other/TextReveal'
 
 export default function ProjectDetail({ projectId }: { projectId: string }) {
     let nextProject: Project | null | undefined
@@ -177,25 +177,10 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
 
                             <div className="w-full flex flex-col gap-8 py-8 lg:py-16 px-4 lg:px-60">
                                 <div className="w-full flex flex-col">
-                                    <motion.span
-                                        initial={{
-                                            opacity: 0,
-                                        }}
-                                        whileInView={{
-                                            opacity: 1,
-                                            transition: {
-                                                delay: 0.3,
-                                                duration: 0.5,
-                                            },
-                                        }}
-                                        viewport={{
-                                            amount: 'some',
-                                            once: true,
-                                        }}
+                                    <TextReveal
                                         className="text-lg lg:text-3xl font-normal"
-                                    >
-                                        {project?.desc}
-                                    </motion.span>
+                                        text={project?.desc}
+                                    />
                                 </div>
                                 <div className="w-full flex flex-col">
                                     {projectData.map((data, index: number) => (
@@ -273,56 +258,7 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
                                     </motion.div>
                                 </div>
                             </div>
-                            <div className="w-full h-fit relative overflow-hidden z-0 py-4 mb-4 lg:mb-8">
-                                <motion.div
-                                    initial={{
-                                        rotate: '-3deg',
-                                        y: '-30%',
-                                    }}
-                                    whileInView={{
-                                        y: '-100%',
-                                        rotate: '0deg',
-                                        transition: {
-                                            y: {
-                                                duration: 0.7,
-                                            },
-                                            rotate: {
-                                                delay: 0.4,
-                                                duration: 0.6,
-                                            },
-                                        },
-                                    }}
-                                    viewport={{
-                                        amount: 'some',
-                                        once: true,
-                                    }}
-                                    className="absolute w-[200vw] h-full -left-1/2 bg-Gray-200 z-10"
-                                ></motion.div>
-                                <motion.div
-                                    initial={{
-                                        opacity: 0.3,
-                                    }}
-                                    whileInView={{
-                                        opacity: 1,
-                                        transition: {
-                                            duration: 0.7,
-                                        },
-                                    }}
-                                    viewport={{
-                                        amount: 'some',
-                                        once: true,
-                                    }}
-                                    className="w-full fit z-0"
-                                >
-                                    <Image
-                                        src={`${project?.thumbnail}`}
-                                        alt={`${project?.name}`}
-                                        width={900}
-                                        height={500}
-                                        className="w-full h-fit"
-                                    />
-                                </motion.div>
-                            </div>
+                            <div className="w-full h-fit relative overflow-hidden z-0 py-4 mb-4 lg:mb-8"></div>
                         </>
                     )}
                 </AnimatePresence>
