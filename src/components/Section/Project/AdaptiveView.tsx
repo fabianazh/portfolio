@@ -27,10 +27,12 @@ export default function AdaptiveView({ project }: { project: Project }) {
                     <div className="w-full flex flex-col lg:flex-row gap-4 lg:gap-6">
                         <DeviceCard
                             type="tablet"
+                            index={1}
                             url={`${project?.tabletViewImage}`}
                         />
                         <DeviceCard
                             type="mobile"
+                            index={2}
                             url={`${project?.mobileViewImage}`}
                         />
                     </div>

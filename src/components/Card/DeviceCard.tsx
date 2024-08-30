@@ -1,11 +1,16 @@
+'use client'
+
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 
 export default function DeviceCard({
     type,
+    index = 0,
     url,
     className,
 }: {
     type: 'mobile' | 'tablet' | 'desktop'
+    index: number
     url: string
     className?: string
 }) {
@@ -33,7 +38,20 @@ export default function DeviceCard({
     }
 
     return (
-        <div
+        <motion.div
+            initial={{
+                opacity: 0,
+            }}
+            whileInView={{
+                opacity: 1,
+                transition: {
+                    delay: 0.4 + index * 0.25,
+                },
+            }}
+            viewport={{
+                amount: 'some',
+                once: true,
+            }}
             className={`w-full bg-stone-50 flex flex-col lg:flex-row rounded-xl border border-stone-200 h-fit p-6 ${containerClassName} ${className}`}
         >
             <div className="w-fit shrink-0 h-fit flex flex-col">
@@ -52,6 +70,6 @@ export default function DeviceCard({
                     className="w-full h-fit object-cover"
                 />
             </div>
-        </div>
+        </motion.div>
     )
 }
