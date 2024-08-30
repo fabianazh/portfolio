@@ -52,6 +52,7 @@ export default function ProjectCard({
                             className="w-full h-full object-cover z-0"
                             width={400}
                             height={300}
+                            draggable={false}
                         />
                         {/* End Image */}
 

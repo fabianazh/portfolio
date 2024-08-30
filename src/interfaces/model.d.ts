@@ -14,7 +14,6 @@ interface Project {
     year: string
     thumbnail: string
     role: string
-    client: string
     tools: string[]
     collaborators: string[]
     githubLink: string
@@ -23,10 +22,9 @@ interface Project {
     photos: string[]
     created_at: string
     keywords: string[]
-    desktopView: string
-    mobileView: string
-    tabletView: string
-    otherPageImage: string
+    desktopViewImage: string
+    mobileViewImage: string
+    tabletViewImage: string
 }
 
 interface Skill {

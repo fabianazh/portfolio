@@ -1,5 +1,5 @@
 import ScrollButton from '@/components/Button/ScrollButton'
-import ProjectDetail from '@/components/Section/Project/ProjectDetail'
+import ProjectDetail from '@/components/Page/ProjectDetail'
 import projectServices from '@/services/project'
 
 export async function generateStaticParams() {

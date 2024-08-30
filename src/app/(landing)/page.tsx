@@ -1,11 +1,5 @@
-import Hero from '@/components/Section/Home/Hero'
-import Projects from '@/components/Section/Home/Projects'
-import About from '@/components/Section/Home/About'
-import Skill from '@/components/Section/Home/Skill'
-import Contact from '@/components/Section/Home/Contact'
-import Service from '@/components/Section/Home/Service'
-import Header from '@/components/Partials/Header'
 import projectServices from '@/services/project'
+import Home from '@/components/Page/Home'
 
 export async function generateMetadata() {
     try {
@@ -42,15 +36,7 @@ export async function generateMetadata() {
 export default function HomePage() {
     return (
         <>
-            <Header />
-            <main>
-                <Hero />
-                <Projects />
-                <About />
-                <Skill />
-                <Service />
-                <Contact />
-            </main>
+            <Home />
         </>
     )
 }
