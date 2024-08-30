@@ -21,6 +21,7 @@ export default function AdaptiveView({ project }: { project: Project }) {
                     {/* Desktop View */}
                     <DeviceCard
                         type="desktop"
+                        index={0}
                         url={`${project?.desktopViewImage}`}
                     />
                     {/* End Desktop View */}
