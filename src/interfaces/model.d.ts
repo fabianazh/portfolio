@@ -23,6 +23,10 @@ interface Project {
     photos: string[]
     created_at: string
     keywords: string[]
+    desktopView: string
+    mobileView: string
+    tabletView: string
+    otherPageImage: string
 }
 
 interface Skill {

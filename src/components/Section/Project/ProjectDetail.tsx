@@ -4,11 +4,12 @@ import PrimaryButton from '@/components/Button/PrimaryButton'
 import SecondaryButton from '@/components/Button/SecondaryButton'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
-import { urbanist } from '@/app/fonts'
+import { urbanist, inter } from '@/app/fonts'
 import Link from 'next/link'
 import ArrowIcon from '@/components/Icon/ArrowIcon'
 import projectServices from '@/services/project'
 import TextReveal from '@/components/Other/TextReveal'
+import DeviceViewContainer from '../../Container/DeviceViewContainer'
 
 export default function ProjectDetail({ projectId }: { projectId: string }) {
     let nextProject: Project | null | undefined
@@ -77,54 +78,58 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
                 </Link>
             </section>
             <section className="w-full flex flex-col gap-3 lg:gap-8 py-0.5 h-auto">
-                <div className="w-full px-4 lg:px-12 relative flex h-auto justify-between lg:gap-12 items-end">
-                    <motion.span
-                        initial={{
-                            opacity: 0,
-                            y: '10px',
-                        }}
-                        whileInView={{
-                            y: '0px',
-                            opacity: 1,
-                            transition: {
-                                delay: 0.3,
-                                duration: 0.5,
-                            },
-                        }}
-                        viewport={{
-                            amount: 'some',
-                            once: true,
-                        }}
-                        className={`font-semibold text-4xl lg:text-6xl ${urbanist.className}`}
-                    >
-                        {project?.name}
-                    </motion.span>
-                    <motion.span
-                        initial={{
-                            opacity: 0,
-                            y: '10px',
-                        }}
-                        whileInView={{
-                            y: '0px',
-                            opacity: 1,
-                            transition: {
-                                delay: 0.35,
-                                duration: 0.6,
-                            },
-                        }}
-                        viewport={{
-                            amount: 'some',
-                            once: true,
-                        }}
-                        className="font-medium text-2xl lg:text-4xl"
-                    >
-                        /{project?.year}
-                    </motion.span>
-                </div>
                 <AnimatePresence>
                     {project !== null && (
                         <>
+                            {/* Title */}
+                            <div className="w-full px-4 lg:px-12 relative flex h-auto justify-between lg:gap-12 items-end">
+                                <motion.span
+                                    initial={{
+                                        opacity: 0,
+                                        y: '10px',
+                                    }}
+                                    whileInView={{
+                                        y: '0px',
+                                        opacity: 1,
+                                        transition: {
+                                            delay: 0.3,
+                                            duration: 0.5,
+                                        },
+                                    }}
+                                    viewport={{
+                                        amount: 'some',
+                                        once: true,
+                                    }}
+                                    className={`font-semibold text-4xl lg:text-6xl ${urbanist.className}`}
+                                >
+                                    {project?.name}
+                                </motion.span>
+                                <motion.span
+                                    initial={{
+                                        opacity: 0,
+                                        y: '10px',
+                                    }}
+                                    whileInView={{
+                                        y: '0px',
+                                        opacity: 1,
+                                        transition: {
+                                            delay: 0.35,
+                                            duration: 0.6,
+                                        },
+                                    }}
+                                    viewport={{
+                                        amount: 'some',
+                                        once: true,
+                                    }}
+                                    className="font-medium text-2xl lg:text-4xl"
+                                >
+                                    /{project?.year}
+                                </motion.span>
+                            </div>
+                            {/* End Title */}
+                            {/* Thumbnail */}
                             <div className="w-full h-fit relative overflow-hidden z-0">
+                                {/* Thumbnail Overlay */}
                                 <motion.div
                                     initial={{
                                         rotate: '-3deg',
@@ -149,6 +154,8 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
                                     }}
                                     className="absolute w-[200vw] h-full -left-1/2 bg-Gray-200 z-10"
                                 ></motion.div>
+                                {/* End Thumbnail Overlay */}
+                                {/* Thumbnail Image */}
                                 <motion.div
                                     initial={{
                                         opacity: 0.3,
@@ -173,15 +180,20 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
                                         className="w-full h-fit"
                                     />
                                 </motion.div>
+                                {/* End Thumbnail Image */}
                             </div>
+                            {/* End Thumbnail */}
 
-                            <div className="w-full flex flex-col gap-8 py-8 lg:py-16 px-4 lg:px-60">
+                            <div className="w-full flex flex-col gap-8 py-8 lg:py-16 px-4 lg:px-48">
+                                {/* Description */}
                                 <div className="w-full flex flex-col">
                                     <TextReveal
                                         className="text-lg lg:text-3xl font-normal"
-                                        text={project?.desc}
+                                        text={`${project?.desc}`}
                                     />
                                 </div>
+                                {/* End Description */}
+                                {/* Data Container */}
                                 <div className="w-full flex flex-col">
                                     {projectData.map((data, index: number) => (
                                         <motion.div
@@ -208,6 +220,8 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
                                         </motion.div>
                                     ))}
                                 </div>
+                                {/* End Data Container */}
+                                {/* Buttons */}
                                 <div className="w-full flex flex-col lg:flex-row items-center gap-4 lg:gap-8 py-0 lg:py-4">
                                     <motion.div
                                         initial={{
@@ -257,8 +271,34 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
                                         </SecondaryButton>
                                     </motion.div>
                                 </div>
+                                {/* End Buttons */}
                             </div>
-                            <div className="w-full h-fit relative overflow-hidden z-0 py-4 mb-4 lg:mb-8"></div>
+                            {/* Responsive View Container */}
+                            <div className="w-full h-auto bg-white flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-10 lg:pt-14 pb-20 mb-14 px-4 lg:px-20 z-0">
+                                {/* Left Content */}
+                                <div className="w-full lg:w-3/12 shrink-0 flex flex-col gap-1">
+                                    {/* Heading  */}
+                                    <h2
+                                        className={`text-xl lg:text-xl font-medium text-start ${inter.className}`}
+                                    >
+                                        Responsive View
+                                    </h2>
+                                    {/* End Heading  */}
+                                </div>
+                                {/* End Left Content */}
+                                {/* Right Content */}
+                                <div className="w-full lg:w-9/12 flex h-auto flex-col gap-4 lg:gap-6">
+                                    {/* Desktop View */}
+                                    <DeviceViewContainer type="desktop" />
+                                    {/* End Desktop View */}
+                                    <div className="w-full flex gap-4 lg:gap-6">
+                                        <DeviceViewContainer type="tablet" />
+                                        <DeviceViewContainer type="mobile" />
+                                    </div>
+                                </div>
+                                {/* End Right Content */}
+                            </div>
+                            {/* End Responsive View Container */}
                         </>
                     )}
                 </AnimatePresence>
