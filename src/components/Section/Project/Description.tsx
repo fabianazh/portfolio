@@ -38,7 +38,7 @@ export default function Description({ project }: { project: Project }) {
                     <h2
                         className={`text-xl lg:text-xl font-medium text-start ${inter.className}`}
                     >
-                        Description
+                        About the project
                     </h2>
                     {/* End Heading Service */}
                 </div>
@@ -62,7 +62,7 @@ export default function Description({ project }: { project: Project }) {
                                 whileInView={{
                                     opacity: 1,
                                     transition: {
-                                        delay: 0.4 + index * 0.25,
+                                        delay: 0.4 + index * 0.5,
                                     },
                                 }}
                                 viewport={{

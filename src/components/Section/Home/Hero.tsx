@@ -44,11 +44,9 @@ export default function Hero() {
                         <motion.div
                             initial={{
                                 opacity: 0,
-                                y: 4,
                             }}
                             whileInView={{
                                 opacity: 1,
-                                y: 0,
                                 transition: {
                                     delay: 1.5,
                                     duration: 0.7,

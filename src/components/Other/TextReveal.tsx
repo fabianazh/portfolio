@@ -6,12 +6,14 @@ export default function TextReveal({
     wordClassName = 'mr-1',
     index = 0,
     duration = 0.2,
+    fromButton = false,
 }: {
     text: string
     className?: string
     wordClassName?: string
     index?: number
     duration?: number
+    fromButton?: boolean
 }) {
     const words = text.split(' ')
 
@@ -21,7 +23,7 @@ export default function TextReveal({
                 <motion.span
                     key={i}
                     className={`inline-block ${wordClassName}`}
-                    initial={{ opacity: 0, y: 3 }}
+                    initial={{ opacity: 0, y: fromButton ? 3 : 0 }}
                     whileInView={{
                         opacity: 1,
                         y: 0,
