@@ -17,16 +17,17 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
 
     const projects: Project[] | null = projectServices.getAllProjects()
 
-    if (project) {
-        nextProject = projects?.find((item: Project) =>
-            projects.length === project?.index
-                ? item.index === 1
-                : item.index > project?.index
+    if (project && projects && projects.length > 0) {
+        const currentIndex = project.index
+
+        nextProject = projects.find(
+            (item) => item.index === (currentIndex % projects.length) + 1
         )
-        prevProject = projects?.find((item: Project) =>
-            project?.index === 1
-                ? item.index === projects.length
-                : item.index === project?.index - 1
+
+        prevProject = projects.find(
+            (item) =>
+                item.index ===
+                ((currentIndex - 2 + projects.length) % projects.length) + 1
         )
     }
 

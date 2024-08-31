@@ -9,25 +9,21 @@ import ArrowIcon from '@/components/Icon/ArrowIcon'
 import projectServices from '@/services/project'
 
 export default function Projects() {
-    const projectRef = useRef<HTMLDivElement | null>(null)
-    const otherProjectRef = useRef<HTMLDivElement | null>(null)
-    const highlightedProjectsRef = useRef<HTMLDivElement | null>(null)
     const projectsData = projectServices.getAllProjects()
 
-    const highlightedProjects = useMemo(
-        () =>
-            projectsData.filter(
-                (project: Project) => project.isHighlighted === true
-            ),
-        [projectsData]
-    )
-
-    const otherProjects = useMemo(
-        () =>
-            projectsData.filter(
-                (project: Project) => project.isHighlighted === false
-            ),
-        [projectsData]
+    const { highlightedProjects, otherProjects } = projectsData.reduce<{
+        highlightedProjects: Project[]
+        otherProjects: Project[]
+    }>(
+        (acc, project) => {
+            if (project.isHighlighted) {
+                acc.highlightedProjects.push(project)
+            } else {
+                acc.otherProjects.push(project)
+            }
+            return acc
+        },
+        { highlightedProjects: [], otherProjects: [] }
     )
 
     return (
@@ -35,7 +31,6 @@ export default function Projects() {
             {/* Project Section */}
             <section
                 id="projects"
-                ref={projectRef}
                 className="relative w-full h-auto flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-10 py-9 lg:py-16 px-4 lg:px-20 overflow-hidden"
             >
                 {/* Left Content */}
@@ -59,10 +54,7 @@ export default function Projects() {
                 {/* End Left Content */}
                 {/* Right Content */}
                 <div className="w-full lg:w-10/12 flex h-auto flex-col gap-16 lg:gap-24">
-                    <motion.div
-                        ref={highlightedProjectsRef}
-                        className="w-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-x-6 lg:gap-y-14 place-items-start z-10"
-                    >
+                    <motion.div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-x-6 lg:gap-y-14 place-items-start z-10">
                         {highlightedProjects.map(
                             (project: Project, index: number) => (
                                 <ProjectCard
@@ -73,10 +65,7 @@ export default function Projects() {
                             )
                         )}
                     </motion.div>
-                    <div
-                        ref={otherProjectRef}
-                        className="relative overflow-hidden flex w-full h-auto gap-4 lg:gap-4 flex-col z-0"
-                    >
+                    <div className="relative overflow-hidden flex w-full h-auto gap-4 lg:gap-4 flex-col z-0">
                         <div className="w-full items-center flex gap-2.5">
                             <span className="font-medium">Other Projects</span>
                             <div className="font-medium bg-stone-200 px-3 py-0.5 text-xs rounded-full grid place-items-center">
