@@ -21,11 +21,9 @@ export default function ServiceCard({
             <motion.div
                 initial={{
                     opacity: 0,
-                    y: 4,
                 }}
                 whileInView={{
                     opacity: 1,
-                    y: 0,
                     transition: {
                         delay: 0.4 + index * 0.35,
                     },

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { mona, inter } from '@/app/fonts'
+import { mona, urbanist } from '@/app/fonts'
 
 export default function AppIcon({
     className,
@@ -14,7 +14,7 @@ export default function AppIcon({
     return (
         <>
             <div
-                className={`flex gap-3 z-0 transition-all duration-[0.9s] lg:gap-4 items-center relative text-black w-fit h-fit ${className} ${inter.className}`}
+                className={`flex gap-3 z-0 transition-all duration-[0.9s] lg:gap-4 items-center relative text-black w-fit h-fit ${className} ${urbanist.className}`}
             >
                 <div
                     className={`h-9 w-9 z-0 bg-stone-200 items-start aspect-square shrink-0 rounded-full overflow-hidden ${
@@ -46,7 +46,7 @@ export default function AppIcon({
                     <span
                         className={`w-fit h-fit inline-block font-medium group text-stone-500 ${
                             nameOnly ? 'hidden' : 'flex'
-                        } ${size === 'sm' ? 'text-xs' : 'text-sm'}`}
+                        } ${size === 'sm' ? 'text-sm' : 'text-sm'}`}
                     >
                         Full stack developer
                     </span>
