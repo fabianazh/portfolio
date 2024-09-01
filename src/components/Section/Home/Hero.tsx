@@ -1,14 +1,28 @@
 'use client'
 
+import AppIcon from '@/components/Icon/AppIcon'
+import { useEffect, useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
+import { overlayVariant } from '@/constants/variants'
+import Navbar from '@/components/Partials/Navbar'
+import NavButton from '@/components/Partials/NavButton'
 import { mona } from '@/app/fonts'
-import HeroHeader from '@/components/Partials/HeroHeader'
 import { BackgroundBeams } from '@/components/Other/BackgroundBeams'
 import Link from 'next/link'
 import MailIcon from '@/components/Icon/MailIcon'
 import TextReveal from '@/components/Other/TextReveal'
-import { motion } from 'framer-motion'
 
 export default function Hero() {
+    const [isOpen, setIsOpen] = useState<boolean>(false)
+
+    useEffect(() => {
+        window.addEventListener('scroll', () => setIsOpen(false))
+
+        return () => {
+            window.removeEventListener('scroll', () => setIsOpen(false))
+        }
+    }, [isOpen])
+
     return (
         <>
             {/* Hero Section */}
@@ -22,8 +36,36 @@ export default function Hero() {
                     <BackgroundBeams className="absolute w-full h-full top-0 left-0" />
                     {/* End Background */}
 
+                    {/* Overlay */}
+                    <AnimatePresence>
+                        {isOpen && (
+                            <motion.div
+                                onClick={() => setIsOpen(!isOpen)}
+                                variants={overlayVariant}
+                                animate="enter"
+                                exit="exit"
+                                initial="initial"
+                                className="fixed w-screen h-screen top-0 left-0 bg-black/20 backdrop-blur-sm z-30"
+                            ></motion.div>
+                        )}
+                    </AnimatePresence>
+                    {/* End Overlay */}
+                    {/* Navbar */}
+                    <Navbar isOpen={isOpen} setIsOpen={setIsOpen} />
+                    {/* Navbar */}
                     {/* Header */}
-                    <HeroHeader />
+                    <header className="relative items-center justify-between top-0 left-0 z-40 flex h-fit w-full lg:w-full bg-transparent">
+                        {/* Logo and Name */}
+                        <AppIcon className={isOpen ? 'blur-sm' : ''} />
+                        {/* End Logo and Name */}
+                        {/* Nav Button */}
+                        <NavButton
+                            isOpen={isOpen}
+                            setIsOpen={setIsOpen}
+                            className={`w-6 h-6 lg:w-5 lg:h-5`}
+                        />
+                        {/* End Nav Button */}
+                    </header>
                     {/* End Header */}
 
                     {/* Content */}

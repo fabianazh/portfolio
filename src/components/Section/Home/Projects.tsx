@@ -2,7 +2,6 @@
 
 import { inter, mona } from '@/app/fonts'
 import ProjectCard from '@/components/Card/ProjectCard'
-import { useMemo, useRef } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import ArrowIcon from '@/components/Icon/ArrowIcon'
@@ -15,7 +14,7 @@ export default function Projects() {
         highlightedProjects: Project[]
         otherProjects: Project[]
     }>(
-        (acc, project) => {
+        (acc: any, project) => {
             if (project.isHighlighted) {
                 acc.highlightedProjects.push(project)
             } else {

@@ -20,21 +20,29 @@ export default function Navbar({
             <motion.div
                 variants={{
                     open: {
+                        opacity: 1,
+                        x: 'var(--nav-x-open, 0px)',
+                        y: 'var(--nav-y-open, 0px)',
                         transition: {
-                            duration: 0.4,
+                            x: { duration: 0.3, ease: 'easeOut' },
+                            y: { duration: 0.4, ease: 'easeOut' },
+                            opacity: { duration: 0.4 },
                         },
-                        opacity: 100,
                     },
                     closed: {
-                        transition: {
-                            duration: 0.6,
-                        },
                         opacity: 0,
+                        x: 'var(--nav-x-closed)',
+                        y: 'var(--nav-y-closed)',
+                        transition: {
+                            x: { duration: 0.2, ease: 'easeOut' },
+                            y: { duration: 0.4, ease: 'easeOut' },
+                            opacity: { duration: 0.4 },
+                        },
                     },
                 }}
                 animate={isOpen ? 'open' : 'closed'}
                 initial="closed"
-                className={`fixed bottom-0 lg:bottom-auto flex justify-center transition-all duration-400 lg:top-5 lg:right-5 z-50 h-fit w-full lg:w-auto px-4 lg:px-0`}
+                className={`fixed bottom-0 lg:bottom-auto flex justify-center lg:top-5 lg:right-5 z-50 h-fit w-full lg:w-auto px-4 lg:px-0 [--nav-y-closed:40px] [--nav-x-closed:0px] [--nav-y-open:0px] lg:[--nav-y-closed:0px] lg:[--nav-x-closed:60px] lg:[--nav-x-open:0px]`}
             >
                 <AnimatePresence>
                     {isOpen && (
@@ -126,32 +134,46 @@ export default function Navbar({
                             </nav>
                             {/* End Nav Item */}
                             {/* Bottom Menu */}
-                            <motion.div
-                                variants={perspectiveItemVariant}
-                                custom={1}
-                                animate="enter"
-                                exit="exit"
-                                initial="initial"
-                                className="flex w-full flex-col gap-5"
-                            >
-                                <span className="text-xs lg:text-sm">
+                            <div className="flex w-full flex-col gap-5">
+                                <motion.span
+                                    variants={perspectiveItemVariant}
+                                    custom={1}
+                                    animate="enter"
+                                    exit="exit"
+                                    initial="initial"
+                                    className="text-xs lg:text-sm"
+                                >
                                     &copy; {new Date().getFullYear()} Fabian
                                     Azhar.
                                     <span className="block">
                                         All rights reserved.
                                     </span>
-                                </span>
+                                </motion.span>
                                 {/* Contact */}
                                 <div className="flex gap-3 lg:gap-2 w-full">
-                                    <div className="text-xs lg:text-xs border px-3 py-0.5 rounded-full bg-stone-200 font-semibold">
+                                    <motion.div
+                                        variants={perspectiveItemVariant}
+                                        custom={2}
+                                        animate="enter"
+                                        exit="exit"
+                                        initial="initial"
+                                        className="text-xs lg:text-xs border px-3 py-0.5 rounded-full bg-stone-200 font-semibold"
+                                    >
                                         EN
-                                    </div>
-                                    <div className="text-xs lg:text-xs border px-3 py-0.5 rounded-full font-semibold">
+                                    </motion.div>
+                                    <motion.div
+                                        variants={perspectiveItemVariant}
+                                        custom={3}
+                                        animate="enter"
+                                        exit="exit"
+                                        initial="initial"
+                                        className="text-xs lg:text-xs border px-3 py-0.5 rounded-full font-semibold"
+                                    >
                                         ID
-                                    </div>
+                                    </motion.div>
                                 </div>
                                 {/* End Contact */}
-                            </motion.div>
+                            </div>
                             {/* End Bottom Menu */}
                         </div>
                     )}
