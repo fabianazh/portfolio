@@ -90,7 +90,7 @@ export default function Hero() {
                             whileInView={{
                                 opacity: 1,
                                 transition: {
-                                    delay: 1.5,
+                                    delay: 1.8,
                                     duration: 0.7,
                                 },
                             }}

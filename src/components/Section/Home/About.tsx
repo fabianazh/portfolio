@@ -39,7 +39,7 @@ export default function About() {
                         <TextReveal
                             text="My background in software engineering allows me to approach projects with a well-rounded perspective. I focus on finding efficient solutions that balance technical precision with creativity."
                             className={`text-sm lg:text-sm font-medium text-stone-500 ${mona.className}`}
-                            index={1.2}
+                            index={1.4}
                         />
                     </div>
                     <div className="w-full flex items-center gap-16 py-1 lg:py-4">
