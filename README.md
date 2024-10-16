@@ -4,7 +4,7 @@ Welcome to my portfolio repository!
 
 ## About Me
 
-I am Muhammad Fabian Azhar, a passionate Fullstack Developer and Unity Developer. With a strong foundation in both frontend and backend technologies, I create dynamic, user-friendly web applications and immersive game experiences. This repository showcases my projects, skills, and accomplishments in the world of software development.
+I am Muhammad Fabian Azhar,a passionate Full Stack Web Developer with a strong background in software engineering. I specialize in both front-end and back-end development, crafting seamless and interactive web applications. My expertise includes modern frameworks and technologies, ensuring efficient and robust solutions. Explore my projects, designs, and problem-solving approaches that showcase my dedication to delivering high-quality digital experiences.
 
 ## Skills
 
