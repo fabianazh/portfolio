@@ -72,23 +72,25 @@ export default function Header() {
 
     return (
         <>
-            {/* Overlay */}
             <AnimatePresence>
                 {isOpen && (
-                    <motion.div
-                        onClick={() => setIsOpen(!isOpen)}
-                        variants={overlayVariant}
-                        animate="enter"
-                        exit="exit"
-                        initial="initial"
-                        className="fixed w-screen h-screen top-0 left-0 bg-black/20 backdrop-blur-sm z-40"
-                    ></motion.div>
+                    <>
+                        {/* Overlay */}
+                        <motion.div
+                            onClick={() => setIsOpen(!isOpen)}
+                            variants={overlayVariant}
+                            animate="enter"
+                            exit="exit"
+                            initial="initial"
+                            className="fixed w-screen h-screen top-0 left-0 bg-black/20 backdrop-blur-sm z-40"
+                        ></motion.div>
+                        {/* End Overlay */}
+                        {/* Navbar */}
+                        <Navbar isOpen={isOpen} setIsOpen={setIsOpen} />
+                        {/* Navbar */}
+                    </>
                 )}
             </AnimatePresence>
-            {/* End Overlay */}
-            {/* Navbar */}
-            <Navbar isOpen={isOpen} setIsOpen={setIsOpen} />
-            {/* Navbar */}
             {/* Header */}
             <motion.header
                 // variants={{

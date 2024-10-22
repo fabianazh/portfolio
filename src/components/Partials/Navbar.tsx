@@ -42,6 +42,7 @@ export default function Navbar({
                 }}
                 animate={isOpen ? 'open' : 'closed'}
                 initial="closed"
+                exit="closed"
                 className={`fixed bottom-0 lg:bottom-auto flex justify-center lg:top-5 lg:right-5 z-50 h-fit w-full lg:w-auto px-4 lg:px-0 [--nav-y-closed:40px] [--nav-x-closed:0px] [--nav-y-open:0px] lg:[--nav-y-closed:0px] lg:[--nav-x-closed:60px] lg:[--nav-x-open:0px]`}
             >
                 <AnimatePresence>
