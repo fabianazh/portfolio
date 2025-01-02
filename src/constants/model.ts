@@ -19,7 +19,7 @@ export const projects = [
         role: 'Backend Developer',
         isHighlighted: true,
         photos: [],
-        created_at: '2024-08-26T10:30:00Z',
+        created_at: '2025-01-02T12:11:18.456Z',
         keywords: [
             'Bind',
             'Social Media',
@@ -64,7 +64,7 @@ export const projects = [
         role: 'Full Stack Developer',
         isHighlighted: true,
         photos: [],
-        created_at: '2024-08-26T10:30:00Z',
+        created_at: '2025-01-02T12:11:18.456Z',
         keywords: [
             'Jitu!',
             'School Management',
@@ -107,7 +107,7 @@ export const projects = [
         role: 'Frontend Developer',
         isHighlighted: false,
         photos: [],
-        created_at: '2024-08-26T10:30:00Z',
+        created_at: '2025-01-02T12:11:18.456Z',
         keywords: [
             'TicTacTest',
             'Tic Tac Toe',
@@ -151,7 +151,7 @@ export const projects = [
         role: 'Full Stack Developer',
         isHighlighted: true,
         photos: [],
-        created_at: '2024-08-26T10:30:00Z',
+        created_at: '2025-01-02T12:11:18.456Z',
         keywords: [
             'Portfolio Web',
             'Web Portfolio',
@@ -195,7 +195,7 @@ export const projects = [
         role: 'Frontend Developer',
         isHighlighted: true,
         photos: [],
-        created_at: '2024-08-26T10:30:00Z',
+        created_at: '2025-01-02T12:11:18.456Z',
         keywords: [
             'QuranKu',
             'Quran Web App',
@@ -239,7 +239,7 @@ export const projects = [
     //     role: 'Frontend Developer',
     //     isHighlighted: false,
     //     photos: [],
-    //     created_at: '2024-08-26T10:30:00Z',
+    //     created_at: '2025-01-02T12:11:18.456Z',
     //     keywords: [
     //         'Starbucks Clone',
     //         'Web Clone',
@@ -282,7 +282,7 @@ export const projects = [
         role: 'Frontend Developer',
         isHighlighted: false,
         photos: [],
-        created_at: '2024-08-26T10:30:00Z',
+        created_at: '2025-01-02T12:11:18.456Z',
         keywords: [
             'Grand Boulevard',
             'Restaurant Landing Page',
