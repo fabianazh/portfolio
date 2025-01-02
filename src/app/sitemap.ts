@@ -6,7 +6,7 @@ export default async function sitemap() {
     const projectsData = projects.map((project: Project) => {
         return {
             url: `${baseUrl}/${project.id}`,
-            lastModified: project.created_at,
+            lastModified: new Date(),
         }
     })
 
