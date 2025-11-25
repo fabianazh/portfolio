@@ -277,7 +277,7 @@ export const projects = [
         tools: ['Next JS', 'Tailwind CSS', 'Framer Motion'],
         year: '23',
         projectLink: 'https://grand-boulevard.vercel.app/',
-        githubLink: 'https://github.com/fabianazh/simple-contact-app',
+        githubLink: 'https://github.com/fabianazh/grand-boulevard',
         collaborators: ['-'],
         role: 'Frontend Developer',
         isHighlighted: false,
