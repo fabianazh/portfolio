@@ -1,7 +1,20 @@
+'use client'
+
 import DeviceCard from '@/components/Card/DeviceCard'
 import { inter } from '@/app/fonts'
+import { useLocale } from '@/contexts/LocaleContext'
+import localize from '@/libs/utils/localize'
+
+const text = {
+    title: {
+        en: 'Adaptive View',
+        id: 'Tampilan Adaptif',
+    },
+}
 
 export default function AdaptiveView({ project }: { project: Project }) {
+    const { locale } = useLocale()
+
     return (
         <>
             <section className="w-full h-auto bg-white flex flex-col lg:flex-row lg:justify-between gap-6 lg:gap-10 py-10 lg:py-14 mb-14 px-4 lg:px-20 z-0">
@@ -11,7 +24,7 @@ export default function AdaptiveView({ project }: { project: Project }) {
                     <h2
                         className={`text-lg lg:text-xl font-medium text-start ${inter.className}`}
                     >
-                        Adaptive View
+                        {localize(text.title, locale)}
                     </h2>
                     {/* End Heading  */}
                 </div>

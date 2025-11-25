@@ -14,6 +14,8 @@ import Link from 'next/link'
 import { mona } from '@/app/fonts'
 import { navItems } from '@/constants/component'
 import { Link as SamePageLink } from 'react-scroll'
+import { useLocale } from '@/contexts/LocaleContext'
+import localize from '@/libs/utils/localize'
 
 export default function Header() {
     const [hidden, setHidden] = useState<boolean>(true)
@@ -21,6 +23,7 @@ export default function Header() {
     const [activeSection, setActiveSection] = useState<string>('home')
 
     const { scrollY } = useScroll()
+    const { locale } = useLocale()
 
     useMotionValueEvent(scrollY, 'change', (latest) => {
         const previous = scrollY.getPrevious() ?? 0
@@ -123,30 +126,40 @@ export default function Header() {
                             <ul className="w-fit flex gap-2 lg:gap-4">
                                 {navItems.map(
                                     (
-                                        navitem: { link: string; text: string },
+                                        item: {
+                                            link: string
+                                            text: {
+                                                en: string
+                                                id: string
+                                            }
+                                        },
                                         index: number
                                     ) => (
                                         <li key={index}>
                                             <SamePageLink
                                                 className={`group text-[0.8em] cursor-pointer relative text-black font-medium ${
-                                                    activeSection ===
-                                                    navitem.link
+                                                    activeSection === item.link
                                                         ? 'active'
                                                         : ''
                                                 }`}
                                                 smooth={true}
-                                                to={navitem.link}
+                                                to={item.link}
                                                 spy={true}
                                             >
-                                                {navitem.text}
-                                                <div
-                                                    className={`absolute w-full h-[2px] ${
-                                                        activeSection ===
-                                                        navitem.link
-                                                            ? 'scale-x-100'
-                                                            : 'scale-x-0'
-                                                    } bottom-0 left-0 bg-stone-600 origin-bottom-right transition-transform duration-300 group-hover:scale-x-100 group-hover:origin-bottom-left`}
-                                                />
+                                                <>
+                                                    {localize(
+                                                        item.text,
+                                                        locale
+                                                    )}
+                                                    <div
+                                                        className={`absolute w-full h-[2px] ${
+                                                            activeSection ===
+                                                            item.link
+                                                                ? 'scale-x-100'
+                                                                : 'scale-x-0'
+                                                        } bottom-0 left-0 bg-stone-600 origin-bottom-right transition-transform duration-300 group-hover:scale-x-100 group-hover:origin-bottom-left`}
+                                                    />
+                                                </>
                                             </SamePageLink>
                                         </li>
                                     )

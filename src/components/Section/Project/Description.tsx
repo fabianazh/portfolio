@@ -1,27 +1,48 @@
+'use client'
+
 import { motion } from 'framer-motion'
 import { inter, mona } from '@/app/fonts'
 import PrimaryButton from '@/components/Button/PrimaryButton'
 import SecondaryButton from '@/components/Button/SecondaryButton'
 import TextReveal from '@/components/Other/TextReveal'
+import { useLocale } from '@/contexts/LocaleContext'
+import localize from '@/libs/utils/localize'
+
+const text = {
+    title: {
+        en: 'About the project',
+        id: 'Tentang projek',
+    },
+    webButton: {
+        en: 'View website',
+        id: 'Lihat website',
+    },
+    githubButton: {
+        en: 'See on github',
+        id: 'Lihat di github',
+    },
+}
 
 export default function Description({ project }: { project: Project }) {
+    const { locale } = useLocale()
+
     const projectData = [
         {
-            title: 'Year',
+            title: { en: 'Year', id: 'Tahun' },
             content: `20${project?.year}`,
         },
         {
-            title: 'Role',
+            title: { en: 'Role', id: 'Peran' },
             content: project?.role,
         },
         {
-            title: 'Collaborators',
+            title: { en: 'Collaborators', id: 'Kolaborator' },
             content: project?.collaborators.map(
                 (collaborator: string) => collaborator
             ),
         },
         {
-            title: 'Tools',
+            title: { en: 'Tools', id: 'Alat' },
             content: project?.tools.map((tool: string, index: number) =>
                 index + 1 == project.tools?.length ? `${tool}.` : `${tool}, `
             ),
@@ -38,7 +59,7 @@ export default function Description({ project }: { project: Project }) {
                     <h2
                         className={`text-xl lg:text-xl font-medium text-start ${inter.className}`}
                     >
-                        About the project
+                        {localize(text.title, locale)}
                     </h2>
                     {/* End Heading Service */}
                 </div>
@@ -76,7 +97,7 @@ export default function Description({ project }: { project: Project }) {
                                         'text-base w-3/12 shrink-0 font-medium lg:font-semibold'
                                     }
                                 >
-                                    {data.title}
+                                    {localize(data.title, locale)}
                                 </span>
                                 <span
                                     className={`text-sm font-medium text-stone-500 ${mona.className}`}
@@ -110,7 +131,7 @@ export default function Description({ project }: { project: Project }) {
                                 className="text-xs lg:text-sm bg-black text-white"
                                 as="link"
                             >
-                                View website
+                                {localize(text.webButton, locale)}
                             </PrimaryButton>
                         </motion.div>
                         <motion.div
@@ -133,7 +154,7 @@ export default function Description({ project }: { project: Project }) {
                                 href={`${project?.githubLink}`}
                                 className="text-xs lg:text-sm"
                             >
-                                See on github
+                                {localize(text.githubButton, locale)}
                             </SecondaryButton>
                         </motion.div>
                     </div>

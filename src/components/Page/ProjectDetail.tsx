@@ -7,10 +7,29 @@ import projectServices from '@/services/project'
 import Thumbnail from '@/components/Section/Project/Thumbnail'
 import Description from '@/components/Section/Project/Description'
 import AdaptiveView from '@/components/Section/Project/AdaptiveView'
+import { useLocale } from '@/contexts/LocaleContext'
+import localize from '@/libs/utils/localize'
+
+const text = {
+    homeButton: {
+        en: 'Back to home',
+        id: 'Kembali ke beranda',
+    },
+    nextProjectButton: {
+        en: 'Next project',
+        id: 'Proyek selanjutnya',
+    },
+    previousProjectButton: {
+        en: 'Previous project',
+        id: 'Proyek sebelumnya',
+    },
+}
 
 export default function ProjectDetail({ projectId }: { projectId: string }) {
     let nextProject: Project | null | undefined
     let prevProject: Project | null | undefined
+
+    const { locale } = useLocale()
 
     const project: Project | null | undefined =
         projectServices.getProjectDetail(projectId)
@@ -38,12 +57,12 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
                     href={'/'}
                     className="font-semibold text-base lg:text-lg"
                 >
-                    Back to home
+                    {localize(text.homeButton, locale)}
                 </SecondaryButton>
                 <AnimatePresence>
                     {project && (
                         <ArrowButton href={`/${nextProject?.id}`}>
-                            Next project
+                            {localize(text.nextProjectButton, locale)}
                         </ArrowButton>
                     )}
                 </AnimatePresence>
@@ -60,10 +79,10 @@ export default function ProjectDetail({ projectId }: { projectId: string }) {
                                 direction="left"
                                 href={`/${prevProject?.id}`}
                             >
-                                Previous project
+                                {localize(text.previousProjectButton, locale)}
                             </ArrowButton>
                             <ArrowButton href={`/${nextProject?.id}`}>
-                                Next project
+                                {localize(text.nextProjectButton, locale)}
                             </ArrowButton>
                         </section>
                     </>

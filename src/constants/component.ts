@@ -1,27 +1,27 @@
 export const navItems = [
     {
         link: 'home',
-        text: 'Home',
+        text: { en: 'Home', id: 'Beranda' },
     },
     {
         link: 'projects',
-        text: 'Projects',
+        text: { en: 'Projects', id: 'Proyek' },
     },
     {
         link: 'about',
-        text: 'About',
+        text: { en: 'About', id: 'Tentang' },
     },
     {
         link: 'skill',
-        text: 'Skill',
+        text: { en: 'Skill', id: 'Keahlian' },
     },
     {
         link: 'services',
-        text: 'Services',
+        text: { en: 'Services', id: 'Layanan' },
     },
     {
         link: 'contact',
-        text: 'Contact',
+        text: { en: 'Contact', id: 'Kontak' },
     },
 ]
 

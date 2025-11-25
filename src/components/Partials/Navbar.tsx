@@ -6,6 +6,9 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { perspectiveItemVariant } from '@/constants/variants'
 import { mona } from '@/app/fonts'
 import AppIcon from '@/components/Icon/AppIcon'
+import { useLocale } from '@/contexts/LocaleContext'
+import localize from '@/libs/utils/localize'
+import TranslateButton from '@/components/Button/TranslateButton'
 
 export default function Navbar({
     isOpen,
@@ -14,6 +17,12 @@ export default function Navbar({
     isOpen: boolean
     setIsOpen: (isopen: boolean) => void
 }) {
+    const currentYear = new Date().getFullYear()
+    const { locale } = useLocale()
+
+    // console.log(localize(navItems[0].item.text, locale))
+    // console.log(locale);
+
     return (
         <>
             {/* Nav Container */}
@@ -97,40 +106,50 @@ export default function Navbar({
                                     Fabian Azhar
                                 </motion.span>
                                 <ul className={`flex flex-col gap-2 lg:gap-2`}>
-                                    {navItems.map(
-                                        (
-                                            item: {
-                                                link: string
-                                                text: string
-                                            },
-                                            index: number
-                                        ) => (
-                                            <motion.li
-                                                key={index}
-                                                variants={
-                                                    perspectiveItemVariant
-                                                }
-                                                custom={index}
-                                                animate="enter"
-                                                exit="exit"
-                                                initial="initial"
-                                                className="relative w-fit inline-block h-fit group"
-                                            >
-                                                <Link
-                                                    onClick={() =>
-                                                        setIsOpen(!isOpen)
+                                    {(() => {
+                                        return navItems.map(
+                                            (
+                                                item: {
+                                                    link: string
+                                                    text: {
+                                                        en: string
+                                                        id: string
                                                     }
-                                                    className={`text-base lg:text-base cursor-pointer relative pb-[1px] text-black font-medium`}
-                                                    smooth={true}
-                                                    to={item.link}
-                                                    spy={true}
+                                                },
+                                                index: number
+                                            ) => (
+                                                <motion.li
+                                                    key={index}
+                                                    variants={
+                                                        perspectiveItemVariant
+                                                    }
+                                                    custom={index}
+                                                    animate="enter"
+                                                    exit="exit"
+                                                    initial="initial"
+                                                    className="relative w-fit inline-block h-fit group"
                                                 >
-                                                    {item.text}
-                                                    <div className="absolute w-full h-[2px] scale-x-0 bottom-0 left-0 bg-stone-600 origin-bottom-right transition-transform duration-300 group-hover:scale-x-100 group-hover:origin-bottom-left" />
-                                                </Link>
-                                            </motion.li>
+                                                    <Link
+                                                        onClick={() =>
+                                                            setIsOpen(!isOpen)
+                                                        }
+                                                        className={`text-base lg:text-base cursor-pointer relative pb-[1px] text-black font-medium`}
+                                                        smooth={true}
+                                                        to={item.link}
+                                                        spy={true}
+                                                    >
+                                                        <>
+                                                            {localize(
+                                                                item.text,
+                                                                locale
+                                                            )}
+                                                            <div className="absolute w-full h-[2px] scale-x-0 bottom-0 left-0 bg-stone-600 origin-bottom-right transition-transform duration-300 group-hover:scale-x-100 group-hover:origin-bottom-left" />
+                                                        </>
+                                                    </Link>
+                                                </motion.li>
+                                            )
                                         )
-                                    )}
+                                    })()}
                                 </ul>
                             </nav>
                             {/* End Nav Item */}
@@ -144,34 +163,15 @@ export default function Navbar({
                                     initial="initial"
                                     className="text-xs lg:text-sm"
                                 >
-                                    &copy; {new Date().getFullYear()} Fabian
-                                    Azhar.
+                                    ©{currentYear} Fabian Azhar.
                                     <span className="block">
                                         All rights reserved.
                                     </span>
                                 </motion.span>
                                 {/* Contact */}
                                 <div className="flex gap-3 lg:gap-2 w-full">
-                                    <motion.div
-                                        variants={perspectiveItemVariant}
-                                        custom={2}
-                                        animate="enter"
-                                        exit="exit"
-                                        initial="initial"
-                                        className="text-xs lg:text-xs border px-3 py-0.5 rounded-full bg-stone-200 font-semibold"
-                                    >
-                                        EN
-                                    </motion.div>
-                                    <motion.div
-                                        variants={perspectiveItemVariant}
-                                        custom={3}
-                                        animate="enter"
-                                        exit="exit"
-                                        initial="initial"
-                                        className="text-xs lg:text-xs border px-3 py-0.5 rounded-full font-semibold"
-                                    >
-                                        ID
-                                    </motion.div>
+                                    <TranslateButton value="en" delay={2} />
+                                    <TranslateButton value="id" delay={3} />
                                 </div>
                                 {/* End Contact */}
                             </div>

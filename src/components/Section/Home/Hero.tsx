@@ -11,9 +11,28 @@ import { BackgroundBeams } from '@/components/Other/BackgroundBeams'
 import Link from 'next/link'
 import MailIcon from '@/components/Icon/MailIcon'
 import TextReveal from '@/components/Other/TextReveal'
+import { useLocale } from '@/contexts/LocaleContext'
+import localize from '@/libs/utils/localize'
+
+const text = {
+    title: {
+        en: 'Harmonizing Quality Design & Web Development',
+        id: 'Menyelaraskan Desain Berkualitas & Pengembangan Web',
+    },
+    desc: {
+        en: 'I craft seamless and intuitive designs for websites and apps, empowering businesses to elevate user experiences, drive key performance metrics, and attain digital excellence.',
+        id: 'Saya merancang desain yang mulus dan intuitif untuk situs web dan aplikasi, memberdayakan bisnis untuk meningkatkan pengalaman pengguna, mendorong metrik kinerja utama, dan mencapai keunggulan digital.',
+    },
+    mailContent: {
+        en: 'mailto:fabianazharr@gmail.com?subject=Project%20Request&body=Hello%20Muhammad%20Fabian%20Azhar,%0D%0A%0D%0AI%20would%20like%20to%20discuss%20a%20potential%20project%20with%20you.%20Please%20let%20me%20know%20a%20convenient%20time%20for%20us%20to%20talk%20further.%0D%0A%0D%0AThank%20you!%0D%0A%0D%0ABest%20regards,%0D%0A%5BYour%20Name%5D',
+        id: 'mailto:fabianazharr@gmail.com?subject=Project%20Request&body=Hello%20Muhammad%20Fabian%20Azhar,%0D%0A%0D%0AI%20would%20like%20to%20discuss%20a%20potential%20project%20with%20you.%20Please%20let%20me%20know%20a%20convenient%20time%20for%20us%20to%20talk%20further.%0D%0A%0D%0AThank%20you!%0D%0A%0D%0ABest%20regards,%0D%0A%5BYour%20Name%5D',
+    },
+}
 
 export default function Hero() {
     const [isOpen, setIsOpen] = useState<boolean>(false)
+
+    const { locale } = useLocale()
 
     useEffect(() => {
         window.addEventListener('scroll', () => setIsOpen(false))
@@ -74,11 +93,11 @@ export default function Hero() {
                     >
                         <TextReveal
                             className="text-4xl font-bold z-0"
-                            text="Harmonizing Quality Design & Web Development"
+                            text={localize(text.title, locale)}
                             duration={0.35}
                         />
                         <TextReveal
-                            text="I craft seamless and intuitive designs for websites and apps, empowering businesses to elevate user experiences, drive key performance metrics, and attain digital excellence."
+                            text={localize(text.desc, locale)}
                             index={0.5}
                             className="z-0"
                         />
@@ -101,9 +120,7 @@ export default function Hero() {
                             className="w-fit"
                         >
                             <Link
-                                href={
-                                    'mailto:fabianazharr@gmail.com?subject=Project%20Request&body=Hello%20Muhammad%20Fabian%20Azhar,%0D%0A%0D%0AI%20would%20like%20to%20discuss%20a%20potential%20project%20with%20you.%20Please%20let%20me%20know%20a%20convenient%20time%20for%20us%20to%20talk%20further.%0D%0A%0D%0AThank%20you!%0D%0A%0D%0ABest%20regards,%0D%0A%5BYour%20Name%5D'
-                                }
+                                href={localize(text.mailContent, locale)}
                                 className="w-fit text-xs lg:text-sm font-medium py-2 px-4 lg:px-6 mt-4 lg:mt-6 inline-flex h-fit gap-2 bg-white rounded-full items-center shadow-sm z-10 hover:bg-stone-50 transition-colors duration-300"
                             >
                                 <MailIcon className="w-fit h-4 lg:h-5" />{' '}

@@ -9,6 +9,15 @@ import { disableScroll, enableScroll } from '@/libs/utils/controllScroll'
 import { FiX } from 'react-icons/fi'
 import PrimaryButton from '@/components/Button/PrimaryButton'
 import { perspectiveItemVariant, overlayVariant } from '@/constants/variants'
+import { useLocale } from '@/contexts/LocaleContext'
+import localize from '@/libs/utils/localize'
+
+const text = {
+    title: {
+        en: 'Services',
+        id: 'Layanan',
+    },
+}
 
 export default function Service() {
     const [cardActive, setCardActive] = useState<number>(0)
@@ -16,6 +25,8 @@ export default function Service() {
         isOpen: boolean
         data: Service | null
     }>({ isOpen: false, data: null })
+
+    const { locale } = useLocale()
 
     useEffect(() => {
         modal.isOpen === true ? disableScroll() : enableScroll()
@@ -34,7 +45,7 @@ export default function Service() {
                     <h2
                         className={`text-xl lg:text-2xl font-medium text-start ${inter.className}`}
                     >
-                        Services
+                        {localize(text.title, locale)}
                     </h2>
                     {/* End Heading Service */}
                 </div>

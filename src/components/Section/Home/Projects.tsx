@@ -6,9 +6,28 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import ArrowIcon from '@/components/Icon/ArrowIcon'
 import projectServices from '@/services/project'
+import { useLocale } from '@/contexts/LocaleContext'
+import localize from '@/libs/utils/localize'
+
+const text = {
+    title: {
+        en: 'Projects',
+        id: 'Projek',
+    },
+    description: {
+        en: "Explore the projects I've worked on, showcasing my expertise across various technologies and frameworks.",
+        id: 'Jelajahi projek yang telah saya kerjakan, menampilkan keahlian saya di berbagai teknologi dan Framework.',
+    },
+    otherProjects: {
+        en: 'Other Projects',
+        id: 'Projek Lainnya',
+    },
+}
 
 export default function Projects() {
     const projectsData = projectServices.getAllProjects()
+
+    const { locale } = useLocale()
 
     const { highlightedProjects, otherProjects } = projectsData.reduce<{
         highlightedProjects: Project[]
@@ -38,15 +57,14 @@ export default function Projects() {
                     <h2
                         className={`text-xl lg:text-2xl font-medium text-start ${inter.className}`}
                     >
-                        Projects
+                        {localize(text.title, locale)}
                     </h2>
                     {/* End Heading Project */}
                     {/* Desc Project */}
                     <span
                         className={`text-xs lg:text-sm font-medium text-stone-500 ${mona.className}`}
                     >
-                        Explore the projects I&apos;ve worked on, showcasing my
-                        expertise across various technologies and frameworks.
+                        {localize(text.description, locale)}
                     </span>
                     {/* End Desc Project */}
                 </div>
@@ -66,7 +84,9 @@ export default function Projects() {
                     </motion.div>
                     <div className="relative overflow-hidden flex w-full h-auto gap-4 lg:gap-4 flex-col z-0">
                         <div className="w-full items-center flex gap-2.5">
-                            <span className="font-medium">Other Projects</span>
+                            <span className="font-medium">
+                                {localize(text.otherProjects, locale)}
+                            </span>
                             <div className="font-medium bg-stone-200 px-3 py-0.5 text-xs rounded-full grid place-items-center">
                                 {otherProjects.length}
                             </div>

@@ -1,8 +1,25 @@
+'use client'
+
 import { inter, mona } from '@/app/fonts'
 import SkillCard from '@/components/Card/SkillCard'
 import { skills } from '@/constants/component'
+import { useLocale } from '@/contexts/LocaleContext'
+import localize from '@/libs/utils/localize'
+
+const text = {
+    title: {
+        en: 'Skills',
+        id: 'Keahlian',
+    },
+    desc: {
+        en: 'Check out the languages, databases and frameworks that I am capable of using.',
+        id: 'Lihat bahasa pemrograman, database, dan framework yang saya kuasai.',
+    },
+}
 
 export default function Skill() {
+    const { locale } = useLocale()
+
     return (
         <>
             {/* Skill Section */}
@@ -16,15 +33,14 @@ export default function Skill() {
                     <h2
                         className={`text-xl lg:text-2xl font-medium text-start ${inter.className}`}
                     >
-                        Skills
+                        {localize(text.title, locale)}
                     </h2>
                     {/* End Heading Skill */}
                     {/* Desc Skill */}
                     <span
                         className={`text-xs lg:text-sm font-medium text-stone-500 ${mona.className}`}
                     >
-                        Check out the languages, databases and frameworks that I
-                        am capable of using.
+                        {localize(text.desc, locale)}
                     </span>
                     {/* End Desc Skill */}
                 </div>

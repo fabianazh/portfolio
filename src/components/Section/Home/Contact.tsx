@@ -12,8 +12,41 @@ import { useToaster } from '@/contexts/ToasterContext'
 import * as z from 'zod'
 import { mailSchema } from '@/schemas/zod'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useLocale } from '@/contexts/LocaleContext'
+import localize from '@/libs/utils/localize'
 
 type FormData = z.infer<typeof mailSchema>
+
+const text = {
+    title: {
+        en: 'Contact Me',
+        id: 'Hubungi Saya',
+    },
+    desc: {
+        en: "I'm always excited to discuss new opportunities, projects, or collaborations. Whether you have a question, want to work together, or just want to say hello, feel free to reach out!",
+        id: 'Saya selalu bersemangat untuk membahas peluang baru, proyek, atau kolaborasi. Apakah Anda memiliki pertanyaan, ingin bekerja sama, atau hanya ingin menyapa, jangan ragu untuk menghubungi saya!',
+    },
+    namePlaceholder: {
+        en: 'Enter your full name',
+        id: 'Masukkan nama lengkap Anda',
+    },
+    emailPlaceholder: {
+        en: 'Enter your email address',
+        id: 'Masukkan alamat email Anda',
+    },
+    messagePlaceholder: {
+        en: 'Write your message here',
+        id: 'Tulis pesan Anda di sini',
+    },
+    titleGeneralEnquires: {
+        en: 'General Enquires',
+        id: 'Pertanyaan Umum',
+    },
+    titleSocialMedia: {
+        en: 'Social Media',
+        id: 'Media Sosial',
+    },
+}
 
 export default function Contact() {
     const {
@@ -25,6 +58,7 @@ export default function Contact() {
         resolver: zodResolver(mailSchema),
     })
     const { addMessage } = useToaster()
+    const { locale } = useLocale()
 
     async function onSubmit(data: FormData) {
         try {
@@ -51,10 +85,12 @@ export default function Contact() {
             className={`relative w-full flex flex-col gap-8 lg:gap-10 py-14 px-4 lg:px-16 h-full z-10 ${mona.className}`}
         >
             <div className={`w-full flex gap-4 flex-col ${inter.className}`}>
-                <h3 className="text-3xl lg:text-4xl font-medium">Contact Me</h3>
+                <h3 className="text-3xl lg:text-4xl font-medium">
+                    {localize(text.title, locale)}
+                </h3>
                 <TextReveal
                     className={`block lg:hidden text-base font-normal`}
-                    text={`I'm always excited to discuss new opportunities, projects, or collaborations. Whether you have a question, want to work together, or just want to say hello, feel free to reach out!`}
+                    text={localize(text.desc, locale)}
                 />
             </div>
             <div className="grid lg:grid-cols-2 w-full h-auto flex-grow gap-20 items-end z-10">
@@ -79,7 +115,10 @@ export default function Contact() {
                             <input
                                 type={'text'}
                                 id={'name'}
-                                placeholder={'Enter your full name'}
+                                placeholder={localize(
+                                    text.namePlaceholder,
+                                    locale
+                                )}
                                 className={`w-full font-medium valid:bg-transparent text-sm bg-transparent py-3 px-2 lg:px-3 placeholder:text-stone-700 text-stone-800 outline-none autocomplete:bg-transparent border-b-2 ${
                                     errors.name
                                         ? 'border-red-400 focus:border-red-500'
@@ -121,7 +160,10 @@ export default function Contact() {
                             <input
                                 type={'text'}
                                 id={'email'}
-                                placeholder={'Enter your email address'}
+                                placeholder={localize(
+                                    text.emailPlaceholder,
+                                    locale
+                                )}
                                 className={`w-full font-medium valid:bg-transparent text-sm bg-transparent py-3 px-2 lg:px-3 placeholder:text-stone-700 text-stone-800 outline-none autocomplete:bg-transparent border-b-2 ${
                                     errors.email
                                         ? 'border-red-400 focus:border-red-500'
@@ -163,7 +205,10 @@ export default function Contact() {
                             <textarea
                                 id={'message'}
                                 rows={4}
-                                placeholder={'Write your message here'}
+                                placeholder={localize(
+                                    text.messagePlaceholder,
+                                    locale
+                                )}
                                 className={`w-full h-fit font-medium valid:bg-transparent text-sm bg-transparent py-3 px-2 lg:px-3 placeholder:text-stone-700 text-stone-800 outline-none autocomplete:bg-transparent border-b-2 ${
                                     errors.message
                                         ? 'border-red-400 focus:border-red-500'
@@ -216,7 +261,7 @@ export default function Contact() {
                     <div className="w-9/12 h-fit pb-10">
                         <TextReveal
                             className={`hidden lg:block text-lg font-normal`}
-                            text={`I'm always excited to discuss new opportunities, projects, or collaborations. Whether you have a question, want to work together, or just want to say hello, feel free to reach out!`}
+                            text={localize(text.desc, locale)}
                         />
                     </div>
                     <div className="w-full flex-grow flex justify-between lg:justify-start pt-10">
@@ -237,7 +282,7 @@ export default function Contact() {
                                 }}
                                 className="text-lg font-medium"
                             >
-                                General Enquires
+                                {localize(text.titleGeneralEnquires, locale)}
                             </motion.span>
                             {enquires.map(
                                 (enquire: { name: string }, index: number) => (
@@ -280,7 +325,7 @@ export default function Contact() {
                                 }}
                                 className="text-lg font-medium"
                             >
-                                Social Media
+                                {localize(text.titleSocialMedia, locale)}
                             </motion.span>
                             <div className="flex flex-col gap-1">
                                 {contacts.map(

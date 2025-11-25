@@ -7,10 +7,14 @@ import AppIcon from '@/components/Icon/AppIcon'
 import { Link as SamePageLink } from 'react-scroll'
 import { motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
+import { useLocale } from '@/contexts/LocaleContext'
+import localize from '@/libs/utils/localize'
 
 export default function Footer() {
     const currentYear = new Date().getFullYear()
     const pathname = usePathname()
+
+    const { locale } = useLocale()
 
     return (
         <>
@@ -23,7 +27,10 @@ export default function Footer() {
                     <ul className="w-fit flex gap-2 lg:gap-4">
                         {navItems.map(
                             (
-                                navItem: { link: string; text: string },
+                                item: {
+                                    link: string
+                                    text: { en: string; id: string }
+                                },
                                 index: number
                             ) => (
                                 <motion.li
@@ -47,25 +54,35 @@ export default function Footer() {
                                             <SamePageLink
                                                 className={`group text-[0.8em] pb-[0.5px] cursor-pointer relative text-black font-medium`}
                                                 smooth={true}
-                                                to={navItem.link}
+                                                to={item.link}
                                                 spy={true}
                                             >
-                                                {navItem.text}
-                                                <div
-                                                    className={`absolute w-full h-[2px] scale-x-0 bottom-0 left-0 bg-stone-600 origin-bottom-right transition-transform duration-300 group-hover:scale-x-100 group-hover:origin-bottom-left`}
-                                                />
+                                                <>
+                                                    {localize(
+                                                        item.text,
+                                                        locale
+                                                    )}
+                                                    <div
+                                                        className={`absolute w-full h-[2px] scale-x-0 bottom-0 left-0 bg-stone-600 origin-bottom-right transition-transform duration-300 group-hover:scale-x-100 group-hover:origin-bottom-left`}
+                                                    />
+                                                </>
                                             </SamePageLink>
                                         </>
                                     ) : (
                                         <>
                                             <Link
                                                 className={`group text-[0.8em] pb-[0.5px] cursor-pointer relative text-black font-medium`}
-                                                href={`https://fabianazh.vercel.app#${navItem.link}`}
+                                                href={`https://fabianazh.vercel.app#${item.link}`}
                                             >
-                                                {navItem.text}
-                                                <div
-                                                    className={`absolute w-full h-[2px] scale-x-0 bottom-0 left-0 bg-stone-600 origin-bottom-right transition-transform duration-300 group-hover:scale-x-100 group-hover:origin-bottom-left`}
-                                                />
+                                                <>
+                                                    {localize(
+                                                        item.text,
+                                                        locale
+                                                    )}
+                                                    <div
+                                                        className={`absolute w-full h-[2px] scale-x-0 bottom-0 left-0 bg-stone-600 origin-bottom-right transition-transform duration-300 group-hover:scale-x-100 group-hover:origin-bottom-left`}
+                                                    />
+                                                </>
                                             </Link>
                                         </>
                                     )}

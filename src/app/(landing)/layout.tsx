@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import Footer from '@/components/Partials/Footer'
 import Lenis from 'lenis'
 import { ToasterProvider } from '@/contexts/ToasterContext'
+import { LocaleProvider } from '@/contexts/LocaleContext'
 
 export default function LandingLayout({
     children,
@@ -23,10 +24,12 @@ export default function LandingLayout({
 
     return (
         <>
-            <ToasterProvider>
-                {children}
-                <Footer />
-            </ToasterProvider>
+            <LocaleProvider>
+                <ToasterProvider>
+                    {children}
+                    <Footer />
+                </ToasterProvider>
+            </LocaleProvider>
         </>
     )
 }
