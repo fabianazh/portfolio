@@ -5,7 +5,7 @@ export const navItems = [
     },
     {
         link: 'projects',
-        text: { en: 'Projects', id: 'Proyek' },
+        text: { en: 'Projects', id: 'Projek' },
     },
     {
         link: 'about',
@@ -32,7 +32,10 @@ export const navItems = [
 
 export const skills = [
     {
-        title: 'Frontend Development',
+        title: {
+            en: 'Frontend Development',
+            id: 'Frontend Development',
+        },
         stacks: [
             {
                 name: 'HTML',
@@ -82,7 +85,10 @@ export const skills = [
         ],
     },
     {
-        title: 'Backend Development',
+        title: {
+            en: 'Backend Development',
+            id: 'Backend Development',
+        },
         stacks: [
             {
                 name: 'Node JS',
@@ -127,7 +133,10 @@ export const skills = [
         ],
     },
     {
-        title: 'Additional Proficiencies',
+        title: {
+            en: 'Additional Proficiencies',
+            id: 'Keahlian Tambahan',
+        },
         stacks: [
             {
                 name: 'Git',
@@ -150,52 +159,124 @@ export const skills = [
 
 export const services = [
     {
-        title: 'UI/UX Design',
-        desc: 'UI/UX Design creates visually appealing, user-friendly interfaces to enhance user experience.',
-        projects: [
-            'Wireframing and Prototyping',
-            'User Flow and Journey Mapping',
-            'High-Fidelity UI Mockups',
-            'Mobile App Design',
-            'Responsive Web Design',
-        ],
-        href: 'mailto:fabianazharr@gmail.com?subject=UI/UX%20Design%20Project%20Request&body=Hello%20Muhammad%20Fabian%20Azhar,%0D%0A%0D%0AI%20am%20interested%20in%20discussing%20a%20UI/UX%20design%20project%20with%20you.%20Please%20let%20me%20know%20a%20convenient%20time%20to%20talk%20further.%0D%0A%0D%0AThank%20you!%0D%0A%0D%0ABest%20regards,%0D%0A%5BYour%20Name%5D',
+        title: {
+            en: 'UI/UX Design',
+            id: 'Desain UI/UX',
+        },
+        desc: {
+            en: 'UI/UX Design creates visually appealing, user-friendly interfaces to enhance user experience.',
+            id: 'Desain UI/UX menciptakan antarmuka yang menarik secara visual dan ramah pengguna untuk meningkatkan pengalaman pengguna.',
+        },
+        projects: {
+            en: [
+                'Wireframing and Prototyping',
+                'User Flow and Journey Mapping',
+                'High-Fidelity UI Mockups',
+                'Mobile App Design',
+                'Responsive Web Design',
+            ],
+            id: [
+                'Wireframing dan Prototyping',
+                'Pemetaan Alur dan Perjalanan Pengguna',
+                'Mockup UI High-Fidelity',
+                'Desain Aplikasi Mobile',
+                'Desain Web Responsif',
+            ],
+        },
+        href: {
+            en: 'mailto:fabianazharr@gmail.com?subject=UI/UX%20Design%20Project%20Request&body=Hello%20Muhammad%20Fabian%20Azhar,%0D%0A%0D%0AI%20am%20interested%20in%20discussing%20a%20UI/UX%20design%20project%20with%20you.%20Please%20let%20me%20know%20a%20convenient%20time%20to%20talk%20further.%0D%0A%0D%0AThank%20you!%0D%0A%0D%0ABest%20regards,%0D%0A%5BYour%20Name%5D',
+            id: 'mailto:fabianazharr@gmail.com?subject=UI/UX%20Design%20Project%20Request&body=Hello%20Muhammad%20Fabian%20Azhar,%0D%0A%0D%0AI%20am%20interested%20in%20discussing%20a%20UI/UX%20design%20project%20with%20you.%20Please%20let%20me%20know%20a%20convenient%20time%20to%20talk%20further.%0D%0A%0D%0AThank%20you!%0D%0A%0D%0ABest%20regards,%0D%0A%5BYour%20Name%5D',
+        },
     },
     {
-        title: 'Frontend Development',
-        desc: 'Frontend development deals with the visual and interactive parts of a website using HTML, CSS, and JavaScript.',
-        projects: [
-            'Landing Page Development',
-            'Single Page Applications (SPA)',
-            'Responsive Web Design',
-            'Custom Animations',
-            'Web Performance Optimization',
-        ],
-        href: 'mailto:fabianazharr@gmail.com?subject=Frontend%20Development%20Project%20Request&body=Hello%20Muhammad%20Fabian%20Azhar,%0D%0A%0D%0AI%20am%20interested%20in%20discussing%20a%20frontend%20development%20project%20with%20you.%20Please%20let%20me%20know%20a%20convenient%20time%20to%20talk%20further.%0D%0A%0D%0AThank%20you!%0D%0A%0D%0ABest%20regards,%0D%0A%5BYour%20Name%5D',
+        title: {
+            en: 'Frontend Development',
+            id: 'Frontend Development',
+        },
+        desc: {
+            en: 'Frontend development deals with the visual and interactive parts of a website using HTML, CSS, and JavaScript.',
+            id: 'Pengembangan frontend menangani bagian visual dan interaktif dari sebuah situs web menggunakan HTML, CSS, dan JavaScript.',
+        },
+        projects: {
+            en: [
+                'Landing Page Development',
+                'Single Page Applications (SPA)',
+                'Responsive Web Design',
+                'Custom Animations',
+                'Web Performance Optimization',
+            ],
+            id: [
+                'Pengembangan Halaman Landing',
+                'Aplikasi Halaman Tunggal (SPA)',
+                'Desain Web Responsif',
+                'Animasi Kustom',
+                'Optimisasi Performa Web',
+            ],
+        },
+        href: {
+            en: 'mailto:fabianazharr@gmail.com?subject=Frontend%20Development%20Project%20Request&body=Hello%20Muhammad%20Fabian%20Azhar,%0D%0A%0D%0AI%20am%20interested%20in%20discussing%20a%20frontend%20development%20project%20with%20you.%20Please%20let%20me%20know%20a%20convenient%20time%20to%20talk%20further.%0D%0A%0D%0AThank%20you!%0D%0A%0D%0ABest%20regards,%0D%0A%5BYour%20Name%5D',
+            id: 'mailto:fabianazharr@gmail.com?subject=Frontend%20Development%20Project%20Request&body=Hello%20Muhammad%20Fabian%20Azhar,%0D%0A%0D%0AI%20am%20interested%20in%20discussing%20a%20frontend%20development%20project%20with%20you.%20Please%20let%20me%20know%20a%20convenient%20time%20to%20talk%20further.%0D%0A%0D%0AThank%20you!%0D%0A%0D%0ABest%20regards,%0D%0A%5BYour%20Name%5D',
+        },
     },
     {
-        title: 'Backend Development',
-        desc: 'Backend development manages server-side logic, databases, and APIs behind the scenes.',
-        projects: [
-            'API Development and Integration',
-            'Database Design and Management',
-            'User Authentication Systems',
-            'Server-Side Logic Implementation',
-            'Third-Party Service Integration',
-        ],
-        href: 'mailto:fabianazharr@gmail.com?subject=Backend%20Development%20Project%20Request&body=Hello%20Muhammad%20Fabian%20Azhar,%0D%0A%0D%0AI%20am%20interested%20in%20discussing%20a%20backend%20development%20project%20with%20you.%20Please%20let%20me%20know%20a%20convenient%20time%20to%20talk%20further.%0D%0A%0D%0AThank%20you!%0D%0A%0D%0ABest%20regards,%0D%0A%5BYour%20Name%5D',
+        title: {
+            en: 'Backend Development',
+            id: 'Backend Development',
+        },
+        desc: {
+            en: 'Backend development manages server-side logic, databases, and APIs behind the scenes.',
+            id: 'Pengembangan backend mengelola logika sisi server, basis data, dan API di balik layar.',
+        },
+        projects: {
+            en: [
+                'API Development and Integration',
+                'Database Design and Management',
+                'User Authentication Systems',
+                'Server-Side Logic Implementation',
+                'Third-Party Service Integration',
+            ],
+            id: [
+                'Pengembangan dan Integrasi API',
+                'Desain dan Manajemen Basis Data',
+                'Sistem Otentikasi Pengguna',
+                'Implementasi Logika Sisi Server',
+                'Integrasi Layanan Pihak Ketiga',
+            ],
+        },
+        href: {
+            en: 'mailto:fabianazharr@gmail.com?subject=Backend%20Development%20Project%20Request&body=Hello%20Muhammad%20Fabian%20Azhar,%0D%0A%0D%0AI%20am%20interested%20in%20discussing%20a%20backend%20development%20project%20with%20you.%20Please%20let%20me%20know%20a%20convenient%20time%20to%20talk%20further.%0D%0A%0D%0AThank%20you!%0D%0A%0D%0ABest%20regards,%0D%0A%5BYour%20Name%5D',
+            id: 'mailto:fabianazharr@gmail.com?subject=Backend%20Development%20Project%20Request&body=Hello%20Muhammad%20Fabian%20Azhar,%0D%0A%0D%0AI%20am%20interested%20in%20discussing%20a%20backend%20development%20project%20with%20you.%20Please%20let%20me%20know%20a%20convenient%20time%20to%20talk%20further.%0D%0A%0D%0AThank%20you!%0D%0A%0D%0ABest%20regards,%0D%0A%5BYour%20Name%5D',
+        },
     },
     {
-        title: 'Full Stack Development',
-        desc: 'Full-stack development combines both frontend and backend to build complete web applications.',
-        projects: [
-            'End-to-End Web Application Development',
-            'E-commerce Platform Development',
-            'Content Management System (CMS) Implementation',
-            'RESTful API Development',
-            'Full-Stack Web Application Maintenance',
-        ],
-        href: 'mailto:fabianazharr@gmail.com?subject=Full-Stack%20Development%20Project%20Request&body=Hello%20Muhammad%20Fabian%20Azhar,%0D%0A%0D%0AI%20am%20interested%20in%20discussing%20a%20full-stack%20development%20project%20with%20you.%20Please%20let%20me%20know%20a%20convenient%20time%20to%20talk%20further.%0D%0A%0D%0AThank%20you!%0D%0A%0D%0ABest%20regards,%0D%0A%5BYour%20Name%5D',
+        title: {
+            en: 'Full Stack Development',
+            id: 'Full Stack Development',
+        },
+        desc: {
+            en: 'Full stack development covers both frontend and backend, delivering complete web solutions.',
+            id: 'Pengembangan full stack mencakup frontend dan backend, memberikan solusi web lengkap.',
+        },
+        projects: {
+            en: [
+                'End-to-End Web Application Development',
+                'E-commerce Platform Development',
+                'Content Management System (CMS) Implementation',
+                'RESTful API Development',
+                'Full-Stack Web Application Maintenance',
+            ],
+            id: [
+                'Pengembangan Aplikasi Web End-to-End',
+                'Pengembangan Platform E-commerce',
+                'Implementasi Sistem Manajemen Konten (CMS)',
+                'Pengembangan API RESTful',
+                'Pemeliharaan Aplikasi Web Full-Stack',
+            ],
+        },
+        href: {
+            en: 'mailto:fabianazharr@gmail.com?subject=Full-Stack%20Development%20Project%20Request&body=Hello%20Muhammad%20Fabian%20Azhar,%0D%0A%0D%0AI%20am%20interested%20in%20discussing%20a%20full-stack%20development%20project%20with%20you.%20Please%20let%20me%20know%20a%20convenient%20time%20to%20talk%20further.%0D%0A%0D%0AThank%20you!%0D%0A%0D%0ABest%20regards,%0D%0A%5BYour%20Name%5D',
+            id: 'mailto:fabianazharr@gmail.com?subject=Full-Stack%20Development%20Project%20Request&body=Hello%20Muhammad%20Fabian%20Azhar,%0D%0A%0D%0AI%20am%20interested%20in%20discussing%20a%20full-stack%20development%20project%20with%20you.%20Please%20let%20me%20know%20a%20convenient%20time%20to%20talk%20further.%0D%0A%0D%0AThank%20you!%0D%0A%0D%0ABest%20regards,%0D%0A%5BYour%20Name%5D',
+        },
     },
 ]
 

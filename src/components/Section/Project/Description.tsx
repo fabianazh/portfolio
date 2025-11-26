@@ -69,7 +69,7 @@ export default function Description({ project }: { project: Project }) {
                     {/* Description */}
                     <TextReveal
                         className={`text-base font-medium ${mona.className}`}
-                        text={`${project?.desc}`}
+                        text={`${localize(project?.desc, locale)}`}
                     />
                     {/* End Description */}
                     {/* Data Container */}

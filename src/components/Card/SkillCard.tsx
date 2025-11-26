@@ -3,22 +3,31 @@
 import Image from 'next/image'
 import { LinkPreview } from '@/components/Other/LinkPreview'
 import { motion } from 'framer-motion'
-import { perspectiveItemVariant } from '@/constants/variants'
+import { useLocale } from '@/contexts/LocaleContext'
+import localize from '@/libs/utils/localize'
 
 export default function SkillCard({
     skill,
     index,
 }: {
-    skill: { title: string; stacks: Skill[] }
+    skill: {
+        title: {
+            en: string
+            id: string
+        }
+        stacks: Skill[]
+    }
     index: number
 }) {
+    const { locale } = useLocale()
+
     return (
         <>
             {/* Skill Card */}
             <motion.div className="w-full flex flex-col h-fit shrink-0 gap-3 lg:gap-3.5 bg-[#fafafa] p-4 lg:p-6 pb-5 lg:pb-6 rounded-xl shadow-sm">
                 {/* Heading */}
                 <span className={`block text-sm lg:text-sm font-medium`}>
-                    {skill.title}
+                    {localize(skill.title, locale)}
                 </span>
                 {/* End Heading */}
                 {/* Content */}

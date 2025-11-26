@@ -13,8 +13,8 @@ const text = {
         id: 'Tentang Saya',
     },
     desc1: {
-        en: "I am passionate about web development, with a strong interest in both front-end and back-end technologies. I'm committed to continuous learning and staying updated with industry trends.",
-        id: 'Saya memiliki minat yang besar dalam pengembangan web, baik pada teknologi front-end maupun back-end. Saya berkomitmen untuk terus belajar dan mengikuti tren industri.',
+        en: "I am passionate about web development, with a strong interest in both frontend and backend technologies. I'm committed to continuous learning and staying updated with industry trends.",
+        id: 'Saya memiliki minat yang besar dalam pengembangan web, baik pada teknologi frontend maupun backend. Saya berkomitmen untuk terus belajar dan mengikuti tren industri.',
     },
     desc2: {
         en: 'I graduated with a degree in Software Engineering, where I developed strong skills in design and problem-solving. My education provided a solid foundation in both technical and creative aspects of development.',
@@ -22,7 +22,7 @@ const text = {
     },
     desc3: {
         en: 'My background in software engineering allows me to approach projects with a well-rounded perspective. I focus on finding efficient solutions that balance technical precision with creativity.',
-        id: 'Latar belakang saya di bidang rekayasa perangkat lunak memungkinkan saya untuk mendekati proyek dengan perspektif yang menyeluruh. Saya fokus untuk menemukan solusi efisien yang menyeimbangkan presisi teknis dengan kreativitas.',
+        id: 'Latar belakang saya di bidang Rekayasa Perangkat Lunak memungkinkan saya untuk mendekati projek dengan perspektif yang menyeluruh. Saya fokus untuk menemukan solusi efisien yang menyeimbangkan presisi teknis dengan kreativitas.',
     },
     totalYears: {
         en: 'years in web development',
@@ -30,7 +30,7 @@ const text = {
     },
     totalProjects: {
         en: 'completed projects',
-        id: 'proyek yang diselesaikan',
+        id: 'projek yang diselesaikan',
     },
 }
 

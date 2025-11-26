@@ -24,7 +24,7 @@ const text = {
     },
     desc: {
         en: "I'm always excited to discuss new opportunities, projects, or collaborations. Whether you have a question, want to work together, or just want to say hello, feel free to reach out!",
-        id: 'Saya selalu bersemangat untuk membahas peluang baru, proyek, atau kolaborasi. Apakah Anda memiliki pertanyaan, ingin bekerja sama, atau hanya ingin menyapa, jangan ragu untuk menghubungi saya!',
+        id: 'Saya selalu bersemangat untuk membahas peluang baru, projek, atau kolaborasi. Apakah Anda memiliki pertanyaan, ingin bekerja sama, atau hanya ingin menyapa, jangan ragu untuk menghubungi saya!',
     },
     namePlaceholder: {
         en: 'Enter your full name',
@@ -45,6 +45,14 @@ const text = {
     titleSocialMedia: {
         en: 'Social Media',
         id: 'Media Sosial',
+    },
+    submitButton: {
+        en: 'Submit',
+        id: 'Kirim',
+    },
+    submittingButton: {
+        en: 'Submitting...',
+        id: 'Mengirim...',
     },
 }
 
@@ -253,7 +261,9 @@ export default function Contact() {
                             type="submit"
                             className="bg-black text-white text-sm"
                         >
-                            {isSubmitting ? 'Submiting...' : 'Submit'}
+                            {isSubmitting
+                                ? localize(text.submittingButton, locale)
+                                : localize(text.submitButton, locale)}
                         </PrimaryButton>
                     </motion.div>
                 </form>

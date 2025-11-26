@@ -7,10 +7,22 @@ interface SquareImg {
 interface Project {
     id: string
     index: number
-    name: string
-    subname: string
-    desc: string
-    shortDesc: string
+    name: {
+        en: string
+        id: string
+    }
+    subname: {
+        en: string
+        id: string
+    }
+    desc: {
+        en: string
+        id: string
+    }
+    shortDesc: {
+        en: string
+        id: string
+    }
     year: string
     thumbnail: string
     role: string
@@ -34,8 +46,20 @@ interface Skill {
 }
 
 interface Service {
-    title: string
-    desc: string
-    href: string
-    projects: string[]
+    title: {
+        en: string
+        id: string
+    }
+    desc: {
+        en: string
+        id: string
+    }
+    href: {
+        en: string
+        id: string
+    }
+    projects: {
+        en: string[]
+        id: string[]
+    }
 }

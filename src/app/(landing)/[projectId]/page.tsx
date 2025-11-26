@@ -38,14 +38,14 @@ export async function generateMetadata({
             }
         }
         return {
-            title: `${project?.name} | Fabian Azhar's Projects`,
-            description: project?.desc,
+            title: `${project?.name.en} | Fabian Azhar's Projects`,
+            description: project?.desc.en,
             keywords: project?.keywords || `Fabian Azhar's Project`,
             robots: 'index, follow',
             canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/${projectId}`,
             openGraph: {
-                title: `${project?.name} | Fabian Azhar's Projects`,
-                description: project?.desc,
+                title: `${project?.name.en} | Fabian Azhar's Projects`,
+                description: project?.desc.en,
                 images: project?.photos
                     ? [project?.thumbnail, ...project?.photos]
                     : [project?.thumbnail],
@@ -53,8 +53,8 @@ export async function generateMetadata({
             structuredData: {
                 '@context': 'https://schema.org',
                 '@type': 'CreativeWork',
-                name: project?.name,
-                description: project?.desc,
+                name: project?.name.en,
+                description: project?.desc.en,
                 image: project?.thumbnail,
                 url: `${process.env.NEXT_PUBLIC_BASE_URL}/${projectId}`,
                 datePublished: project?.created_at,
@@ -62,7 +62,7 @@ export async function generateMetadata({
                     '@type': 'Person',
                     name: 'Fabian Azhar',
                 },
-                headline: project?.name,
+                headline: project?.name.en,
                 keywords: project?.keywords || `Fabian Azhar's Project`,
                 publisher: {
                     '@type': 'Organization',

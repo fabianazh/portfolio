@@ -1,8 +1,14 @@
+'use client'
+
 import { urbanist } from '@/app/fonts'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import { useLocale } from '@/contexts/LocaleContext'
+import localize from '@/libs/utils/localize'
 
 export default function Thumbnail({ project }: { project: Project }) {
+    const { locale } = useLocale()
+
     return (
         <>
             <section className="w-full flex flex-col gap-3 lg:gap-8">
@@ -27,7 +33,7 @@ export default function Thumbnail({ project }: { project: Project }) {
                         }}
                         className={`font-semibold text-4xl lg:text-6xl ${urbanist.className}`}
                     >
-                        {project?.name}
+                        {localize(project.name, locale)}
                     </motion.span>
                     <motion.span
                         initial={{
@@ -48,7 +54,7 @@ export default function Thumbnail({ project }: { project: Project }) {
                         }}
                         className="font-medium text-2xl lg:text-4xl"
                     >
-                        /{project?.year}
+                        /{project.year}
                     </motion.span>
                 </div>
                 {/* End Title */}
@@ -99,7 +105,7 @@ export default function Thumbnail({ project }: { project: Project }) {
                     >
                         <Image
                             src={`${project?.thumbnail}`}
-                            alt={`${project?.name}`}
+                            alt={`${localize(project.name, locale)}`}
                             width={900}
                             height={500}
                             className="w-full h-fit"

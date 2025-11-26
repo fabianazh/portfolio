@@ -14,7 +14,7 @@ export default function Footer() {
     const currentYear = new Date().getFullYear()
     const pathname = usePathname()
 
-    const { locale } = useLocale()
+    const { locale, setLocale } = useLocale()
 
     return (
         <>
@@ -97,12 +97,54 @@ export default function Footer() {
                     <span className="font-medium lg:font-semibold text-xs lg:text-sm text-stone-600">
                         ©{currentYear} Fabianazh. All rights reserved
                     </span>
-                    <Link
-                        href={'https://fabianazh.vercel.app'}
-                        className="font-medium block text-stone-600 text-sm shrink-0"
-                    >
-                        v1
-                    </Link>
+                    <div className="w-fit flex gap-5 text-xs lg:text-sm items-center">
+                        <motion.button
+                            initial={{
+                                opacity: 0,
+                            }}
+                            whileInView={{
+                                opacity: 1,
+                                transition: {
+                                    delay: 0.1 + 0 * 0.15,
+                                },
+                            }}
+                            viewport={{
+                                amount: 'some',
+                                once: true,
+                            }}
+                            onClick={() => setLocale('en')}
+                            className={`font-medium block text-xs shrink-0 hover:text-stone-900 transition-all ${
+                                locale === 'en'
+                                    ? 'text-stone-900'
+                                    : 'text-stone-600'
+                            }`}
+                        >
+                            EN
+                        </motion.button>
+                        <motion.button
+                            initial={{
+                                opacity: 0,
+                            }}
+                            whileInView={{
+                                opacity: 1,
+                                transition: {
+                                    delay: 0.1 + 1 * 0.15,
+                                },
+                            }}
+                            viewport={{
+                                amount: 'some',
+                                once: true,
+                            }}
+                            onClick={() => setLocale('id')}
+                            className={`font-medium block text-xs shrink-0 hover:text-stone-900 transition-all ${
+                                locale === 'id'
+                                    ? 'text-stone-900'
+                                    : 'text-stone-600'
+                            }`}
+                        >
+                            ID
+                        </motion.button>
+                    </div>
                 </div>
             </footer>
         </>

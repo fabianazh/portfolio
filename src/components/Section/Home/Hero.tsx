@@ -17,7 +17,7 @@ import localize from '@/libs/utils/localize'
 const text = {
     title: {
         en: 'Harmonizing Quality Design & Web Development',
-        id: 'Menyelaraskan Desain Berkualitas & Pengembangan Web',
+        id: 'Harmonizing Quality Design & Web Development',
     },
     desc: {
         en: 'I craft seamless and intuitive designs for websites and apps, empowering businesses to elevate user experiences, drive key performance metrics, and attain digital excellence.',
@@ -92,7 +92,7 @@ export default function Hero() {
                         className={`w-full items-center flex flex-col gap-2 text-center pt-28 lg:pt-0 pb-14 lg:pb-32 px-4 md:px-48 lg:px-72 2xl:px-96 z-0 ${mona.className}`}
                     >
                         <TextReveal
-                            className="text-4xl font-bold z-0"
+                            className="text-4xl font-bold z-0 mb-2 lg:mb-4"
                             text={localize(text.title, locale)}
                             duration={0.35}
                         />

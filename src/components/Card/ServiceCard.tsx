@@ -1,6 +1,10 @@
+'use client'
+
 import { mona } from '@/app/fonts'
 import PrimaryButton from '@/components/Button/PrimaryButton'
 import { motion } from 'framer-motion'
+import { useLocale } from '@/contexts/LocaleContext'
+import localize from '@/libs/utils/localize'
 
 export default function ServiceCard({
     service,
@@ -15,6 +19,8 @@ export default function ServiceCard({
     index: number
     setModal: (e: { isOpen: boolean; data: Service }) => void
 }) {
+    const { locale } = useLocale()
+
     return (
         <>
             {/* Service Card */}
@@ -44,21 +50,21 @@ export default function ServiceCard({
                 >
                     {/* Heading */}
                     <span className={`block text-base text-lg font-medium`}>
-                        {service.title}
+                        {localize(service.title, locale)}
                     </span>
                     {/* End Heading */}
                     {/* Desc */}
                     <span
                         className={`block text-xs lg:text-sm font-normal text-stone-500`}
                     >
-                        {service.desc}
+                        {localize(service.desc, locale)}
                     </span>
                     {/* End Desc */}
                 </div>
                 {/* End Head */}
                 {/* Button */}
                 <PrimaryButton
-                    href={service.href}
+                    href={localize(service.href, locale)}
                     className={`inline-block w-fit text-xs lg:text-sm font-medium z-[1] group ${
                         isActive
                             ? 'bg-black text-white'

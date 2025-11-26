@@ -1,3 +1,5 @@
+'use client'
+
 import Chip from '@/components/Other/Chip'
 import { urbanist, mona } from '@/app/fonts'
 import Image from 'next/image'
@@ -5,6 +7,15 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import ArrowIcon from '@/components/Icon/ArrowIcon'
 import { IoArrowUp } from 'react-icons/io5'
+import { useLocale } from '@/contexts/LocaleContext'
+import localize from '@/libs/utils/localize'
+
+const text = {
+    detailButton: {
+        en: 'View Detail',
+        id: 'Lihat Detail',
+    },
+}
 
 export default function ProjectCard({
     project,
@@ -19,6 +30,8 @@ export default function ProjectCard({
     descClassName?: string
     index: number
 }) {
+    const { locale } = useLocale()
+
     return (
         <>
             {/* Container */}
@@ -48,7 +61,7 @@ export default function ProjectCard({
                         {/* Image */}
                         <Image
                             src={`${project.thumbnail}`}
-                            alt={project.name}
+                            alt={localize(project.name, locale)}
                             className="w-full h-full object-cover z-0"
                             width={400}
                             height={300}
@@ -59,7 +72,7 @@ export default function ProjectCard({
                         {/* Overlay */}
                         <div className="absolute flex items-center gap-1 w-fit h-fit bottom-3.5 right-3.5 z-10 bg-stone-100 shadow rounded-full px-3 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <span className="text-xs font-medium">
-                                View Detail
+                                {localize(text.detailButton, locale)}
                             </span>{' '}
                             <ArrowIcon className="w-3.5 h-fit" />
                         </div>
@@ -80,7 +93,7 @@ export default function ProjectCard({
                         <span
                             className={`block text-lg lg:text-xl font-semibold ${urbanist.className}`}
                         >
-                            {project.name}
+                            {localize(project.name, locale)}
                         </span>
                         <span
                             className={`block text-sm lg:text-sm font-semibold text-stone-500 inline-block group-hover:-translate-y-12 group-hover:opacity-0 transition-all duration-300 ${urbanist.className}`}
@@ -94,7 +107,7 @@ export default function ProjectCard({
                     <span
                         className={`text-sm block font-normal lg:font-medium mb-3 ${mona.className}`}
                     >
-                        {project.shortDesc}
+                        {localize(project.shortDesc, locale)}
                     </span>
                     {/* End Desc */}
                     <div className="flex flex-row gap-2 w-full h-auto">

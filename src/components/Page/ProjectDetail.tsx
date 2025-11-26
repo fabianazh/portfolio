@@ -17,11 +17,11 @@ const text = {
     },
     nextProjectButton: {
         en: 'Next project',
-        id: 'Proyek selanjutnya',
+        id: 'Projek selanjutnya',
     },
     previousProjectButton: {
         en: 'Previous project',
-        id: 'Proyek sebelumnya',
+        id: 'Projek sebelumnya',
     },
 }
 

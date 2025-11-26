@@ -22,6 +22,10 @@ const text = {
         en: 'Other Projects',
         id: 'Projek Lainnya',
     },
+    detailButton: {
+        en: 'View Detail',
+        id: 'Lihat Detail',
+    },
 }
 
 export default function Projects() {
@@ -33,7 +37,7 @@ export default function Projects() {
         highlightedProjects: Project[]
         otherProjects: Project[]
     }>(
-        (acc: any, project) => {
+        (acc: any, project: Project) => {
             if (project.isHighlighted) {
                 acc.highlightedProjects.push(project)
             } else {
@@ -116,11 +120,14 @@ export default function Projects() {
                                             className="relative w-full flex gap-4"
                                         >
                                             <span className="text-sm font-medium text-stone-600 w-4/12 lg:w-2/12 shrink-0 lg:shrink-none group-hover:text-black transition-colors">
-                                                {project.name}
+                                                {localize(project.name, locale)}
                                             </span>
                                             <div className="w-8/12 lg:w-10/12 flex flex-col lg:flex-row gap-3 lg:gap-2 lg:justify-between group-hover:-translate-y-12 group-hover:opacity-0 transition-all duration-300">
                                                 <span className="text-sm font-medium text-stone-600 w-full lg:w-6/12 shrink-0">
-                                                    {project.shortDesc}
+                                                    {localize(
+                                                        project.shortDesc,
+                                                        locale
+                                                    )}
                                                 </span>
                                                 <span className="text-xs lg:text-sm font-medium text-stone-600 w-full lg:w-4/12 gap-2 text-start shrink-0">
                                                     {project.tools.map(
@@ -149,7 +156,10 @@ export default function Projects() {
                                             </div>
                                             <div className="absolute top-0 right-0 shrink-0 flex items-center gap-3 translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transiton-all duration-300">
                                                 <span className="text-sm font-semibold text-stone-600">
-                                                    View Detail
+                                                    {localize(
+                                                        text.detailButton,
+                                                        locale
+                                                    )}
                                                 </span>
                                                 <ArrowIcon />
                                             </div>
