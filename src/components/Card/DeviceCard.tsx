@@ -60,14 +60,14 @@ export default function DeviceCard({
                     {desc}
                 </span>
             </div>
-            <div className="w-fit h-fit border overflow-hidden rounded-xl">
+            <div className="w-full h-fit flex justify-center lg:justify-start">
                 <Image
                     alt={`Home Page`}
                     width={300}
                     height={450}
                     src={`${url}`}
                     draggable={false}
-                    className="w-full h-fit object-cover"
+                    className="w-fit h-fit object-cover border rounded-xl"
                 />
             </div>
         </motion.div>

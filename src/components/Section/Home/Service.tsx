@@ -1,6 +1,6 @@
 'use client'
 
-import { inter } from '@/app/fonts'
+import { inter, mona } from '@/app/fonts'
 import ServiceCard from '@/components/Card/ServiceCard'
 import { useEffect, useState } from 'react'
 import { services } from '@/constants/component'
@@ -14,6 +14,10 @@ const text = {
     title: {
         en: 'Services',
         id: 'Layanan',
+    },
+    desc: {
+        en: 'Discover the range of services I offer to help bring your projects to life.',
+        id: 'Temukan berbagai layanan yang saya tawarkan untuk membantu mewujudkan proyek Anda.',
     },
 }
 
@@ -46,6 +50,13 @@ export default function Service() {
                         {localize(text.title, locale)}
                     </h2>
                     {/* End Heading Service */}
+                    {/* Desc Service */}
+                    <span
+                        className={`text-xs lg:text-sm font-medium text-stone-500 ${mona.className}`}
+                    >
+                        {localize(text.desc, locale)}
+                    </span>
+                    {/* End Desc Service */}
                 </div>
                 {/* End Left Content */}
                 {/* Right Content */}

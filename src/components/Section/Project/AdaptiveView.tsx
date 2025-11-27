@@ -17,7 +17,7 @@ export default function AdaptiveView({ project }: { project: Project }) {
 
     return (
         <>
-            <section className="w-full h-auto bg-white flex flex-col lg:flex-row lg:justify-between gap-6 lg:gap-10 py-10 lg:py-14 mb-14 px-4 lg:px-20 z-0">
+            <section className="w-full h-auto bg-white flex flex-col lg:flex-row lg:justify-between gap-6 lg:gap-10 py-14 lg:py-14 mb-14 px-4 lg:px-20 z-0">
                 {/* Left Content */}
                 <div className="w-full lg:w-fit flex flex-col gap-1">
                     {/* Heading  */}

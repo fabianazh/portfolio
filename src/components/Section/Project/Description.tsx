@@ -65,7 +65,7 @@ export default function Description({ project }: { project: Project }) {
                 </div>
                 {/* End Left Content */}
                 {/* Right Content */}
-                <div className="w-full lg:w-9/12 gap-1.5 lg:gap-3 flex flex-col">
+                <div className="w-full lg:w-9/12 gap-6 lg:gap-3 flex flex-col">
                     {/* Description */}
                     <TextReveal
                         className={`text-base font-medium ${mona.className}`}

@@ -102,7 +102,7 @@ export default function Header() {
                 // }}
                 // animate={hidden ? 'hidden' : 'visible'}
                 // transition={{ duration: 0.35, ease: 'easeInOut' }}
-                className={`w-full h-fit bg-transparent fixed top-0 left-0 z-30 px-0 lg:px-14 transition-all duration-300 ${
+                className={`w-full h-fit bg-transparent fixed top-0 left-0 z-30 px-0 lg:px-12 transition-all duration-300 ${
                     hidden
                         ? '-translate-y-10 opacity-0'
                         : 'translate-y-0 lg:translate-y-2.5 opacity-100'

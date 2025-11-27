@@ -88,7 +88,7 @@ export default function ProjectCard({
                     {/* Title */}
                     <Link
                         href={`/${project.id}`}
-                        className="relative flex w-fit gap-1 items-center group overflow-hidden"
+                        className="relative flex w-fit gap-1 items-end group overflow-hidden"
                     >
                         <span
                             className={`block text-lg lg:text-xl font-semibold ${urbanist.className}`}
