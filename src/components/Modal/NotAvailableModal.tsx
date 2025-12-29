@@ -5,12 +5,24 @@ import { useLocale } from '@/contexts/LocaleContext'
 import localize from '@/libs/utils/localize'
 import { motion } from 'framer-motion'
 
-export default function ServiceModal({
+export default function NotAvailableModal({
     setModal,
     modal,
 }: {
-    setModal: (e: { isOpen: boolean; data: Service | null }) => void
-    modal: { isOpen: boolean; data: Service | null }
+    setModal: (e: {
+        isOpen: boolean
+        data: {
+            title: { en: string; id: string }
+            desc: { en: string; id: string }
+        } | null
+    }) => void
+    modal: {
+        isOpen: boolean
+        data: {
+            title: { en: string; id: string }
+            desc: { en: string; id: string }
+        } | null
+    }
 }) {
     const { locale } = useLocale()
 
@@ -18,13 +30,7 @@ export default function ServiceModal({
         ? localize(modal.data.title, locale)
         : ''
 
-    const projectsList: string[] = modal?.data?.projects
-        ? (modal.data.projects as Record<string, string[]>)[locale] ??
-          modal.data.projects.en ??
-          []
-        : []
-
-    const href = modal?.data?.href ? localize(modal.data.href, locale) : '#'
+    const descText = modal?.data?.desc ? localize(modal.data.desc, locale) : ''
 
     return (
         <>
@@ -72,7 +78,7 @@ export default function ServiceModal({
                         animate="enter"
                         exit="exit"
                         initial="initial"
-                        className="relative w-auto max-w-[90vw] lg:max-w-[120vw] lg:min-w-96 min-h-40 lg:min-h-56 bg-white z-10 shadow-sm rounded-2xl h-auto pb-9 pt-0 flex flex-col gap-4"
+                        className="relative w-10/12 lg:w-5/12 lg:min-w-96 min-h-40 lg:min-h-56 bg-white z-10 shadow-sm rounded-2xl h-auto pb-7 pt-0 flex flex-col gap-4"
                     >
                         {/* Top Content */}
                         <div
@@ -90,43 +96,24 @@ export default function ServiceModal({
                         </div>
                         {/* End Top Content */}
                         {/* Bottom Content */}
-                        <div className="w-fit flex flex-col shrink-0 gap-3 py-2 shrink-0 px-12 pt-0">
-                            {/* Title */}
-                            <h4
-                                className={`text-xl lg:text-2xl font-semibold break-words`}
-                            >
-                                {titleText}
-                            </h4>
-                            {/* End Title */}
-                            {/* Project List */}
-                            <ul className="w-full flex flex-col list-none px-1">
-                                {projectsList.map(
-                                    (item: string, index: number) => (
-                                        <motion.li
-                                            variants={perspectiveItemVariant}
-                                            custom={index}
-                                            initial="initial"
-                                            animate="enter"
-                                            exit="exit"
-                                            key={index}
-                                            className="text-sm font-normal flex items-center text-stone-700 break-words"
-                                        >
-                                            <span className="inline-block w-1 h-1 mr-2 rounded-full bg-stone-700"></span>
-                                            {item}
-                                        </motion.li>
-                                    )
-                                )}
-                            </ul>
-                            {/* End Project List */}
-                            {/* Button */}
-                            <PrimaryButton
-                                href={href}
-                                className={`inline-block w-fit text-xs font-medium bg-black text-white mt-3 lg:mt-4`}
-                                as="link"
-                            >
-                                Order
-                            </PrimaryButton>
-                            {/* End Button */}
+                        <div className="w-full flex flex-col shrink-0 gap-4 py-4 shrink-0 px-12 pt-0 justify-center items-center text-center">
+                            {/* Image Content */}
+                            <div className="w-full h-32"></div>
+                            {/* End Image Content */}
+                            {/* Text Content */}
+                            <div className="w-full flex flex-col">
+                                <h4
+                                    className={`text-base lg:text-lg font-semibold`}
+                                >
+                                    {titleText}
+                                </h4>
+                                <h5
+                                    className={`text-xs lg:text-sm font-semibold text-stone-600`}
+                                >
+                                    {descText}
+                                </h5>
+                            </div>
+                            {/* End Text Content */}
                         </div>
                         {/* End Bottom Content */}
                     </motion.div>

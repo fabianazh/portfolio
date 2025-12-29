@@ -7,6 +7,10 @@ import SecondaryButton from '@/components/Button/SecondaryButton'
 import TextReveal from '@/components/Other/TextReveal'
 import { useLocale } from '@/contexts/LocaleContext'
 import localize from '@/libs/utils/localize'
+import { useEffect, useState } from 'react'
+import { disableScroll, enableScroll } from '@/libs/utils/controllScroll'
+import NotAvailableModal from '@/components/Modal/NotAvailableModal'
+import { AnimatePresence } from 'framer-motion'
 
 const text = {
     title: {
@@ -24,7 +28,19 @@ const text = {
 }
 
 export default function Description({ project }: { project: Project }) {
+    const [modal, setModal] = useState<{
+        isOpen: boolean
+        data: {
+            title: { en: string; id: string }
+            desc: { en: string; id: string }
+        } | null
+    }>({ isOpen: false, data: null })
+
     const { locale } = useLocale()
+
+    useEffect(() => {
+        modal.isOpen === true ? disableScroll() : enableScroll()
+    }, [modal])
 
     const projectData = [
         {
@@ -150,17 +166,48 @@ export default function Description({ project }: { project: Project }) {
                             }}
                             className="w-fit h-fit inline-block"
                         >
-                            <SecondaryButton
-                                href={`${project?.githubLink}`}
-                                className="text-xs lg:text-sm"
-                            >
-                                {localize(text.githubButton, locale)}
-                            </SecondaryButton>
+                            {project?.githubLink !== '#' ? (
+                                <SecondaryButton
+                                    href={`${project?.githubLink}`}
+                                    className="text-xs lg:text-sm"
+                                >
+                                    {localize(text.githubButton, locale)}
+                                </SecondaryButton>
+                            ) : (
+                                <button
+                                    onClick={() =>
+                                        setModal({
+                                            isOpen: true,
+                                            data: {
+                                                title: {
+                                                    en: 'Sorry, GitHub repository is not available',
+                                                    id: 'Maaf, repositori GitHub tidak tersedia',
+                                                },
+                                                desc: {
+                                                    en: 'The GitHub repository for this project is currently not available.',
+                                                    id: 'Repositori GitHub untuk projek ini saat ini tidak tersedia.',
+                                                },
+                                            },
+                                        })
+                                    }
+                                    className={`relative w-fit inline-block font-medium group text-xs lg:text-sm cursor-pointer`}
+                                >
+                                    {localize(text.githubButton, locale)}
+                                    <div className="absolute w-full h-[2px] scale-x-0 bottom-0 left-0 bg-stone-600 origin-bottom-right transition-transform duration-300 group-hover:scale-x-100 group-hover:origin-bottom-left" />
+                                </button>
+                            )}
                         </motion.div>
                     </div>
                     {/* End Buttons */}
                 </div>
                 {/* End Right Content */}
+                {/* Modal */}
+                <AnimatePresence>
+                    {modal.isOpen === true && (
+                        <NotAvailableModal setModal={setModal} modal={modal} />
+                    )}
+                </AnimatePresence>
+                {/* End Modal */}
             </section>
             {/* Description */}
         </>

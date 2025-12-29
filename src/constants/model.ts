@@ -176,7 +176,7 @@ export const projects = [
         tools: ['Next JS', 'Tailwind CSS', 'Firebase'],
         year: '24',
         projectLink: 'https://zufarms.vercel.app',
-        githubLink: 'https://fabianazh.github.io/portfolio-zufar',
+        githubLink: '#',
         collaborators: ['-'],
         role: 'Full Stack Developer',
         isHighlighted: true,
