@@ -1,9 +1,9 @@
 import { FiX } from 'react-icons/fi'
-import PrimaryButton from '@/components/Button/PrimaryButton'
 import { perspectiveItemVariant, overlayVariant } from '@/constants/variants'
 import { useLocale } from '@/contexts/LocaleContext'
 import localize from '@/libs/utils/localize'
 import { motion } from 'framer-motion'
+import NotAvailableIcon from '@/components/Icon/NotAvailableIcon'
 
 export default function NotAvailableModal({
     setModal,
@@ -78,7 +78,7 @@ export default function NotAvailableModal({
                         animate="enter"
                         exit="exit"
                         initial="initial"
-                        className="relative w-10/12 lg:w-5/12 lg:min-w-96 min-h-40 lg:min-h-56 bg-white z-10 shadow-sm rounded-2xl h-auto pb-7 pt-0 flex flex-col gap-4"
+                        className="relative w-10/12 lg:w-5/12 lg:min-w-96 min-h-40 lg:min-h-56 bg-white z-10 shadow-sm rounded-2xl h-auto pb-7 pt-0 flex flex-col gap-8"
                     >
                         {/* Top Content */}
                         <div
@@ -98,7 +98,9 @@ export default function NotAvailableModal({
                         {/* Bottom Content */}
                         <div className="w-full flex flex-col shrink-0 gap-4 py-4 shrink-0 px-12 pt-0 justify-center items-center text-center">
                             {/* Image Content */}
-                            <div className="w-full h-32"></div>
+                            <div className="w-full h-fit relative flex justify-center items-center">
+                                <NotAvailableIcon className="w-fit h-40" />
+                            </div>
                             {/* End Image Content */}
                             {/* Text Content */}
                             <div className="w-full flex flex-col">

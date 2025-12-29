@@ -11,6 +11,7 @@ import { useEffect, useState } from 'react'
 import { disableScroll, enableScroll } from '@/libs/utils/controllScroll'
 import NotAvailableModal from '@/components/Modal/NotAvailableModal'
 import { AnimatePresence } from 'framer-motion'
+import { IoChevronForward } from 'react-icons/io5'
 
 const text = {
     title: {
@@ -24,6 +25,26 @@ const text = {
     githubButton: {
         en: 'See on github',
         id: 'Lihat di github',
+    },
+    webNotAvailable: {
+        title: {
+            en: 'Sorry, Website is not available',
+            id: 'Maaf, Website tidak tersedia',
+        },
+        desc: {
+            en: 'This project is currently not available on the web',
+            id: 'Projek ini sedang tidak tersedia di web',
+        },
+    },
+    githubNotAvailable: {
+        title: {
+            en: 'Sorry, GitHub repository is not available',
+            id: 'Maaf, repositori GitHub tidak tersedia',
+        },
+        desc: {
+            en: 'The GitHub repository for this project is currently not available.',
+            id: 'Repositori GitHub untuk projek ini saat ini tidak tersedia.',
+        },
     },
 }
 
@@ -142,13 +163,30 @@ export default function Description({ project }: { project: Project }) {
                             }}
                             className="w-fit h-fit inline-block"
                         >
-                            <PrimaryButton
-                                href={`${project?.projectLink}`}
-                                className="text-xs lg:text-sm bg-black text-white"
-                                as="link"
-                            >
-                                {localize(text.webButton, locale)}
-                            </PrimaryButton>
+                            {project?.projectLink !== '#' ? (
+                                <PrimaryButton
+                                    href={`${project?.projectLink}`}
+                                    className="text-xs lg:text-sm bg-black text-white"
+                                    as="link"
+                                >
+                                    {localize(text.webButton, locale)}
+                                </PrimaryButton>
+                            ) : (
+                                <button
+                                    onClick={() =>
+                                        setModal({
+                                            isOpen: true,
+                                            data: { ...text.webNotAvailable },
+                                        })
+                                    }
+                                    className={`grid place-items-center transition-colors duration-500 gap-1 grid-flow-col px-5 py-1.5 rounded-full group hover:opacity-80 bg-black text-white text-xs lg:text-sm cursor-pointer`}
+                                >
+                                    {localize(text.githubButton, locale)}
+                                    <IoChevronForward
+                                        className={`group-hover:translate-x-0.5 transition-transform duration-300`}
+                                    />
+                                </button>
+                            )}
                         </motion.div>
                         <motion.div
                             initial={{
@@ -179,14 +217,7 @@ export default function Description({ project }: { project: Project }) {
                                         setModal({
                                             isOpen: true,
                                             data: {
-                                                title: {
-                                                    en: 'Sorry, GitHub repository is not available',
-                                                    id: 'Maaf, repositori GitHub tidak tersedia',
-                                                },
-                                                desc: {
-                                                    en: 'The GitHub repository for this project is currently not available.',
-                                                    id: 'Repositori GitHub untuk projek ini saat ini tidak tersedia.',
-                                                },
+                                                ...text.githubNotAvailable,
                                             },
                                         })
                                     }
