@@ -73,6 +73,9 @@ export default function Contact() {
             const response = await fetch(`/api/email`, {
                 method: 'POST',
                 body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
             })
             const result = await response.json()
             addMessage(result.status, result.message)
@@ -82,7 +85,7 @@ export default function Contact() {
                 'error',
                 error instanceof Error
                     ? error.message
-                    : 'An unknown error occurred'
+                    : 'An unknown error occurred',
             )
         }
     }
@@ -125,7 +128,7 @@ export default function Contact() {
                                 id={'name'}
                                 placeholder={localize(
                                     text.namePlaceholder,
-                                    locale
+                                    locale,
                                 )}
                                 className={`w-full font-medium valid:bg-transparent text-sm bg-transparent py-3 px-2 lg:px-3 placeholder:text-stone-700 text-stone-800 outline-none autocomplete:bg-transparent border-b-2 ${
                                     errors.name
@@ -170,7 +173,7 @@ export default function Contact() {
                                 id={'email'}
                                 placeholder={localize(
                                     text.emailPlaceholder,
-                                    locale
+                                    locale,
                                 )}
                                 className={`w-full font-medium valid:bg-transparent text-sm bg-transparent py-3 px-2 lg:px-3 placeholder:text-stone-700 text-stone-800 outline-none autocomplete:bg-transparent border-b-2 ${
                                     errors.email
@@ -215,7 +218,7 @@ export default function Contact() {
                                 rows={4}
                                 placeholder={localize(
                                     text.messagePlaceholder,
-                                    locale
+                                    locale,
                                 )}
                                 className={`w-full h-fit font-medium valid:bg-transparent text-sm bg-transparent py-3 px-2 lg:px-3 placeholder:text-stone-700 text-stone-800 outline-none autocomplete:bg-transparent border-b-2 ${
                                     errors.message
@@ -315,7 +318,7 @@ export default function Contact() {
                                     >
                                         {enquire.name}
                                     </motion.span>
-                                )
+                                ),
                             )}
                         </div>
                         <div className="w-fit lg:w-1/2 shrink-0 flex flex-col gap-4">
@@ -341,7 +344,7 @@ export default function Contact() {
                                 {contacts.map(
                                     (
                                         contact: { name: string; link: string },
-                                        index: number
+                                        index: number,
                                     ) => (
                                         <motion.div
                                             key={index}
@@ -367,7 +370,7 @@ export default function Contact() {
                                                 {contact.name}
                                             </SecondaryButton>
                                         </motion.div>
-                                    )
+                                    ),
                                 )}
                             </div>
                         </div>

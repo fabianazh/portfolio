@@ -1,9 +1,30 @@
 import { NextRequest, NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
-import Mail from 'nodemailer/lib/mailer'
+import { ratelimit } from '@/libs/utils/ratelimit'
 
 export async function POST(request: NextRequest) {
+    const ip = request.headers.get('x-forwarded-for') ?? 'anonymous'
+
+    const { success } = await ratelimit.limit(ip)
+
+    if (!success) {
+        return NextResponse.json(
+            {
+                status: 'error',
+                message: 'Too many requests. Please try again later.',
+            },
+            { status: 429 },
+        )
+    }
+
     const { email, name, message } = await request.json()
+
+    if (!email || !name || !message) {
+        return NextResponse.json(
+            { status: 'error', message: 'Invalid input' },
+            { status: 400 },
+        )
+    }
 
     const transport = nodemailer.createTransport({
         service: 'gmail',
@@ -13,37 +34,25 @@ export async function POST(request: NextRequest) {
         },
     })
 
-    const mailOptions: Mail.Options = {
-        from: process.env.MY_EMAIL,
-        to: process.env.MY_EMAIL,
-        // cc: email, (uncomment this line if you want to send a copy to the sender)
-        subject: `Message from ${name} (${email})`,
-        text: message,
-    }
-
-    const sendMailPromise = () =>
-        new Promise<string>((resolve, reject) => {
-            transport.sendMail(mailOptions, function (err) {
-                if (!err) {
-                    resolve('Email sent')
-                } else {
-                    reject(err.message)
-                }
-            })
+    try {
+        await transport.sendMail({
+            from: process.env.MY_EMAIL,
+            to: process.env.MY_EMAIL,
+            subject: `Message from ${name} (${email})`,
+            text: message,
         })
 
-    try {
-        await sendMailPromise()
         return NextResponse.json({
-            statusCode: 200,
             status: 'success',
             message: 'Email sent successfully!',
         })
     } catch (err) {
-        return NextResponse.json({
-            statusCode: 500,
-            status: 'error',
-            message: 'Email failed to send!',
-        })
+        return NextResponse.json(
+            {
+                status: 'error',
+                message: 'Email failed to send!',
+            },
+            { status: 500 },
+        )
     }
 }
